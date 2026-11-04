@@ -1,0 +1,17 @@
+# H8R integration and ownership
+
+The current owner source is version five, SHA256 a69c2a5d916a000990d7f8e4ab8b51519a3b877a8e3a5622b5ddb6c125c523f6. The directive mentioned version four; the actually supplied newer file was used. Original upload stays unchanged. Only documented CC0 core body/rig/skin and original project derivatives enter the public candidate. Overlapping third-party accessories and duplicate skeletons were excluded.
+
+Editable hero: ArtSource/AscensionH8R/MalikVeyrH8R.blend. Runtime import candidates: Assets/NeonSyndicate/Art/ProductionH8R/Models, Textures and Animations. Actual model height is normalized visually from approximately 2.43m to 1.86m; no world coordinate or motor scale is changed. Complete original skin influences remain; four-weight pruning stays rejected.
+
+MalikReviewH8R fixes the exact disabled candidate ID and export path, reusing the original proof/mapping/socket policy. ProductionMalikH6.H8R extends the existing window. ImportedVisual04OD receives only the additional exact review identity and surface identity. It still has one mapped bone writer, original bind alignment, original IK and shared LOD skeleton. No second Animator/controller, root motion, damage event, resource owner or save block is introduced. H6/H7/H8 reviews remain selectable.
+
+Existing H8 full-body sampling reuses the current pose stack. H8R data adds one real supplied CC0 defensive motion, retargeted by rest-axis deltas onto all 53 core source bones. H8_Guard_Brace is eligible only in the selected H8R data profile and original safe guard state. Attacks, dodge, travel, interruption and aim retain their existing priorities. The supporting authored pose retains original authoritative hands/feet. The newer H8 firearm recoil continuation is preserved.
+
+The fifteen source actions include the original H7 five, H8 nine and one new defensive brace. Idle, forward locomotion, ready/cut/dodge and partial cast/aim/recoil/guardian/guard presentation are integrated. Jump/landing, Surge and flight source clips remain unintegrated; original poses still handle those powers. No new focus, companion or weapon entitlement is granted.
+
+Two supplied NPC studies have distinct male/female source faces and 65 weighted donor bones. The terminal leaf bones were preserved because they actually carry skin weights. These are disabled studies for the existing visual-only adapter, not automatic replacements for canonical NPCs. General age variation, production NPC LOD/material finishing and native activation are unfinished.
+
+The environment window is an explicit temporary revision-10 visual overlay. It resolves original gallery/Azure/shrine/cavern anchors. Original collision and mission/service points remain active. It owns and removes only its new objects/materials on close, death, player/layout change or PlayMode exit. It does not place the new stairs or change saved floor coordinates. Physics/nav acceptance is still required.
+
+Recipe order for the final selected character: author_selected_malik_h8r.py, retarget_guard_h8r.py with the supplied non-root-motion donor, groom_selected_face_h8r.py, finish_garment_fit_h8r.py, finalize_selected_malik_h8r.py, export_selected_malik_h8r.py, export_motion_h8r.py, seal_selected_h8r.py. The fitting source view rejected the supplied solid groom; fit_supplied_groom_h8r.py is a rejected-study experiment, not the retained hero recipe. Native and owner approval are separate from any recipe success.

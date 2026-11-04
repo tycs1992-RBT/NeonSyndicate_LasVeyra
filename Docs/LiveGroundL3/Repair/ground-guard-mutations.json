@@ -1,0 +1,35 @@
+{
+  "passed": 4,
+  "total": 4,
+  "cases": [
+    {
+      "mutation": "frost-owner",
+      "rejected": true,
+      "failed_checks": [
+        "Original frost geometry and snow material owner byte-identical"
+      ]
+    },
+    {
+      "mutation": "unscoped-sand",
+      "rejected": true,
+      "failed_checks": [
+        "Exact floor-only routing edits preserve all original batching and collision source",
+        "Original rendered floor and frost bare-ground connected"
+      ]
+    },
+    {
+      "mutation": "changed-collider",
+      "rejected": true,
+      "failed_checks": [
+        "Exact floor-only routing edits preserve all original batching and collision source"
+      ]
+    },
+    {
+      "mutation": "missing-scope-unwind",
+      "rejected": true,
+      "failed_checks": [
+        "Original frost builder runs under exception-safe instance scope"
+      ]
+    }
+  ]
+}

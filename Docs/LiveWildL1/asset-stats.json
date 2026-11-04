@@ -1,0 +1,109 @@
+{
+  "tool": "4.5.3 LTS",
+  "original_source": true,
+  "metres": true,
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "export": {
+    "forward": "-Z",
+    "up": "Y",
+    "apply_unit": true,
+    "apply_transform": true,
+    "animation": false
+  },
+  "meshes": [
+    {
+      "name": "OasisPavilion_LOD0",
+      "vertices": 20063,
+      "triangles": 36974
+    },
+    {
+      "name": "OasisPavilion_LOD1",
+      "vertices": 11189,
+      "triangles": 19226
+    },
+    {
+      "name": "OasisPavilion_LOD2",
+      "vertices": 5117,
+      "triangles": 7394
+    },
+    {
+      "name": "OasisPavilion_Collision",
+      "vertices": 1368,
+      "triangles": 2216
+    }
+  ],
+  "bounds_blender": [
+    [
+      -6.40690279006958,
+      -6.703908443450928,
+      0.0
+    ],
+    [
+      -6.40690279006958,
+      -6.703908443450928,
+      12.6250581741333
+    ],
+    [
+      -6.40690279006958,
+      6.70817232131958,
+      12.6250581741333
+    ],
+    [
+      -6.40690279006958,
+      6.70817232131958,
+      0.0
+    ],
+    [
+      6.407472133636475,
+      -6.703908443450928,
+      0.0
+    ],
+    [
+      6.407472133636475,
+      -6.703908443450928,
+      12.6250581741333
+    ],
+    [
+      6.407472133636475,
+      6.70817232131958,
+      12.6250581741333
+    ],
+    [
+      6.407472133636475,
+      6.70817232131958,
+      0.0
+    ]
+  ],
+  "step_rise": 0.18,
+  "entrance_clear_width": 6.4,
+  "native_unity": "NOT RUN",
+  "render_label": "DCC SOURCE RENDER",
+  "source_render_setup": {
+    "camera": [
+      22.0,
+      -30.0,
+      15.0
+    ],
+    "target": [
+      0,
+      0,
+      5.1
+    ],
+    "lens_mm": 43,
+    "resolution": [
+      1600,
+      1100
+    ],
+    "engine": "Cycles CPU",
+    "samples": 32,
+    "day_sun_energy": 2.8,
+    "night_sun_energy": 0.06,
+    "day_world_strength": 0.32,
+    "night_world_strength": 0.055,
+    "stage_exported": false
+  }
+}

@@ -13,7 +13,10 @@ namespace NeonSyndicate.Editor
         [SerializeField] private GameObject _asset;
         [SerializeField] private string _identity="malik";
         [SerializeField] private float _scale=1;
+        [SerializeField] private ImportedArtRecord04OH _proof=new ImportedArtRecord04OH();
         [SerializeField] private bool _humanSockets=true;
+        [SerializeField] private bool _preserveInfluencesH5;
+        [SerializeField] private bool _alignBindH3;
         [SerializeField] private string[] _names;
         [SerializeField] private string[] _paths;
         [SerializeField] private string[] _socketPaths=new string[10];
@@ -22,15 +25,62 @@ namespace NeonSyndicate.Editor
         private static string[] Roles {get{return new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"};}}
         [MenuItem("Neon Syndicate/04OF/Imported visual wizard")]
         public static void Open(){GetWindow<ImportedVisualWizard04OF>("04OF Visual Import");}
-        private void OnEnable(){if(_names==null || _paths==null)HumanTemplate();}
-        private void HumanTemplate(){_humanSockets=true;_names=(string[])RigLayout.Names.Clone();_paths=new string[_names.Length];}
+        private void OnEnable(){if(_proof==null)_proof=new ImportedArtRecord04OH();if(_names==null || _paths==null)HumanTemplate();}
+        private void HumanTemplate(){_preserveInfluencesH5=false;_humanSockets=true;_names=(string[])RigLayout.Names.Clone();_paths=new string[_names.Length];}
+        [MenuItem("Neon Syndicate/04OH/Imported visual proof wizard")]
+        public static void OpenAscension(){Open();}
+        [MenuItem("Neon Syndicate/04OH/Open original calibration fixture")]
+        public static void OpenFixture()
+        {
+            ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>("04OH Import Proof");
+            window.HumanTemplate();window._asset=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx");
+            window._identity="diagnostic:calibration04oh";window._proof=new ImportedArtRecord04OH{AssetId="FIXTURE04OH",Creator="Project-authored calibration",LicenseId="CC0-1.0",RightsRecordId="fixture-license",CommercialUse=true,PublicSourceApproved=true,Diagnostic=true};
+            window.Suggest();window.SuggestLocators();window._report+="\nDiagnostic fixture only, not a production hero. Audit after native import; keep every row disabled.";
+        }
+        public static void OpenReceivedH3(GameObject candidate)
+        {
+            ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>("04OH Received Candidate");window.HumanTemplate();window._asset=candidate;window._identity="malik";window._scale=1;window._alignBindH3=true;
+            window._proof=new ImportedArtRecord04OH{AssetId="H3-RECEIVED-HUMANOID-01",Creator="Quaternius",SourceUrl="https://quaternius.com/packs/universalbasecharacters.html",LicenseId="CC0-1.0",RightsRecordId="h3-free-source-fdbf1804-c3468b18",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false,Diagnostic=false};
+            Transform[] nodes=candidate.GetComponentsInChildren<Transform>(true);
+            for(int i=0;i<window._names.Length;i++)foreach(Transform node in nodes)
+                if(node.name==ImportedBindH3.CandidateBone(window._names[i]) && node.IsChildOf(candidate.transform.Find("Body")))window._paths[i]=AnimationUtility.CalculateTransformPath(node,candidate.transform);
+            window.SuggestLocators();window._report="RECEIVED CANDIDATE, NOT APPROVED MALIK. Inspect actual native face, clothing, weight normalization, bind axes, hand grip, facial channels and performance. No authored clips were supplied. Final canonical long coat/armor remains artist work. Audit and create a DISABLED row only; appearance approval is unchecked.";
+        }
+        public static void OpenDerivedH5(GameObject candidate)
+        {
+            OpenReceivedH3(candidate);ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>();window._preserveInfluencesH5=true;
+            window._proof.AssetId="H5-NORMALIZED-REFERENCE-01";window._proof.RightsRecordId="h5-derived-cc0-lineage";
+            window._report="NORMALIZED TECHNICAL REFERENCE, NOT FINAL MALIK. All source influences retained; four-weight alternative failed deformation bound. Native full-influence import, appearance, deformation and quality configuration require review. Owner approval and activation remain false.";
+        }
+        public static void OpenProducedH6(GameObject candidate)
+        {
+            ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>("H6 candidate proof");window.HumanTemplate();window._asset=candidate;window._identity="malik";window._scale=1;window._alignBindH3=true;window._preserveInfluencesH5=true;
+            window._proof=new ImportedArtRecord04OH{AssetId=MalikReviewH6.AssetId,Creator="MakeHuman Community, Mindfront, original project garment and groom authoring",SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId="CC0-1.0",RightsRecordId="h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false,Diagnostic=false};
+            Transform[] nodes=candidate.GetComponentsInChildren<Transform>(true);
+            for(int i=0;i<window._names.Length;i++)foreach(Transform node in nodes)
+                if(node.name==ImportedBindH3.CandidateBone(window._names[i]))window._paths[i]=AnimationUtility.CalculateTransformPath(node,candidate.transform);
+            window.SuggestLocators();window._report="Actual H6 anatomical/costume candidate, appearance NOT APPROVED. Full weights retained; four-weight alternative failed the unchanged deformation bound. The separate H6 review panel offers transient Editor A/B inspection before approval. This original wizard still creates only a DISABLED production row. ExistingPose remains authoritative; authored action/facial clips are absent.";
+        }
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
             EditorGUILayout.HelpBox("ASSET REQUIRED until you supply a lawful rigged asset. This wizard makes a separate visual prefab and a disabled registry row. Original movement, colliders, health, weapons, saves and procedural animation remain authoritative. Arbitrary animation retargeting is not provided.",MessageType.Info);
             _asset=(GameObject)EditorGUILayout.ObjectField("Rigged model / visual prefab",_asset,typeof(GameObject),false);
             _identity=EditorGUILayout.TextField("Canonical identity",_identity);
+            EditorGUILayout.LabelField("04OH asset proof, rights start unknown",EditorStyles.boldLabel);
+            _proof.AssetId=EditorGUILayout.TextField("Production asset ID",_proof.AssetId);
+            _proof.Creator=EditorGUILayout.TextField("Actual creator",_proof.Creator);
+            _proof.SourceUrl=EditorGUILayout.TextField("Source URL / provenance",_proof.SourceUrl);
+            _proof.LicenseId=EditorGUILayout.TextField("License identifier",_proof.LicenseId);
+            _proof.RightsRecordId=EditorGUILayout.TextField("Private rights record ID",_proof.RightsRecordId);
+            _proof.CommercialUse=EditorGUILayout.Toggle("Commercial game use verified",_proof.CommercialUse);
+            _proof.PublicSourceApproved=EditorGUILayout.Toggle("Raw public redistribution allowed",_proof.PublicSourceApproved);
+            _proof.OwnerApproved=EditorGUILayout.Toggle("Owner approved candidate appearance",_proof.OwnerApproved);
+            _proof.Diagnostic=EditorGUILayout.Toggle("Diagnostic fixture, never activate",_proof.Diagnostic);
+            EditorGUILayout.HelpBox("Record an opaque rights ID, never private receipts, account data or credentials. This does not purchase or approve art automatically. New rows stay disabled. Existing-pose adapter is the only implemented bone authority; supplied clips are inventoried, not played.",MessageType.Info);
             _scale=EditorGUILayout.FloatField("Visual scale",_scale);
+            _alignBindH3=EditorGUILayout.Toggle("Opt-in humanoid bind-axis alignment",_alignBindH3);
+            _preserveInfluencesH5=EditorGUILayout.Toggle("Preserve complete H5 reference influences",_preserveInfluencesH5);
             if(GUILayout.Button("Use detailed human rig (Malik / named NPC)"))HumanTemplate();
             if(GUILayout.Button("Read original rig from selected live NPC, creature or owned drake"))ReadLiveRig();
             if(GUILayout.Button("Suggest Avatar and exact-name bone matches"))Suggest();
@@ -124,6 +174,8 @@ namespace NeonSyndicate.Editor
             string reason;if(!ImportedModelRegistry04OD.ValidMapping(_names.Length,Mapping(),_scale,out reason))error(reason);
             HashSet<Transform> mapped=new HashSet<Transform>();
             foreach(string path in _paths){Transform t=CinematicAcceptance04OF.RelativeBonePath(path)?_asset.transform.Find(path):null;if(t==null)error("Missing/unsafe target: "+path);else mapped.Add(t);}
+            foreach(Component component in _asset.GetComponentsInChildren<Component>(true))
+                if(component==null || !ImportedArt04OH.VisualComponent(component.GetType()))error("Unsupported visual component before instantiation: "+(component!=null?component.GetType().Name:"missing script"));
             if(_asset.GetComponentsInChildren<Collider>(true).Length>0 || _asset.GetComponentsInChildren<Rigidbody>(true).Length>0 || _asset.GetComponentsInChildren<MonoBehaviour>(true).Length>0)error("Visual must contain no collider, rigidbody or gameplay script. Author a visual-only copy of supplied art.");
             foreach(Transform node in _asset.GetComponentsInChildren<Transform>(true))
                 if(!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale))error("Mirrored, collapsed or nonuniform scale at "+node.name+". Apply transforms in your 3D editor and re-export; runtime pose rotation cannot safely repair skin shear.");
@@ -132,8 +184,13 @@ namespace NeonSyndicate.Editor
             {
                 if(skin.sharedMesh==null || skin.bones.Length==0 || skin.sharedMesh.bindposes.Length!=skin.bones.Length)error("Missing mesh, skin or bind pose count: "+skin.name);
                 if(skin.localBounds.size.y*_scale<.1f || skin.localBounds.size.y*_scale>20)error("Implausible height: "+skin.name);
-                foreach(Transform bone in skin.bones)
+                bool[] referenced=null;
+                try{if(_alignBindH3 && skin.sharedMesh!=null)referenced=_preserveInfluencesH5?SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length):ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length);}
+                catch(Exception ex){error("Cannot inspect candidate weights: "+ex.Message+". Enable read/write and repair the skin before preparing it.");continue;}
+                for(int boneIndex=0;boneIndex<skin.bones.Length;boneIndex++)
                 {
+                    if(referenced!=null && !referenced[boneIndex])continue;
+                    Transform bone=skin.bones[boneIndex];
                     if(bone==null){error("Null weighted bone");continue;}
                     if(mapped.Contains(bone))continue;
                     bool ancestor=false;Transform parent=bone.parent;
@@ -153,9 +210,15 @@ namespace NeonSyndicate.Editor
                 if(!human && i<6)continue;
                 if(!CinematicAcceptance04OF.RelativeBonePath(_socketPaths[i]) || _asset.transform.Find(_socketPaths[i])==null)error("Missing locator: "+Roles[i]);
             }
-            foreach(Animator animator in _asset.GetComponentsInChildren<Animator>(true))report.AppendLine("Animator: "+animator.name+" / valid avatar "+(animator.avatar!=null && animator.avatar.isValid)+". Adapter disables Animator; original procedural pose wins, no root motion.");
+            foreach(Animator animator in _asset.GetComponentsInChildren<Animator>(true))
+            {
+                if(animator.runtimeAnimatorController!=null)error("Remove the Animator controller before copying this visual. State-machine behaviours cannot run beside the original pose owner.");
+                report.AppendLine("Animator: "+animator.name+" / valid avatar "+(animator.avatar!=null && animator.avatar.isValid)+". Adapter disables Animator; original procedural pose wins, no root motion.");
+            }
             report.AppendLine("Animation clips available: "+AnimationUtility.GetAnimationClips(_asset).Length+" (not automatically retargeted or activated).");
             report.AppendLine("LOD groups: "+_asset.GetComponentsInChildren<LODGroup>(true).Length+". Inspect transitions and all shaders natively.");
+            report.AppendLine("Export SHA-256: "+ImportedArtProof04OH.FileHash(AssetDatabase.GetAssetPath(_asset)));
+            report.AppendLine("Rights/appearance approval: "+(_proof.CommercialUse && _proof.OwnerApproved?"declared by owner, retain proof":"PENDING")+". Diagnostic: "+_proof.Diagnostic);
             report.AppendLine("Errors: "+errors+". Native deformation, grip, facial channels, animation, LOD and performance NOT VERIFIED.");_report=report.ToString();return errors==0;
         }
         private void Create()
@@ -182,7 +245,10 @@ namespace NeonSyndicate.Editor
             {string bonePath=AnimationUtility.CalculateTransformPath(bone,_asset.transform);if(!mapped.Contains(bonePath) && !passive.Contains(bonePath))passive.Add(bonePath);}
             List<ImportedSocket04OD> sockets=new List<ImportedSocket04OD>();
             for(int i=0;i<Roles.Length;i++)if(!string.IsNullOrWhiteSpace(_socketPaths[i]))sockets.Add(new ImportedSocket04OD{Role=Roles[i],Path=_socketPaths[i]});
-            models.Add(new ImportedModel04OD{Identity=_identity,Enabled=false,Prefab=prefab,Scale=_scale,Bones=Mapping(),Sockets=sockets.ToArray(),PassiveBonePaths=passive.ToArray()});
+            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=_proof.AssetId,Creator=_proof.Creator,SourceUrl=_proof.SourceUrl,LicenseId=_proof.LicenseId,RightsRecordId=_proof.RightsRecordId,
+                CommercialUse=_proof.CommercialUse,PublicSourceApproved=_proof.PublicSourceApproved,OwnerApproved=_proof.OwnerApproved,Diagnostic=_proof.Diagnostic};
+            ImportedArtProof04OH.Stamp(proof,_asset,prefab);
+            models.Add(new ImportedModel04OD{Identity=_identity,Enabled=false,Prefab=prefab,Scale=_scale,AlignBindAxesH3=_alignBindH3,PreserveInfluencesH5=_preserveInfluencesH5,Bones=Mapping(),Sockets=sockets.ToArray(),PassiveBonePaths=passive.ToArray(),ArtProof=proof});
             Undo.RecordObject(registry,"Add disabled visual adapter");registry.Models=models.ToArray();EditorUtility.SetDirty(registry);AssetDatabase.SaveAssets();Selection.activeObject=registry;
             _report+="\nCreated DISABLED row. Inspect native poses, material/LOD, equipment, Pause, death/fallback and companion eligibility before manually enabling registry and row. Audit is not native acceptance.";
         }

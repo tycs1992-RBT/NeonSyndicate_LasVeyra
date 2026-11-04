@@ -1,0 +1,7 @@
+# Creature, companion and boss production gate
+
+No production nonhumanoid skinned creature was supplied or imported. Storm prowlers retain H1's original real quadruped skeleton, skin, gait, anticipation/recovery and existing damage/AI. This is an inherited procedural fallback, not a new professional model. Quartz Drakeling and the earned Ashshell Warden retain original BONDS identities and rigs. There is no new bond, summon or fusion entitlement.
+
+OWNER-ASSET ACTION: one lawful original/approved storm prowler or earned companion FBX/source, proper jaw/neck/spine/tail/four limb chains and crystal structures, clean bind/weights, metre dimensions, ground pivot, UV/PBR maps and idle/walk/run/turn/two attacks/interruption/recovery clips. Generic creature retargeting is not implemented by the humanoid 47-bone adapter. It needs an actual candidate and a separate safe integration using the original CreatureRig/CreaturePose and attack commitment. Do not enable an unrelated Animator or claim a human adapter validates a beast.
+
+The Castellan gains one original static segmented mantle asset, on the SAME existing articulated chest vane pivots in revision 8 only. The core/face stay open; mirrored normals/winding are tested. Existing phase/part Spread, damage, retreat, health, defeat and once-only Oathblade rewards are unchanged. This is not a replacement production boss body or rig. The Sovereign is inherited. Full boss mesh/texture/motion and native phase readability remain required.

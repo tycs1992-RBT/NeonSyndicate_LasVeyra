@@ -1,0 +1,382 @@
+{
+  "scope": "Actual Blender 4.5.3 LTS source loads and eighteen FBX reimports. No Unity execution.",
+  "source_loads": [
+    {
+      "path": "ArtSource/HeartWR02/LivingCanopiesWR02.blend",
+      "sha256": "d9ab60d8d056261391fd1314bd90f6f5d7a5c06675413695c043e3ecbc055f91",
+      "editable_meshes": 9,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/HeartWR02/ExistingEscarpmentsWR02.blend",
+      "sha256": "487a3d7d2a37c8d7ac0a37281e6fe8d87b5eea97920394a240c5ee846488e870",
+      "editable_meshes": 9,
+      "passed": true
+    }
+  ],
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx",
+      "passed": true,
+      "triangles": 12920,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999701976776,
+          2.1654138038229576e-08
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx",
+      "passed": true,
+      "triangles": 5712,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999701976776,
+          1.9191237043969522e-08
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx",
+      "passed": true,
+      "triangles": 1632,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.5,
+          2.343958094286336e-08
+        ],
+        [
+          0.5,
+          0.5000000596046448,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx",
+      "passed": true,
+      "triangles": 22800,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999701976776,
+          -2.842910440392643e-08
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx",
+      "passed": true,
+      "triangles": 10080,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999701976776,
+          -2.740757309993569e-08
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx",
+      "passed": true,
+      "triangles": 2880,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.5,
+          3.4730717857200943e-08
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx",
+      "passed": true,
+      "triangles": 14440,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999403953552,
+          -1.5092144423078935e-08
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx",
+      "passed": true,
+      "triangles": 6384,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999701976776,
+          -2.556125267005882e-08
+        ],
+        [
+          0.5,
+          0.5000000596046448,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx",
+      "passed": true,
+      "triangles": 1824,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -0.5,
+          -0.4999999403953552,
+          3.3749549821493474e-09
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx",
+      "passed": true,
+      "triangles": 864,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          -1.4126674159342656e-06
+        ],
+        [
+          6.0,
+          18.898462295532227,
+          24.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx",
+      "passed": true,
+      "triangles": 216,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          -1.4126674159342656e-06
+        ],
+        [
+          6.0,
+          18.898462295532227,
+          24.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx",
+      "passed": true,
+      "triangles": 36,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          -1.4126674159342656e-06
+        ],
+        [
+          6.0,
+          18.898462295532227,
+          24.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx",
+      "passed": true,
+      "triangles": 864,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          -1.4126675296211033e-06
+        ],
+        [
+          7.290000915527344,
+          18.711349487304688,
+          34.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx",
+      "passed": true,
+      "triangles": 216,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          -1.4126675296211033e-06
+        ],
+        [
+          7.290000915527344,
+          18.711349487304688,
+          34.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx",
+      "passed": true,
+      "triangles": 36,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          -1.4126675296211033e-06
+        ],
+        [
+          7.290000915527344,
+          18.711349487304688,
+          34.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx",
+      "passed": true,
+      "triangles": 864,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          -1.4126675296211033e-06
+        ],
+        [
+          6.839996337890625,
+          18.711349487304688,
+          34.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx",
+      "passed": true,
+      "triangles": 216,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          -1.4126675296211033e-06
+        ],
+        [
+          6.839996337890625,
+          18.711349487304688,
+          34.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx",
+      "passed": true,
+      "triangles": 36,
+      "finite_uv": true,
+      "unit_normals": true,
+      "bounds_match": true,
+      "bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          -1.4126675296211033e-06
+        ],
+        [
+          6.839996337890625,
+          18.711349487304688,
+          34.0
+        ]
+      ]
+    }
+  ],
+  "passed": 18,
+  "total": 18,
+  "native_unity": "NOT RUN"
+}

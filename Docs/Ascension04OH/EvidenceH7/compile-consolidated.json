@@ -1,0 +1,188 @@
+{
+  "scope": "Final managed configurations, actual captured source; native Unity NOT RUN",
+  "source_sha256": "5f84048d05e2096f05f71150e850b9ee8a7cb862c3273939f4c55e62b62aff11",
+  "matrices": [
+    {
+      "name": "final-external-api",
+      "passed": 12,
+      "total": 12,
+      "cases": [
+        {
+          "name": "player-classic-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-classic-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-both-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-both-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-input-only-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-input-only-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-classic-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-classic-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-both-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-both-urp",
+          "first_status": "FAIL",
+          "first_exit_code": -9,
+          "retry_exit_code": 0,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-input-only-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "final-bundled-api",
+      "passed": 12,
+      "total": 12,
+      "cases": [
+        {
+          "name": "player-classic-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-classic-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-both-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-both-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-input-only-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "player-input-only-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-classic-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-classic-urp",
+          "first_status": "FAIL",
+          "first_exit_code": -9,
+          "retry_exit_code": 0,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-both-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-both-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        },
+        {
+          "name": "editor-input-only-urp",
+          "first_status": "PASS",
+          "first_exit_code": 0,
+          "retry_exit_code": null,
+          "final_status": "PASS"
+        }
+      ]
+    }
+  ]
+}

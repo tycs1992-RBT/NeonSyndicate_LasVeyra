@@ -1,0 +1,11 @@
+{
+  "fetched_starting_commit": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+  "newer_owner_documentation_preserved": "e89c965baf67efc757a0fd5353784757a2427926",
+  "tested_source_commit": "7b7716f16417607391b3b3c097b8c6c95fb2cc92",
+  "normalized_source_art_commit": "185bb0b567fee621071def0bc583b5be02814c90",
+  "tested_csharp_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "csharp_files": 1295,
+  "source_identity_method": "Independent git-archive bytes of published source equal the exact frozen working source compiled and tested. Local editing HEAD remains older to preserve the dirty recovery checkout.",
+  "native_unity": "NOT RUN",
+  "final_published_head": "Enclosing documentation-only descendant, recorded in PR12 and final delivery response."
+}

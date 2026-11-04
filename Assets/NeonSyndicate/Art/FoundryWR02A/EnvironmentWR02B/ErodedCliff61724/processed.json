@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "assetId": "ErodedCliff61724",
+  "kind": "environment",
+  "method": "Local original Blender source, processed through the same GLB intake used for optional remote output",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.raw.glb",
+  "input_sha256": "11089fc1af05c48f5899b31aca75e719ba7700c83fb7f98758559eccf9471773",
+  "brief_sha256": "48985cb70e65dfe973855252deda28292e6e9467e8795a96d159f23822dee889",
+  "processor_sha256": "c8840c0da61ab0f7bce14b1d0571f5225704a90189350571a675d2dae9a13f10",
+  "license": "CC0-1.0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1.0,
+  "beforeBoundsBlender": [
+    [
+      -5.638153076171875,
+      -18.711345672607422,
+      0.0
+    ],
+    [
+      6.0,
+      18.898460388183594,
+      24.0
+    ]
+  ],
+  "repairs": [],
+  "outputs": [
+    {
+      "meshes": 2,
+      "vertices": 15156,
+      "triangles": 5184,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 14496,
+      "boundsBlender": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          0.0
+        ],
+        [
+          6.0,
+          18.898460388183594,
+          24.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 2,
+        "vertices": 15156,
+        "triangles": 5184,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 61724,
+        "maximumOriginalSurfaceDeviationMetres": 0.0181846592414,
+        "minimum": [
+          -5.63815308,
+          0,
+          -18.7113457
+        ],
+        "maximum": [
+          6,
+          24,
+          18.8984604
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx",
+      "sha256": "5a5d46c2aac38bc09d7fb71bd34b26083b9a1edb9f418a2d3aded0163f62519b",
+      "bytes": 469420,
+      "lod": 0
+    },
+    {
+      "meshes": 2,
+      "vertices": 13754,
+      "triangles": 3782,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 12001,
+      "boundsBlender": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          0.0
+        ],
+        [
+          6.0,
+          18.898460388183594,
+          24.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 2,
+        "vertices": 13754,
+        "triangles": 3782,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 61724,
+        "maximumOriginalSurfaceDeviationMetres": 0.0181846592414,
+        "minimum": [
+          -5.63815308,
+          0,
+          -18.7113457
+        ],
+        "maximum": [
+          6,
+          24,
+          18.8984604
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx",
+      "sha256": "b921852365195f45f49f4ab76dbf63cc218c51478970d0f42466ab74688ab71d",
+      "bytes": 380524,
+      "lod": 1
+    },
+    {
+      "meshes": 2,
+      "vertices": 12439,
+      "triangles": 2467,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 9461,
+      "boundsBlender": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          -0.00023996271193027496
+        ],
+        [
+          6.0,
+          18.898460388183594,
+          24.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 2,
+        "vertices": 12439,
+        "triangles": 2467,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 61724,
+        "maximumOriginalSurfaceDeviationMetres": 0.0181846592414,
+        "minimum": [
+          -5.63815308,
+          -0.000239962712,
+          -18.7113457
+        ],
+        "maximum": [
+          6,
+          24,
+          18.8984604
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx",
+      "sha256": "c7c89870d1b0a9973cfff31cc7c1bc09b3e5196808b7991403c92093fd7b555f",
+      "bytes": 297804,
+      "lod": 2
+    }
+  ],
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.processed.blend",
+  "editable_sha256": "db0539aff37ed0a631cb7876ac8f48d551f8994c6d3ad846eb030e9d73bddbee",
+  "textures": [
+    {
+      "material": "WeatheredStrata",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "sha256": "ef4a5416e3f9edc5a2d40ffe05dc98331d7327cbb4d1ee660102a645b87330d1"
+    },
+    {
+      "material": "WeatheredStrata",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "sha256": "bc5ca143b6a502329ac50836a3b57fd75068881d482701c43f7fec90964627ed"
+    },
+    {
+      "material": "WeatheredStrata",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "sha256": "f37d89cfbdece3ae65ad181df4dcd6d506c47b744966bff1b80d8645100b47e8"
+    }
+  ],
+  "colliderManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/colliders.json",
+  "actions": [],
+  "nativeUnity": "NOT RUN",
+  "candidateOnly": false
+}

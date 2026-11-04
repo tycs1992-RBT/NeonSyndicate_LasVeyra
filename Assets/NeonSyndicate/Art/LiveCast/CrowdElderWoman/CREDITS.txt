@@ -1,0 +1,8 @@
+The old woman (the owner's Blender character, an elder of the city) is built from these MakeHuman assets.
+Every community creator is credited here whether the piece is CC0 or CC-BY.
+
+- Body, old skin, eyes, shoes 04, teeth and tongue: MakeHuman system assets (makehuman_system), CC0
+- Sporty tracksuit hoodie dress: elvs (MakeHuman community), CC-BY or CC0
+- Wig bun with braids: grinsegold (MakeHuman community), CC-BY or CC0
+
+Converted to the game skeleton by tools/convert_mpfb_crowd_dropin.py with tools/mpfb_recipes/veyran_elder_woman.json.

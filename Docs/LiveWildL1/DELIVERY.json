@@ -1,0 +1,16 @@
+{
+  "source_tested_commit": "ad01288ff54974724332e39d03604c7097aead94",
+  "source_tested_tree": "bcb5cea98d0006b09da55e004524f5ffbf68f0e1",
+  "csharp_sha256": "5058059f928b84356abdf960e84e8d98989185ab3732b6a92de7df12f18a7405",
+  "lfs_only_descendant": "cb9de701f0304c6fdd1f859477d60b70b4c6ab54",
+  "source_unchanged_after_testing": true,
+  "lfs_fresh_server_sha256_matches": 17,
+  "new_binary_files": 17,
+  "pr": 12,
+  "draft": true,
+  "merged": false,
+  "final_head": "Documentation-only descendant of the LFS commit, exact final SHA pinned in draft PR12 and the owner-facing delivery response.",
+  "native_unity": "NOT RUN",
+  "v0_gate": "Owner reports ordinary Unity play passed, 2026-10-25.",
+  "l1_owner_appearance_approval": "PENDING"
+}

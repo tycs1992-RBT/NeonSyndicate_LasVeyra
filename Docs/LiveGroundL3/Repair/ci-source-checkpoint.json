@@ -1,0 +1,118 @@
+{
+  "checked_sha": "a9e6f9e4addcfbd33f25aa108688b94d7b8d7812",
+  "runs": [
+    {
+      "id": 40268634465,
+      "name": "04OH art-proof source validation",
+      "sha": "a9e6f9e4addcfbd33f25aa108688b94d7b8d7812",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/40268634465"
+    },
+    {
+      "id": 40268630594,
+      "name": "H7 art LFS publication",
+      "sha": "a9e6f9e4addcfbd33f25aa108688b94d7b8d7812",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/40268630594"
+    },
+    {
+      "id": 40268630587,
+      "name": "04OH art-proof source validation",
+      "sha": "a9e6f9e4addcfbd33f25aa108688b94d7b8d7812",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/40268630587"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 121396403536,
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-dotnet@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Preservation guard regression tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Solid wild landmark preservation and integrity",
+          "conclusion": "success"
+        },
+        {
+          "name": "Redspire kit and unchanged original owners",
+          "conclusion": "success"
+        },
+        {
+          "name": "Redspire ground maps and original owners",
+          "conclusion": "success"
+        },
+        {
+          "name": "Redspire strict independent FBX inspection",
+          "conclusion": "success"
+        },
+        {
+          "name": "Original owners, intake and metadata",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Independent FBX parser, not Unity import",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Actual H6 candidate parse, not native import",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Actual derived skin and source stress proof, not native import",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Actual H7 geometry and authored action parse, not native import",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@v4",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "h5_failure_names": [
+    "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+    "All prior tests and exclusions preserved"
+  ],
+  "native_unity": "NOT RUN"
+}

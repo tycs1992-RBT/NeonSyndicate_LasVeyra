@@ -1,0 +1,144 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/check_ascension_04oh.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_ascension_04oh.json"
+    ],
+    "exit_code": 0,
+    "log": "check_ascension_04oh.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_living_frontier_04og.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_living_frontier_04og.json"
+    ],
+    "exit_code": 0,
+    "log": "check_living_frontier_04og.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_art_revolution_h2.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_art_revolution_h2.json"
+    ],
+    "exit_code": 0,
+    "log": "check_art_revolution_h2.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_gothic_heart_h3.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_gothic_heart_h3.json"
+    ],
+    "exit_code": 0,
+    "log": "check_gothic_heart_h3.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_real_malik_h5.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_real_malik_h5.json"
+    ],
+    "exit_code": 1,
+    "log": "check_real_malik_h5.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_production_malik_h6.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_production_malik_h6.json"
+    ],
+    "exit_code": 1,
+    "log": "check_production_malik_h6.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_living_malik_h7.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_living_malik_h7.json"
+    ],
+    "exit_code": 1,
+    "log": "check_living_malik_h7.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_living_hero_h8.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_living_hero_h8.json"
+    ],
+    "exit_code": 1,
+    "log": "check_living_hero_h8.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_living_cast_h8s.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_living_cast_h8s.json"
+    ],
+    "exit_code": 1,
+    "log": "check_living_cast_h8s.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_motion_h9.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_motion_h9.json"
+    ],
+    "exit_code": 0,
+    "log": "check_motion_h9.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_visible_reality_v0.py",
+      "--report",
+      "Docs/LiveGroundL3/Repair/check_visible_reality_v0.json"
+    ],
+    "exit_code": 0,
+    "log": "check_visible_reality_v0.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_preservation_lineage_04oh.py"
+    ],
+    "exit_code": 0,
+    "log": "test_preservation_lineage_04oh.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_saved_schema_lineage_l2.py"
+    ],
+    "exit_code": 0,
+    "log": "test_saved_schema_lineage_l2.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_fbx_skin_h5.py"
+    ],
+    "exit_code": 0,
+    "log": "test_fbx_skin_h5.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_art_drop_04oh.py"
+    ],
+    "exit_code": 0,
+    "log": "test_art_drop_04oh.log"
+  }
+]

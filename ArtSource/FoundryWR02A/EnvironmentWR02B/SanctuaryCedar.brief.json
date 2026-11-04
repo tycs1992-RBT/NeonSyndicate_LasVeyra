@@ -1,0 +1,48 @@
+{
+  "assetId": "SanctuaryCedar",
+  "kind": "environment",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.raw.glb",
+  "output": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.processed.blend",
+  "sourceRights": "ORIGINAL_PROJECT_CC0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1,
+  "allowStaticUVGeneration": false,
+  "maxLODBoundsDeviationMetres": 0.035,
+  "materials": {
+    "AncientBark": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png"
+    },
+    "CanopyLeaf": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png"
+    }
+  },
+  "colliderPolicy": "ORIGINAL_AUTHORITY_ONLY",
+  "expectedUnityBounds": [
+    [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    [
+      0.5,
+      1.0,
+      0.5
+    ]
+  ],
+  "referenceImages": [],
+  "paidGenerationApproved": false,
+  "nativeUnity": "NOT RUN",
+  "intendedPlacement": "Existing original cliff/crown frames or source-cleared soft understory along the existing first-region route",
+  "prompt": "Original SanctuaryCedar, grounded dark-fantasy kingdom, structural organic branches, real carved or geological depth, shared weathered PBR, retain source scale and meaningful silhouette.",
+  "acceptanceCriteria": [
+    "Independent strict FBX geometry/normal/UV/material checks",
+    "Editable source and three meaningful LODs",
+    "Original collision, quest, route and ecology owners retained",
+    "Actual native import and matched ordinary-player views before artistic acceptance"
+  ]
+}

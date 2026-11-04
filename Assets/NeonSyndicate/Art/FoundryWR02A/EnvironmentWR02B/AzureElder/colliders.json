@@ -1,0 +1,7 @@
+{
+  "policy": "ORIGINAL_AUTHORITY_ONLY",
+  "nativeAccepted": false,
+  "unityCollidersCreated": 0,
+  "candidateBoxes": [],
+  "reason": "Existing authoritative physics retained. Candidates are declarations only until native correspondence acceptance."
+}

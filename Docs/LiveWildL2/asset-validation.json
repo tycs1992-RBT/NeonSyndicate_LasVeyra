@@ -1,0 +1,372 @@
+{
+  "scope": "Actual Blender re-import, UV, finite geometry, material and distance-mesh checks. Not native Unity import.",
+  "passed": 91,
+  "total": 91,
+  "checks": [
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered hash ArtSource/RedspireL2/RedspireWildernessL2.blend",
+      "passed": true
+    },
+    {
+      "name": "Complete 1K image Bark_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Complete 1K image Sandstone_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Complete 1K image Bark_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Complete 1K image Sandstone_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Complete 1K image Bark_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Complete 1K image Sandstone_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh Boulder_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface Boulder_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count Boulder_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh Boulder_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface Boulder_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count Boulder_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh Boulder_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface Boulder_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count Boulder_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh Boulder_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface Boulder_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count Boulder_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh Boulder_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface Boulder_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count Boulder_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh Boulder_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface Boulder_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count Boulder_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh RockSpire_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface RockSpire_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count RockSpire_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh RockSpire_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface RockSpire_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count RockSpire_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh RockSpire_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface RockSpire_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count RockSpire_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh RockSpire_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface RockSpire_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count RockSpire_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh RockSpire_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface RockSpire_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count RockSpire_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh RockSpire_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface RockSpire_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count RockSpire_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh DeadTree_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface DeadTree_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count DeadTree_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh DeadTree_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface DeadTree_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count DeadTree_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh DeadTree_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface DeadTree_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count DeadTree_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh DeadTree_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface DeadTree_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count DeadTree_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh DeadTree_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface DeadTree_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count DeadTree_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "One passive UV mesh DeadTree_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Finite complete surface DeadTree_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Measured triangle count DeadTree_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Strict descending LODs Boulder_A",
+      "passed": true
+    },
+    {
+      "name": "Strict descending LODs Boulder_B",
+      "passed": true
+    },
+    {
+      "name": "Strict descending LODs RockSpire_A",
+      "passed": true
+    },
+    {
+      "name": "Strict descending LODs RockSpire_B",
+      "passed": true
+    },
+    {
+      "name": "Strict descending LODs DeadTree_A",
+      "passed": true
+    },
+    {
+      "name": "Strict descending LODs DeadTree_B",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

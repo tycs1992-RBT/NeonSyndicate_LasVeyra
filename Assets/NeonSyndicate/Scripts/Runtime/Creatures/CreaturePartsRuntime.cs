@@ -365,7 +365,11 @@ namespace NeonSyndicate
             if (index >= 0 && index < bones.Length && bones[index] != null) into.Add(bones[index]);
         }
 
-        /// <summary>One glowing crystal shard on a bone (a rotated cube, sized to the body).</summary>
+        /// <summary>
+        /// One crystal shard piece on a bone, sized to the body: in the H8S look a small cluster of hexagonal shards in the
+        /// species' crystal family on the creature surface material (restrained inner light); with the classic look the
+        /// old glowing rotated cube.
+        /// </summary>
         private GameObject Shard(Transform bone, Material mat, float size, PartAnchor a, int n)
         {
             float s = _npc != null ? 0.11f * size : Mathf.Clamp(0.09f * size, 0.025f, 0.9f);
@@ -390,10 +394,38 @@ namespace NeonSyndicate
             }
             root.transform.localPosition = off;
             root.transform.localRotation = Quaternion.Euler(35f + n * 20f, 45f + n * 30f, 15f);
+            if (!ObsidianLookH8S.Classic && ClusterShard(root, s, a, n)) return root;
             GameObject go = Shapes.MeshObject("Crystal", Shapes.CubeMesh, new[] { mat }, root.transform, false);
             go.layer = root.layer;
             go.transform.localScale = new Vector3(s * 0.6f, s * 1.5f, s * 0.6f);
             return root;
+        }
+
+        /// <summary>The H8S shard piece: a three shard cluster the size of the old cube, grown along the root's up axis.</summary>
+        private bool ClusterShard(GameObject root, float s, PartAnchor a, int n)
+        {
+            try
+            {
+                Material mat = CreatureSurfaceH8S.Get(CreatureHideH8S.Basalt);
+                if (mat == null) return false;
+                MeshBuilder mb = new MeshBuilder(1);
+                uint seed = (uint)(Species != null ? Species.Id.Length * 7919 : 7919) + (uint)a * 131u + (uint)n * 17u + 1u;
+                BossRegaliaH8S.BuildCluster(mb, Vector3.zero, Vector3.up, Vector3.back, s * 1.4f, s * 0.3f, 3, seed, ObsidianLookH8S.Family(Species != null ? Species.Id : ""), false);
+                if (mb.VertexCount == 0) return false;
+                GameObject go = new GameObject("Crystal");
+                go.layer = root.layer;
+                go.transform.SetParent(root.transform, false);
+                go.AddComponent<MeshFilter>().sharedMesh = OwnedMeshes.Track(go, mb.ToMesh("Part Shard Cluster"));
+                MeshRenderer mr = go.AddComponent<MeshRenderer>();
+                mr.sharedMaterial = mat;
+                mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                Log.Exception("Part shard cluster", e);
+                return false;
+            }
         }
 
         // ================================================================== Third Eye and debug

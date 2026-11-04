@@ -1,0 +1,23 @@
+{
+  "assemblies.json": "8264e13c69e1e5d445fd7cfc01b40138b3ff05592a5d01e020a736d472d04c3f",
+  "compile-diagnostics.json.gz": "d21ebaf0a5d5f3ab0cfdd97b56035552d51a86477f6c965821ae1ec6d6959e1f",
+  "development-full-tests.json": "3539f14bad5f86ff3450aadec98a534c5d321d9c8fbb16ca5fa0a91f2840dc2b",
+  "development-nunit.xml.gz": "278fc53dc9a44a954f23c6d09e4ee20d8dd911a1bfc610a0bd175a4ec203ccf0",
+  "environment-and-tools.json": "2bf36dd25c58ffd20b268f5df612520e46426236d375f3c02eae0f241d5e8844",
+  "external-tests.json": "01e0927c3fc9e752e54908e58820369f46d43b3c27a00a275f7421cff2695cd7",
+  "fixture-development-failure.json": "6a4fcf4bbef088cf3e7419d1646bb753239b4931f5d7bf98c217b1d54a98879b",
+  "fixture-validation.json": "2dcd6e9a47b322ce78704b75e86be8974c1dabb49556a3dbbf65180f0a715e51",
+  "focused-nunit.log.gz": "84235bf4ee3d0b5c671b5ef7c6a676c6ba2db57efc163e76757c9a289baa2018",
+  "focused-nunit.xml.gz": "781e9ec39a56c07e17a0423c3b134c36a67f2861a9051446bd169fb0954b93b5",
+  "focused-tests.json": "62407a87431d36165d88839f560450275c1ec054f099ed6f0a46ba799098c39d",
+  "github-source-ci.json": "b21b079d55ca40a07471e3580fa7ee913dc1673cdd1d0bf6c799eb078aa5348c",
+  "inherited-04og-preservation.json": "88d345d22d62962e886b60bb2b23b8db57082caaf89eda8ffd543e562f5b1b2e",
+  "intake-tests.txt": "62cfbeb2911bb226088bfb0918eb4b05008ea70b20bce854ee2ca8a564bd37a5",
+  "managed-api.json": "296925bac26fdfd7498ffaa74d996592f72e2243ee01613900cac4e09711ba10",
+  "metadata.json": "ee7f8b7554aaa8ea006099daf453e6ce28c48d695d5cac09d09447b3ebbd5aec",
+  "nunit-results.xml.gz": "b63f2dcf5827eb885dd8a6a8b3b11a00d19e7a2687f8e33aa56c65c6f602fe8f",
+  "nunit.log.gz": "762d6784b0cc66a8c1c0060051f39d036c7938a8d408613a6a8ce1315aa16afa",
+  "preservation.json": "4daff1ed0da2771a40bff41d6ebebf302e94448dd62233e5dccf8e0a00be8b99",
+  "summary.json": "aab78756898a96aa5e07ddf38af28c97ff182a1d8d4e0c40127eaf465ea466f5",
+  "syntax.json": "6379c675ad26d3ac11ca48f779f17d4b76797df8420b3e637573588b59d0e94f"
+}

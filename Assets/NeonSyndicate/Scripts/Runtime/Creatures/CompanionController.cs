@@ -111,6 +111,7 @@ namespace NeonSyndicate
             {
                 _vel = Vector3.zero;
                 _stuck.Reset();
+                ResetSpacingH8S();
             }
         }
 
@@ -291,6 +292,7 @@ namespace NeonSyndicate
             _crumbId = 0;
             _idleLookUntil04G = 0f;
             _idleLookAt04G = _clock + 1.5f;
+            ResetSpacingH8S();
             if (Rig != null) Rig.Pose.Reset(pos, yaw);
         }
 

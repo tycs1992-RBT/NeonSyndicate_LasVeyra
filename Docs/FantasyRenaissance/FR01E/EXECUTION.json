@@ -1,0 +1,14 @@
+{
+  "tested_source": "9f519edbba508470234b8490603b89dd83c398b1",
+  "csharp_sha256": "c468e1a0ab6114bbe3844533de4d2d20b89a332bb6729d26fd4ca8c43d631429",
+  "matrix_snapshot_sha256": "c468e1a0ab6114bbe3844533de4d2d20b89a332bb6729d26fd4ca8c43d631429",
+  "player_assembly_sha256": "1087eb43decc956d81868215bee041a8ca10c9be1956f5ae5ccff18353436bf0",
+  "baseline": "Fresh full run against identical pre-edit FR01 source in a detached immutable baseline worktree, same managed dependencies.",
+  "dcc_command": "blender -b -t 4 --python tools/review_heart_fr01e.py -- --context <unpacked source-context.tar.gz> --baseline-root <FR01 954ed0f checkout> --output <evidence folder>",
+  "dcc_source": "355 actual retained CMH1 placements and 98 compiled structural/family meshes. Native terrain, actors and triggers not simulated.",
+  "development_errors": [
+    "A focused where filter initially included one NeedsEngine fixture on .NET, producing SecurityException. Retained in development-focused-filter.json; corrected pure filter excludes it. No native Unity test ran.",
+    "The new source exporter first treated quad-containing structure as triangle-only input. The export helper now preserves original indexed topology and applies the original venue transform. This was a tooling error, not a game failure."
+  ],
+  "native_unity": "NOT RUN"
+}

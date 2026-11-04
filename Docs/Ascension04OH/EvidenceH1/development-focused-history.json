@@ -1,0 +1,373 @@
+[
+  {
+    "run": "focused",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused/player-classic-builtin.dll",
+      "testcasecount": "1834",
+      "result": "Failed",
+      "start-time": "2026-10-20T19:47:25.2782072Z",
+      "end-time": "2026-10-20T19:47:47.0658143Z",
+      "duration": "21.787578",
+      "total": "14",
+      "passed": "7",
+      "failed": "7",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "107772",
+      "random-seed": "1781037331"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(1)",
+        "message": "  The new split coat must really emit weighted front surfaces\n  Expected: greater than 30\n  But was:  0\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(Int32 detail)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(2)",
+        "message": "  The new split coat must really emit weighted front surfaces\n  Expected: greater than 30\n  But was:  0\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(Int32 detail)\n   at InvokeStub_VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 13806",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 13806",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 13806",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 13842",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 13806",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused2",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused2/player-classic-builtin.dll",
+      "testcasecount": "1834",
+      "result": "Failed",
+      "start-time": "2026-10-20T19:49:59.7935616Z",
+      "end-time": "2026-10-20T19:50:22.0184740Z",
+      "duration": "22.224881",
+      "total": "14",
+      "passed": "7",
+      "failed": "7",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "108924",
+      "random-seed": "1593681038"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(1)",
+        "message": "  The new split coat must really emit weighted front surfaces\n  Expected: greater than 30\n  But was:  26\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(Int32 detail)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(2)",
+        "message": "  The new split coat must really emit weighted front surfaces\n  Expected: greater than 30\n  But was:  26\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(Int32 detail)\n   at InvokeStub_VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 1773",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 1773",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 1773",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 1809",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+        "message": "04og/oath-loop clearance 1 height 1.2 triangle 1773",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused3",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused3/player-classic-builtin.dll",
+      "testcasecount": "1834",
+      "result": "Failed",
+      "start-time": "2026-10-20T19:51:54.7134715Z",
+      "end-time": "2026-10-20T19:52:19.5789039Z",
+      "duration": "24.865404",
+      "total": "14",
+      "passed": "9",
+      "failed": "5",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "101928",
+      "random-seed": "1885621554"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27942",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27978",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27942",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 28014",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27942",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused4",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused4/player-classic-builtin.dll",
+      "testcasecount": "1835",
+      "result": "Failed",
+      "start-time": "2026-10-20T19:54:30.0097398Z",
+      "end-time": "2026-10-20T19:54:54.0324075Z",
+      "duration": "24.022639",
+      "total": "15",
+      "passed": "10",
+      "failed": "5",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "101955",
+      "random-seed": "1844594287"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27942",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27978",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27942",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 28014",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+        "message": "04og/storm-loop clearance 1 height 0.45 triangle 27942",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused5",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused5/player-classic-builtin.dll",
+      "testcasecount": "1835",
+      "result": "Failed",
+      "start-time": "2026-10-20T19:56:00.7049315Z",
+      "end-time": "2026-10-20T19:56:26.0377837Z",
+      "duration": "25.332812",
+      "total": "15",
+      "passed": "10",
+      "failed": "5",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "121251",
+      "random-seed": "1655055349"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+        "message": "  04og/oath-loop adjacent bay headroom\n  Expected: False\n  But was:  True\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "  04og/oath-loop adjacent bay headroom\n  Expected: False\n  But was:  True\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "  04og/oath-loop adjacent bay headroom\n  Expected: False\n  But was:  True\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+        "message": "04og/oath-loop clearance 3 height 1.2 triangle 13995",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+        "message": "  04og/oath-loop adjacent bay headroom\n  Expected: False\n  But was:  True\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused6",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused6/player-classic-builtin.dll",
+      "testcasecount": "1835",
+      "result": "Passed",
+      "start-time": "2026-10-20T19:58:07.7403718Z",
+      "end-time": "2026-10-20T19:58:33.6704076Z",
+      "duration": "25.930005",
+      "total": "15",
+      "passed": "15",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "469361",
+      "random-seed": "83802025"
+    },
+    "failures": [],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused-preserved",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused-preserved/player-classic-builtin.dll",
+      "testcasecount": "1838",
+      "result": "Failed",
+      "start-time": "2026-10-20T20:06:12.6507120Z",
+      "end-time": "2026-10-20T20:07:24.0995469Z",
+      "duration": "71.444824",
+      "total": "30",
+      "passed": "28",
+      "failed": "2",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "11153398",
+      "random-seed": "475660990"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "  neighbor-path/3549 inherited path intrusion\n  Expected: False\n  But was:  True\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "  neighbor-path/3614 inherited path intrusion\n  Expected: False\n  But was:  True\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  },
+  {
+    "run": "focused-precise",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/tmp/04oh-h1-focused-precise/player-classic-builtin.dll",
+      "testcasecount": "1838",
+      "result": "Failed",
+      "start-time": "2026-10-20T20:08:55.6940922Z",
+      "end-time": "2026-10-20T20:09:20.9287798Z",
+      "duration": "25.234660",
+      "total": "30",
+      "passed": "25",
+      "failed": "5",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "474750",
+      "random-seed": "51427194"
+    },
+    "failures": [
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+        "message": "  04og/oath-access floor 1/0 lane -1\n  Expected: True\n  But was:  False\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+        "message": "neighbor-path/3549 inherited path intrusion triangle 28881 from (-408.00, 1.35, 176.00) to (-392.11, 1.35, 180.95) vertices (-396.36, 1.62, 172.48) / (-399.27, 1.26, 179.42) / (-396.36, 1.62, 179.52)",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+        "message": "neighbor-path/3614 inherited path intrusion triangle 15609 from (-312.00, 1.35, 58.00) to (-304.70, 1.35, 71.30) vertices (-309.48, 0.15, 63.60) / (-309.48, 3.85, 62.40) / (-309.48, 0.15, 62.40)",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+        "message": "  04og/oath-access floor 1/0 lane -1\n  Expected: True\n  But was:  False\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+        "message": "  04og/storm-loop floor 1/12 lane 1\n  Expected: True\n  But was:  False\n",
+        "stack_trace": "   at NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Int32 seed)\n   at InvokeStub_VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(Object, Span`1)\n"
+      }
+    ],
+    "native_unity": "NOT RUN"
+  }
+]

@@ -146,7 +146,7 @@ namespace NeonSyndicate
                     return W2(ch[i], ch[Mathf.Min(bonesPer - 1, i + 1)], x - i);
                 };
                 EmitTube(tt, Rings(0f, 1f, Segs(16, 10, 6)), Segs(9, 7, 5), (t, th) => t > 0.9f ? glow : smoke, null, false, true);
-                if (_detail > 0) EmitRibbon(tt, 0.12f, 0.92f, t => 90f + 40f * Mathf.Sin(t * 6f + k), r0 * 0.45f, Segs(12, 8, 0), glow, 0.0015f);
+                if (_detail > 0) EmitRibbon(tt, 0.12f, 0.92f, t => 90f + 40f * Mathf.Sin(t * 6f + k), r0 * 0.45f, Segs(12, 8, 0), SeamUV, 0.0015f);
                 Hit(ch[0], pts[0], PathPoint(pts, 0.45f), r0 * 1.6f);
             }
             Hit(core, c, c, rc * 1.08f);

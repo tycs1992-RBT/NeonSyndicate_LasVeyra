@@ -1,0 +1,13 @@
+# WR02-A implementation checkpoint
+
+Starting/fetched HEAD: ed483fc720ee1493ab0e2f783c643ea0e9ae6397. This preserves WR02 and all history after the supplied WR01 checkpoint 99072f180f11da7edf168602b6fc603d5eb71daf. Source/art implementation and DCC validation are delivered as a recoverable checkpoint. Native acceptance remains open.
+
+The external foundry supports original local Blender production and optional, owner-approved Tripo v3 text/image requests. No Tripo tool, key, connection, paid task or credit spend existed here. The first two assets are local original authorship, not provider-generated outputs. Nine mocked adapter regressions are offline contract tests, not a live API certification.
+
+The Sanctuary Archive replaces the existing Archive crown asset inside its existing WR01 transaction and exact local metre envelope. It adds real curved ogival openings, asymmetrical supported belfries, steep slate massing, jointed cornice stones, buttress structure and carved rose tracery. No new ground door, service, collider, building identity or world manager is introduced. This is one upper visual group replacement, not removal of an entire physical service building. The H5 source base and physical witnesses remain.
+
+The Crystal Basilisk is a candidate on its original 32-bone contract, with normalized maximum-four skin influences, three LODs and Idle/Walk/Attack/Impact/Death clips replayed from existing CreaturePose source. The complete 30 Hz independently decoded FBX bone positions reproduce original source samples within 0.000001 metres. That does not prove live skin deformation, foot contact, combat feel, hitboxes, telegraphs or native animation acceptance. Existing live creature visuals, rig, AI, hit volumes, rewards and damage authority are untouched.
+
+Existing Heart setup and catalog own import preparation. Existing PLAY FANTASY WORLD and FR-V1 proof own preview, rollback and native evidence. ARCHIVE_CLOSEUP and ARCHIVE_PLAYER_SCALE roles require the actual new Archive variant to be active and a camera candidate; falling back to WR01 cannot satisfy those receipts. Creature preparation, activation permission and native acceptance remain separate. There is no creature swap path in this module.
+
+Fresh starting-source managed baseline: 2539 passed, 47 failed, 74 excluded, raw FAILED. Both twelve-mode matrices, boundaries and syntax pass. The final source must receive its own ledger after publication. Native Unity import, Test Runner, actual Game View screenshots, material appearance, movement, collision, keyboard/controller, save/load, profiling, Windows build and owner acceptance are NOT RUN. The broader WR02 kingdom gate remains open. PR #12 stays draft and unmerged.

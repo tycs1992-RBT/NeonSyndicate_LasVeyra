@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "metadata_count": 2597,
+  "invalid_metadata": 0,
+  "invalid_references": 0,
+  "unresolved_references": 0,
+  "regressions_passed": 13,
+  "native_import": "NOT RUN"
+}

@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "license": "CC0-1.0",
+  "method": "Original local AI-assisted Blender production. No text/image-to-3D provider task was submitted.",
+  "modules": [
+    {
+      "name": "WRArchiveCrown",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+      "bytes": 3746636,
+      "sha256": "45e4cee14a423f2fa1dd91c00b13d88612dcb0584de7c4b7cf6b67881d977ec3",
+      "triangles": 65100,
+      "candidateOnly": false
+    },
+    {
+      "name": "WRArchiveCrown",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+      "bytes": 2982092,
+      "sha256": "e6c888645380f88ac5b409e414e97e6647579dc4c6ba9a048307f5cf3f9c2b7c",
+      "triangles": 54730,
+      "candidateOnly": false
+    },
+    {
+      "name": "WRArchiveCrown",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+      "bytes": 2443356,
+      "sha256": "7753167ee70a3d5bee3237e5aa6e33dc55069b59183e17c3ee5f1d646c4e0849",
+      "triangles": 45011,
+      "candidateOnly": false
+    },
+    {
+      "name": "CrystalBasiliskCandidate",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx",
+      "bytes": 2284316,
+      "sha256": "0666bcdb0fcae071036beb0d39bc3e1390e5b8fb868ea3a0e9f490cb5a600339",
+      "triangles": 11968,
+      "candidateOnly": true
+    },
+    {
+      "name": "CrystalBasiliskCandidate",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx",
+      "bytes": 2087388,
+      "sha256": "3bade6d82cafffcce1ae2ab87eb143e66d4b9f753847ae51ac621774548b7248",
+      "triangles": 8136,
+      "candidateOnly": true
+    },
+    {
+      "name": "CrystalBasiliskCandidate",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx",
+      "bytes": 1886540,
+      "sha256": "393ec7057bf45f5d89078fd9fbbefe1e2a16860f4c921f1578679196812d64d7",
+      "triangles": 4544,
+      "candidateOnly": true
+    }
+  ],
+  "textures": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "bytes": 524825,
+      "sha256": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "bytes": 290141,
+      "sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "bytes": 268907,
+      "sha256": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "bytes": 460219,
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "bytes": 144397,
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "bytes": 183352,
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "bytes": 441260,
+      "sha256": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "bytes": 174544,
+      "sha256": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "bytes": 239504,
+      "sha256": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "bytes": 416292,
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "bytes": 215909,
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "bytes": 274597,
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "bytes": 339477,
+      "sha256": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "bytes": 163077,
+      "sha256": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "bytes": 172976,
+      "sha256": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png",
+      "bytes": 701440,
+      "sha256": "c64232633e244fee3c644f2eb0c1a8c1cc4ed81cb5734e9335f09c673b933225"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png",
+      "bytes": 391527,
+      "sha256": "c1c958a68805fe206d81a0aa131d18ba83ddaeee30f524c6db8d6489e81d13a8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png",
+      "bytes": 1415825,
+      "sha256": "0f14ae38fda99e5cfa9c73780048a437e4ae1d8dd0fd7b552b56534ff0511846"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png",
+      "bytes": 625856,
+      "sha256": "2fe3626ad7fca190c7ce2cde5c27dd95df9645ec2bf15d27b6db6b6a41f0c537"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png",
+      "bytes": 391694,
+      "sha256": "3b5cfaaff95aae42442b9a96b50d14bf84596e895b0760916c3d81860ca4e37d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png",
+      "bytes": 1709638,
+      "sha256": "bd84fdcd179782941567ee2720182ff423729ba706df7e9b1d29807bfbdcadb2"
+    }
+  ],
+  "sources": [
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb",
+      "bytes": 6725168,
+      "sha256": "c86cd699caf405c8e65db10a8dcced0dbac2582e7775bb5d157bc130d6ecc547"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.author.blend",
+      "bytes": 2725091,
+      "sha256": "7434dbc72109fc315f1b517ea08e16b31f23f1486ef224cfd29fab5d5bd54227"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+      "bytes": 9184242,
+      "sha256": "09b2f8f5284a44ca4da325d130c0c0a50660ed1bad323a0e9d93fc3983e03fc8"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.brief.json",
+      "bytes": 3432,
+      "sha256": "152c138ee5724bf2e20777091de1ac0f9cfb4751befa8ea9156d938d9a40b42e"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.raw.glb",
+      "bytes": 2592668,
+      "sha256": "2ab1d9ec564102e6124bda6b27ec697e4fc199fd3a3d670975c7e8e77dd4840c"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author.blend",
+      "bytes": 2583480,
+      "sha256": "e11768909b1a2a7faf3fb2440a74f0c806804229bb6fb61adc0afae4cca22bdb"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.processed.blend",
+      "bytes": 7729366,
+      "sha256": "152da1cc071f5d0f6551660b068fee4e9408dd2c631f115e73cd811d48231534"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.brief.json",
+      "bytes": 2824,
+      "sha256": "cc05f87ca92706782e05a1a2989bedd588abadab72dbb521144bfabad9845d43"
+    }
+  ],
+  "originalCreatureContract": {
+    "path": "ArtSource/FoundryWR02A/CrystalBasilisk.original-contract.json",
+    "bytes": 2085833,
+    "sha256": "d5fa7fa43482bc0ea51ec08ffc59417de21e5bd7253a7477b293f4ca7efb598d"
+  },
+  "creditsSpent": 0,
+  "providerConnection": "NOT ESTABLISHED",
+  "nativeUnity": "NOT RUN",
+  "creaturePolicy": "CANDIDATE ONLY, original existing species remains until actual native motion and gameplay correspondence acceptance.",
+  "architecturePolicy": "Original Archive crown stable key and exact bounds, existing Heart transaction. No new physics or service owner."
+}

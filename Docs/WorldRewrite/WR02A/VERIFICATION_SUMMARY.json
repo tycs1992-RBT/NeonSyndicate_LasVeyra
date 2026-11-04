@@ -1,0 +1,25 @@
+{
+  "startingHead": "ed483fc720ee1493ab0e2f783c643ea0e9ae6397",
+  "testedSource": "fafe816fc6dbcd6086941f31af7c2386c8253dda",
+  "sourceFingerprint": "64457a34677fbec67ffbc495a3d802a7bb9726d3e0952adac8b3b323291864f6",
+  "lfsPublication": "e7b046f61ad9d29464a308f0c8c49c1ed0a31d82",
+  "managed": {
+    "passed": 2547,
+    "failed": 47,
+    "excluded": 74,
+    "rawResult": "FAILED",
+    "introducedFailureNames": [],
+    "changedFailureReasons": []
+  },
+  "externalMatrix": "12/12 PASS",
+  "bundledMatrix": "12/12 PASS",
+  "assemblyBoundaries": "3/3 PASS",
+  "csharp9Syntax": "12/12 PASS",
+  "foundryGuard": "69/69 PASS",
+  "independentFbx": "6/6 PASS",
+  "motionRoundTrip": "15/15 PASS",
+  "nativeUnity": "NOT RUN",
+  "providerConnection": "NOT ESTABLISHED",
+  "creditsSpent": 0,
+  "PR12": "DRAFT UNMERGED"
+}

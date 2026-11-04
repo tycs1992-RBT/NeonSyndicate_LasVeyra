@@ -1,0 +1,103 @@
+{
+  "tag": "SOURCE 3D RENDER",
+  "source_blend": "MalikVeyrH7.blend",
+  "source_sha256": "9f0b62dd952057d1e088b35ce3e310f13761924886af2bad4df4180656b4a909",
+  "engine": "DCC Cycles CPU, 24 samples, AgX",
+  "resolution": [
+    768,
+    1024
+  ],
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "review_weapon_sha256": null,
+  "weapon_scope": "Actual existing Oathblade mesh, DCC grip study only; no inventory or native contact acceptance",
+  "authored_action": null,
+  "action_frame": 1,
+  "views": [
+    {
+      "view": "front",
+      "position": [
+        0,
+        -4,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "front.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    },
+    {
+      "view": "face",
+      "position": [
+        0,
+        -3,
+        1.74
+      ],
+      "target": [
+        0,
+        -0.01,
+        1.74
+      ],
+      "ortho_scale": 0.46,
+      "file": "face.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    },
+    {
+      "view": "side",
+      "position": [
+        4,
+        0,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "side.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    },
+    {
+      "view": "rear",
+      "position": [
+        0,
+        4,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "rear.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    },
+    {
+      "view": "three-quarter",
+      "position": [
+        2.8,
+        -4,
+        1.1
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "three-quarter.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    }
+  ]
+}

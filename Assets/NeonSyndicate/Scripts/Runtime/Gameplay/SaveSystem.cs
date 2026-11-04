@@ -98,6 +98,10 @@ namespace NeonSyndicate
         // 04F: missing block starts with full charge, no companion or quest unlock. Owned weapon ids stay intact.
         public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();
         public int WorldRevision04O;
+        // Generated city interiors (CityInteriors): visited doors and the all-visited reward. Old saves start with nothing visited.
+        public InteriorSave Interiors = new InteriorSave();
+        // The wilds (WildsSystem): named places found and the all-found bonus. Old saves start with nothing found.
+        public WildsSave Wilds = new WildsSave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>
@@ -122,7 +126,7 @@ namespace NeonSyndicate
         {
             if (slot < 0 || slot > Slots) throw new ArgumentOutOfRangeException(nameof(slot));
             if (!CityRebirthRules04O.Known(revision)) throw new ArgumentOutOfRangeException(nameof(revision));
-            return (revision == 6 ? "lasveyra_frontier04og_save_" : revision == 5 ? "lasveyra_unbound04oe_save_" : revision == 4 ? "lasveyra_realms04od_save_" : revision == 3 ? "lasveyra_wilds04oc_save_" : revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
+            return (revision == 10 ? "lasveyra_civic_h5_save_" : revision == 9 ? "lasveyra_heart_h3_save_" : revision == 8 ? "lasveyra_art_h2_save_" : revision == 7 ? "lasveyra_ascension04oh_save_" : revision == 6 ? "lasveyra_frontier04og_save_" : revision == 5 ? "lasveyra_unbound04oe_save_" : revision == 4 ? "lasveyra_realms04od_save_" : revision == 3 ? "lasveyra_wilds04oc_save_" : revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
         }
 
         public static string PathFor(int slot) { return PathFor(slot, ActiveBankRevision04OB); }

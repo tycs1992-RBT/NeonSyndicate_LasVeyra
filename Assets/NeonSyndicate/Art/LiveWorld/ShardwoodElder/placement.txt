@@ -1,0 +1,7 @@
+# Shardwood Elder: an original multi-root canopy tree (H8R module, made for this game, CC0).
+# One in Azure Shardwood beside the route to the shrine.
+model Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx
+near Realm:azure offset 5 0 3
+# Seen first: one elder in the home court and one on the walk to the Forge.
+near Venue:lofts.exit offset -23 0 66 turn 25
+near Venue:forge.exit offset -45 0 -16 turn 110

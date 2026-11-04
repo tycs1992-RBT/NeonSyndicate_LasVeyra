@@ -1,0 +1,141 @@
+{
+  "scope": "FR-V1 source wiring, privacy exclusions and exact owner preservation. Never native acceptance.",
+  "baseline": "57975b3d50a85bccd52cbcd07d00af1a7df25377",
+  "passed": 33,
+  "total": 33,
+  "checks": [
+    {
+      "name": "Frozen inherited tree, only authorized WR01 additions: Assets/NeonSyndicate/Art",
+      "passed": true
+    },
+    {
+      "name": "Frozen inherited tree, only authorized WR01 additions: ArtSource",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Packages",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: ProjectSettings",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Resources/Quests",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Resources/Events",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/Core",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/Gameplay",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/AI",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/Combat",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/Creatures",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/Vehicles",
+      "passed": true
+    },
+    {
+      "name": "Frozen original tree: Assets/NeonSyndicate/Scripts/Runtime/Characters",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: CityBuilder.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: CityBuilder.Gothic04OB.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: CityBuilder.HeartFR01.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: CityBuilder.GroundL3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: CityDressing.Frost.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: GothicHeartH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen world owner: GothicCivicH5.cs",
+      "passed": true
+    },
+    {
+      "name": "Every inherited test byte preserved",
+      "passed": true
+    },
+    {
+      "name": "Local proof data ignored: UserCaptures/FantasyWorldProof/example.png",
+      "passed": true
+    },
+    {
+      "name": "Local proof data ignored: UserBackups/FantasyWorldProof/example.json",
+      "passed": true
+    },
+    {
+      "name": "Local proof data ignored: Assets/NeonSyndicate/Resources/FantasyBuildV1.json",
+      "passed": true
+    },
+    {
+      "name": "Local proof data ignored: Assets/NeonSyndicate/Resources/FantasyBuildV1.json.meta",
+      "passed": true
+    },
+    {
+      "name": "No local proof or saves tracked",
+      "passed": true
+    },
+    {
+      "name": "Existing ordinary Free Roam entry, no player relocation",
+      "passed": true
+    },
+    {
+      "name": "Central title entry and existing gamepad button path",
+      "passed": true
+    },
+    {
+      "name": "Independent native truth DTO, not renderer-isVisible shortcut",
+      "passed": true
+    },
+    {
+      "name": "Genuine local checkout stamp",
+      "passed": true
+    },
+    {
+      "name": "Native rendered frame capture, separate from ordinary QA suspension",
+      "passed": true
+    },
+    {
+      "name": "Exact acceptance menu exposed",
+      "passed": true
+    },
+    {
+      "name": "No automatic screenshot publication",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

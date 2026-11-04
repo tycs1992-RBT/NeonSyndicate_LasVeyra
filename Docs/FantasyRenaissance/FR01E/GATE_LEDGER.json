@@ -1,0 +1,37 @@
+{
+  "tested_source": "9f519edbba508470234b8490603b89dd83c398b1",
+  "arch_clear_width_m": 14,
+  "proxy_gap_m": 13,
+  "overall_model_width_m": 23,
+  "runtime_scale": [
+    1,
+    1,
+    1
+  ],
+  "original_clearance_radius": 3.4,
+  "source_first": {
+    "ready": true,
+    "position": [
+      8.7,
+      0.15,
+      58.3
+    ],
+    "yaw": 23.19859
+  },
+  "static_geometry_first": {
+    "index": 9,
+    "source_admitted": true,
+    "position": [
+      12,
+      0.15,
+      75.1
+    ],
+    "yaw": 0,
+    "reason": "Both piers clear original parcels, routes, receipts and sites.",
+    "static_source_clear": true
+  },
+  "runtime": "NOT RUN: all solids/triggers and occupied bases can refuse. No gate admission is fabricated from source.",
+  "failure_behavior": "Retain original world, log candidate and collider or trigger name, route action reports FAILED if no gate.",
+  "existing_public_routes": "UNCHANGED",
+  "native_unity": "NOT RUN"
+}

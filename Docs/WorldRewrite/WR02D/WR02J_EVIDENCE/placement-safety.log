@@ -1,0 +1,2 @@
+Settled-bounds clearance source contract: PASS.
+Placement safety: 13 checks passed against the real safety source; Unity physics: NOT RUN.

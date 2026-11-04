@@ -1,0 +1,238 @@
+{
+  "baseline": "954ed0f67c127b49db5de974d742393ad6c5ca5b",
+  "tested_source": "9f519edbba508470234b8490603b89dd83c398b1",
+  "protected_unchanged": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.GroundL3.cs",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.Frost.cs",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/GothicHeartH3.cs",
+      "changed_paths": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/GothicCivicH5.cs",
+      "changed_paths": []
+    },
+    {
+      "path": "Packages",
+      "changed_paths": []
+    },
+    {
+      "path": "ProjectSettings",
+      "changed_paths": []
+    }
+  ],
+  "intentional_source_and_asset_changes": [
+    {
+      "path": ".github/workflows/04oh-art-proof.yml",
+      "original_git_content_sha256": "c0fc5bf388eb435fc4da1a37e9c39e2c94c40fc68537675dcab6b58580b42858",
+      "current_hydrated_sha256": "93ba4a8f097cabe4e34fa7336868cc17026212ca751180bba553d23a32950c87"
+    },
+    {
+      "path": ".github/workflows/04oh-h7-art-lfs.yml",
+      "original_git_content_sha256": "b6d6c316bf6da122674a63223e742c11cf6118b4789398d6c085405bbbc5e877",
+      "current_hydrated_sha256": "60be1bbae826f54840ff4d22033769243b3b5d4ec011759a013bc82e4b727aeb"
+    },
+    {
+      "path": "ArtSource/HeartFR01/GothicHeartFR01.blend",
+      "original_git_content_sha256": "abd5fb957894e9271ec93a562fa16cb47341fe87a121f6569f7c4bbfb423f4eb",
+      "current_hydrated_sha256": "b026414e9452d798e6a1dbb2ee5503d724d2cd8f921406df9e5d2167c0ec78d4"
+    },
+    {
+      "path": "ArtSource/HeartFR01/SOURCE_RECEIPT.json",
+      "original_git_content_sha256": "13dade8e80924302ddc4fef3168c6b53de14b73907d349a39b1d73b419369c31",
+      "current_hydrated_sha256": "eacbb8d7cdd2da32a04563a0f0b20374f7d95f293ae7e2ce0ee8be8503b67b41"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD0.fbx",
+      "original_git_content_sha256": "76578947932d319c199f9ba45db0746b33a0b764e03417450da256bad1156ac5",
+      "current_hydrated_sha256": "60affe0e681a9a883e7b03af4dffe1dc94bf47ed97b83a5adb55db3aa128978a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD1.fbx",
+      "original_git_content_sha256": "d41c8722864a70d3f4fb8bedcb0ee940a7559a119b607ac7ca8d4cb8da66b5a5",
+      "current_hydrated_sha256": "a24996f78426d2bc2e1a753f095a79f9b829c18d5fe6f603a8aa226fffa61680"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD2.fbx",
+      "original_git_content_sha256": "b598668776a3ceceb27b7e312a760e72a1738b8f926c45725b9d00c04d7f90a6",
+      "current_hydrated_sha256": "6e2396fca8f979fd3c6e5351e34f3ab4092182de22cf7ec8a9f793da4fae3091"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD0.fbx",
+      "original_git_content_sha256": "add338323e4dc2c0dd20b19e2d3890a7ad1e99197a3898af5884c82574470040",
+      "current_hydrated_sha256": "4c66dd0f17c662912ccf706d9a7e71a03862a29b9283934c7865eabf9906fd05"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD1.fbx",
+      "original_git_content_sha256": "5e5d2bd71d9a2c6c7fd4aa0c11378f96bd2bda15c15ca7fcc1b86908c544d0e7",
+      "current_hydrated_sha256": "fad21410e5d67bb1da48d89b3c395f9d358a02ee1a5ffcd2dbceaa01865485a8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD2.fbx",
+      "original_git_content_sha256": "176e1c53174985b6a2495e5c6e7b645905c85fc937c4d3a158e444d5f3bee3a2",
+      "current_hydrated_sha256": "98cc49b76622a2d2f65fc30b415e7e280ada5e7df957f4f65e464c29fa3f7619"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD0.fbx",
+      "original_git_content_sha256": "fca5c64548adcbecb98e80f950dbd58950afa262934b21ba6f1964b8bbf77728",
+      "current_hydrated_sha256": "ebe6aaca8195a51b875c72d7a4af4921ccd5e1daa8aee7aa475fe5d7569461cd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD1.fbx",
+      "original_git_content_sha256": "18936bf48cd3f3610ff1409e694dd36f73d487600ef3d13849d672131b21c26b",
+      "current_hydrated_sha256": "d8bec933209da381710d6f825cfbada1555a0295b7ee28487e95ebd90cf6d45c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD2.fbx",
+      "original_git_content_sha256": "af0eb0ebafa0325033898437bbf6822bcc95ed552466f7848514ab6455327fff",
+      "current_hydrated_sha256": "8ede819f09c6c6db27a4f2b583155355486a987cc5745b3b91be00fec79da930"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/collision-proxies.json",
+      "original_git_content_sha256": "90015ba887de1c53d9155fe43c670bb6c36771e66e2a53e59789e966f2dad7b9",
+      "current_hydrated_sha256": "2c4e87b9d82f371a1f7b2b57292994163324f858cdaf0211fa80141e61453acc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/manifest.json",
+      "original_git_content_sha256": "c3a561e19c7127ee81721f6c1adea246d6e155df249723f0e02a6f160b606a0c",
+      "current_hydrated_sha256": "67480e46581a09b996be0f7b75351edab2d9a3db2eb50b4ee399592a573e493b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs",
+      "original_git_content_sha256": "dbd1bc420e48aac9ae51ba488ffe3f4aa2b6fc5cbc15ed8ba2c226f60ec9e3bf",
+      "current_hydrated_sha256": "12219a575214eff3c0ee2fd61fc28f4b7919a6a8aa172aad167433084f90d317"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.HeartFR01.cs",
+      "original_git_content_sha256": "cc5ab9c08738b830e44bedbf68eac4c603fa2a229bdb73e7fdffa8bb1ce3d1f6",
+      "current_hydrated_sha256": "ed72a01a77649426bbaf2e0e0281c4ba3b07498ab4f6cae3b903775b4b035c0e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.cs",
+      "original_git_content_sha256": "006a4a93236c152d837190cebaa1030f70b56b915492f27d3c5f5620f34a624f",
+      "current_hydrated_sha256": "f50150fcb73fb0cbd35e32997ccc244f0e1752e648efebda12ef7bafcffe1bb2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartCatalogFR01.cs",
+      "original_git_content_sha256": "3ec875e8bcbd5e84b1465ec864f7b12575d45375ac933d6e2ccb61dd81a0a971",
+      "current_hydrated_sha256": "a7b6c2682438c30c768add8c7d57c59571a00388f496ac39b60cf0f9fce563dd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.Refinement.cs",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "e6c8cffcbc7e10943f7b6df7ddc83ea484c939d11726b0da697e399162a1a19d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.Refinement.cs.meta",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "731afdd061cf14c70798eaf8eee2104ab5c72808d9f0c9a415d0b0064999b900"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.cs",
+      "original_git_content_sha256": "3fae1963447f590b8442cd15c4dde090f4630bfd14c3850a9c3e09472ebd1c83",
+      "current_hydrated_sha256": "06327a3f5d3e5805f144ab8bd609b1e9a5ca35f22da73d3b6ff9ce3e54076d20"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs",
+      "original_git_content_sha256": "8b9fc922f4e5a308156f26300cb7bf667c3ceec0cbe5f37c83f4344f7a00ab80",
+      "current_hydrated_sha256": "8f84a02924b32eb89aaf86a020696ddc7d6b353e41f30edf8a2957fbfb620846"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR01ETests.cs",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "b2752f290eb88e2567681a84558ffeb9d3a05b1464f545c141c61eadcbdd18ba"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR01ETests.cs.meta",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "fd8573fa51843dd58b4548c864bc782e2eda974de23b6cf9f07bfac2443e0a9e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR01Tests.cs",
+      "original_git_content_sha256": "98312e24b53a733d55e237cc391e147a9f31819b23fe40604ffb18609d24e31f",
+      "current_hydrated_sha256": "98080fd781c5f10b374589e554c959ab3206dd7531fc2ed31f7cc33bddfe14fb"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/SPRINT_FR01E_LIVING_GOTHIC_HEART.md",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "1d596ec1575310b56f6ac2146ba138bc92214c24ce344132a33cc57a28af4227"
+    },
+    {
+      "path": "tools/author_heart_fr01.py",
+      "original_git_content_sha256": "5928a69bce2d9cbfb985b3570530d0d68b6552f1d180bc5214fcfb5b46db1535",
+      "current_hydrated_sha256": "f74c1bfa691c4f06a6883c010e47e988d310121443c79d6c105192135c8012ce"
+    },
+    {
+      "path": "tools/measure_heart_fr01e.py",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "a61407f49603f372637a187e149098f4a6acc375f7a3adfd61ca812b16847a2a"
+    },
+    {
+      "path": "tools/publish_h7_lfs.py",
+      "original_git_content_sha256": "b0008112a03bdd0a195d42309a3a33e85bd509a3f2b82934d7f66c7edcda38cc",
+      "current_hydrated_sha256": "296e5fb63f4f53684a96e19a9e88386cb34b3eb45fe387e0b09ccae0a60fd409"
+    },
+    {
+      "path": "tools/validate_heart_structure_fr01e.c",
+      "original_git_content_sha256": null,
+      "current_hydrated_sha256": "5378a338106ac29dd9a70a169368c6f972e503b2969a0bb389d612108897ea0c"
+    }
+  ],
+  "art_refinements": "9 existing FBX exports plus the editable blend and receipt. All 15 textures, 24 other FBXs and every preexisting GUID unchanged.",
+  "unrelated_local_files": "Both original untracked files retained with unchanged SHA256; no stash entries existed or were altered.",
+  "native_unity": "NOT RUN"
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "Compile classic-input source against installed Unity 6 managed references, without launching Unity.\n\nThe editor row combines runtime, editor and tests into one assembly, so assembly boundaries and\nnative import remain unverified. The player row uses Linux player API references with Windows symbols.\nNeither row executes Unity or tests, validates packages, or represents a Windows build.\n",
+  "rows": [
+    {
+      "row": "player",
+      "exit_code": 0,
+      "sources": 1078,
+      "source_sha256": "6f54681666afa90c368c5f870c73ffa59c69bfc2aa34e7a9dbb63d94242e85b6",
+      "errors": 0,
+      "warnings": 20,
+      "error_messages": []
+    },
+    {
+      "row": "editor",
+      "exit_code": 0,
+      "sources": 1344,
+      "source_sha256": "86d20a17a2bd742e3681810bd942990b8cdba16f11100050ddb13e0b00725133",
+      "errors": 0,
+      "warnings": 67,
+      "error_messages": []
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "scope": "L2 original-owner, asset and bounded-lane preservation. Source evidence, not native Unity acceptance.",
+  "baseline": "a8f21d507876b36630f4d0421c2e55401e36ab15",
+  "passed": 63,
+  "total": 65,
+  "checks": [
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Gameplay/MissionManager.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CraftingSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastRegistry.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastVisual.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCrowd.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsLayout.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsSites.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsShapes.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsTypes.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsSystem.LandmarksL1.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.WildL1.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Frozen L1 owner Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Prior content and tests retained Assets/NeonSyndicate/Resources/Quests/",
+      "passed": true
+    },
+    {
+      "name": "Prior content and tests retained Assets/NeonSyndicate/Resources/Events/",
+      "passed": true
+    },
+    {
+      "name": "Prior content and tests retained Assets/NeonSyndicate/Art/LiveCast/",
+      "passed": false
+    },
+    {
+      "name": "Prior content and tests retained Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/",
+      "passed": false
+    },
+    {
+      "name": "Prior content and tests retained Assets/NeonSyndicate/Tests/EditMode/",
+      "passed": true
+    },
+    {
+      "name": "Original rights, six actual variants and eighteen LOD meshes",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Delivered bytes ArtSource/RedspireL2/RedspireWildernessL2.blend",
+      "passed": true
+    },
+    {
+      "name": "No per-piece object or Update component",
+      "passed": true
+    },
+    {
+      "name": "Original collision kept active during appearance switch",
+      "passed": true
+    },
+    {
+      "name": "Existing 160 m owner, scoped exclusions and missing-art fallback retained",
+      "passed": true
+    },
+    {
+      "name": "Explicit default-off preference, no new progression block",
+      "passed": true
+    },
+    {
+      "name": "Native save/reset/restore comparison cleanup uses existing WorldSystems",
+      "passed": true
+    },
+    {
+      "name": "Original EXPLORE/GPS with no L2 teleport",
+      "passed": true
+    },
+    {
+      "name": "Mutable registry resets through original WildsMaterials hub",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

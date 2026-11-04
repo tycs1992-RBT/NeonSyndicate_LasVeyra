@@ -1,0 +1,37 @@
+{
+  "identity": "crowd:syndicate-heavy",
+  "female": false,
+  "roles": [
+    "Gang",
+    "Enemy"
+  ],
+  "hair": "procedural",
+  "creator": "Tyler (his MPFB character, converted for the H9 skeleton; clothing made by the converter)",
+  "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+  "materials": [
+    {
+      "material": "Skin",
+      "smoothness": 0.35
+    },
+    {
+      "material": "Jacket Coat",
+      "smoothness": 0.2
+    },
+    {
+      "material": "Trouser Leather",
+      "smoothness": 0.25
+    },
+    {
+      "material": "Boots",
+      "smoothness": 0.35
+    },
+    {
+      "material": "Vest Armor",
+      "smoothness": 0.4
+    },
+    {
+      "material": "Eyes",
+      "smoothness": 0.85
+    }
+  ]
+}

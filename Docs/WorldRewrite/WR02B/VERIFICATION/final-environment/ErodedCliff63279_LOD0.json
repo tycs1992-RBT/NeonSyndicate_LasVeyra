@@ -1,0 +1,1 @@
+{"scope":"Independent strict static FBX parse. No native Unity claim.","meshes":2,"vertices":15235,"triangles":5184,"badNormals":0,"badTangents":0,"badUV":0,"sourceCliffSeed":63279,"maximumOriginalSurfaceDeviationMetres":0.0181837525376,"minimum":[-5.63815308,0,-18.7113495],"maximum":[6.83999634,34,18.7113495],"passed":true,"nativeUnity":"NOT RUN"}

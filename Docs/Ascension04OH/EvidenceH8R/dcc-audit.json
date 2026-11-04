@@ -1,0 +1,524 @@
+{
+  "scope": "Execute source mesh, skin, material and authored-pose checks in Blender. Never a native Unity result.",
+  "source_sha256": "28652f95987456e62dd74823b031954fb1b56c7054d132ee9137de8a67ca6e00",
+  "checks": [
+    {
+      "name": "One actual selected-human 53-bone skeleton",
+      "passed": true
+    },
+    {
+      "name": "Source body identity and actual original UV",
+      "passed": true
+    },
+    {
+      "name": "Complete normalized finite skin, no four-weight pruning",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: Brows_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: Cloth_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: Cloth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: H8R natural brown iris",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: Leather_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: Leather_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: skin_male_african_middleage.png",
+      "passed": true
+    },
+    {
+      "name": "Portable actual image: skin_male_african_middleage_NRM.png",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H7_IdleBreath",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H7_IdleBreath",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H7_Walk",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H7_Walk",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H7_Run",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H7_Run",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H7_SwordReady",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H7_SwordReady",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H7_OathCut",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H7_OathCut",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_Dodge",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_Dodge",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_CrystalCast",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_CrystalCast",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_FireAim",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_FireAim",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_FireRecoil",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_FireRecoil",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_JumpLanding",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_JumpLanding",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_SurgeRise",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_SurgeRise",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_FlightTakeoff",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_FlightTakeoff",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_FlightLanding",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_FlightLanding",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_AegisLink",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_AegisLink",
+      "passed": true
+    },
+    {
+      "name": "Actual source action: H8_Guard_Brace",
+      "passed": true
+    },
+    {
+      "name": "Finite bounded actual skinned deformation: H8_Guard_Brace",
+      "passed": true
+    }
+  ],
+  "passed": 41,
+  "total": 41,
+  "meshes": [
+    {
+      "name": "Bronze coat fastener",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bronze coat fastener.001",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bronze coat fastener.002",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bronze coat fastener.003",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bronze coat fastener.004",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bronze coat fastener.005",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Brows",
+      "vertices": 124,
+      "uv_layers": 1
+    },
+    {
+      "name": "Cornea 0",
+      "vertices": 481,
+      "uv_layers": 1
+    },
+    {
+      "name": "Cornea 1",
+      "vertices": 481,
+      "uv_layers": 1
+    },
+    {
+      "name": "Forearm fitting l",
+      "vertices": 1232,
+      "uv_layers": 1
+    },
+    {
+      "name": "Forearm fitting r",
+      "vertices": 1232,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 anchored belt",
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 contoured chest plate -1",
+      "vertices": 638,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 contoured chest plate 1",
+      "vertices": 638,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 faced stand collar",
+      "vertices": 1806,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 folded lapel -1",
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 folded lapel 1",
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 front armor edge -1",
+      "vertices": 54,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 front armor edge 1",
+      "vertices": 54,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 shoulder armor l0",
+      "vertices": 246,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 shoulder armor l1",
+      "vertices": 246,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 shoulder armor l2",
+      "vertices": 246,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 shoulder armor r0",
+      "vertices": 246,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 shoulder armor r1",
+      "vertices": 246,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 shoulder armor r2",
+      "vertices": 246,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 side tailoring seam -1",
+      "vertices": 54,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 side tailoring seam 1",
+      "vertices": 54,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 split walking panel l",
+      "vertices": 9090,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 split walking panel r",
+      "vertices": 9086,
+      "uv_layers": 1
+    },
+    {
+      "name": "H7 tailored connected coat",
+      "vertices": 51419,
+      "uv_layers": 1
+    },
+    {
+      "name": "H8R Brow Sigil",
+      "vertices": 5,
+      "uv_layers": 1
+    },
+    {
+      "name": "H8R fitted leather trousers",
+      "vertices": 1105,
+      "uv_layers": 1
+    },
+    {
+      "name": "H8R fitted riding boots",
+      "vertices": 720,
+      "uv_layers": 1
+    },
+    {
+      "name": "H8R Surface beard",
+      "vertices": 39000,
+      "uv_layers": 1
+    },
+    {
+      "name": "H8R Surface hair",
+      "vertices": 52932,
+      "uv_layers": 1
+    },
+    {
+      "name": "Iris 0",
+      "vertices": 481,
+      "uv_layers": 1
+    },
+    {
+      "name": "Iris 1",
+      "vertices": 481,
+      "uv_layers": 1
+    },
+    {
+      "name": "MalikBodyH8R",
+      "vertices": 13380,
+      "uv_layers": 1
+    },
+    {
+      "name": "Pupil 0",
+      "vertices": 481,
+      "uv_layers": 1
+    },
+    {
+      "name": "Pupil 1",
+      "vertices": 481,
+      "uv_layers": 1
+    },
+    {
+      "name": "Restrained amethyst seal",
+      "vertices": 222,
+      "uv_layers": 1
+    },
+    {
+      "name": "Sclera 0",
+      "vertices": 922,
+      "uv_layers": 1
+    },
+    {
+      "name": "Sclera 1",
+      "vertices": 922,
+      "uv_layers": 1
+    }
+  ],
+  "maximum_influences": 6,
+  "unweighted": 0,
+  "normalization_or_nonfinite_errors": 0,
+  "images": [
+    {
+      "name": "Brows_Albedo.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Brows_Albedo.png",
+      "bytes": 89619,
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+    },
+    {
+      "name": "Cloth_Albedo.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Cloth_Albedo.png",
+      "bytes": 841803,
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128"
+    },
+    {
+      "name": "Cloth_Normal.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Cloth_Normal.png",
+      "bytes": 548880,
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250"
+    },
+    {
+      "name": "H8R natural brown iris",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Eyes_Albedo.png",
+      "bytes": 249197,
+      "sha256": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698"
+    },
+    {
+      "name": "Leather_Albedo.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Leather_Albedo.png",
+      "bytes": 1210160,
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa"
+    },
+    {
+      "name": "Leather_Normal.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Leather_Normal.png",
+      "bytes": 575648,
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6"
+    },
+    {
+      "name": "skin_male_african_middleage.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Skin_Albedo.png",
+      "bytes": 4706203,
+      "sha256": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c"
+    },
+    {
+      "name": "skin_male_african_middleage_NRM.png",
+      "relative": "//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/Skin_Normal.png",
+      "bytes": 4810829,
+      "sha256": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5"
+    }
+  ],
+  "poses": [
+    {
+      "name": "H7_IdleBreath",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760255932336
+    },
+    {
+      "name": "H7_Walk",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8067811318480007
+    },
+    {
+      "name": "H7_Run",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.7990485116785824
+    },
+    {
+      "name": "H7_SwordReady",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8311686888333194
+    },
+    {
+      "name": "H7_OathCut",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.831660744233961
+    },
+    {
+      "name": "H8_Dodge",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760289659748
+    },
+    {
+      "name": "H8_CrystalCast",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760289659748
+    },
+    {
+      "name": "H8_FireAim",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8321836967722522
+    },
+    {
+      "name": "H8_FireRecoil",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8321836967722522
+    },
+    {
+      "name": "H8_JumpLanding",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760289659748
+    },
+    {
+      "name": "H8_SurgeRise",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760289659748
+    },
+    {
+      "name": "H8_FlightTakeoff",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760289659748
+    },
+    {
+      "name": "H8_FlightLanding",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.8293760289659748
+    },
+    {
+      "name": "H8_AegisLink",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.831168688928681
+    },
+    {
+      "name": "H8_Guard_Brace",
+      "frames_sampled": 3,
+      "maximum_vertex_radius": 1.804074032715837
+    }
+  ],
+  "remaining_art_issues": [
+    "Finite poses do not establish collision-free cloth, planted feet, weapon contact or final appearance. Those require native review."
+  ],
+  "native_unity": "NOT RUN",
+  "appearance_approval": "NOT GIVEN"
+}

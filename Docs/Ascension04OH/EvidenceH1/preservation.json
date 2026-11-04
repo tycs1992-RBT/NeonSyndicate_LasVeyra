@@ -1,0 +1,69 @@
+{
+  "scope": "04OH owner, source-baseline and diagnostic-asset preservation. NOT native acceptance.",
+  "base": "721c1238a070e8dea08118314511c17023528feb",
+  "checks": [
+    {
+      "name": "Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners",
+      "passed": true
+    },
+    {
+      "name": "Renderer and package assignments remain identical to baseline",
+      "passed": true
+    },
+    {
+      "name": "Prefab components are inspected before any Awake/OnEnable can run",
+      "passed": true
+    },
+    {
+      "name": "Existing procedural pose is the only implemented imported animation authority",
+      "passed": true
+    },
+    {
+      "name": "Provenance and fingerprint policy are integrated with original registry and wizard",
+      "passed": true
+    },
+    {
+      "name": "Diagnostic is not a runtime actor grant",
+      "passed": true
+    },
+    {
+      "name": "No runtime registry or unrelated scene was introduced",
+      "passed": true
+    },
+    {
+      "name": "Actual skinned fixture bytes match their manifest",
+      "passed": true
+    },
+    {
+      "name": "New runtime policy resets through existing hub",
+      "passed": true
+    },
+    {
+      "name": "Original evidence tool retains callbacks and adds hardware/proof context",
+      "passed": true
+    },
+    {
+      "name": "Only obsolete unknown-revision sentinel changes in GothicRealm04OBTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Only obsolete unknown-revision sentinel changes in FracturedWilds04OCTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Only obsolete unknown-revision sentinel changes in CrystalRealms04ODTests.cs",
+      "passed": true
+    },
+    {
+      "name": "H1 world has an explicit isolated bank and no default boot change",
+      "passed": true
+    },
+    {
+      "name": "H1 effects are bounded and own no damage, input, camera, time or displacement",
+      "passed": true
+    }
+  ],
+  "passed": 15,
+  "total": 15,
+  "native_unity": "NOT RUN"
+}

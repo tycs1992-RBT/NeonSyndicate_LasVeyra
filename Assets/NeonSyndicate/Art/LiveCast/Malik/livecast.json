@@ -1,0 +1,34 @@
+{
+  "identity": "malik",
+  "creator": "Tyler (his MPFB character, converted for the H9 skeleton)",
+  "license": "Owner character built from MakeHuman community assets: see CREDITS.txt (CC0 and CC-BY with credit)",
+  "materials": [
+    {
+      "material": "Suit",
+      "smoothness": 0.62,
+      "bump": 0.8
+    },
+    {
+      "material": "Skin",
+      "smoothness": 0.38
+    },
+    {
+      "material": "Hair",
+      "mode": "opaque",
+      "smoothness": 0.3
+    },
+    {
+      "material": "Beard",
+      "mode": "opaque",
+      "smoothness": 0.15
+    },
+    {
+      "material": "Mask",
+      "smoothness": 0.45
+    },
+    {
+      "material": "Eyes",
+      "smoothness": 0.85
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Workbench: a delivered CC0 workbench against a wall of Dante Rook's Forge room,
+# clear of the walks and sight lines from the door to Dante and to the Forge station.
+model Assets/NeonSyndicate/Art/ProductionH8S/Props/Workbench.fbx
+room forge

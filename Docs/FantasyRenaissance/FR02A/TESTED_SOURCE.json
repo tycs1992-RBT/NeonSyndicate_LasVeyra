@@ -1,0 +1,848 @@
+{
+  "fetched_head": "4e6246006836db88222303bc41bee24b74c90114",
+  "tested_source": "7c70784f612b89349a49ec3cafcff8c609627da5",
+  "tested_csharp_sha256": "07e7a7690a0b8b3479e3a891961c833791ae5ec4249d4cba89bfa900dc06d67f",
+  "source_art_files": [
+    {
+      "path": ".github/workflows/04oh-art-proof.yml",
+      "bytes": 6844,
+      "sha256": "9e66a906b135f12bb9f8d615f34e4202850238b20d0f7f2b9d530640c0da674d",
+      "git_blob": "41ab458208ea39972c3344b871ce074f65f91680",
+      "binary": false
+    },
+    {
+      "path": ".github/workflows/04oh-h7-art-lfs.yml",
+      "bytes": 2348,
+      "sha256": "c7ab7daa55c7097a0eca930888f73b384777e7d4819b0dcad776b3e751f43841",
+      "git_blob": "055f77bbddcee2b0bf1f3a808fc42b9ce5c05832",
+      "binary": false
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 5083,
+      "sha256": "9706617407ddf6e8d156104423afe539213be068d6a32ef275997940c6709684",
+      "git_blob": "19f1f7b1e42f87e0e8fd5cc61d731f997ad8b277",
+      "binary": false
+    },
+    {
+      "path": "ArtSource/HeartFR02A/LivingGothicStreets.blend",
+      "bytes": 6044291,
+      "sha256": "ce0950101e00d060452714ba9c004980bf5723969f9c56311f2ce6aaec259e9d",
+      "git_blob": "db52790f2a389fde6162da62eb6dbfa7ed7a5500",
+      "binary": true
+    },
+    {
+      "path": "ArtSource/HeartFR02A/SOURCE_RECEIPT.json",
+      "bytes": 361,
+      "sha256": "697f290440a21a2bda6e37e8ca01f18cb0be816a652ae6a231f1defed50d2598",
+      "git_blob": "6218bd65f1894c98053d546dd72f04e8cb0b13b0",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A.meta",
+      "bytes": 77,
+      "sha256": "b78345d3c437efe3e612bc78924e9dd8bcb6c1f65780f11599c78890da912f61",
+      "git_blob": "d5655ce214f1d5352a14caabcfeb5d52b9425484",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CREDITS.txt",
+      "bytes": 231,
+      "sha256": "2c91e66b0453034baf138bc5dba4936926be37ce9773ea96cf9db6835201ee11",
+      "git_blob": "9291ab6e6ae3cf30bd6f7f60d6eae48eee0cffdb",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CREDITS.txt.meta",
+      "bytes": 60,
+      "sha256": "06594887d654705ac7c4b256d41f688f31ca1c50763cc0afbefbcd3ed3d34d93",
+      "git_blob": "d79dfd570bc2e111a0c12bd03eb96664fc99ea0c",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx",
+      "bytes": 51660,
+      "sha256": "257e850f255f3499ededbef9e5fc302b23ce129b27d65d97bdaca08c6756a28c",
+      "git_blob": "5e3439db550cf8cde8a500d361cb711274ea13f9",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "e850fe223154f16e73b3f9bbce873fd35e04b0d870dd6dc19cd2e83308cf4f31",
+      "git_blob": "0bd0c703c58d249a6f87f16ed784d15eeaf15836",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx",
+      "bytes": 43420,
+      "sha256": "505a5e2213597d731b73ec5f43559167875b252f85bb0469d52e0c8767a1d6a4",
+      "git_blob": "fcfa344d689ec58a9c7c0a7dffdb41d4857a023a",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "b5d28da7187a48e215476447ce5469fe453a9b6cb28bc731d5ae09279362a254",
+      "git_blob": "da091dbb7f2a3ff041245bf8a573c0c2a93e7b1d",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx",
+      "bytes": 38428,
+      "sha256": "3b111f97a5589d3a0e3562983ce32f2d38efacbe8aa92f88d565613e53010857",
+      "git_blob": "39cc2a9284652cf0984081f324c0bd9da32aaf1e",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "4642df0f6ea87bc8e923bcd10f9ab8c78afbf74ebf3a20a861e360b71c5d2a01",
+      "git_blob": "fc4ca6070270bbfb58eceab6af9f12d9efeabf5a",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx",
+      "bytes": 40684,
+      "sha256": "188571c58baee1758c342518d045755f8eb28f3c6bedac161562318410e94bd8",
+      "git_blob": "a1f2d64230e31183d34beb654d67f116cd09efd5",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "d77ee673f74b682cb671b53bf2019e392878bc22ddcfb2e11ef00110552e9b05",
+      "git_blob": "39300b9735a0c3309a0a8b84a4b916c7b43dcf63",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx",
+      "bytes": 35036,
+      "sha256": "0e56e9409a82da15e4f735004066b673afc81429c4b5b02a3eec7ae70a4c919f",
+      "git_blob": "774353c0891c2b4044566089f9bd4a4c609e858b",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "67ce75958b4b9dc4454fe0f663737c3a9f61b118f3c22a316ed215f79e80916c",
+      "git_blob": "34ef98b5ad17006677dd02aaf0f4a9253617bf55",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx",
+      "bytes": 32252,
+      "sha256": "a80f1c492b37c360555a90fe92b4579068b6f5d994bf751e25e96b038ec4bbd4",
+      "git_blob": "9ffc16ea83490dbae9aca34fcf45312c66ff2fcd",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "348977f3585dfa8d2fbe821225182371dc6d07efe4a9fa73b92852cf4db3d862",
+      "git_blob": "b351e875fbc3122a7183c42fe1a74e8cc93f4d1b",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx",
+      "bytes": 55164,
+      "sha256": "7f5a2231b4978cc839f9b854cb9699e74526f543fde0ca73be6be8bbb604c4c1",
+      "git_blob": "3da6bfbf38695351c063b94b03e18ea2ca074163",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "156c61c36a918abbfc343f3815740dffba9db4c16732e8e29a736058054628e7",
+      "git_blob": "dfe8fa004745cf622816209ef2e99610df73fe84",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx",
+      "bytes": 43244,
+      "sha256": "d90e0f917b0037a1a24a4cccf55e69ba79644ecec016f2100b837893faa8fd76",
+      "git_blob": "3de6131f822d4f42023ffbb6aae34670e3da86c7",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "63d5452fb1204e47fb725961eab0e3dac8515441f807f311416a7212c0f309c6",
+      "git_blob": "548866230261affcb91922fa585f1e6c31d6edcd",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx",
+      "bytes": 36380,
+      "sha256": "f087b10242d030d9109a4d4777db6de97cf3b8f21ca8c1cbe7f5f29544706eac",
+      "git_blob": "355e0c6f1be8a5ef366078a5afc7bae1e431577f",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "a15d9c07aaa0b6a68e2d158ddf054e9ffdd209657aa6c6131f36cb4ae4218251",
+      "git_blob": "3a6fe9af208513745769a1de0041e1349783957d",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx",
+      "bytes": 30988,
+      "sha256": "0b246d553ba254e96cf25685894d04180bc359f61acb1027f22ca664dd97926b",
+      "git_blob": "21bd62cab5f6a7adfd5159040adca5f12d22abb6",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "e8382fce526d3df51db6736d73ff1ca2ac182869dcc9e78c398329bbb0500ba2",
+      "git_blob": "9b741afca298b69fa591679797e5bab0d79df159",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx",
+      "bytes": 29100,
+      "sha256": "d8497598d48a0c8cd3f9e09e7461c4608c3dfc6949bd0d26df5376515e943977",
+      "git_blob": "a669c2464a83eada96c8c7018628db3a04905071",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "5d226860923bb365e854b07f7e0ee842fec74ddde412bf16862f2ffb1ea54266",
+      "git_blob": "65113626c25cd675c47a01258b071b162d764fa5",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx",
+      "bytes": 28188,
+      "sha256": "68e102eddeeb7cb9a5eefb06c6576d61d0ada499727ffe13ef5d6c1bf1dd7982",
+      "git_blob": "e192f5d96b1f0cd82605a46d132a04c214fa14a0",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "9e15815195bd326ba25c3e202d699de4e8075ee6ceedfd2f05b6216dea0a8fc9",
+      "git_blob": "bb4e2f4ef251bc11ae3fd92db7e0ed0bab69b80f",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx",
+      "bytes": 141740,
+      "sha256": "725ddb1e845232327524f7e11c023488e87c86afc4379f2a7e9cb88be2f1a14b",
+      "git_blob": "6b1e41859a47a7effb01afe0a3539b45944a6c81",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "c00a3a063725cff42709145bf46a190222c8408de8a701340ab6635bf3277dfb",
+      "git_blob": "a485243b159377221286f1dbd57ff4e5853530b2",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx",
+      "bytes": 100956,
+      "sha256": "00bf182a319f5277e5f177ded3a9058bb37d90916b3d48ef394e65b3cd76944b",
+      "git_blob": "df072ba336c62843ee9e452e157504e2505469d6",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "d98d1b8071b8ccf4c83d89d530c5373b91f3f0cdfab2861f8a765ce417a1676d",
+      "git_blob": "6b44896e4fa378e8b9fd2a971a2efebe2761a26a",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx",
+      "bytes": 78972,
+      "sha256": "858eb71144f20cb1ec852c9b596ba567c81d1c3cad79fc3bc445fc520d1a5a37",
+      "git_blob": "24a5133d9806ad7b81a554175a480f843df3eb64",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "3782e1cbed3d85fe116cd9e67b5c4a429bac022dc33b177b17fbd3fe9f0a76c6",
+      "git_blob": "0fa4d3cdce811b8f7298a41f73d20df1c242c928",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx",
+      "bytes": 142092,
+      "sha256": "0344607e741c21f0bde760a2832698c6595100ce9a2b1cec46b59964091d809c",
+      "git_blob": "03dc8dbfded1ed539c4b2dcc0661592a50394f06",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "e7d17e1ec794a5fa3a40174969588ad8b62b0599dcce95cde5ab6e959bd2a925",
+      "git_blob": "8055175c97df375fac6f0c86eb7ca759bf378f7f",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx",
+      "bytes": 100684,
+      "sha256": "cb6ba073705946d0a2779dc824beca4e72efe5a7357be0e0284539f70cf9915e",
+      "git_blob": "ec8ca2afba8556d470134a510677db441fa3d3c5",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "684e3c0877173cb145bef88d5a479531bc1e78a824c0de510af38c398e7039bb",
+      "git_blob": "ff1787e5438eaf2de1b271df6ad43c45c0183e1c",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx",
+      "bytes": 77052,
+      "sha256": "54a0f2895deddcdafc2c80cca72083b056a837b775a9932ace1eb18aa4c39c88",
+      "git_blob": "17122957c78563f0ac9baef11ea569e65215b249",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "0068f92ad251096d7380cc06b8357f2c1386eef152bc1447eba6810ce5104951",
+      "git_blob": "0532bc06482c910164adae0fea3ff3ce2b5e97f2",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx",
+      "bytes": 173244,
+      "sha256": "3173177c2ef2f4a128aad42263649854a870ffed4c8e480ae6143e213fe71da8",
+      "git_blob": "5c372e84491aa373e0215ebbb4132c8deafc3694",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "7b624c4179132db2f01d6e29bf2a3a3c55f259dbb2963b1283e739422978a447",
+      "git_blob": "0616ff355bf7f1b1ff9f2aac8e499fdb60ea78e5",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx",
+      "bytes": 122700,
+      "sha256": "0e680ac3eca7f5badf49c716925ef681a56e3395e9f2a1d87dc10db808068586",
+      "git_blob": "f2a2c99afc01b9a06f6b7c61d711cef95df20534",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "c2a8043ebd37f0194e365c738180b0aba511e1e6d0545a657f482256f2120bd6",
+      "git_blob": "05ac1b26dabe0ad7a536d1cb4273d94c9090dbbe",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx",
+      "bytes": 87148,
+      "sha256": "1d20ba0c22b7e8e259c0a0c1c5cbd980c439a10aa07e442cdfcf5c7abffae1dd",
+      "git_blob": "4bd78d98416066d3c048980d684ee814dc388eaf",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "460db7d7ad75ae62267ff3c1e52da6a5cf9dc3f1980189120ce318ac5642864f",
+      "git_blob": "99daac8b7202080cb36fa12f3cf6888f5cbfe37f",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx",
+      "bytes": 157516,
+      "sha256": "b1162879038f01acab2269cc79f7265af1a4de9a060f572fe6326d4186dc2d67",
+      "git_blob": "790ff421c6c0da334e6032b53d8032ff26b74deb",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "992e7a8c5239feb6dae1bb2c0c403bc756e5bd7bdb52eb2d7b30de97588cba08",
+      "git_blob": "c9f46ad6336aa289e40853c23cc13b52768054b7",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx",
+      "bytes": 111148,
+      "sha256": "53e76d71bcda7e702e9e08499e8e5dd96013740380baa0dc1fbeaf88f24ec135",
+      "git_blob": "df9f96ae86878386d57f4d3b1db9c833bd6a11ca",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "5df194d881f323430d40bf09bb00e79475c310e568a64e10a36ae4ed3fde9022",
+      "git_blob": "fb66899139daca95a436bfe987d7391be759f3be",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx",
+      "bytes": 87292,
+      "sha256": "3c661963d1232aa15cce3447a3523c7389e3ac18558981bfe72e1e2e2412cfaa",
+      "git_blob": "e39ce438dccdc094a9ee131bb9db34bd4b3f4c49",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "01041a72c6e42a78fd5784ab2723bac998d4aa0a511c87b5a1ef24b60ac261dc",
+      "git_blob": "82de43793dd436f00778c9f9db9b261b8550d5bf",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx",
+      "bytes": 174860,
+      "sha256": "4c12f2829f7f5bdeab0eb7c8c3ed16b5ee6552bb2cf7e08cf423304acd084fde",
+      "git_blob": "5dc840f52663cee9010465a62875f0607764f6ab",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "f980260256a833feb011091253f95fdd9e4f3a25fa8d42153cf67c8ff5d67821",
+      "git_blob": "e62e13ea4e54a5c5c6e080bc1f30979719c19617",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx",
+      "bytes": 124236,
+      "sha256": "bda45859070697e3e5c68935b330a756954428be246e4129722569455d9eb74a",
+      "git_blob": "9a78d46a4c452d03b59e0bd3137611e21c954420",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "7e18edfbfc989e22dcbd2d7f740a94fdaa009182eb9fb8a14fe8836ad9bad159",
+      "git_blob": "00d1847c0f4f2a3ccad2e79fedc98c97a5da10bf",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx",
+      "bytes": 86828,
+      "sha256": "3d916c534b1db6f608af78dc4a74edf570a1040ad24458025a554cbfe9598c6d",
+      "git_blob": "3f9ee82d83f6979279b0c4a825f34a6092e938db",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "69c65cc69e7aa25ff29ebc5afa346816101dccf112fa1f051b8a2c620d74d5f0",
+      "git_blob": "039c7f0a6e41eb636ae38e0c74842eefbd56a7bc",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx",
+      "bytes": 175660,
+      "sha256": "356a67d9fe34bccf2d4dc6108289e84277d71da59a65b2e0c6ff7f9312d112c1",
+      "git_blob": "ac4c05ab6020c87d8c7b4f13ff898258f7c4182b",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "a1187ec6d4fba651beee3403ff81a917bcb066f919ad442b6e1bfb5a24b61ac5",
+      "git_blob": "d5a86039fe449c33b8f14f899875f86cf079a59e",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx",
+      "bytes": 123596,
+      "sha256": "02b8f8fe5f5001118aa6b1a7ed1c6544ec14faf98d54b9a1df44af7aa7f15a94",
+      "git_blob": "fc92e575bc08c54d470b0a455799aa98fcb3a678",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "39c397c023518a07afe7fd6fc01f59d2509717c07811ed0a701fb6a0e7ccbcfd",
+      "git_blob": "464bb02ddc7012865aff68306ca926ff7407e958",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx",
+      "bytes": 94652,
+      "sha256": "4d6132104ca753e58f1531e78b0329c30ee6eec3c26015af8ead3c9e6c00a01f",
+      "git_blob": "9dabee58a69eb3610df746187e584e459277d76d",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "8409f86e30d0b13f7c3895f4a4c482feb9b6d66d2a9b167707c666d378ea8ed4",
+      "git_blob": "e492ea39936bc4e8e8482cabf3cc7b2de4fafca3",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx",
+      "bytes": 102316,
+      "sha256": "3a7baba852ee1a558aefce9df8f2b3966c50fd1e9321c7a499f85c924c3f0f49",
+      "git_blob": "4025427156358f69c9cb7357bdef3facb7ab9f5a",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "d764a787283e9136c7c3aeade058144c24901b9b3d0d140c690b4fd19c489ae8",
+      "git_blob": "51960c9e523c533e346133081347699b384def4b",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx",
+      "bytes": 73692,
+      "sha256": "2fbedad2fbc9f36ec1b8624a079f6f7dfba85d7aa21b94a67c8c78bc456008c3",
+      "git_blob": "aa1b8fc09a788a34c50a88b47f93ea2bb0c4d971",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "cabe3b54ffafea80f21d27dd51da5ef1b67ea654a1cd7de0852e780a2933bd1a",
+      "git_blob": "38cbff5ff7d00da1825e76ba060ac9823d478e0a",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx",
+      "bytes": 60428,
+      "sha256": "25f2d8962e9c8eea61134bd62a61c4a9554364f51a3aea005b36fabc0bc6b689",
+      "git_blob": "136ffe697570d41e6d355035ee2422180bec0313",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "4b815fa1c45975879b5a6dca6c3569987b47bbe574eb4df0c46b4dcdc072f543",
+      "git_blob": "fa63ac04d85c990dec17d583352262d2520c4145",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx",
+      "bytes": 158620,
+      "sha256": "ed700117358bf72b3050868a6b0ebcb03c544c654b845e583280af66669c83b0",
+      "git_blob": "986acb0aaed7958aa0b5b35994d129d8dc29d487",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "597065b8124c08b820b05939ad5d36b4b01109e6305c7bbcf934cf448f3f54b2",
+      "git_blob": "92d6113e9452e455267bfd48f47645bbdfa95eaf",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx",
+      "bytes": 112060,
+      "sha256": "cc671ce2b49c26fa4ef1957d8f35f46f3e76a4a39e5ed3c5c6f947d8823a1f92",
+      "git_blob": "78ddb731777bd3182c7095b346fbbe2cb35b7cb3",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "447faf0811561f7757acdd267625e451822ea21d7f2f0a3cb2bfc457d87a6a0b",
+      "git_blob": "529857dd63ed424f27b639650cf0065d494f4449",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx",
+      "bytes": 76972,
+      "sha256": "de58cd5fba09dd783a61c071d303d3acaa79b187901fabdeaf6f37bd21c71158",
+      "git_blob": "9e299d2bad11391f6da8843ca8fa5d67610b43c2",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "7f19d48cf9465c389e19bb9a85781232b1b010a80f539a3b2c3b463b4a695af9",
+      "git_blob": "da8c8bfdfb1f7f3cff7b42395b1d6822ae48cfb4",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx",
+      "bytes": 109020,
+      "sha256": "57a9389e597de696d74533d3b4d786080186bdf9ffbae6b3310ad9faab85dd55",
+      "git_blob": "21d764d72e872534d734d69628b8792526d32528",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx.meta",
+      "bytes": 60,
+      "sha256": "b74347c1c50066ae95efe7ef228d7eb13c66747bf9ac70f5949f464440fd49d9",
+      "git_blob": "cf42b2ff79046285ea04d50f7994ce4e3bab26b4",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx",
+      "bytes": 77244,
+      "sha256": "527d182ecec4b6d6d1e789f9820c8d28324c430ebcdec3a48822527182d4570b",
+      "git_blob": "16fefe0c31eb72e5720ba755d8172709aa3403d2",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx.meta",
+      "bytes": 60,
+      "sha256": "6ba4bc0bf8be8ad589e216f6067aeeae142f981bbda2151fcf778cecee4d864b",
+      "git_blob": "fdf4e7a20d0372caadb37203366fba5f5f003b77",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx",
+      "bytes": 61996,
+      "sha256": "01db62ab05d5bd418aad1111d538cb5f542e2b47dce2138678e98bfc097586fb",
+      "git_blob": "81a7a2173c50fe7945f54234a43af497af1e1a45",
+      "binary": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx.meta",
+      "bytes": 60,
+      "sha256": "7d94a7a99f4c72275c4a67346b63ec8710de87156385bbeb75f39092e3b78992",
+      "git_blob": "d77e793ff018a33bad49aaec9cb09dea5ba61fb9",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json",
+      "bytes": 28404,
+      "sha256": "1975fa20a877f18ab115f31e0bad69fd7e1da33c50736690d59ac0c89fc48893",
+      "git_blob": "a088fea5264552ea8dea15abafdc509091250917",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json.meta",
+      "bytes": 60,
+      "sha256": "c26941181a0d63b75da79d3f84b27f9a8157775442d870df6f320f650f4b0629",
+      "git_blob": "0530fbcd8b4c42c6c37fd55fa1dbf8878b3250f8",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs",
+      "bytes": 7971,
+      "sha256": "eaea923eff5b163c07da7e7e672e7937955f1bd6192967d4b1a21ec5b203e53d",
+      "git_blob": "7a870820b5dfcfe476d567e48db0bc6486b4e2c2",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs.meta",
+      "bytes": 60,
+      "sha256": "3e5846b57179c22f685106953e61582287825fff02774c759d566554e6ca5488",
+      "git_blob": "8198b1161911599b341ccb10d9ee2dcc243fb124",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs",
+      "bytes": 10759,
+      "sha256": "da07b35644bde4316b9b5b2183f5956d13f6a289cee3eb1e3d35d44316086f2b",
+      "git_blob": "46ca732b6fe17e513c8c762c0ddad37ca80da7fd",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HumanoidPrepH9.cs",
+      "bytes": 14786,
+      "sha256": "ba1fbbd266e6bf80931250016ae254229271fdae1cb2c7a69d7c1bfaff673ce8",
+      "git_blob": "9a9ba6aaec98cf22490c2597de27289d0eec0ba5",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.Materials.cs",
+      "bytes": 7040,
+      "sha256": "46197c881637618432199aa069d46cec928068a99957ba15b151ea54f81bc830",
+      "git_blob": "effcb5b745c1e5f6a532d9ca6a283e5445a7433f",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.cs",
+      "bytes": 20327,
+      "sha256": "3e970076991df4e0372c595688734e95e3dcda5d67ffe8ba60b67863d1963506",
+      "git_blob": "98b3712c8014e3697b125305b316f24c2a13efeb",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveWorldArtSetupH8S.cs",
+      "bytes": 23719,
+      "sha256": "1703af5324cbdfa3c77d00968619dc6f440de273b69a8559d0f4751085c2fa59",
+      "git_blob": "c2659ef2e2e23aa23382f15ded891d74ac0394a5",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastVisual.Bind.cs",
+      "bytes": 17961,
+      "sha256": "f4dbbada56bf3ed1ca28aef0312168684cf96dd49b43163633167678d7d25f22",
+      "git_blob": "1319e0e56bd006bf522cd5cccbcdca464fad6e6e",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.HeartFR01.cs",
+      "bytes": 2134,
+      "sha256": "beb4f9db733c36dfaa3b7e9e26e0627db043cabbc5bf2b5f3e53c8a8a37fd18a",
+      "git_blob": "2f964c433cfd46f4e3de5ef136940cb250203fe8",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.cs",
+      "bytes": 15475,
+      "sha256": "f1f19619c0e34a4d21efdd313e72cdca8e8151e98b1df298931c342d6e8f7580",
+      "git_blob": "47d18911a7771e68d28aa19bfcb9489ef1a28a81",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartCatalogFR01.cs",
+      "bytes": 1382,
+      "sha256": "ff4ba06344afeeb3b8ec94bb5bf56677b718f0a97bb43d47a9064b6239625966",
+      "git_blob": "b910cc5a1882c9af49b2775339c00e48b28c7cdc",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.LivingStreets.cs",
+      "bytes": 10178,
+      "sha256": "024a9a9d888b69ff21a2401be820838d7005deb2568415434fb2774ec4903e92",
+      "git_blob": "2cd967fe3e5506424e3ad5971e924e81420d3126",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.LivingStreets.cs.meta",
+      "bytes": 60,
+      "sha256": "8519b58a06f383e85dba1ce8d176fb765b8bca4c300e0f4c0b141ac3c2f609a5",
+      "git_blob": "3c4f169250a23ed3e722a2f6ab1dab47f3a7b667",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.LivingStreets.cs",
+      "bytes": 8349,
+      "sha256": "038660c8d313320e12b77a53d9014cd32755d880c352b1e77f4a02e909cf7a6f",
+      "git_blob": "89d73a23a6fb0574308d31c2c19f66236ad60383",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.LivingStreets.cs.meta",
+      "bytes": 60,
+      "sha256": "90349f3d4b81d2b48285eefa48ced9aea9460f3f250c2a729836d8adf5b7ba2e",
+      "git_blob": "e7ef12e43fe830ff65644a19785b89e8ba708060",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs",
+      "bytes": 13744,
+      "sha256": "dab6c4d5a6a4112b17f66f9b6c00c966fbed99beb9f5f117d5adb308c9d77dca",
+      "git_blob": "83db84ed3a2f2c68923cb2fac755c7c853df689e",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Debug.cs",
+      "bytes": 3288,
+      "sha256": "e8b753c244603026da3d44b7bc6ce6fc03ae49c333f89710a5423796aba3689d",
+      "git_blob": "69e78864c9e32381c44e2732fce8faaedd4391b0",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR02ATests.cs",
+      "bytes": 5002,
+      "sha256": "301c8c2f1a7f8dde6aaf9792d1b24a8cc435bcc6def15832d1441a226c8b0a5e",
+      "git_blob": "4a6a677b4b3b370bde0e6ef2bfeb0561f23e0cba",
+      "binary": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR02ATests.cs.meta",
+      "bytes": 60,
+      "sha256": "10079dfdc9f0fffee3dab448da6c3e0e1f22a63e7895de53169c7b3955be80fd",
+      "git_blob": "ba85353b01bcc2d1b3cc7d472655a3c3c219016a",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/AUTHORITY_MAP.json",
+      "bytes": 33448,
+      "sha256": "e6ca3d2c74c9b379e32d2d9fca3bc025a03dd28e1277f26c5f80ef5beb01b741",
+      "git_blob": "7c217b283166caa93f493fd164f6680f1646e944",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/CHARACTER_RECOVERY.md",
+      "bytes": 1555,
+      "sha256": "4c48d3de5046db3acb8b9a8d114424ff39c562ffd8d00a8e18a45973cd8d19cc",
+      "git_blob": "20c002518a740de8a661acbf71c043dfce034566",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/COVERAGE_INVENTORY.json",
+      "bytes": 297946,
+      "sha256": "a47321aa53a63639dcc2f7b4495b71f294c5d7536a2713c72548208e0d659213",
+      "git_blob": "52fcbe40419c31cd0b60f0c8760fbba6fc0cd1bd",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/FEATURE_STATUS.json",
+      "bytes": 2109,
+      "sha256": "1295c47c88fa028abf026a8471c14a39a20fb46aa005b3c2c663f2d5e715f3e5",
+      "git_blob": "e3825b36449dfd38f1fc1af641fae911c88115fd",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/NATIVE_ACCEPTANCE.json",
+      "bytes": 2125,
+      "sha256": "c4cf24ec59c72ebc2fb008e218ec21fd80fb788d025df2201dae1fea45201814",
+      "git_blob": "4ac38994e141216bf735284099c2b5cdaaaa7517",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/OWNER_WALKTHROUGH.md",
+      "bytes": 3972,
+      "sha256": "11cf3c9a6f4f193328e986c8bd0721637cb521a23f787ecd9cd9587f9639c3ab",
+      "git_blob": "3a5de67e8a89ad2601261f4853d3bba804b9ff8e",
+      "binary": false
+    },
+    {
+      "path": "Docs/FantasyRenaissance/SPRINT_FR02A_LIVING_GOTHIC_STREETS.md",
+      "bytes": 21651,
+      "sha256": "d761642903ad2aef7c7e427ae72996ee7b56b75eee2ee22d60f4ed7b3cadff60",
+      "git_blob": "e8ba4d001b66836a1ea623b1d637fc5772dacee3",
+      "binary": false
+    },
+    {
+      "path": "tools/author_heart_fr02a.py",
+      "bytes": 15270,
+      "sha256": "114c1fc9c1a4abb2ae23ad6ca53c2c5c3d5b0ea15eadbf03e3c5324b829bf91e",
+      "git_blob": "b8b5424e11bed9ef3b26dd12a5616ee874b115b0",
+      "binary": false
+    },
+    {
+      "path": "tools/check_heart_fr02a.py",
+      "bytes": 4340,
+      "sha256": "d4df8a782097ad3be0fb6640022e06bd4993156dd957e11ef47686613165fb7c",
+      "git_blob": "d13e6c3b9e9ccc7a165ff36901d4b3511babb1c1",
+      "binary": false
+    },
+    {
+      "path": "tools/measure_heart_fr02a.py",
+      "bytes": 1986,
+      "sha256": "5a5c82bc48a115d86fea01dbc48869bb533592cc985831aa754de6bcbf583169",
+      "git_blob": "e7cd5ea9dbc05ef4c823c2e23d6c621678390f8a",
+      "binary": false
+    },
+    {
+      "path": "tools/publish_h7_lfs.py",
+      "bytes": 3736,
+      "sha256": "c80ad21c7645e7b1b34a69e0eb3bb5ac2c354c1108c3c3acbe1d539bc70b874d",
+      "git_blob": "f5df8938e6a630b7713e62f322aa33a8b3e2241b",
+      "binary": false
+    },
+    {
+      "path": "tools/review_heart_fr02a.py",
+      "bytes": 7949,
+      "sha256": "3d343f9d78c19bef9756dedc148bfda2cffecac865ca20f8cbd4c4f81a50df1d",
+      "git_blob": "4cbf197e788e89be376a76ddbb545790563fc504",
+      "binary": false
+    },
+    {
+      "path": "tools/validate_heart_fbx_fr02a.c",
+      "bytes": 2181,
+      "sha256": "330fabce74a27926f9e415283558a1194adb5485ec435d0e4983c7a7859e04ec",
+      "git_blob": "8794fc28273ed362fd2a02ca073d7683e6d6f2c3",
+      "binary": false
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

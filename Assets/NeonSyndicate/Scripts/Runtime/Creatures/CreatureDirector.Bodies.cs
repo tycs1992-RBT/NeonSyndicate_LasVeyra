@@ -62,15 +62,16 @@ namespace NeonSyndicate
             return BodyFactory.AmbientDetail;
         }
 
-        /// <summary>The look for a non-humanoid of a species (elites a little bigger and brighter).</summary>
+        /// <summary>The look for a non-humanoid of a species (the H8S obsidian look unless the F2 page asks for the classic one; elites a little bigger, brighter and richer in shards).</summary>
         private static CreatureLook LookFor(CreatureSpecies sp, int seed, bool elite)
         {
-            CreatureLook look = CreatureLooks.For(sp.LookId, seed);
+            CreatureLook look = ObsidianLookH8S.For(sp.LookId, seed);
             if (elite)
             {
                 look = look.Clone();
                 look.Scale *= 1.12f;
                 look.GlowStrength *= 1.6f;
+                look.ClusterH8S = Mathf.Min(1f, look.ClusterH8S + 0.3f);
             }
             return look;
         }
@@ -106,7 +107,7 @@ namespace NeonSyndicate
             j = new BodyJob();
             j.SpeciesId = "glass_mite";
             j.Shared = true;
-            j.Look = CreatureLooks.For(sp != null ? sp.LookId : "glass_mite", 7001 + variant * 31);
+            j.Look = ObsidianLookH8S.For(sp != null ? sp.LookId : "glass_mite", 7001 + variant * 31);
             j.Detail = 0;
             _swarmBodies[variant] = j;
             Enqueue(j);

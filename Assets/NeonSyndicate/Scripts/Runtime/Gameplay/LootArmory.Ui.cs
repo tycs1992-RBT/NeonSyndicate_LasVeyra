@@ -102,6 +102,7 @@ namespace NeonSyndicate
             if (p != null && p.Weapons.Current.IsGun && p.Weapons.Current.Loot != g)
             {
                 label = p.Weapons.Current.Name;
+                NoteCompareH8S(g, p.Weapons.Current.Loot);
                 return StatsOf(p.Weapons.Current);
             }
             LootGun best = null;
@@ -110,6 +111,7 @@ namespace NeonSyndicate
             foreach (LootGun b in Backpack) Consider(b, g, ref best, ref bestDps);
             if (best == null) return new CardStats();
             label = best.Name;
+            NoteCompareH8S(g, best);
             return StatsOf(best);
         }
 
@@ -210,8 +212,14 @@ namespace NeonSyndicate
             y += size + 8f;
             if (cmp.Valid && !string.IsNullOrEmpty(cmpLabel))
             {
-                UIKit.Text(new Rect(x, y, w, size + 4f), "Compared with " + cmpLabel, size - 3, new Color(0.65f, 0.65f, 0.7f), TextAnchor.UpperLeft);
-                y += size + 2f;
+                // H8S: the upgrade call (arrow, UPGRADE / ABOUT THE SAME / WEAKER, what it was compared with, item scores).
+                float vy = Game.Loot != null ? Game.Loot.DrawVerdictH8S(x, y, w, g, cmp, cmpLabel, size) : -1f;
+                if (vy >= 0f) y = vy;
+                else
+                {
+                    UIKit.Text(new Rect(x, y, w, size + 4f), "Compared with " + cmpLabel, size - 3, new Color(0.65f, 0.65f, 0.7f), TextAnchor.UpperLeft);
+                    y += size + 2f;
+                }
             }
             y = DrawStatRows(x, y, w, StatsOf(g), cmp, size);
             if (RegionalArsenal04OE.IsWeapon(g))
@@ -316,8 +324,9 @@ namespace NeonSyndicate
                 UIKit.Frame(c, rc, g.Rarity >= Rarity.Epic ? 3f : 2f);
                 UIKit.Rect(new Rect(c.x, c.yMax - 5f, c.width, 5f), new Color(rc.r, rc.g, rc.b, 0.5f));
                 UIKit.Text(new Rect(c.x + 6f, c.y + (label != null ? 20f : 4f), c.width - 12f, c.height - 26f), g.Name, 14, rc, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
-                UIKit.Text(new Rect(c.x + 6f, c.yMax - 22f, c.width - 12f, 16f), "Lv " + g.Level + (g.Element != Element.None ? "  " + GearSystem.ElementName(g.Element) : ""), 12, new Color(0.8f, 0.8f, 0.85f), TextAnchor.UpperLeft);
+                UIKit.Text(new Rect(c.x + 6f, c.yMax - 22f, c.width - 12f, 16f), CellLineH8S(g), 12, new Color(0.8f, 0.8f, 0.85f), TextAnchor.UpperLeft);
                 if (g.Favorite) UIKit.Tex(new Rect(c.xMax - 18f, c.y + 3f, 15f, 15f), UIKit.Star, UIKit.Gold);
+                DrawCellMarkH8S(c, g, label);
             }
             else UIKit.Frame(c, new Color(1f, 1f, 1f, 0.1f), 1f);
             if (label != null) UIKit.Text(new Rect(c.x + 6f, c.y + 2f, c.width - 12f, 18f), label, 13, new Color(0.7f, 0.7f, 0.75f), TextAnchor.UpperLeft, FontStyle.Bold);
@@ -429,6 +438,7 @@ namespace NeonSyndicate
                 LootGun c = Slots[_compareSlot];
                 if (c == null || c == sel) return new CardStats();
                 label = c.Name + " (slot " + (_compareSlot + 1) + ")";
+                NoteCompareH8S(sel, c);
                 return StatsOf(c);
             }
             // Auto: the equipped gun of the same archetype, else the gun in hand.
@@ -437,6 +447,7 @@ namespace NeonSyndicate
                 if (Slots[i] != null && Slots[i] != sel && Slots[i].Archetype == sel.Archetype)
                 {
                     label = Slots[i].Name + " (slot " + (i + 1) + ")";
+                    NoteCompareH8S(sel, Slots[i]);
                     return StatsOf(Slots[i]);
                 }
             }
@@ -444,6 +455,7 @@ namespace NeonSyndicate
             if (p != null && p.Weapons.Current.IsGun && p.Weapons.Current.Loot != sel)
             {
                 label = p.Weapons.Current.Name;
+                NoteCompareH8S(sel, p.Weapons.Current.Loot);
                 return StatsOf(p.Weapons.Current);
             }
             return new CardStats();

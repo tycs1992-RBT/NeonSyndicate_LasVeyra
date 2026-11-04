@@ -1,0 +1,83 @@
+{
+  "sourceCommit": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "scope": {
+    "revision": 10,
+    "chunkMetres": 160,
+    "x": [
+      -3,
+      1
+    ],
+    "z": [
+      -1,
+      1
+    ],
+    "appendOriginBounds": [
+      -480,
+      -160,
+      320,
+      320
+    ],
+    "note": "Some eligible original appends cross chunk boundaries. Native receipts carry exact captured bounds."
+  },
+  "emitters": [
+    {
+      "sourceOwner": "BuildGround",
+      "candidate": "WoodlandFloor",
+      "contract": "Exact source slab mesh; original aperture subtraction and all colliders retained",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "TiledRectPiece",
+      "candidate": "CausewayStone or WoodlandFloor",
+      "contract": "Exact eligible pad mesh and coordinates retained",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "BuildRoadEdge / BuildIntersection / BuildMedian",
+      "candidate": "CausewayStone / WeatheredStrata / WoodlandFloor",
+      "contract": "Exact road, curb and median geometry; no overlay plane",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "SolidLine / DashedLine / StopAndCrosswalk / ParkingLines",
+      "candidate": "OMIT_CANDIDATE_ONLY",
+      "contract": "Eligible lane paint removed only when complete chunk candidate activates",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "BuildPowerLines / Wire",
+      "candidate": "AncientBark / OMIT_CANDIDATE_ONLY",
+      "contract": "Timber treatment for posts, no decorative wire in candidate, physical posts unchanged",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "SignOnBuilding",
+      "candidate": "WeatheredStrata stone backing",
+      "contract": "Existing readable lettering and gameplay owner retained",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "EmitRealmSolid04OB",
+      "candidate": "WeatheredStrata or source-specific cliff",
+      "contract": "Only stone geometry; crystal accent materials remain",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "BuildFracturedWilds04OC / WildTerrain04OC",
+      "candidate": "WoodlandFloor / WeatheredStrata",
+      "contract": "Existing terrain and collision mesh",
+      "nativeVisibility": "NOT RUN"
+    },
+    {
+      "sourceOwner": "BuildFracturedWilds04OC / WildTree04OC",
+      "candidate": "AncientBark / three authored canopies",
+      "contract": "Only ten Azure trees, crown inside original noncolliding envelope",
+      "nativeVisibility": "NOT RUN"
+    }
+  ],
+  "operationalSignals": "PROTECTED",
+  "routesAndColliders": "UNCHANGED",
+  "defaults": "UNCHANGED",
+  "nativePlannedAdmittedActiveRefused": null,
+  "nativeStatus": "NOT RUN"
+}

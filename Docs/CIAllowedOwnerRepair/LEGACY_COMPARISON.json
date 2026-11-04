@@ -1,0 +1,57 @@
+[
+  {
+    "guard": "check_art_revolution_h2",
+    "failed_names": [],
+    "same_as_recorded_V0": true
+  },
+  {
+    "guard": "check_gothic_heart_h3",
+    "failed_names": [],
+    "same_as_recorded_V0": true
+  },
+  {
+    "guard": "check_real_malik_h5",
+    "failed_names": [
+      "All prior tests and exclusions preserved",
+      "Original actor/gameplay authority / Characters/HumanoidPose.cs"
+    ],
+    "same_as_recorded_V0": true
+  },
+  {
+    "guard": "check_production_malik_h6",
+    "failed_names": [
+      "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "same_as_recorded_V0": true
+  },
+  {
+    "guard": "check_living_malik_h7",
+    "failed_names": [
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "same_as_recorded_V0": true
+  },
+  {
+    "guard": "check_living_hero_h8",
+    "failed_names": [
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "Only exact original pose hook / HumanoidPose.cs"
+    ],
+    "same_as_recorded_V0": true
+  },
+  {
+    "guard": "check_living_cast_h8s",
+    "failed_names": [
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "same_as_recorded_V0": true
+  }
+]

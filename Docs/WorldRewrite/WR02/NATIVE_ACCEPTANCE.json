@@ -1,0 +1,39 @@
+{
+  "sourceCommit": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "requiredUnityVersion": "6000.3.16f1",
+  "worldRevision": 10,
+  "SOURCE IMPLEMENTED": true,
+  "statuses": {
+    "ART IMPORTED": "NOT RUN",
+    "NATIVE PLAYTESTED": "NOT RUN",
+    "VISIBLE DIFFERENCE CONFIRMED": "NOT RUN",
+    "GAMEPLAY VERIFIED": "NOT RUN",
+    "OWNER ACCEPTED": "NOT RUN",
+    "UnityTestRunner": "NOT RUN",
+    "PlayMode": "NOT RUN",
+    "MalikSkinClothesHairEyes": "NOT RUN",
+    "NPCMaterials": "NOT RUN",
+    "MatchedUnityScreenshots": "NOT RUN",
+    "RoadCollision": "NOT RUN",
+    "WR01UpperCollision": "NOT RUN",
+    "CameraFlightLanding": "NOT RUN",
+    "Controller": "NOT RUN",
+    "Keyboard": "NOT RUN",
+    "SaveLoad": "NOT RUN",
+    "ExistingQuestCompletion": "NOT RUN",
+    "Performance": "NOT RUN",
+    "WindowsBuildLaunch": "NOT RUN"
+  },
+  "BLOCKED": "Licensed native Unity environment and owner visual review are unavailable in this worker. Genuine managed API metadata and Blender are not Unity execution.",
+  "nativeExecuted": false,
+  "visibleDifferenceConfirmed": false,
+  "ownerAccepted": false,
+  "runtimeCounts": {
+    "planned": null,
+    "admitted": null,
+    "active": null,
+    "refused": null
+  },
+  "proofWorkflow": "Neon Syndicate > Acceptance > Verify Fantasy World, then existing PLAY FANTASY WORLD",
+  "defaultPromoted": false
+}

@@ -1,0 +1,14 @@
+{
+  "starting_head": "70e5277e3de0c969bc97d534d9965653af189129",
+  "local_implementation": "390b3f71",
+  "unity_requested": "6000.3.16f1",
+  "official_managed_source": "https://download.unity3d.com/download_unity/a56f230f6470/LinuxEditorInstaller/Unity-6000.3.16f1.tar.xz",
+  "native_editor_launched": false,
+  "native_tests": "NOT RUN",
+  "gameplay": "NOT RUN",
+  "graphics": "No display or /dev/dri found",
+  "ipc": "AF_UNIX bind PermissionError EPERM; no repeated Editor startup",
+  "lfs": "2382 tracked paths; hydrated; git lfs fsck OK",
+  "published_implementation": "42d4f0eeb981f08f8c59fb0c75eb54defc93f5b1",
+  "tested_tree": "4a4580dad8883f98f960f8a25820157d9db32281"
+}

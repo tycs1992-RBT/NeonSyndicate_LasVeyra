@@ -1,0 +1,308 @@
+{
+  "sourceCommit": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "passed": 15,
+  "total": 15,
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        41,
+        29,
+        18
+      ],
+      "channelMax": [
+        70,
+        54,
+        35
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "channelMin": [
+        0,
+        0,
+        0,
+        16
+      ],
+      "channelMax": [
+        0,
+        0,
+        0,
+        33
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        15,
+        27,
+        186
+      ],
+      "channelMax": [
+        222,
+        230,
+        254
+      ],
+      "passed": true,
+      "maxUnitNormalError": 0.012301733217423672
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        20,
+        45,
+        10
+      ],
+      "channelMax": [
+        47,
+        89,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "channelMin": [
+        0,
+        0,
+        0,
+        53
+      ],
+      "channelMax": [
+        0,
+        0,
+        0,
+        78
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        78,
+        90,
+        243
+      ],
+      "channelMax": [
+        173,
+        164,
+        254
+      ],
+      "passed": true,
+      "maxUnitNormalError": 0.010435068161134042
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        29,
+        37,
+        19
+      ],
+      "channelMax": [
+        115,
+        112,
+        101
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "channelMin": [
+        0,
+        0,
+        0,
+        34
+      ],
+      "channelMax": [
+        0,
+        0,
+        0,
+        49
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        18,
+        12,
+        182
+      ],
+      "channelMax": [
+        236,
+        242,
+        254
+      ],
+      "passed": true,
+      "maxUnitNormalError": 0.012862421053012829
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        41,
+        49,
+        37
+      ],
+      "channelMax": [
+        112,
+        113,
+        106
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "channelMin": [
+        0,
+        0,
+        0,
+        23
+      ],
+      "channelMax": [
+        0,
+        0,
+        0,
+        32
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        61,
+        52,
+        230
+      ],
+      "channelMax": [
+        191,
+        195,
+        254
+      ],
+      "passed": true,
+      "maxUnitNormalError": 0.010683753338061375
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        25,
+        28,
+        12
+      ],
+      "channelMax": [
+        89,
+        69,
+        35
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "channelMin": [
+        0,
+        0,
+        0,
+        17
+      ],
+      "channelMax": [
+        0,
+        0,
+        0,
+        38
+      ],
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "channelMin": [
+        21,
+        22,
+        185
+      ],
+      "channelMax": [
+        232,
+        231,
+        254
+      ],
+      "passed": true,
+      "maxUnitNormalError": 0.012924739361116044
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

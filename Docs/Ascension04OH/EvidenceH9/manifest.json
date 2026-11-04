@@ -1,0 +1,374 @@
+{
+  "tag": "SOURCE RENDER",
+  "notice": "Blender Cycles renders of the editable sources with identical camera, lights, pose and frame for each pair. Not Unity screenshots, not native import, not owner approval.",
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "sets": {
+    "Malik": {
+      "before_source": "MalikVeyrH8S.blend",
+      "before_source_sha256": "0180aa40897a6ef631122452d444274c0767b67d2cecfd837f2fa37a6365e969",
+      "after_source": "MalikVeyrH9.blend",
+      "after_source_sha256": "f37cac9bef149abca41e6c1abbcc815f3671f8da1e5d6edaa5e524dea97529a6",
+      "engine": "Blender Cycles CPU, 24 samples, denoised, AgX Medium High Contrast",
+      "resolution": [
+        640,
+        800
+      ],
+      "pairs": [
+        {
+          "view": "cast",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/cast.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/cast.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_CrystalCast",
+          "action_frame": 13,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "8e5c93cb08dc6ee60c1feae95b416c8880c47553d48d3a860a936083138427e0",
+          "after_sha256": "58e86790600de744233630f676087c341fad6cc8b9a06cc9473478d142b29ee6"
+        },
+        {
+          "view": "cast_upper",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/cast_upper.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/cast_upper.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_CrystalCast",
+          "action_frame": 13,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "6e941fab13e2f1ca27e859a2da81abdf13d69b82782d53da781de75d5b415806",
+          "after_sha256": "3b84bfbf43496f2edf26d7b307a8570102b226adb6044bbb799bff93a0036023"
+        },
+        {
+          "view": "dodge",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/dodge.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/dodge.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_Dodge",
+          "action_frame": 12,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "0b8522412640308784a8cf73cc4beaf05215377c251d63fa9a54a64130c776be",
+          "after_sha256": "ff72c6469c7d9985b585a64b0d295957d3c200141132a59074b57b556af42e51"
+        },
+        {
+          "view": "dodge_upper",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/dodge_upper.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/dodge_upper.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_Dodge",
+          "action_frame": 12,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "bd3fb31aa7dc54e4e350d91ec093c3cc8e784de65087e65e3e73068ac78b21d3",
+          "after_sha256": "c50405eab2a45dccd0a9936aa230aa723b786c15581332632f9fb69d120cab44"
+        },
+        {
+          "view": "face_front",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/face_front.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/face_front.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "420b17ed5c63f110b99fcb07525360c2f63cd4cc980e8f10d19d433eb58d94bb",
+          "after_sha256": "651ea197bb646637284af920769a039af19a439a851a121639d3808f560cb5a6"
+        },
+        {
+          "view": "face_three_quarter",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/face_three_quarter.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/face_three_quarter.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "2f218b4e235e0a417a5e439a565c4256fc2ba874748b87e204b6afae6c25536a",
+          "after_sha256": "8e6d1a811171f1f98d509640f87fcd56b39761158f2fac4431a8f99f908e261c"
+        },
+        {
+          "view": "flight",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/flight.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/flight.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_FlightTakeoff",
+          "action_frame": 16,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "c533dab575331cac944449b66b121893c096069c687716045cee4ba4ad2faa89",
+          "after_sha256": "cc2a0f5e6776e8939c85d6abdbe7625f54ae0aa4034fd137ab3ca3690fce270b"
+        },
+        {
+          "view": "guard",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/guard.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/guard.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_Guard_Brace",
+          "action_frame": 20,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "b820aa1d5d73c8829f70fe464bcc160a374bece1d9af75727f53dddc1ca0e350",
+          "after_sha256": "073e1fd07ee92ad52df75d66aac9a71336d403d323d8fc3855b716d18aa3e676"
+        },
+        {
+          "view": "guard_upper",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/guard_upper.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/guard_upper.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_Guard_Brace",
+          "action_frame": 20,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "f78475d71421fdb804b94b32d1e3d93c8d1f65a4fee62ecef61e3e4630a92117",
+          "after_sha256": "b5b92d1bbe8b48f08edc5ee623b3d41c62bf5e95d5aafdd4d99602ad98ac7195"
+        },
+        {
+          "view": "head_turn",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/head_turn.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/head_turn.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": true,
+          "before_sha256": "a616474b45d86220069274784ebb7664fc8b0bdbea69cb2a1874778aedbace2a",
+          "after_sha256": "b3cbdb25cebee9162968fbc2e01c3900389697950a6f88b2e0b552f3f63b2623"
+        },
+        {
+          "view": "neutral_front",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/neutral_front.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/neutral_front.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "efe264be72e810ce3887d3204b4e7301c9b0c8915f65ef760e1d0bc068cf61bb",
+          "after_sha256": "464823346701eab01a43afe8954b5632e6771430bcb95671555465c1628059b9"
+        },
+        {
+          "view": "neutral_profile",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/neutral_profile.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/neutral_profile.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "60b8020b2be51486f4d45ac7b82ed27e97eae7a0de0fd06358c4664251d4ab7a",
+          "after_sha256": "22500db808bae3687069f0691a3a25002d4f58aee6fc0df98e092bf02613882f"
+        },
+        {
+          "view": "neutral_three_quarter",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/neutral_three_quarter.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/neutral_three_quarter.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "173fe38433c2e3cb7b14926e80aaab5a7e65e2359785e01f0c7d40135a65336f",
+          "after_sha256": "f98d9e2705016094de32ed34d973b560136d03357e35f2a5c1b672122668b90b"
+        },
+        {
+          "view": "planted_stop",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/planted_stop.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/planted_stop.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_JumpLanding",
+          "action_frame": 12,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "7fd3368ebd38807847907740dd3f445227a7fa25fe18f05be76a73a1873792b4",
+          "after_sha256": "61429a4eb12e875cfaf43856133ab7747e3d7930f310a16959fbe15a39756b15"
+        },
+        {
+          "view": "run",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/run.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/run.png",
+          "framing": "identical camera and target",
+          "authored_action": "H7_Run",
+          "action_frame": 7,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "4b711c1c1779310fde59f374b367d044c9afd6822bf73b827155545e8a86b93c",
+          "after_sha256": "6ebb21f816bbe4d04b61389a5f7971c5373633dc09f8942c89bd03c504f5f599"
+        },
+        {
+          "view": "sword_sweep",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/sword_sweep.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/sword_sweep.png",
+          "framing": "identical camera and target",
+          "authored_action": "H7_OathCut",
+          "action_frame": 21,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "2667f7b27bced4a04555ca2e979d0b42b36afc25fbe78e748d6e1f6fbf353a91",
+          "after_sha256": "e7beeca791f58a4bfd2521dbb1de3418b52f7ae63e036dee5657018064fa35e1"
+        },
+        {
+          "view": "sword_sweep_upper",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/sword_sweep_upper.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/sword_sweep_upper.png",
+          "framing": "identical camera and target",
+          "authored_action": "H7_OathCut",
+          "action_frame": 21,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "6f200e3f126e2456abbf822e3524a5e1ff75490426a2e3ad3313058ab9cc07d2",
+          "after_sha256": "ee05cf36be04053b8987d4eb4f704d9f70d7f0818266a55ced2466247a33754c"
+        },
+        {
+          "view": "two_handed_gun",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/two_handed_gun.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/two_handed_gun.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_FireAim",
+          "action_frame": 30,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "baf53b7c0049c913ebfc735c5c54c8430afb11546133c6dd5721eb8b5cee42c9",
+          "after_sha256": "74ca03d3c388d9891c0706ad1eb91f14ff05c89a8a1c6f823460527a3b07c073"
+        },
+        {
+          "view": "two_handed_gun_upper",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Malik/two_handed_gun_upper.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Malik/two_handed_gun_upper.png",
+          "framing": "identical camera and target",
+          "authored_action": "H8_FireAim",
+          "action_frame": 30,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "d4c5c5730999ebba525629c53a1a903d596fb0dc82501e72324c09b48ee9e87e",
+          "after_sha256": "2daf84f059ba507e51dbe38418b96a4d5263f7ef2c4a182c7b290a86c234739b"
+        }
+      ]
+    },
+    "Dante": {
+      "before_source": "DanteRookH8S.blend",
+      "before_source_sha256": "f763a694c36fd6d88eb099f69d5d97a88261908fef97b4f983c3c31ab367013a",
+      "after_source": "DanteRookH9.blend",
+      "after_source_sha256": "90deb94260fafe1cbdf7bc061aa424f5215965cbdf75d850bbc34f216b4b2ea2",
+      "engine": "Blender Cycles CPU, 24 samples, denoised, AgX Medium High Contrast",
+      "resolution": [
+        640,
+        800
+      ],
+      "pairs": [
+        {
+          "view": "face_three_quarter",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Dante/face_three_quarter.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Dante/face_three_quarter.png",
+          "framing": "head-relative: same lens and the same camera offset from each model's own head",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "ecfd2e1c431173da1b0f58027275cfb3f8bf61f276e029895a14b5706cb1d416",
+          "after_sha256": "4bf53003723b6994c3b97dbbccab1875d353d4f3c6b948f6ea26dcca078abd85"
+        },
+        {
+          "view": "front",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Dante/front.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Dante/front.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "6a9a057e935bc6c118a8e9244599edcc6bd39a5745f646854a8beeee2e48a14f",
+          "after_sha256": "e7eedd9ddfa4ad6e2814981d4b5a40f89e18524e343676e6c33d29cccf9b99a7"
+        },
+        {
+          "view": "three_quarter",
+          "before": "Docs/Ascension04OH/EvidenceH9/SourceBefore/Dante/three_quarter.png",
+          "after": "Docs/Ascension04OH/EvidenceH9/SourceAfter/Dante/three_quarter.png",
+          "framing": "identical camera and target",
+          "authored_action": null,
+          "action_frame": 1,
+          "synthetic_deformation_pose": false,
+          "before_sha256": "801aeb124553da10c8e059c14b1294b1de80d57c0ecc048d3f4d5701260600d8",
+          "after_sha256": "635616c33e6bfa8fc77909113d7f8ede72be557ddc558d6d3c13a02c213982af"
+        }
+      ]
+    }
+  },
+  "malik_lod_totals": {
+    "h8s": {
+      "LOD0": {
+        "vertices": 189105,
+        "triangles": 263220,
+        "batches": 12
+      },
+      "LOD1": {
+        "vertices": 94103,
+        "triangles": 149087,
+        "batches": 12
+      },
+      "LOD2": {
+        "vertices": 43795,
+        "triangles": 73819,
+        "batches": 12
+      }
+    },
+    "h9": {
+      "LOD0": {
+        "vertices": 45163,
+        "triangles": 86414,
+        "batches": 12
+      },
+      "LOD1": {
+        "vertices": 30325,
+        "triangles": 57368,
+        "batches": 12
+      },
+      "LOD2": {
+        "vertices": 16225,
+        "triangles": 30154,
+        "batches": 12
+      }
+    }
+  },
+  "dante_lod_totals": {
+    "h8s": [
+      {
+        "lod": 0,
+        "vertices": 16614,
+        "skins": 9
+      },
+      {
+        "lod": 1,
+        "vertices": 10033,
+        "skins": 9
+      },
+      {
+        "lod": 2,
+        "vertices": 5068,
+        "skins": 9
+      }
+    ],
+    "h9": [
+      {
+        "lod": 0,
+        "vertices": 15732,
+        "triangles": 30798,
+        "skins": 7
+      },
+      {
+        "lod": 1,
+        "vertices": 9557,
+        "triangles": 18496,
+        "skins": 7
+      },
+      {
+        "lod": 2,
+        "vertices": 4887,
+        "triangles": 9276,
+        "skins": 7
+      }
+    ]
+  },
+  "garment_audit": {
+    "method": "tools/audit_garment_h9.py: body vertices tracked against their rest attachment on the garment through 5 frames of each of the 17 actions; collar measured on its visible part",
+    "results": {
+      "h8s": {
+        "sampled_frames": 85,
+        "actions": 17,
+        "coat_worst_mm": 196.0,
+        "coat_pokes_max": 286,
+        "skirt_worst_mm": 56.9,
+        "collar_min_clearance_mm": -26.02,
+        "collar_top_gap_max_mm": 33.82
+      },
+      "h9": {
+        "sampled_frames": 85,
+        "actions": 17,
+        "coat_worst_mm": 5.7,
+        "coat_pokes_max": 5,
+        "skirt_worst_mm": 0.0,
+        "collar_min_clearance_mm": -4.11,
+        "collar_top_gap_max_mm": 16.77
+      }
+    }
+  }
+}

@@ -12,6 +12,8 @@ namespace NeonSyndicate
         public HumanoidAnimator Anim;
         public CharacterHealth Health;
         public Ragdoll Ragdoll;
+        /// <summary>Never knocked down, thrown or hurt (children of the city, NpcController.Family.cs); damage is refused by CharacterHealth.Invulnerable.</summary>
+        public bool NeverHarmed;
         public WeaponController Weapons;
         public TeamTag Team;
         public Vehicle CurrentVehicle;
@@ -87,6 +89,8 @@ namespace NeonSyndicate
             Health.Damaged += FlashOnHit;
             Health.Died += OnDied;
             ImportedVisual04OD.Attach(this);
+            // Wave 4 owner decision: owner-approved imported characters draw live over the procedural body.
+            LiveCastVisual.Attach(this);
         }
 
         protected virtual void OnDamaged(DamageInfo info) { }
@@ -119,7 +123,7 @@ namespace NeonSyndicate
 
         public virtual void KnockdownWithVelocity(Vector3 inherited, Vector3 velocityChange, Vector3 point, float minSeconds)
         {
-            if (Ragdoll == null || Rig == null) return;
+            if (Ragdoll == null || Rig == null || NeverHarmed) return;
             if (InVehicle) return;
             if (IsRagdolled)
             {

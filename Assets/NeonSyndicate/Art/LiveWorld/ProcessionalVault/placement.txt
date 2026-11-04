@@ -1,0 +1,7 @@
+# Processional Vault: a modular stone vault bay (H8R module, made for this game, CC0).
+# An ancient monument of the Amethyst Dominion beside the Castellan's ground. It has no collision,
+# so it stands clear of every walk; walking under it needs collision and a native check first.
+model Assets/NeonSyndicate/Art/WorldFoundationH8R/ProcessionalVault.fbx
+near Realm:castellan offset 0 0 -12
+# Seen first: the east side of the home court.
+near Venue:lofts.exit offset 19 0 60

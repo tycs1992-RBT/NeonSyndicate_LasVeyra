@@ -1,0 +1,223 @@
+{
+  "scope": "Audit actual H6 art, fingerprints and protected ownership. Never native import or appearance approval.",
+  "baseline": "0f18b4fb21832a18a59268d37d056200b8cfabb4",
+  "passed": 52,
+  "total": 53,
+  "checks": [
+    {
+      "name": "Actual candidate, disabled and appearance unapproved",
+      "passed": true
+    },
+    {
+      "name": "Explicit lawful rights and complete influences",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Models/authoring-stats.json",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/RIGHTS.md",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Brows_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Cloth_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Cloth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Eyes_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Lashes_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Leather_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Leather_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Albedo_Painted.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Specular.png",
+      "passed": true
+    },
+    {
+      "name": "Actual received/authored bytes / Assets/NeonSyndicate/Art/ProductionH6/Textures/texture-lineage.json",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / MalikVeyrH6.blend",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / MalikVeyrH6.fbx",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / MalikVeyrH6_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / MalikVeyrH6_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX and separate artist source",
+      "passed": true
+    },
+    {
+      "name": "53 source bones, 39 real skin batches, three decreasing LODs",
+      "passed": true
+    },
+    {
+      "name": "No claimed authored clips or production acceptance",
+      "passed": true
+    },
+    {
+      "name": "Eight actual source views tied to current artist source",
+      "passed": false
+    },
+    {
+      "name": "All source views exist",
+      "passed": true
+    },
+    {
+      "name": "No prepared copy or enabled registry shipped",
+      "passed": true
+    },
+    {
+      "name": "Explicit Editor scope, fallback restoration and original adapter",
+      "passed": true
+    },
+    {
+      "name": "Full weights, original shader, sockets and safe LOD preparation",
+      "passed": true
+    },
+    {
+      "name": "Scoped quality is restored, no persistent quality/save writes",
+      "passed": true
+    },
+    {
+      "name": "Review does not grant approval or replace animation authority",
+      "passed": true
+    },
+    {
+      "name": "New pure statics reset by original hub",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidRig.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidAnimator.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedArt04OH.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedBindH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/RegionalArsenal04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ForgeTreatments04M.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Rebirth04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_appearance": "NOT GIVEN",
+  "production_acceptance": "NOT ACHIEVED"
+}

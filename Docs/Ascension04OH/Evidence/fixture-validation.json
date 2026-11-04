@@ -1,0 +1,1 @@
+{"scope":"Independent strict FBX parse and skin/clip math, NOT Unity","passed":true,"bones":47,"vertices":188,"triangles":188,"skin_clusters":47,"clips":1,"unit_meters":1,"maximum_bind_error":1.30384048e-07,"maximum_clip_motion":0.323071546,"maximum_recovery_error":1.30384048e-07,"native_unity":"NOT RUN"}

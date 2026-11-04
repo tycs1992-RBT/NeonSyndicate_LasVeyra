@@ -95,6 +95,10 @@ namespace NeonSyndicate
         public static StrongholdSystem Strongholds;
         public static TerritorySystem Territories;
         public static InhabitedCitySystem Inhabited;
+        /// <summary>Generated enterable city interiors (blueprint: enterable interiors). May be null.</summary>
+        public static CityInteriors Interiors;
+        /// <summary>The wilds around the city: lands, landforms and named places to discover (WildsSystem).</summary>
+        public static WildsSystem Wilds;
         // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).
         public static CrystalArsenal Arsenal;
         public static CrystalEncounters Encounters;
@@ -135,6 +139,7 @@ namespace NeonSyndicate
         {
             CrystalCombat = null;
             CrystalCombatPolicy04F.ResetStatics();
+            WildsMaterials.ResetStatics();
             GuidanceRules04F.ResetStatics();
             CombatResponse04G.ResetStatics();
             CompanionMotion04G.ResetStatics();
@@ -196,6 +201,8 @@ namespace NeonSyndicate
             Strongholds = null;
             Territories = null;
             Inhabited = null;
+            Interiors = null;
+            Wilds = null;
             InhabitedCitySettings04C.ResetStatics();
             InhabitedCityBindings04C.ResetStatics();
             InhabitedResidentRules04C.ResetStatics();
@@ -358,8 +365,15 @@ namespace NeonSyndicate
             FrontierLandmarks04OG.ResetStatics();
             FrontierSound04OG.ResetStatics();
             FrontierGeometry04OG.ResetStatics();
+            AscensionGeometry04OH.ResetStatics();
+            AscensionArtH2.ResetStatics();
+            AscensionCompositionH2.ResetStatics();
+            GothicHeartH3.ResetStatics();GothicCivicH5.ResetStatics();
             RegionalResonance04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();
+            ImportedArt04OH.ResetStatics();
+            ImportedBindH3.ResetStatics();SkinWeightsH5.ResetStatics();
+            MalikReviewH6.ResetStatics();
             GothicRealmGeometry04OB.ResetStatics();
             GothicRoomComposition04OB.ResetStatics();
             GothicRealmMaterials04OB.ResetStatics();

@@ -41,6 +41,7 @@ namespace NeonSyndicate
             k.Horns = evo >= 2 ? 3 : 1;
             k.GlowStrength = 1.15f + 0.2f * evo;
             k.CrystalRegalia = true;
+            k.AscensionGuide04OH = true;
             return k;
         }
 

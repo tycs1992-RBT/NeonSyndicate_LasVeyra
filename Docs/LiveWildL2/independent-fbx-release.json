@@ -1,0 +1,225 @@
+{
+  "scope": "Pinned strict independent static FBX parser, not Unity import",
+  "parser_commit": "5955c5c0b042ac2dc6f32955ab206aaec0620cfc",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD0.fbx",
+      "sha256": "31f7deecbacb6b74961a10a17c3ef87131246d867507facf608502cebd02bb02",
+      "exit_code": 0,
+      "result": {
+        "triangles": 1600,
+        "vertices": 802,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD1.fbx",
+      "sha256": "7c5d75f6f1d74732a81a51f944ee74c3a875eb00b52c7812e8c511407b960842",
+      "exit_code": 0,
+      "result": {
+        "triangles": 768,
+        "vertices": 386,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD2.fbx",
+      "sha256": "467530a7d07c94473ae621ef317954c9cd62b5a5e6f73940a056b9371089a3fb",
+      "exit_code": 0,
+      "result": {
+        "triangles": 320,
+        "vertices": 162,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD0.fbx",
+      "sha256": "6dfcec138888affd398a8f94e3adb75ca97a3998084ef9a6e9a0764757c65161",
+      "exit_code": 0,
+      "result": {
+        "triangles": 1600,
+        "vertices": 802,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD1.fbx",
+      "sha256": "92c82635aae01cbf9931442a7f5d3d14b0bf16bf8e903e1011ed56ae5f8b733d",
+      "exit_code": 0,
+      "result": {
+        "triangles": 768,
+        "vertices": 386,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD2.fbx",
+      "sha256": "2449313f6d534ac2928947ba1a12d6b2cfba59f9ad8519e415c05bb9536a5b8f",
+      "exit_code": 0,
+      "result": {
+        "triangles": 320,
+        "vertices": 162,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD0.fbx",
+      "sha256": "c03de6a0521a8b6f7e77d32bf3f0876b2bf3b2c803da48e11fc2f9967d1ef8ff",
+      "exit_code": 0,
+      "result": {
+        "triangles": 2172,
+        "vertices": 1134,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD1.fbx",
+      "sha256": "87fc6f7849a9212d16a63bd609550c9ca9f7203745eab90e07d7d3bba8dfd180",
+      "exit_code": 0,
+      "result": {
+        "triangles": 1042,
+        "vertices": 569,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD2.fbx",
+      "sha256": "52b0d545cdbe5fae8db137db79bbbf6d95e4778a79d1bb5e2a89700609c3d5c0",
+      "exit_code": 0,
+      "result": {
+        "triangles": 434,
+        "vertices": 265,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD0.fbx",
+      "sha256": "6938d96fc9e6f4365cb82d606bff9a62827a984c05f231086587d9130a96021a",
+      "exit_code": 0,
+      "result": {
+        "triangles": 2172,
+        "vertices": 1134,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD1.fbx",
+      "sha256": "4962dbd82d822498740b8c50988dde3a1f1ea4000a700cdfc9c661081cd0f7c2",
+      "exit_code": 0,
+      "result": {
+        "triangles": 1042,
+        "vertices": 569,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD2.fbx",
+      "sha256": "0ae45e2dfb2e80209787f342bbca4b4375c3972d8de81618639e8393e2fdf070",
+      "exit_code": 0,
+      "result": {
+        "triangles": 434,
+        "vertices": 265,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD0.fbx",
+      "sha256": "16cbf78730fe02899f4bafb583c7f6380c221d952940748af12b54ee9d950465",
+      "exit_code": 0,
+      "result": {
+        "triangles": 2160,
+        "vertices": 1082,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD1.fbx",
+      "sha256": "6852064a2e7306503ef354d3cd9dbef3028c4bddb49ac9db52f6c9907b63ad33",
+      "exit_code": 0,
+      "result": {
+        "triangles": 1036,
+        "vertices": 520,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD2.fbx",
+      "sha256": "2f2dba182442dea5cbb75836d908e2f0fc0e3940a71cf658016b50fc723f2d1d",
+      "exit_code": 0,
+      "result": {
+        "triangles": 432,
+        "vertices": 218,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD0.fbx",
+      "sha256": "c4e527abf7a4fd7e88effb47e101b2b3b05b275de6df4fc4936e1032a535837b",
+      "exit_code": 0,
+      "result": {
+        "triangles": 2160,
+        "vertices": 1082,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD1.fbx",
+      "sha256": "55ac05a6128d444b765592dd790b1af63ea2cd8a149cc8185c22d2aefe86e94e",
+      "exit_code": 0,
+      "result": {
+        "triangles": 1036,
+        "vertices": 520,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD2.fbx",
+      "sha256": "526873320127aa787598ae6a151525596a5a7910ddf646bcf6f4f7cb7d807bd4",
+      "exit_code": 0,
+      "result": {
+        "triangles": 432,
+        "vertices": 218,
+        "materials": 1,
+        "passed": true,
+        "native_unity": "NOT RUN"
+      }
+    }
+  ],
+  "passed": 18,
+  "total": 18,
+  "native_unity": "NOT RUN"
+}

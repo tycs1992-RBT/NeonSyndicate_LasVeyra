@@ -1,0 +1,67 @@
+{
+  "cases": [
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.ActualAuthoredFilesHaveRealUVGeometryFiniteNormalsAndBoundedDetail(False)",
+      "result": "Passed",
+      "duration": "0.065262"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.ActualAuthoredFilesHaveRealUVGeometryFiniteNormalsAndBoundedDetail(True)",
+      "result": "Passed",
+      "duration": "0.026103"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.ArticulatedFixedBossMeshMirrorsWithCorrectWindingAndKeepsCoreOpen",
+      "result": "Passed",
+      "duration": "0.004813"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.DecoderRejectsCorruptOrOversizedStreamsWithoutCreatingUnityObjects",
+      "result": "Passed",
+      "duration": "0.004573"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.H2ChecklistPreservesAllEarlierObservations",
+      "result": "Passed",
+      "duration": "0.002229"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.H2PhysicalCommissionUsesOriginalRunnerFiniteBodiesAndNoUnearnedPowers",
+      "result": "Passed",
+      "duration": "0.018205"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.RealAssetCollisionsLeaveGroundedRoutesSideBaysCaveJunctionsAndOldAnchorsClear(61724)",
+      "result": "Passed",
+      "duration": "5.323649"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.RealAssetCollisionsLeaveGroundedRoutesSideBaysCaveJunctionsAndOldAnchorsClear(1)",
+      "result": "Passed",
+      "duration": "4.427731"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.RealAssetCollisionsLeaveGroundedRoutesSideBaysCaveJunctionsAndOldAnchorsClear(2016)",
+      "result": "Passed",
+      "duration": "4.682426"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.RealAssetCollisionsLeaveGroundedRoutesSideBaysCaveJunctionsAndOldAnchorsClear(77231)",
+      "result": "Passed",
+      "duration": "4.946679"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.RealAssetCollisionsLeaveGroundedRoutesSideBaysCaveJunctionsAndOldAnchorsClear(92017)",
+      "result": "Passed",
+      "duration": "4.521663"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ArtRevolutionH2Tests.RevisionEightCannotLoadAnyOlderBankOrGrantAnotherProfileSpecificQuest",
+      "result": "Passed",
+      "duration": "0.003024"
+    }
+  ],
+  "passed": 12,
+  "total": 12,
+  "native_unity": "NOT RUN"
+}

@@ -1,0 +1,999 @@
+{
+  "actors": [
+    {
+      "identity": "Malik fallback",
+      "detail": 1,
+      "vertices": 8129,
+      "triangles": 10258,
+      "bones": 47,
+      "source": "BodyBuilder, same original rig, not imported art"
+    },
+    {
+      "identity": "Malik fallback",
+      "detail": 2,
+      "vertices": 13406,
+      "triangles": 18287,
+      "bones": 47,
+      "source": "BodyBuilder, same original rig, not imported art"
+    },
+    {
+      "identity": "storm_prowler",
+      "vertices": 5348,
+      "triangles": 5774,
+      "bones": 33,
+      "hitVolumes": 18,
+      "Radius": 1.1647292,
+      "Height": 0.80686086,
+      "source": "CreatureBuilder fallback, not imported art"
+    },
+    {
+      "identity": "quartz_guide",
+      "vertices": 12090,
+      "triangles": 9678,
+      "bones": 48,
+      "hitVolumes": 24,
+      "Radius": 0.58946824,
+      "Height": 0.4470851,
+      "source": "CreatureBuilder fallback, not imported art"
+    }
+  ],
+  "scope": "Exact compiled source route lengths and emitted geometry. NOT native Unity, screenshots, player physics, rendered visuals or FPS.",
+  "worlds": [
+    {
+      "revision": 6,
+      "rejectedNeighbors": 0,
+      "bank": "lasveyra_frontier04og_save_0.json",
+      "arrival": [
+        0,
+        0.15,
+        -27.25
+      ],
+      "services": [
+        {
+          "id": "lofts",
+          "position": [
+            0,
+            0.15,
+            -30
+          ],
+          "metres": 2.75
+        },
+        {
+          "id": "clinic",
+          "position": [
+            -38,
+            0.15,
+            72
+          ],
+          "metres": 122.23474
+        },
+        {
+          "id": "forge",
+          "position": [
+            75,
+            0.15,
+            96
+          ],
+          "metres": 185.7342
+        },
+        {
+          "id": "inn",
+          "position": [
+            -64,
+            0.15,
+            115
+          ],
+          "metres": 183.0057
+        },
+        {
+          "id": "garage",
+          "position": [
+            118,
+            0.15,
+            -74
+          ],
+          "metres": 230.19858
+        },
+        {
+          "id": "archive",
+          "position": [
+            -6,
+            0.15,
+            118
+          ],
+          "metres": 161.73653
+        },
+        {
+          "id": "observatory",
+          "position": [
+            68,
+            0.15,
+            186
+          ],
+          "metres": 255.19081
+        },
+        {
+          "id": "depot",
+          "position": [
+            110,
+            0.15,
+            36
+          ],
+          "metres": 185.47159
+        },
+        {
+          "id": "dispatch",
+          "position": [
+            -42,
+            0.15,
+            4
+          ],
+          "metres": 64.81949
+        },
+        {
+          "id": "pressure",
+          "position": [
+            34,
+            0.15,
+            12
+          ],
+          "metres": 84.95607
+        },
+        {
+          "id": "bondkeeper",
+          "position": [
+            34,
+            0.15,
+            -46
+          ],
+          "metres": 52.277092
+        },
+        {
+          "id": "office",
+          "position": [
+            -61,
+            0.15,
+            -65
+          ],
+          "metres": 81.87876
+        }
+      ],
+      "castellan": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "metres": 246.14346
+      },
+      "sovereign": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "metres": 379.38907
+      },
+      "anchors": [
+        {
+          "id": "Realm:oath-seal",
+          "position": [
+            -301.41425,
+            4.15,
+            31.213203
+          ],
+          "metres": 472.3925
+        },
+        {
+          "id": "Realm:oath-witness",
+          "position": [
+            -302.82843,
+            0.15,
+            75.053825
+          ],
+          "metres": 470.14346
+        },
+        {
+          "id": "Realm:storm-crossing",
+          "position": [
+            -336.04163,
+            4.15,
+            163.75734
+          ],
+          "metres": 547.37524
+        },
+        {
+          "id": "Realm:storm-spring",
+          "position": [
+            -379.8822,
+            0.15,
+            162.34312
+          ],
+          "metres": 491.1669
+        },
+        {
+          "id": "Realm:storm-vein",
+          "position": [
+            -369.9827,
+            0.15,
+            172.24261
+          ],
+          "metres": 505.1669
+        }
+      ],
+      "routes": [
+        {
+          "Id": "04og/oath-access",
+          "Width": 5,
+          "metres": 72.000015,
+          "points": [
+            [
+              -300,
+              0.15,
+              10
+            ],
+            [
+              -308.4853,
+              0.15,
+              1.5147171
+            ],
+            [
+              -342.42642,
+              0.15,
+              35.455845
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ]
+        },
+        {
+          "Id": "04og/oath-loop",
+          "Width": 6,
+          "metres": 120.49804,
+          "points": [
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ],
+            [
+              -311.31372,
+              4.15,
+              21.31371
+            ],
+            [
+              -291.51474,
+              4.15,
+              41.112698
+            ],
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ]
+        },
+        {
+          "Id": "04og/oath-witness",
+          "Width": 6,
+          "metres": 16.00001,
+          "points": [
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -302.82843,
+              0.15,
+              75.053825
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-access",
+          "Width": 5,
+          "metres": 96.000015,
+          "points": [
+            [
+              -297.85785,
+              0.15,
+              182.14214
+            ],
+            [
+              -289.37256,
+              0.15,
+              173.65686
+            ],
+            [
+              -340.28424,
+              0.15,
+              122.745155
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-loop",
+          "Width": 6,
+          "metres": 120.49802,
+          "points": [
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ],
+            [
+              -326.14212,
+              4.15,
+              153.85785
+            ],
+            [
+              -345.9411,
+              4.15,
+              173.65683
+            ],
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-cavern",
+          "Width": 7,
+          "metres": 31.99999,
+          "points": [
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -391.19592,
+              0.15,
+              173.65683
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-vein",
+          "Width": 6,
+          "metres": 14.000005,
+          "points": [
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -369.9827,
+              0.15,
+              172.24261
+            ]
+          ]
+        }
+      ],
+      "newCaptureViews": [
+        {
+          "Id": "04og_oath-loop",
+          "position": [
+            -304.94977,
+            5.8500004,
+            27.67767
+          ],
+          "lookAt": [
+            -298.58582,
+            6.15,
+            34.04163
+          ]
+        },
+        {
+          "Id": "04og_oath-witness",
+          "position": [
+            -312.0208,
+            1.85,
+            65.86144
+          ],
+          "lookAt": [
+            -305.65686,
+            2.15,
+            72.225395
+          ]
+        },
+        {
+          "Id": "04og_storm-loop",
+          "position": [
+            -332.5061,
+            5.8500004,
+            160.2218
+          ],
+          "lookAt": [
+            -338.87006,
+            6.15,
+            166.58577
+          ]
+        },
+        {
+          "Id": "04og_storm-cavern",
+          "position": [
+            -370.68982,
+            1.85,
+            153.15074
+          ],
+          "lookAt": [
+            -377.05377,
+            2.15,
+            159.51471
+          ]
+        }
+      ]
+    },
+    {
+      "revision": 7,
+      "rejectedNeighbors": 7,
+      "bank": "lasveyra_ascension04oh_save_0.json",
+      "arrival": [
+        0,
+        0.15,
+        -27.25
+      ],
+      "services": [
+        {
+          "id": "lofts",
+          "position": [
+            0,
+            0.15,
+            -30
+          ],
+          "metres": 2.75
+        },
+        {
+          "id": "clinic",
+          "position": [
+            -38,
+            0.15,
+            72
+          ],
+          "metres": 122.23474
+        },
+        {
+          "id": "forge",
+          "position": [
+            75,
+            0.15,
+            96
+          ],
+          "metres": 185.7342
+        },
+        {
+          "id": "inn",
+          "position": [
+            -64,
+            0.15,
+            115
+          ],
+          "metres": 183.0057
+        },
+        {
+          "id": "garage",
+          "position": [
+            118,
+            0.15,
+            -74
+          ],
+          "metres": 230.19858
+        },
+        {
+          "id": "archive",
+          "position": [
+            -6,
+            0.15,
+            118
+          ],
+          "metres": 161.73653
+        },
+        {
+          "id": "observatory",
+          "position": [
+            68,
+            0.15,
+            186
+          ],
+          "metres": 255.19081
+        },
+        {
+          "id": "depot",
+          "position": [
+            110,
+            0.15,
+            36
+          ],
+          "metres": 185.47159
+        },
+        {
+          "id": "dispatch",
+          "position": [
+            -42,
+            0.15,
+            4
+          ],
+          "metres": 64.81949
+        },
+        {
+          "id": "pressure",
+          "position": [
+            34,
+            0.15,
+            12
+          ],
+          "metres": 84.95607
+        },
+        {
+          "id": "bondkeeper",
+          "position": [
+            34,
+            0.15,
+            -46
+          ],
+          "metres": 52.277092
+        },
+        {
+          "id": "office",
+          "position": [
+            -61,
+            0.15,
+            -65
+          ],
+          "metres": 81.87876
+        }
+      ],
+      "castellan": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "metres": 246.14346
+      },
+      "sovereign": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "metres": 379.38907
+      },
+      "anchors": [
+        {
+          "id": "Realm:oath-seal",
+          "position": [
+            -301.41425,
+            4.15,
+            31.213203
+          ],
+          "metres": 472.3925
+        },
+        {
+          "id": "Realm:oath-witness",
+          "position": [
+            -302.82843,
+            0.15,
+            75.053825
+          ],
+          "metres": 470.14346
+        },
+        {
+          "id": "Realm:storm-crossing",
+          "position": [
+            -336.04163,
+            4.15,
+            163.75734
+          ],
+          "metres": 566.4335
+        },
+        {
+          "id": "Realm:storm-spring",
+          "position": [
+            -379.8822,
+            0.15,
+            162.34312
+          ],
+          "metres": 536.18445
+        },
+        {
+          "id": "Realm:storm-vein",
+          "position": [
+            -369.9827,
+            0.15,
+            172.24261
+          ],
+          "metres": 550.18445
+        }
+      ],
+      "routes": [
+        {
+          "Id": "04og/oath-access",
+          "Width": 5,
+          "metres": 72.000015,
+          "points": [
+            [
+              -300,
+              0.15,
+              10
+            ],
+            [
+              -308.4853,
+              0.15,
+              1.5147171
+            ],
+            [
+              -342.42642,
+              0.15,
+              35.455845
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ]
+        },
+        {
+          "Id": "04og/oath-loop",
+          "Width": 6,
+          "metres": 120.49804,
+          "points": [
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ],
+            [
+              -311.31372,
+              4.15,
+              21.31371
+            ],
+            [
+              -291.51474,
+              4.15,
+              41.112698
+            ],
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ]
+        },
+        {
+          "Id": "04og/oath-witness",
+          "Width": 6,
+          "metres": 16.00001,
+          "points": [
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -302.82843,
+              0.15,
+              75.053825
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-access",
+          "Width": 5,
+          "metres": 96.000015,
+          "points": [
+            [
+              -297.85785,
+              0.15,
+              182.14214
+            ],
+            [
+              -289.37256,
+              0.15,
+              173.65686
+            ],
+            [
+              -340.28424,
+              0.15,
+              122.745155
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-loop",
+          "Width": 6,
+          "metres": 120.49802,
+          "points": [
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ],
+            [
+              -326.14212,
+              4.15,
+              153.85785
+            ],
+            [
+              -345.9411,
+              4.15,
+              173.65683
+            ],
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-cavern",
+          "Width": 7,
+          "metres": 31.99999,
+          "points": [
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -391.19592,
+              0.15,
+              173.65683
+            ]
+          ]
+        },
+        {
+          "Id": "04og/storm-vein",
+          "Width": 6,
+          "metres": 14.000005,
+          "points": [
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -369.9827,
+              0.15,
+              172.24261
+            ]
+          ]
+        }
+      ],
+      "newCaptureViews": [
+        {
+          "Id": "04og_oath-loop",
+          "position": [
+            -304.94977,
+            5.8500004,
+            27.67767
+          ],
+          "lookAt": [
+            -298.58582,
+            6.15,
+            34.04163
+          ]
+        },
+        {
+          "Id": "04og_oath-witness",
+          "position": [
+            -312.0208,
+            1.85,
+            65.86144
+          ],
+          "lookAt": [
+            -305.65686,
+            2.15,
+            72.225395
+          ]
+        },
+        {
+          "Id": "04og_storm-loop",
+          "position": [
+            -332.5061,
+            5.8500004,
+            160.2218
+          ],
+          "lookAt": [
+            -338.87006,
+            6.15,
+            166.58577
+          ]
+        },
+        {
+          "Id": "04og_storm-cavern",
+          "position": [
+            -370.68982,
+            1.85,
+            153.15074
+          ],
+          "lookAt": [
+            -377.05377,
+            2.15,
+            159.51471
+          ]
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "name": "revision-6-04og-oath-access",
+      "vertices": 72,
+      "triangles": 36,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "672c3c08b25b8fb1b4134e0da1e436e5bc1a7135d2c318e7f0e23a600e721da1"
+    },
+    {
+      "name": "revision-6-04og-oath-loop",
+      "vertices": 3264,
+      "triangles": 1632,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "56c204b83bfc143dafd8f795673dc365848f30274dd21f37223ccec448ced1da"
+    },
+    {
+      "name": "revision-6-04og-oath-witness",
+      "vertices": 496,
+      "triangles": 228,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "9849d20a36ea04476ead8eb10fd29d865e4a5de30996936607ace92f2ea9dca5"
+    },
+    {
+      "name": "revision-6-04og-storm-access",
+      "vertices": 72,
+      "triangles": 36,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "f155d629367d04dfc204aded767889e835d4c12a3ff0395b4a7c58cf40d7ce8c"
+    },
+    {
+      "name": "revision-6-04og-storm-loop",
+      "vertices": 2016,
+      "triangles": 840,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "34d356b308e75620ad7e678a666ef8201324eab55e62d1b002a4e9bee9d30011"
+    },
+    {
+      "name": "revision-6-04og-storm-cavern",
+      "vertices": 1688,
+      "triangles": 624,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "905b62907605c19f90220dea471c4a4b517a6eecc5f578aae1b5127b074b019b"
+    },
+    {
+      "name": "revision-6-04og-storm-vein",
+      "vertices": 952,
+      "triangles": 348,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "0c3434501dec0f948bb11e87334f3407a0a72fc7361555708d2d488c25cb0a93"
+    },
+    {
+      "name": "revision-7-04og-oath-access",
+      "vertices": 72,
+      "triangles": 36,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "672c3c08b25b8fb1b4134e0da1e436e5bc1a7135d2c318e7f0e23a600e721da1"
+    },
+    {
+      "name": "revision-7-04og-oath-loop",
+      "vertices": 9512,
+      "triangles": 4656,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "5192b7b35c1f1d5ade90c54cecc46d94e18e6102b6b700cafad5b5dd3f4cae8d"
+    },
+    {
+      "name": "revision-7-04og-oath-witness",
+      "vertices": 9296,
+      "triangles": 4548,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "4c9143a0e9d22e0f9c7e9d21618d1741b85189379f4ce6987493e3f6d9d32e7e"
+    },
+    {
+      "name": "revision-7-04og-storm-access",
+      "vertices": 72,
+      "triangles": 36,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "f155d629367d04dfc204aded767889e835d4c12a3ff0395b4a7c58cf40d7ce8c"
+    },
+    {
+      "name": "revision-7-04og-storm-loop",
+      "vertices": 3680,
+      "triangles": 1560,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "33f99b045e3b0c20f525864e4d1cf6742ba564f9c72941fac406c25ec574dee3"
+    },
+    {
+      "name": "revision-7-04og-storm-cavern",
+      "vertices": 2480,
+      "triangles": 960,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "8d5388b1e36f3340260284cdbab2af6e78df9c9717495cc101ba31f32b8a7f0a"
+    },
+    {
+      "name": "revision-7-04og-storm-vein",
+      "vertices": 1000,
+      "triangles": 396,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "3cc597b790a49cd5132fe1906f63f7270bf9afd5285244e6c05802eb20d10552"
+    },
+    {
+      "name": "04og-oathguard-ward",
+      "vertices": 356,
+      "triangles": 132,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "0c071af505c8553e72c5ef76877a9e845b6fd2fd9fa6d17d7b5a126d63df49ed"
+    },
+    {
+      "name": "04og-sovereign-hip-roots",
+      "vertices": 464,
+      "triangles": 192,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "6a47755ccd96bea174c11c04f7c9e9a3d47c253d6d7addcbbaa304964623d378"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "scope": "Software-camera ray to the first two-sided exported triangle. Includes retained 04C rooms. Native occlusion untested.",
+  "samples": [
+    {
+      "camera": "home",
+      "feature": "west glazing",
+      "expected_role": "amber-glass",
+      "first_role": "amber-glass",
+      "target_world": [
+        -3.4,
+        12.93,
+        -37.38
+      ],
+      "hit_world": [
+        -3.4,
+        12.93,
+        -37.38
+      ],
+      "passed": true
+    },
+    {
+      "camera": "home",
+      "feature": "east glazing",
+      "expected_role": "amber-glass",
+      "first_role": "amber-glass",
+      "target_world": [
+        -5.43,
+        12.93,
+        -37.38
+      ],
+      "hit_world": [
+        -5.43,
+        12.93,
+        -37.38
+      ],
+      "passed": true
+    },
+    {
+      "camera": "home",
+      "feature": "bench back",
+      "expected_role": "root",
+      "first_role": "root",
+      "target_world": [
+        -4.3,
+        10.58,
+        -33.73
+      ],
+      "hit_world": [
+        -4.301,
+        10.576,
+        -33.72
+      ],
+      "passed": true
+    },
+    {
+      "camera": "court",
+      "feature": "open crown rim",
+      "expected_role": "iron",
+      "first_role": "iron",
+      "target_world": [
+        80.1,
+        16.09,
+        106.0
+      ],
+      "hit_world": [
+        79.933,
+        16.056,
+        105.892
+      ],
+      "passed": true
+    },
+    {
+      "camera": "workshop",
+      "feature": "service lens",
+      "expected_role": "forge-lens",
+      "first_role": "forge-lens",
+      "target_world": [
+        80.1,
+        12.61,
+        107.11
+      ],
+      "hit_world": [
+        80.099,
+        12.608,
+        107.105
+      ],
+      "passed": true
+    },
+    {
+      "camera": "return",
+      "feature": "middle shelf",
+      "expected_role": "basalt",
+      "first_role": "basalt",
+      "target_world": [
+        -51.46,
+        2.85,
+        44.9
+      ],
+      "hit_world": [
+        -51.469,
+        2.85,
+        44.895
+      ],
+      "passed": true
+    },
+    {
+      "camera": "return",
+      "feature": "far Archive roof",
+      "expected_role": "slate",
+      "first_role": "slate",
+      "target_world": [
+        -4.23,
+        15.51,
+        152.61
+      ],
+      "hit_world": [
+        -4.24,
+        15.508,
+        152.592
+      ],
+      "passed": true
+    }
+  ]
+}

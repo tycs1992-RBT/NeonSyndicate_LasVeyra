@@ -1,0 +1,259 @@
+{
+  "bones": 53,
+  "lods": [
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Aged bronze",
+      "vertices": 1440,
+      "triangles": 2832,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Cornea",
+      "vertices": 962,
+      "triangles": 1824,
+      "material": "H6 Cornea"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Worn leather",
+      "vertices": 6475,
+      "triangles": 12744,
+      "material": "H6 Worn leather"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Blackened steel",
+      "vertices": 2752,
+      "triangles": 5472,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Charcoal wool",
+      "vertices": 69595,
+      "triangles": 138614,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Restrained amethyst",
+      "vertices": 227,
+      "triangles": 444,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Short groom",
+      "vertices": 91932,
+      "triangles": 70110,
+      "material": "H6 Short groom"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Eyes",
+      "vertices": 962,
+      "triangles": 1824,
+      "material": "H6 Eyes"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H8R Skin",
+      "vertices": 13380,
+      "triangles": 26756,
+      "material": "H8R Skin"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Pupils",
+      "vertices": 962,
+      "triangles": 1824,
+      "material": "H6 Pupils"
+    },
+    {
+      "lod": "LOD0",
+      "name": "LOD0_H6 Sclera",
+      "vertices": 1844,
+      "triangles": 3680,
+      "material": "H6 Sclera"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Aged bronze",
+      "vertices": 978,
+      "triangles": 1908,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Cornea",
+      "vertices": 642,
+      "triangles": 1184,
+      "material": "H6 Cornea"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Worn leather",
+      "vertices": 4277,
+      "triangles": 8353,
+      "material": "H6 Worn leather"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Blackened steel",
+      "vertices": 1790,
+      "triangles": 3548,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Charcoal wool",
+      "vertices": 45316,
+      "triangles": 90096,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Restrained amethyst",
+      "vertices": 150,
+      "triangles": 290,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Short groom",
+      "vertices": 30654,
+      "triangles": 23378,
+      "material": "H6 Short groom"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Eyes",
+      "vertices": 642,
+      "triangles": 1184,
+      "material": "H6 Eyes"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H8R Skin",
+      "vertices": 8697,
+      "triangles": 17390,
+      "material": "H8R Skin"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Pupils",
+      "vertices": 642,
+      "triangles": 1184,
+      "material": "H6 Pupils"
+    },
+    {
+      "lod": "LOD1",
+      "name": "LOD1_H6 Sclera",
+      "vertices": 1200,
+      "triangles": 2392,
+      "material": "H6 Sclera"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Aged bronze",
+      "vertices": 564,
+      "triangles": 1080,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Cornea",
+      "vertices": 360,
+      "triangles": 620,
+      "material": "H6 Cornea"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Worn leather",
+      "vertices": 2318,
+      "triangles": 4469,
+      "material": "H6 Worn leather"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Blackened steel",
+      "vertices": 940,
+      "triangles": 1848,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Charcoal wool",
+      "vertices": 23811,
+      "triangles": 47125,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Restrained amethyst",
+      "vertices": 81,
+      "triangles": 152,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Short groom",
+      "vertices": 10230,
+      "triangles": 7802,
+      "material": "H6 Short groom"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Eyes",
+      "vertices": 360,
+      "triangles": 620,
+      "material": "H6 Eyes"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H8R Skin",
+      "vertices": 4550,
+      "triangles": 9096,
+      "material": "H8R Skin"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Pupils",
+      "vertices": 360,
+      "triangles": 620,
+      "material": "H6 Pupils"
+    },
+    {
+      "lod": "LOD2",
+      "name": "LOD2_H6 Sclera",
+      "vertices": 628,
+      "triangles": 1248,
+      "material": "H6 Sclera"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "source_sha256": "28652f95987456e62dd74823b031954fb1b56c7054d132ee9137de8a67ca6e00"
+}

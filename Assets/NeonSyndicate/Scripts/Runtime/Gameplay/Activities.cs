@@ -227,19 +227,10 @@ namespace NeonSyndicate
 
         private void BuildRaces(CityLayout L)
         {
-            float sx = CityLayout.StripX;
-            AddRace(L, "race_strip", "Strip Sprint", new Vector3(sx, 0f, -380f),
-                new[] { new Vector3(sx, 0f, 430f), new Vector3(660f, 0f, 430f), new Vector3(660f, 0f, -160f), new Vector3(sx, 0f, -380f) },
-                new[] { "Vanta Arrow", "Orion Vista", "Mistral Comet" }, 3000,
-                "Mirage Strip, end to end and back. The lights are just suggestions tonight.");
-            AddRace(L, "race_canal", "Canal Kings", new Vector3(-660f, 0f, -470f),
-                new[] { new Vector3(660f, 0f, -470f), new Vector3(660f, 0f, -690f), new Vector3(-660f, 0f, -690f), new Vector3(-660f, 0f, -470f) },
-                new[] { "Torque Falcon", "Kestrel Marauder", "Bishop Barrage" }, 3500,
-                "Both banks of the canal. The bridges are narrow, and so are my rivals' brains.");
-            AddRace(L, "race_skyrail", "Skyrail Circuit", new Vector3(700f, 0f, 260f),
-                new[] { new Vector3(700f, 0f, 650f), new Vector3(-160f, 0f, 650f), new Vector3(-160f, 0f, 220f), new Vector3(700f, 0f, 260f) },
-                new[] { "Bishop Vektor", "Torque Surge", "Mistral Comet" }, 4500,
-                "Skyrail Orbit into Glass Heights and home. Supercars only. Bring one or pray.");
+            // The three city races come from one table (CityRacesH8S): the original routes in the original city, and real-road
+            // routes in revision 10, which has no downtown street grid. Ids, names, rivals and prizes are the same in both.
+            foreach (CityRaceRouteH8S race in CityRacesH8S.StreetRaces(L != null && L.GothicCivicH5))
+                AddRace(L, race.Id, race.Name, race.Near, race.Way, race.Rivals, race.Prize, race.Intro);
             Vector3 motel = MissionManager.SitePos("StarliteMotel", new Vector3(1290f, 0f, -350f));
             AddRace(L, "race_badlands", "Badlands Rally", motel + new Vector3(-70f, 0f, 0f),
                 new[]

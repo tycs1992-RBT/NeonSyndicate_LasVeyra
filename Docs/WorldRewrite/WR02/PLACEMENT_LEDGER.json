@@ -1,0 +1,896 @@
+{
+  "sourceCommit": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "scope": "Source potential candidates, not observed runtime placement or admission counts. No new terrain position or tree population.",
+  "sourceCounts": {
+    "eligibleRoadCandidates": 4,
+    "intersections": 4,
+    "physicalCliffFormations": 4,
+    "existingTerrainPatches": 134,
+    "existingTreeCandidates": 39,
+    "eligibleAzureCrowns": 10,
+    "protectedProps": 156,
+    "newQuests": 0,
+    "newColliders": 0
+  },
+  "authoredCliffSeeds": [
+    61724,
+    62346,
+    63279
+  ],
+  "eligibleAzureTrees": [
+    {
+      "Seed": -222175160,
+      "Region": 1,
+      "position": [
+        -446,
+        0.15,
+        157
+      ],
+      "size": [
+        4.2,
+        15,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown--222175160",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -449.8605,
+          8.55,
+          153.42023
+        ],
+        "max": [
+          -441.77768,
+          15.83,
+          161.3397
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk--222175160",
+        "vertices": 416,
+        "triangles": 144,
+        "min": [
+          -450.5895,
+          0.15,
+          156.22597
+        ],
+        "max": [
+          -441.68814,
+          15.75,
+          158.53043
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": 474412708,
+      "Region": 1,
+      "position": [
+        -454,
+        0.15,
+        201
+      ],
+      "size": [
+        4.2,
+        12,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown-474412708",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -457.82123,
+          6.8700004,
+          197.334
+        ],
+        "max": [
+          -450.55478,
+          13.189999,
+          205.16287
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk-474412708",
+        "vertices": 412,
+        "triangles": 144,
+        "min": [
+          -457.64542,
+          0.15,
+          199.97784
+        ],
+        "max": [
+          -450.84433,
+          12.629999,
+          202.37538
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": 1740056320,
+      "Region": 1,
+      "position": [
+        -413,
+        0.15,
+        127
+      ],
+      "size": [
+        4.2,
+        10,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown-1740056320",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -416.82013,
+          5.75,
+          122.72182
+        ],
+        "max": [
+          -408.96042,
+          11.43,
+          130.68524
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk-1740056320",
+        "vertices": 412,
+        "triangles": 144,
+        "min": [
+          -416.20984,
+          0.15,
+          125.499565
+        ],
+        "max": [
+          -409.63306,
+          10.55,
+          127.80404
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": -1858323108,
+      "Region": 1,
+      "position": [
+        -415,
+        0.15,
+        159
+      ],
+      "size": [
+        4.2,
+        14,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown--1858323108",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -418.70734,
+          7.99,
+          155.6236
+        ],
+        "max": [
+          -410.76834,
+          14.950001,
+          162.80759
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk--1858323108",
+        "vertices": 408,
+        "triangles": 144,
+        "min": [
+          -418.73676,
+          0.15,
+          158.10011
+        ],
+        "max": [
+          -410.3284,
+          14.71,
+          160.11427
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": -1161735240,
+      "Region": 1,
+      "position": [
+        -415,
+        0.15,
+        193
+      ],
+      "size": [
+        4.2,
+        18,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown--1161735240",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -418.69962,
+          10.2300005,
+          188.95483
+        ],
+        "max": [
+          -411.25458,
+          18.47,
+          197.21492
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk--1161735240",
+        "vertices": 418,
+        "triangles": 144,
+        "min": [
+          -419.9308,
+          0.15,
+          191.70987
+        ],
+        "max": [
+          -409.94498,
+          18.869999,
+          194.4982
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": 928028364,
+      "Region": 1,
+      "position": [
+        -412,
+        0.15,
+        304
+      ],
+      "size": [
+        4.2,
+        12,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown-928028364",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -415.92465,
+          6.8700004,
+          300.2555
+        ],
+        "max": [
+          -408.49817,
+          13.189999,
+          308.1244
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk-928028364",
+        "vertices": 412,
+        "triangles": 144,
+        "min": [
+          -415.70935,
+          0.15,
+          302.9447
+        ],
+        "max": [
+          -408.735,
+          12.629999,
+          305.3573
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": 1950699764,
+      "Region": 1,
+      "position": [
+        -344,
+        0.15,
+        299
+      ],
+      "size": [
+        4.2,
+        13,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown-1950699764",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -347.68427,
+          7.4300003,
+          295.46735
+        ],
+        "max": [
+          -339.51938,
+          14.07,
+          303.06418
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk-1950699764",
+        "vertices": 412,
+        "triangles": 144,
+        "min": [
+          -347.67776,
+          0.15,
+          298.1239
+        ],
+        "max": [
+          -339.41904,
+          13.67,
+          300.17572
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": 1126579772,
+      "Region": 1,
+      "position": [
+        -309,
+        0.15,
+        120
+      ],
+      "size": [
+        4.2,
+        16,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown-1126579772",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -312.634,
+          9.110001,
+          115.63238
+        ],
+        "max": [
+          -304.72742,
+          16.71,
+          123.60676
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk-1126579772",
+        "vertices": 412,
+        "triangles": 144,
+        "min": [
+          -313.13852,
+          0.15,
+          118.454
+        ],
+        "max": [
+          -304.0453,
+          16.79,
+          120.93859
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": 314551816,
+      "Region": 1,
+      "position": [
+        -311,
+        0.15,
+        305
+      ],
+      "size": [
+        4.2,
+        18,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown-314551816",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -315.09824,
+          10.2300005,
+          301.12784
+        ],
+        "max": [
+          -307.2314,
+          18.47,
+          309.01312
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk-314551816",
+        "vertices": 412,
+        "triangles": 144,
+        "min": [
+          -316.3771,
+          0.15,
+          303.8908
+        ],
+        "max": [
+          -306.11102,
+          18.869999,
+          306.30508
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "Seed": -1321596132,
+      "Region": 1,
+      "position": [
+        -267,
+        0.15,
+        310
+      ],
+      "size": [
+        4.2,
+        16,
+        4.2
+      ],
+      "eligible": true,
+      "sourceOwner": "CityBuilder.BuildFracturedWilds04OC / WildTree04OC",
+      "leaf": {
+        "name": "crown--1321596132",
+        "vertices": 540,
+        "triangles": 180,
+        "min": [
+          -270.45035,
+          9.110001,
+          305.8223
+        ],
+        "max": [
+          -262.78906,
+          16.71,
+          314.01636
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "wood": {
+        "name": "trunk--1321596132",
+        "vertices": 416,
+        "triangles": 144,
+        "min": [
+          -270.92584,
+          0.15,
+          308.64767
+        ],
+        "max": [
+          -262.2362,
+          16.79,
+          311.3657
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "cliffs": [
+    {
+      "Seed": 61724,
+      "position": [
+        -133,
+        0.15,
+        -22
+      ],
+      "size": [
+        12,
+        24,
+        38
+      ],
+      "Teal": false,
+      "sourceOwner": "CityBuilder.BuildRealmLandscape04OB / EmitRealmSolid04OB",
+      "collisionOwner": "Original exact compound solid"
+    },
+    {
+      "Seed": 62346,
+      "position": [
+        -133,
+        0.15,
+        202
+      ],
+      "size": [
+        12,
+        34,
+        38
+      ],
+      "Teal": false,
+      "sourceOwner": "CityBuilder.BuildRealmLandscape04OB / EmitRealmSolid04OB",
+      "collisionOwner": "Original exact compound solid"
+    },
+    {
+      "Seed": 62657,
+      "position": [
+        137,
+        0.15,
+        -13
+      ],
+      "size": [
+        12,
+        24,
+        38
+      ],
+      "Teal": true,
+      "sourceOwner": "CityBuilder.BuildRealmLandscape04OB / EmitRealmSolid04OB",
+      "collisionOwner": "Original exact compound solid"
+    },
+    {
+      "Seed": 63279,
+      "position": [
+        137,
+        0.15,
+        202
+      ],
+      "size": [
+        12,
+        34,
+        38
+      ],
+      "Teal": true,
+      "sourceOwner": "CityBuilder.BuildRealmLandscape04OB / EmitRealmSolid04OB",
+      "collisionOwner": "Original exact compound solid"
+    }
+  ],
+  "protectedServices": [
+    {
+      "id": "lofts",
+      "position": [
+        0,
+        0.15,
+        -34
+      ],
+      "entrance": [
+        0,
+        0.15,
+        -34
+      ],
+      "outside": [
+        0,
+        0.15,
+        -30
+      ],
+      "yaw": 180,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "clinic",
+      "position": [
+        -42,
+        0.15,
+        72
+      ],
+      "entrance": [
+        -42,
+        0.15,
+        72
+      ],
+      "outside": [
+        -38,
+        0.15,
+        72
+      ],
+      "yaw": 270,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "forge",
+      "position": [
+        75,
+        0.15,
+        100
+      ],
+      "entrance": [
+        75,
+        0.15,
+        100
+      ],
+      "outside": [
+        75,
+        0.15,
+        96
+      ],
+      "yaw": 0,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "inn",
+      "position": [
+        -68,
+        0.15,
+        115
+      ],
+      "entrance": [
+        -68,
+        0.15,
+        115
+      ],
+      "outside": [
+        -64,
+        0.15,
+        115
+      ],
+      "yaw": 270,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "garage",
+      "position": [
+        118,
+        0.15,
+        -70
+      ],
+      "entrance": [
+        118,
+        0.15,
+        -70
+      ],
+      "outside": [
+        118,
+        0.15,
+        -74
+      ],
+      "yaw": 0,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "archive",
+      "position": [
+        -6,
+        0.15,
+        122
+      ],
+      "entrance": [
+        -6,
+        0.15,
+        122
+      ],
+      "outside": [
+        -6,
+        0.15,
+        118
+      ],
+      "yaw": 0,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "observatory",
+      "position": [
+        68,
+        0.15,
+        190
+      ],
+      "entrance": [
+        68,
+        0.15,
+        190
+      ],
+      "outside": [
+        68,
+        0.15,
+        186
+      ],
+      "yaw": 0,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "depot",
+      "position": [
+        110,
+        0.15,
+        40
+      ],
+      "entrance": [
+        110,
+        0.15,
+        40
+      ],
+      "outside": [
+        110,
+        0.15,
+        36
+      ],
+      "yaw": 0,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "dispatch",
+      "position": [
+        -46,
+        0.15,
+        4
+      ],
+      "entrance": [
+        -46,
+        0.15,
+        4
+      ],
+      "outside": [
+        -42,
+        0.15,
+        4
+      ],
+      "yaw": 270,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "pressure",
+      "position": [
+        38,
+        0.15,
+        12
+      ],
+      "entrance": [
+        38,
+        0.15,
+        12
+      ],
+      "outside": [
+        34,
+        0.15,
+        12
+      ],
+      "yaw": 90,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "bondkeeper",
+      "position": [
+        38,
+        0.15,
+        -46
+      ],
+      "entrance": [
+        38,
+        0.15,
+        -46
+      ],
+      "outside": [
+        34,
+        0.15,
+        -46
+      ],
+      "yaw": 90,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    },
+    {
+      "id": "office",
+      "position": [
+        -65,
+        0.15,
+        -65
+      ],
+      "entrance": [
+        -65,
+        0.15,
+        -65
+      ],
+      "outside": [
+        -61,
+        0.15,
+        -65
+      ],
+      "yaw": 270,
+      "sourceOwner": "InhabitedCityBindings04C / original VenueView04C"
+    }
+  ],
+  "planned": null,
+  "admitted": null,
+  "active": null,
+  "refused": null,
+  "runtimeState": "NOT RUN",
+  "runtimeReceipt": "Existing Fantasy Proof surfaceWR02.records reports sourceOwner, stableId, bounds, family, admission state and exact refusal reason after actual Play."
+}

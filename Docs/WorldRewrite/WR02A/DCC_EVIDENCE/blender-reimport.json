@@ -1,0 +1,88 @@
+{
+  "scope": "Actual four editable Blender loads and six FBX reimports. DCC only.",
+  "sources": [
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.author.blend",
+      "sha256": "7434dbc72109fc315f1b517ea08e16b31f23f1486ef224cfd29fab5d5bd54227",
+      "editableMeshes": 1382,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+      "sha256": "09b2f8f5284a44ca4da325d130c0c0a50660ed1bad323a0e9d93fc3983e03fc8",
+      "editableMeshes": 21,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author.blend",
+      "sha256": "e11768909b1a2a7faf3fb2440a74f0c806804229bb6fb61adc0afae4cca22bdb",
+      "editableMeshes": 70,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.processed.blend",
+      "sha256": "152da1cc071f5d0f6551660b068fee4e9408dd2c631f115e73cd811d48231534",
+      "editableMeshes": 10,
+      "passed": true
+    }
+  ],
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+      "triangles": 65100,
+      "meshes": 7,
+      "finiteUV": true,
+      "unitNormals": true,
+      "actions": 0,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+      "triangles": 54730,
+      "meshes": 7,
+      "finiteUV": true,
+      "unitNormals": true,
+      "actions": 0,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+      "triangles": 45011,
+      "meshes": 7,
+      "finiteUV": true,
+      "unitNormals": true,
+      "actions": 0,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx",
+      "triangles": 11968,
+      "meshes": 3,
+      "finiteUV": true,
+      "unitNormals": true,
+      "actions": 5,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx",
+      "triangles": 8136,
+      "meshes": 3,
+      "finiteUV": true,
+      "unitNormals": true,
+      "actions": 5,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx",
+      "triangles": 4544,
+      "meshes": 3,
+      "finiteUV": true,
+      "unitNormals": true,
+      "actions": 5,
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "total": 6,
+  "nativeUnity": "NOT RUN"
+}

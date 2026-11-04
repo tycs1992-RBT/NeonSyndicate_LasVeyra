@@ -1,0 +1,15 @@
+{
+  "scope": "H1 current native disposition, no new Editor attempt on unchanged host",
+  "unity_import": "NOT RUN",
+  "native_editmode": "NOT RUN",
+  "native_playmode": "NOT RUN",
+  "actual_player_save_reload": "NOT RUN",
+  "controller": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "visual_acceptance": "NOT RUN",
+  "profiling": "NOT RUN",
+  "windows_build_launch": "NOT RUN",
+  "professional_models_imported": 0,
+  "prior_actual_blocker": "Docs/CityRebirth04O/Evidence04OG/native-environment.json",
+  "reason": "Previously recorded before-import UPM IPC failure on the unchanged execution host. No retry or unsupported licensing workaround."
+}

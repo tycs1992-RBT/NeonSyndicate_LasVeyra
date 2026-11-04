@@ -1,0 +1,243 @@
+{
+  "scope": "H7 actual asset, literal owner-hook and approval protection audit. NOT native acceptance.",
+  "baseline": "b63aa570ad0bc1f237c134398d7124fa5a390976",
+  "passed": 55,
+  "total": 58,
+  "checks": [
+    {
+      "name": "Fixed H7 identity, lawful rights, disabled and unapproved",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.json",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Models/authoring-stats.json",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Brows_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Eyes_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Lashes_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Albedo_Painted.png",
+      "passed": true
+    },
+    {
+      "name": "Real asset fingerprint / Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / ArtSource/AscensionH7/MalikVeyrH7.blend",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Editable/export lineage / Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real artist source and matching real-action proof",
+      "passed": true
+    },
+    {
+      "name": "Three decreasing real LODs and 53 original bones",
+      "passed": true
+    },
+    {
+      "name": "Five editable keyframed actions, no event or root authority",
+      "passed": true
+    },
+    {
+      "name": "H6 source, art and proof unchanged / ArtSource/AscensionH6",
+      "passed": true
+    },
+    {
+      "name": "H6 source, art and proof unchanged / Assets/NeonSyndicate/Art/ProductionH6",
+      "passed": true
+    },
+    {
+      "name": "H6 source, art and proof unchanged / Docs/Ascension04OH/ArtReviewH6",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "passed": false
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidAnimator.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidRig.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "passed": false
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedArt04OH.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedBindH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponModels.Regional04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": false
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/RegionalArsenal04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ForgeTreatments04M.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Rebirth04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Only three exact optional visual hooks; all H6 importer validation intact",
+      "passed": true
+    },
+    {
+      "name": "One mapped world rotation write, no second transform writer",
+      "passed": true
+    },
+    {
+      "name": "Presentation helper is Editor-only and clears on existing restoration",
+      "passed": true
+    },
+    {
+      "name": "Actual motion uses original phase; keeps original hands, feet and hit authority",
+      "passed": true
+    },
+    {
+      "name": "Original travel, aim, gesture, interruption, Pause and guard exclude accents",
+      "passed": true
+    },
+    {
+      "name": "H7 alias uses existing review and cleans on changed imports",
+      "passed": true
+    },
+    {
+      "name": "No enabled registry, prepared gameplay copy or default change",
+      "passed": true
+    },
+    {
+      "name": "Actual DCC views tied to current source / ArtReviewH7",
+      "passed": true
+    },
+    {
+      "name": "Actual DCC views tied to current source / OathCut",
+      "passed": true
+    },
+    {
+      "name": "Actual DCC views tied to current source / Equipped",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_appearance": "NOT GIVEN",
+  "production_character": "NOT ACCEPTED"
+}

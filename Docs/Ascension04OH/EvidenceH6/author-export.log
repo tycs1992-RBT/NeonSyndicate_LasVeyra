@@ -1,0 +1,92 @@
+Read blend: "/tmp/04oh-h6-fitted-verified.blend"
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Saved "MalikVeyrH6.blend"
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+
+FBX export starting... '/workspace/scratch/6c24fbef53d1/ascension-game/Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6.fbx'
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+export finished in 1.0575 sec.
+
+FBX export starting... '/workspace/scratch/6c24fbef53d1/ascension-game/Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6_LOD1.fbx'
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+export finished in 0.7314 sec.
+
+FBX export starting... '/workspace/scratch/6c24fbef53d1/ascension-game/Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6_LOD2.fbx'
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+(bpy.data.armatures['MalikBody.rig'], 'POSE')
+export finished in 0.4515 sec.
+ACTUAL NEW CANDIDATE EXPORTED 184546 triangles 43 skins

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "validate_ground_l3",
+    "exit": 1
+  },
+  {
+    "name": "validate_heart_fr01",
+    "exit": 1
+  },
+  {
+    "name": "check_heart_fr02a",
+    "exit": 1
+  },
+  {
+    "name": "check_fantasy_proof_v1",
+    "exit": 1
+  },
+  {
+    "name": "check_world_rewrite_wr01",
+    "exit": 1
+  },
+  {
+    "name": "check_ascension_04oh",
+    "exit": 1
+  }
+]

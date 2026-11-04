@@ -1,0 +1,31 @@
+{
+  "tested_source_commit": "d25981cab6d908e58e6a1d4f348dae61e9454943",
+  "csharp_sha256": "8814bcaff5609e0ab8ef7fc8defe90a47f33509326872512cee91d82a5b6d284",
+  "branch": "feature/04oh-ascension-art-foundation",
+  "REAL_MALIK_3D_MODEL": "PRODUCED candidate",
+  "SKIN_TECHNICAL": "TESTED source full weights; four-weight alternative FAILED",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "ACTUAL_GAMEPLAY_CHARACTER": "DISABLED",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "AUTHORED_ANIMATION": "ASSET REQUIRED",
+  "PRODUCTION_CHARACTER_ACCEPTED": "NO",
+  "native_playtested": "NOT RUN",
+  "visually_accepted": "NOT RUN",
+  "performance_accepted": "NOT RUN",
+  "windows_build_verified": "NOT RUN",
+  "asset_required": [
+    "Production likeness/wardrobe/groom refinement and approval",
+    "Facial performance controls",
+    "Natural authored compatible motion clips"
+  ],
+  "gates": {
+    "A": "Source art produced, rights tracked; premium approval pending",
+    "B": "New anatomical/costumed textured asset produced, artist/native refinements pending",
+    "C": "Full source skin proof and reversible review source implemented, native NOT RUN",
+    "D": "Original pose retained, authored clips ASSET REQUIRED",
+    "E": "Eight actual source views produced, owner NOT GIVEN",
+    "F": "Optional secondary world work skipped, previous content preserved",
+    "G": "Managed/asset/CI checks executed, raw engine-dependent failures retained, native NOT RUN",
+    "H": "Source checkpoint pushed, documentation/evidence handoff, PR12 draft"
+  }
+}

@@ -1,0 +1,7 @@
+# Redspire candidate, ordinary-play use requires the owner opt-in.
+version 1
+biome HoodooBadlands
+collision original
+material RedspireSandstone
+variant Boulder_A
+variant Boulder_B

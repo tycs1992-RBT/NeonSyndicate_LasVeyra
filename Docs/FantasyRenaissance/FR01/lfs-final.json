@@ -1,0 +1,317 @@
+{
+  "verified_checkpoint": "f1386f52ece0767101b26bd266bc45f567b940df",
+  "method": "Fresh empty-storage remote LFS fetch, full fsck and pointer sizes, with per-path hydrated SHA256 for all FR01 art/source/evidence",
+  "pointer_paths": 2174,
+  "unique_objects": 1450,
+  "bytes_unique": 614446494,
+  "fetch_exit_code": 0,
+  "fsck": "Git LFS fsck OK",
+  "new_fr01_paths": [
+    {
+      "path": "ArtSource/HeartFR01/GothicHeartFR01.blend",
+      "oid": "4a8fecd76b037479abf1ecf472d962fe0af370bacff80fc67a1ff54c9e49925b",
+      "bytes": 2293283
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "oid": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa",
+      "bytes": 524825
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "oid": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae",
+      "bytes": 290141
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "oid": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4",
+      "bytes": 268907
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "oid": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259",
+      "bytes": 460219
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "oid": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51",
+      "bytes": 144397
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "oid": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3",
+      "bytes": 183352
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD0.fbx",
+      "oid": "88241730f3274796cf13cbe9108743432290eb3bfdb8b84e17441c5d155dfcc3",
+      "bytes": 35068
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD1.fbx",
+      "oid": "f4d4df7b6c5131e941b7684ef7674d9c3e0cc596c2605502226fbacec5448854",
+      "bytes": 28108
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD2.fbx",
+      "oid": "75d35fb56a9935436e9db3276278e3d8f4bcc77512f96805b19dfef8d0b7adab",
+      "bytes": 24284
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD0.fbx",
+      "oid": "77301fe145beab273be35097d7caf7d4f2590cbd51ee236f6a7c82fe3573f574",
+      "bytes": 34476
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD1.fbx",
+      "oid": "00017e028b329d1cf74b17f3bd1b5edf97509395939e0bcc627e42900f0b09d8",
+      "bytes": 27564
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD2.fbx",
+      "oid": "422f847c14048bce93393db4812b8bf04aec12e4661603a9b2a891df6149f0fa",
+      "bytes": 23756
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD0.fbx",
+      "oid": "981dfe25566d8b11e94f347456cfc63829cb0dec89fd40baa24d8e17273f8876",
+      "bytes": 18220
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD1.fbx",
+      "oid": "1d5590864efaf334b7d8f316594cfd7c64f2e98d55e321ef18f8be2d1e68e72d",
+      "bytes": 18220
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD2.fbx",
+      "oid": "4adfc1374ed607ee2361664e433d12bab66dd7a3bfa91a4b0a8f60347f6fe95f",
+      "bytes": 18220
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD0.fbx",
+      "oid": "93e0c9c26265540b5972126f5e757bf6b8273a234bad45f12d002a24a15785ca",
+      "bytes": 69484
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD1.fbx",
+      "oid": "1181d680dca589c733d2e3f14a67039c8e3b3ce92e908cc98c585a6cbe438d4f",
+      "bytes": 49116
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD2.fbx",
+      "oid": "d98ee1342d4fdbee6e871cd65084c39eb5d55a0dd23ab7a961340784d9ec824a",
+      "bytes": 37148
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD0.fbx",
+      "oid": "6b5f451db47048d5a3425ef4c9b622ae917ab04b4a957f0ab285a08e0539593d",
+      "bytes": 74124
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD1.fbx",
+      "oid": "b823c250cc2888e3dd03e66456bbd8a029eb512af374d2134215f17cbcb9bcc6",
+      "bytes": 52156
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD2.fbx",
+      "oid": "a234c88294a3e6e5020bacbb67ad25ed0a4bd49ecfaa345ca98a8d3f131ece99",
+      "bytes": 39308
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD0.fbx",
+      "oid": "94d3f3e2915b0afd1a8dd9dc92de6598396d54218b1fdd3379f1c42ece194695",
+      "bytes": 75500
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD1.fbx",
+      "oid": "688c139aab1d29b02c27d2195699e8b3052afc7518bc4996c3255e8c423e8771",
+      "bytes": 52876
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD2.fbx",
+      "oid": "f8239d5988337ebac50eb2fd37ac0c0e5bca920cd2f8f944fcc6e4fc7f693fb6",
+      "bytes": 39548
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD0.fbx",
+      "oid": "3747ea541f147d0cb559e598d49ae958b97c72f0e11e20fd917b9a73b8df12c9",
+      "bytes": 37724
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD1.fbx",
+      "oid": "311df90019f18d8424fd75c702d6a8e7da542851e9ed149fde5de0e9b611ec62",
+      "bytes": 29004
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD2.fbx",
+      "oid": "8e02e416ba828952f0b2f53307fae3d3a51e1b7038ef7ce53b7a615b2ad6d088",
+      "bytes": 24348
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD0.fbx",
+      "oid": "6d2702622c1e85f2735e9904d718f49eaaa3dd7de1e8fbced342972ea291218d",
+      "bytes": 17644
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD1.fbx",
+      "oid": "c27d8b46516db32f7ebb805d850b234ff3cd9e71f4d60c72eab3f4684e09236d",
+      "bytes": 16764
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD2.fbx",
+      "oid": "059d34f37b089da37fdb98ece852859ae8b8d65df1bd764d7ae38a6330c71634",
+      "bytes": 15148
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD0.fbx",
+      "oid": "454786533ce374b2b1d71030e9ac318209e5fa8b6ba78d27696ffcab7463ff2f",
+      "bytes": 15372
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD1.fbx",
+      "oid": "24412fbbf58496f4dc973e0a1c8cd66ae80591f0d2391999dc2736f0af576404",
+      "bytes": 15212
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD2.fbx",
+      "oid": "fcb42227873e74ef38078d9a412787740aa3c8e11c283dad55dff887b0beef46",
+      "bytes": 15196
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD0.fbx",
+      "oid": "f22d9405d2f50cf88894d4293bf03b24b27e2fc0e4be49d74ed91d929c3456c4",
+      "bytes": 28140
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD1.fbx",
+      "oid": "cf626f72c5da726753c49e491c5421ca6514314dbde1e9a17835fe6caff5a7bb",
+      "bytes": 23372
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD2.fbx",
+      "oid": "b790721c49364772ff14d1c3210dae9f0c97d450fbd58bbac1091dfc5d014b0a",
+      "bytes": 20508
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD0.fbx",
+      "oid": "5b4d746f16df8147213f768dc7b0fa448f64388e1d7c36e05002b2bf4ec33aad",
+      "bytes": 14988
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD1.fbx",
+      "oid": "26edbf27d4ee0fa03b7f55617eb753cb3d977fb27ccc381ab18e2183d879182a",
+      "bytes": 14988
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD2.fbx",
+      "oid": "4b73637ab78adebe883eb1f6231adcc8c94f7e8f493ce39ca3df4502a389a40f",
+      "bytes": 14988
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "oid": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189",
+      "bytes": 441260
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "oid": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87",
+      "bytes": 174544
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "oid": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b",
+      "bytes": 239504
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "oid": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54",
+      "bytes": 416292
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "oid": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459",
+      "bytes": 215909
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "oid": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47",
+      "bytes": 274597
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "oid": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a",
+      "bytes": 339477
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "oid": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec",
+      "bytes": 163077
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "oid": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece",
+      "bytes": 172976
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/Approach_After.png",
+      "oid": "2403376b1e06da33673f6ec78f00e727b1a0a0c916179f3e6d682e8ab61f9a8d",
+      "bytes": 1060266
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/Approach_Before.png",
+      "oid": "bd877a77f7b0209b0ad374db571c2b19e59f43370d228bed3676d4d194e7b9ee",
+      "bytes": 970147
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/Court_After.png",
+      "oid": "b52cff3378e0551402449c103612f90177bb063d173d134ccde92ad75aa42dbb",
+      "bytes": 957704
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/Evening_After.png",
+      "oid": "281ae07b9af9a22b11fbe24ada1bef30e57361556d609ad176a4d0b0a1475656",
+      "bytes": 950380
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/Gateway_After.png",
+      "oid": "2e3f21acdf4acdebcbbb7c6962dfeedb20f6706762f6a50c12c07275eb0a2c40",
+      "bytes": 1077760
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/Sanctuary_After.png",
+      "oid": "225f8095ce98578d1a63cd500b7a305899cc9cbf70538fad1dafe4370fb1e3fa",
+      "bytes": 1036862
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/baseline-full-nunit-results.xml.gz",
+      "oid": "29318ad56feac766545b5b9cda0220921fd9ea4ddc28a9fc91ae86031d2979b5",
+      "bytes": 171283
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/baseline-full-nunit.log.gz",
+      "oid": "446893bb9128df93a20f5dbf0c6574c1b67dfc4b46009a2df67f9f70c00bb13c",
+      "bytes": 5963
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/release-focused-nunit-results.xml.gz",
+      "oid": "0bfce66cbb286ecb22545644a99d2c3c4c8582dfcb099e3e2550e89858f34636",
+      "bytes": 1821
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/release-focused-nunit.log.gz",
+      "oid": "642ed66e2b9ae62e0bba7fed92c91253d5694038cac2096f27ae688984419e87",
+      "bytes": 473
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/release-full-nunit-results.xml.gz",
+      "oid": "fb5264701ea082be6a0d90ee7e9fcd02b850fd8739791cdcb27a7ad332def564",
+      "bytes": 172251
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR01/release-full-nunit.log.gz",
+      "oid": "6b64744e64301ef6ef8790e20ed45fcc71c88561669e69cf78a1ed704d34c339",
+      "bytes": 5941
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

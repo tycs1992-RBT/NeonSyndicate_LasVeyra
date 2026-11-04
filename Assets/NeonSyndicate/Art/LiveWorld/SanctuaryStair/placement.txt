@@ -1,0 +1,4 @@
+# Sanctuary Stair (H8R module). Not placed: a stair must be really climbable, with collision,
+# grounding and camera checked in Unity first. Remove the skip line only after that work is done.
+model Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryStair.fbx
+skip a stair needs climbable collision and a native grounding and camera check

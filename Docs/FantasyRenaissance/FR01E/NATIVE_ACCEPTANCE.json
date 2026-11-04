@@ -1,0 +1,54 @@
+{
+  "fetched_sha": "954ed0f67c127b49db5de974d742393ad6c5ca5b",
+  "tested_source_sha": "9f519edbba508470234b8490603b89dd83c398b1",
+  "csharp_sha256": "c468e1a0ab6114bbe3844533de4d2d20b89a332bb6729d26fd4ca8c43d631429",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "editor_executable_in_path": {
+    "Unity": null,
+    "unity-editor": null,
+    "unity": null,
+    "UnityHub": null
+  },
+  "unity_environment": {
+    "UNITY_EXE": null,
+    "UNITY_PATH": null,
+    "UNITY_EDITOR_PATH": null
+  },
+  "checked_install_paths": {
+    "/opt/Unity": false,
+    "/opt/unity": false,
+    "/Applications/Unity/Hub/Editor": false,
+    "/root/Unity/Hub/Editor": false,
+    "/usr/share/unity": false,
+    "/workspace/scratch/39ce986e9cbf/fr01/deps/unity/Editor/Unity": false
+  },
+  "native_editor": "NOT AVAILABLE: executable absent; genuine managed modules only",
+  "native": {
+    "L1 smoke": "NOT RUN",
+    "L2 smoke": "NOT RUN",
+    "L3 smoke": "NOT RUN",
+    "Unity FBX import": "NOT RUN",
+    "Shader and material import": "NOT RUN",
+    "Texture orientation": "NOT RUN",
+    "Unity Test Runner": "NOT RUN",
+    "PlayMode": "NOT RUN",
+    "Default OFF and ON": "NOT RUN",
+    "Legacy comparison and restoration": "NOT RUN",
+    "Save and load": "NOT RUN",
+    "Return to title and new session": "NOT RUN",
+    "QA and repeated Play Mode": "NOT RUN",
+    "Keyboard and controller": "NOT RUN",
+    "Walking dodge melee and arch passage": "NOT RUN",
+    "NPC companion and service interaction": "NOT RUN",
+    "Vehicle camera leap glide flight": "NOT RUN",
+    "Medium and Low quality": "NOT RUN",
+    "HUD-on Unity screenshots": "NOT RUN",
+    "CPU GPU memory batching GC Profiler": "NOT RUN",
+    "Windows build and launch": "NOT RUN"
+  },
+  "visual_score": null,
+  "visual_score_status": "NOT RUN: no native evidence",
+  "owner_accepted": "NOT GIVEN",
+  "fr02_authorized": false,
+  "overall": "PARTIAL"
+}

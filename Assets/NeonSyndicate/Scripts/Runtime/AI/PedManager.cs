@@ -165,13 +165,28 @@ namespace NeonSyndicate
                 pos += new Vector3((float)_rand.NextDouble() * 1.4f - 0.7f, 0f, (float)_rand.NextDouble() * 1.4f - 0.7f);
                 pos = Ground(pos);
                 if (ExcludedVenue04C(pos)) continue;
-                Appearance look = BodyFactory.CivilianLook(_rand);
+                // Some pedestrians are elders, some are a grown-up walking with a child (FamilyRules).
+                bool family;
+                AgeClass age = FamilyRules.Pick(_rand.NextDouble(), out family);
+                Appearance look = age == AgeClass.Elder ? Appearance.Elder(_rand) : BodyFactory.CivilianLook(_rand);
+                if (family) look.Age = AgeClass.Adult;
                 NpcController n = NpcController.Spawn(pos, (float)_rand.NextDouble() * 360f, NpcRole.Civilian, look, -1);
                 n.State = NpcState.Wander;
-                // Some pedestrians carry a weapon and will use it when pushed.
-                if (_rand.NextDouble() < 0.05) n.Arm(_rand.NextDouble() < 0.5 ? WeaponId.Switchblade : WeaponId.VectorSidearm);
+                if (age == AgeClass.Elder) n.WalkSpeed *= 0.8f;
+                // Some pedestrians carry a weapon and will use it when pushed (never a grown-up with a child).
+                if (!family && _rand.NextDouble() < 0.05) n.Arm(_rand.NextDouble() < 0.5 ? WeaponId.Switchblade : WeaponId.VectorSidearm);
                 n.transform.SetParent(transform, true);
                 CivilianCount++;
+                if (family)
+                {
+                    Vector3 childPosition = Ground(pos + n.transform.right * FamilyRules.SideOffset);
+                    if (ExcludedVenue04C(childPosition)) return;
+                    NpcController child = NpcController.Spawn(childPosition, n.transform.eulerAngles.y, NpcRole.Civilian, Appearance.Child(_rand), -1);
+                    child.MakeChild(n);
+                    child.transform.SetParent(transform, true);
+                    CivilianCount++;
+                    return;
+                }
                 // Occasionally spawn a companion walking alongside.
                 if (_rand.NextDouble() < 0.18)
                 {

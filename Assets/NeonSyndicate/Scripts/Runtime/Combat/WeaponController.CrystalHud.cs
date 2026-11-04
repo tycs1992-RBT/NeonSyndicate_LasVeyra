@@ -58,6 +58,8 @@ namespace NeonSyndicate
                 string t = _crDiscWasOut ? "DISC OUT  (fire: recall)" : "CATCHING";
                 UIKit.Text(new Rect(c.x - 160f, c.y + 26f, 320f, 20f), GInput.Prompt(t), 14, new Color(0.75f, 0.95f, 1f), TextAnchor.MiddleCenter, FontStyle.Bold);
             }
+            // H8S: the high-heat tick, shots or beam seconds left, the vent countdown and the band with the vent button.
+            DrawHeatReadoutH8S(w, h);
             if (flash)
             {
                 float a = Mathf.Clamp01((_crFlashUntil - now) / 0.25f);
@@ -140,8 +142,9 @@ namespace NeonSyndicate
             int n = CrystalLockCount;
             if (n > 0)
             {
+                // H8S: right of the crosshair, clear of the heat bar it used to sit on (h * 0.5 + 46), with a cached label.
                 Vector2 c = new Vector2(w * 0.5f, h * 0.5f);
-                UIKit.Text(new Rect(c.x - 120f, c.y + 44f, 240f, 18f), n + " / " + CrystalFocusDb.MaxLocks + " LOCKED", 13, UIKit.Gold, TextAnchor.MiddleCenter, FontStyle.Bold);
+                UIKit.Text(new Rect(c.x + 30f, c.y - 9f, 170f, 18f), LockCountTextH8S(n), 13, UIKit.Gold, TextAnchor.MiddleLeft, FontStyle.Bold);
             }
         }
 
@@ -154,7 +157,7 @@ namespace NeonSyndicate
             float s = _crAimOnFocus ? 30f : 22f;
             UIKit.Tex(new Rect(g.x - s * 0.5f, g.y - s * 0.5f, s, s), UIKit.Ring, col);
             UIKit.Tex(new Rect(g.x - 3f, g.y - 3f, 6f, 6f), UIKit.Circle, col);
-            string label = (_crAimOnFocus ? "REDIRECT  " : "FOCUS  ") + CrystalFocusLeft.ToString("0") + " s";
+            string label = FocusLabelH8S(_crAimOnFocus, CrystalFocusLeft);
             UIKit.Text(new Rect(g.x - 80f, g.y + s * 0.5f + 2f, 160f, 16f), label, 12, col, TextAnchor.MiddleCenter, FontStyle.Bold);
         }
     }

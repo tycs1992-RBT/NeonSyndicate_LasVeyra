@@ -1,0 +1,30 @@
+# H8R feature disposition
+
+Native import, native gameplay, visual approval, performance acceptance and Windows build are NOT RUN for every row. Source, DCC and managed results below do not substitute for those acceptances. All candidates remain unapproved and disabled by default.
+
+| Gate/module | Actual implementation and verification | Remaining work |
+|---|---|---|
+| A1, exact base | Version-five owner file inspected; original fingerprint retained. Primary CC0 human and 53-bone rig isolated; duplicate rig/body and unverified overlapping accessories excluded. | Original packed file is preserved as owner input, not publicly redistributed wholesale. |
+| A2, identity | Actual selected face/body, 2K natural skin/normal, brown optical surfaces and surface-fitted short groom. Original face geometry retained. | Premium face/groom acceptance and facial expression/eye animation remain open. |
+| A3, facial quality | Fitted optical surfaces corrected after real source renders showed oversized eyes. Skin roughness/normal usage and restrained brow mineral are actual material/mesh work. | Native skin response and owner appearance decision. |
+| A4, evidence | Actual neutral-light front/rear/left/right/face/three-quarter Blender renders and authored guard source view. | Unity comparisons NOT RUN. Source renders are labeled separately. |
+| B1, outfit | Existing original wardrobe refitted onto the selected body; new fitted trousers and closed anatomical boot geometry, split panels and real UVs. Observed resting garment penetration and depth fighting corrected. | Tailoring, armor transitions, deep-pose cloth contact, glove/sheath refinement; not final premium costume. |
+| B2, crystal identity | Restrained forehead/chest crystal surfaces; original emission/hit/reduced-effects authority extended to exact candidate ID. Built-in/URP material paths retained. | Native effects/readability acceptance. |
+| B3, deformation | Full normalized influences retained, fifteen actual source actions sampled at three poses each for finite bounded skin deformation. | This is not proof of clipping-free cloth, planted feet or hand contact. No simulated cloth claim. |
+| C1, rig | Actual 53 source bones and original 47 semantics, complete influence policy and existing pose/IK/bind adapter. | Native rest-axis, skin and socket validation. |
+| C2, export | Three real skinned FBXs, textures, guard rig FBX, fifteen-clip sampled data, editable source and rights/hashes. Independently parsed. | Native importer and hardware skin cost. |
+| C3, review | New exact H8R ID/path through existing reversible H6/H7/H8 review; no enabled registry or permanent replacement. | Actual owner-operated review. |
+| C4, ownership | Original player motor, damage, weapons, BONDS, quests, camera and saves preserved. No new gameplay controller or damage event. | Native regressions, actual saves/devices. |
+| C5, motion | Existing idle/walk/run/ready/OathCut/dodge, cast/aim/recoil and earned guardian presentation reused. One supplied CC0 Sword_Block retargeted to existing rig as H8_Guard_Brace. | Guard uses authored supporting pose plus original authoritative hands/feet. Four travel/jump clips remain source-only; reverse/strafe retain original posing. |
+| D1, human framework | Male/female supplied studies use original-compatible named core plus all 65 weighted donor bones. | General age/body/face variation UI and production crowd LOD pipeline incomplete. |
+| D2, NPC candidates | Actual GuildArtisan and CourtDefender editable studies and skinned FBXs, distinct supplied faces, original fitted garments and 1K albedo studies. | Material/garment finishing and visual approval; no claim of final realistic cast. |
+| D3, NPC integration | Prepared for existing visual-only adapter. No named NPC, schedule, dialogue or AI was replaced. | Actual per-identity native adapter approval and activation unfinished. |
+| D4, NPC cost | Bounded source garment detail, approximately 23K/24K source vertices. No crowd spawning added. | NPC LODs and native profiling unfinished. |
+| E1, gothic kit | Original SanctuaryPortal, ProcessionalVault and SanctuaryStair editable meshes/FBXs with real geometry and UVs. | Broader wall/window/ruin categories and production material finishing remain. |
+| E2, wilderness | Original branching ShardwoodElder and RootMineralBank meshes, roots, leaf sprays and mineral geometry. | Dense terrain, richer vegetation, rock/cliff kit and native environmental acceptance unfinished. |
+| E3, cavern | Original open RootSpringArch with irregular stone envelope and cyan mineral clusters. | Complete branching cavern/floor/ceiling/pool kit and new physical routes unfinished. |
+| E4, identity | Heavy violet mineral architecture versus organic roots/cyan stone. Supported original Lit material paths. | Native day/night/art acceptance. |
+| E5, preview | Explicit Editor overlay at existing gallery, Azure, shrine and cavern anchors. Cleanup on close, death, player/layout change and PlayMode exit. | Visual overlay preserves original collision. New colliders, nav integration and physical acceptance are unfinished. Stairs deliberately not placed in revision 10. |
+| F1-F5, real route | Existing Hearth Witness and original regional travel/encounters/Forge loop retained. Character and world review occur inside the real revision-10 game. | Full native first-look session, collisions/camera, combat, companion and actual save/reload NOT RUN. No new quest reward or fabricated completion. |
+| G, QA | Two genuine 12-mode API matrices, three boundaries, 12 syntax modes, full external regression, 20 new tests, independent FBX and source DCC/metadata/owner checks executed. | Native import/tests/visuals/performance/build NOT RUN. Raw full suite remains Failed because of 46 engine-dependent cases. |
+| H, delivery | Existing art branch, recoverable checkpoints, manifests, source renders, test evidence, owner guide and draft PR12. | Production acceptance and explicit owner appearance approval remain required. |

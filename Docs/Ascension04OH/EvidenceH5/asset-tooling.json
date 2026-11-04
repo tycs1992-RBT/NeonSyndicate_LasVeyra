@@ -1,0 +1,10 @@
+{
+  "scope": "Actual Work host capabilities, no repeated Unity attempt",
+  "blender": "not installed",
+  "apt_install_preparation": "FAILED: unsupported setgroups/setuid on host; no escalation or system install",
+  "official_portable_download": "FAILED HTTP 403",
+  "independent_fbx_tools": "C parser/export/pose comparison and deterministic binary derivation executed",
+  "unity_native": "NOT RUN, unchanged previous pre-import IPC host",
+  "new_authored_clips": "NONE",
+  "owner_appearance_approval": false
+}

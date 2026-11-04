@@ -1,0 +1,11 @@
+# WR02 visual acceptance remains open
+
+VISIBLE DIFFERENCE CONFIRMED: NOT RUN. OWNER ACCEPTED: NOT RUN. There are no Unity screenshots or runtime visibility claims in this delivery. Actual Blender source loads and eighteen FBX reimports passed; those receipts are DCC evidence only.
+
+The intended difference is one connected region with worn stone road surfaces, no eligible lane paint or decorative wires in the candidate, shared woodland ground/rock/timber treatment, source-specific cliff faces and ten layered Azure tree crowns, together with the already delivered WR01 and FR01/FR02A architecture. This does not replace every modern tower, add a new mountain range, build a new populated town or change the five wilderness regions. The inner H5 home court already had masonry; the strongest WR02 differences are expected along the outer road and Azure transition, not a false before/after asphalt claim at the home court.
+
+Capture matched original/rewrite Game Views for HOME, NORTH_CIVIC, WEST_STREET, CAUSEWAY and FOREST_RUINS using the existing Verify Fantasy World workflow. Capture one real service interaction or lawful quest action. The new causeway receipt requires a frustum candidate using the causeway material. The forest receipt requires imported canopy in the camera frustum. Neither count proves pixel coverage, visibility through occluders or artistic dominance. Inspect the images yourself.
+
+Fail if the route still reads as unchanged metropolitan space, old lane paint/wires remain dominant where their exact eligible candidate should replace them, the new forest is visually negligible, materials are missing, Malik is white, a functional route is blocked, old collision contradicts visuals, or candidate failure leaves old geometry hidden. Do not mark acceptance from an ON label or Blender image. Record refusals and stop approval if original owners do not recover safely.
+
+Remaining modern areas include inherited skyline masses beyond WR01's three replacements, unconverted distant roads, protected service/quest presentation, operational traffic lamps and functional street furniture. Further composition depends on genuine native review of this implementation, not an automatic WR03 sprint.

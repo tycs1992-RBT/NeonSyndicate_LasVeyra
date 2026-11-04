@@ -34,6 +34,12 @@ namespace NeonSyndicate
         public float Lane;
         /// <summary>Where it appeared (above the target's head).</summary>
         public Vector3 World;
+        /// <summary>H8S: this number carries the killing blow (drawn bigger, with a pop).</summary>
+        public bool Kill;
+        /// <summary>H8S: the rounded amount the cached text shows.</summary>
+        public int Shown;
+        /// <summary>H8S: the text drawn ("123", a burst "123!"), rebuilt only when the rounded amount changes, never per frame.</summary>
+        public string Text;
     }
 
     /// <summary>
@@ -77,8 +83,22 @@ namespace NeonSyndicate
             return b + Mathf.Clamp(Mathf.RoundToInt(Mathf.Log10(Mathf.Max(1f, amount)) * 2f), 0, 6);
         }
 
+        /// <summary>H8S: extra text size of the killing blow's number.</summary>
+        public const int KillBonus = 6;
+        /// <summary>H8S: the killing blow's number stays up at least this long.</summary>
+        public const float KillLife = 1.2f;
+
         /// <summary>Adds a hit: merges into a young number of the same target and kind, else starts a new one.</summary>
         public void Add(int target, DamageNumberKind kind, Element element, float amount, Vector3 world)
+        {
+            Add(target, kind, element, amount, world, false);
+        }
+
+        /// <summary>
+        /// Adds a hit (H8S: kill marks the killing blow): merges into a young number of the same target and kind, else
+        /// starts a new one. A killing blow pops the number it lands in afresh and keeps it up for KillLife.
+        /// </summary>
+        public void Add(int target, DamageNumberKind kind, Element element, float amount, Vector3 world, bool kill)
         {
             if (amount < 0.5f) return;
             for (int i = _list.Count - 1; i >= 0; i--)
@@ -88,12 +108,43 @@ namespace NeonSyndicate
                 e.Amount += amount;
                 e.Hits++;
                 e.Age = Mathf.Min(e.Age, 0.12f);
+                if (kill) MarkKill(ref e);
+                RefreshText(ref e);
                 _list[i] = e;
                 return;
             }
             _lane = (_lane + 1) % 5;
-            _list.Add(new DamageNumberEntry { Target = target, Kind = kind, Element = element, Amount = amount, Age = 0f, Life = LifeOf(kind), Hits = 1, Lane = (_lane - 2) * 0.5f, World = world });
+            DamageNumberEntry n = new DamageNumberEntry { Target = target, Kind = kind, Element = element, Amount = amount, Age = 0f, Life = LifeOf(kind), Hits = 1, Lane = (_lane - 2) * 0.5f, World = world };
+            if (kill) MarkKill(ref n);
+            RefreshText(ref n);
+            _list.Add(n);
             while (_list.Count > MaxEntries) _list.RemoveAt(0);
+        }
+
+        private static void MarkKill(ref DamageNumberEntry e)
+        {
+            e.Kill = true;
+            e.Age = 0f;
+            e.Life = Mathf.Max(e.Life, KillLife);
+        }
+
+        /// <summary>H8S: rebuilds the cached text only when the rounded amount changed (or was never built).</summary>
+        public static void RefreshText(ref DamageNumberEntry e)
+        {
+            int shown = Mathf.RoundToInt(e.Amount);
+            if (e.Text != null && shown == e.Shown) return;
+            e.Shown = shown;
+            e.Text = e.Kind == DamageNumberKind.Burst ? shown + "!" : shown.ToString();
+        }
+
+        /// <summary>H8S: the drawn text size of a number: its kind and amount, the killing blow bigger with a short pop.</summary>
+        public static int DrawSize(DamageNumberEntry e)
+        {
+            int size = SizeOf(e.Kind, e.Amount);
+            // A burst pops in large and settles.
+            if (e.Kind == DamageNumberKind.Burst) size += Mathf.RoundToInt(Mathf.Max(0f, 0.25f - e.Age) * 60f);
+            if (e.Kill) size += KillBonus + Mathf.RoundToInt(Mathf.Max(0f, 0.2f - e.Age) * 50f);
+            return size;
         }
 
         /// <summary>Ages every number by dt and drops the finished ones.</summary>

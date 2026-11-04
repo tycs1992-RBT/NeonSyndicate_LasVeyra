@@ -1,0 +1,15 @@
+# H6 source skin and FBX proof
+
+Exact tested source d25981cab6d908e58e6a1d4f348dae61e9454943, C# digest 8814bcaff5609e0ab8ef7fc8defe90a47f33509326872512cee91d82a5b6d284. Selected candidate MALIK-H6-REVIEW-01. Every Unity import/deformation/gameplay/hardware acceptance is NOT RUN.
+
+Three real FBXs contain the same 53-bone source skeleton and 13 material batches per LOD. Real geometry is 184546 / 98002 / 42337 triangles. Strict independent ufbx parsing passed for all three actual files: unit1 metre, UVs/normals, valid skin/binds, zero unweighted vertices, maximum seven influences and zero animation clips. Maximum raw sum error is 4.84287739e-08. Native tangents are explicitly calculated by Mikk during preparation, not claimed present or tested in this source export.
+
+The selected files keep all original positive influences. An eight-influence normalization used only for comparison was independently compared against the actual raw export over eight deterministic joint stress poses, 2439640 vertex/pose samples total. All three preserve bone names and binds; maximum positional difference 8.9001965491e-16m. This proves source mathematical equivalence under those finite poses, not natural motion, correct anatomy in Unity, clothing clearance or weapon contact.
+
+The alternative four-weight derivation FAILED on all three LOD bodies. Global maximum 0.00632845259882m exceeds the unchanged 0.005m bound. These experimental four-weight files are not shipped and are never selected. H5's separate 5.505117mm body / 19.503309mm clothing failures and original H3 failures are unchanged. No expected message, tolerance or exclusion was weakened.
+
+Actual selected-source hashes and per-file strict/full/four reports are in EvidenceH6/skin-proof.json and MalikVeyrH6*.json. tools/prove_malik_h6.py reproduces the independent checks using tools/validate_candidate_h3.c and tools/inspect_skin_h5.c, pinned ufbx 5955c5c0b042ac2dc6f32955ab206aaec0620cfc. tools/fbx_skin_h5.py authors only explicit eight/four derivations in temporary storage. Seven existing parser/derivation regression tests passed.
+
+The native preparer imports three FBXs with Custom8/minimum0 and matching bind validation, rebinds lower-detail skins onto the primary skeleton and removes duplicate source skeletons. One pose adapter remains authoritative. Full weights require actual native Unlimited support. Review scopes that live setting reversibly and reverts on an incompatible preset change. Native preparation, actual platform weight support, passive paths, all original action deformation, sockets, LOD popping and culling require Windows acceptance before any production activation.
+
+A combined 16.6MB development export hit the connector's HTTP400 16MiB request-body cap after base64 encoding. The exact failed transfer disposition and superseded combined skin proof are retained under EvidenceH6/Development. Delivery splits the exact three LODs into bounded FBXs, without reducing their art to pass transport. Native rendering has not been inferred from any of this proof.

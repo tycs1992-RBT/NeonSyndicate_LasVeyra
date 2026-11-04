@@ -1,0 +1,144 @@
+{
+  "sprint": "L1 Solid Wild Landmarks",
+  "date": "2026-10-25",
+  "baseline": "dde58fa18e4bce0fdd84b65566a7681cc26f9b25",
+  "branch": "feature/04oh-ascension-art-foundation",
+  "pr": 12,
+  "pr_draft": true,
+  "merged": false,
+  "owner_v0_gate": "Owner explicitly reports V0 passed after playing Unity, everything was fine, but visuals still need improvement. Owner report, not builder native execution.",
+  "csharp_sha256": "5058059f928b84356abdf960e84e8d98989185ab3732b6a92de7df12f18a7405",
+  "source_checkpoint": "ad01288ff54974724332e39d03604c7097aead94",
+  "states": {
+    "SOURCE IMPLEMENTED": "PASS",
+    "DCC EXPORTED AND REIMPORTED": "PASS",
+    "NATIVE IMPORTED": "NOT RUN",
+    "NATIVE PLAYTESTED": "NOT RUN",
+    "L1 OWNER SEEN": "NOT RUN",
+    "PRODUCTION ACCEPTED": "NOT RUN",
+    "PERFORMANCE": "NOT RUN",
+    "WINDOWS BUILD": "NOT RUN"
+  },
+  "validation": {
+    "managed_compile": {
+      "passed": 12,
+      "failed": 0,
+      "new_warnings_vs_fetched_baseline": 0,
+      "scope": "Exact Unity 6000.3.16f1 genuine managed API metadata, not native Editor compilation."
+    },
+    "assembly_boundaries": {
+      "passed": 3,
+      "failed": 0
+    },
+    "csharp9_syntax": {
+      "configurations": 12,
+      "errors": 0
+    },
+    "new_l1_tests": {
+      "passed": 13,
+      "failed": 0
+    },
+    "focused_wilds_world_v0_save_quest_tests": {
+      "passed": 68,
+      "failed": 0
+    },
+    "full_external": {
+      "baseline_passed": 2302,
+      "current_passed": 2315,
+      "baseline_failed": 47,
+      "current_failed": 47,
+      "baseline_excluded": 59,
+      "current_excluded": 59,
+      "introduced_failure_names": [],
+      "resolved_failure_names": [],
+      "changed_failure_reasons": [],
+      "raw_baseline_exit": 47,
+      "raw_current_exit": 47,
+      "raw_statuses": [
+        "Failed",
+        "Failed"
+      ]
+    },
+    "blender_reimport_proxy_checks": {
+      "passed": 38,
+      "failed": 0
+    },
+    "independent_static_fbx": "PASS",
+    "metadata": {
+      "valid_sidecars": 2469,
+      "invalid": 0,
+      "unresolved": 0,
+      "validator_regressions": 13
+    },
+    "l1_preservation": {
+      "passed": 51,
+      "total": 51
+    },
+    "original_owner_guard": {
+      "passed": 26,
+      "total": 26
+    },
+    "pin_regressions": {
+      "passed": 10,
+      "failed": 0
+    },
+    "v0_preservation": {
+      "passed": 191,
+      "failed": 0,
+      "active_art_hydrated": 98
+    },
+    "python_asset_tests": {
+      "art_drop": 6,
+      "skin": 7,
+      "failed": 0
+    },
+    "h2_guard": {
+      "passed": 110,
+      "total": 110
+    },
+    "h3_guard": {
+      "passed": 78,
+      "total": 78
+    },
+    "inherited_frontier": {
+      "passed": 14,
+      "total": 15,
+      "failed": [
+        "Append-only saved schema untouched"
+      ],
+      "same_on_fetched_baseline": true,
+      "disabled": false
+    },
+    "lfs_integrity": {
+      "fresh_server_objects": 17,
+      "matched": 17,
+      "fsck": "PASS"
+    }
+  },
+  "environment": {
+    "unity_managed": "6000.3.16f1 a56f230f6470 official Linux Editor archive",
+    "dotnet": "8.0.408",
+    "input_system": "Official unmodified package 1.17.0 source compiled against genuine Unity modules",
+    "urp": "Genuine bundled 3D template compiled package assemblies",
+    "blender": "4.5.3 LTS, native headless DCC and Cycles CPU renders",
+    "native_unity": "No licensed native Unity Editor session available; not run",
+    "baseline_compile_retries": "Two initial compiler processes terminated by host with exit -9 and no diagnostics; exact captured rows rerun serially, both passed. No project source or tests changed for retries. Final L1 matrix ran serially, 12/12 pass."
+  },
+  "publication": "Fast-forward source/art checkpoint, then a verified LFS-only descendant. All 17 new files freshly downloaded from server and SHA256 matched both the pointer and hydrated worktree. Final branch head is the documentation-only descendant pinned in PR12 and the final response.",
+  "walkthrough": "Docs/LIVE_WILD_L1.md",
+  "lfs_publication_commit": "cb9de701f0304c6fdd1f859477d60b70b4c6ab54",
+  "ci": {
+    "source_run": 40200053720,
+    "job": 121189130923,
+    "l1_guard": "51/51 PASS",
+    "pin_regression": "10/10 PASS",
+    "original_owner_guard": "26/26 PASS",
+    "overall": "FAILURE",
+    "remaining_failure": "Append-only saved schema untouched, 14/15",
+    "legacy_check_disabled": false,
+    "lfs_run": 40200049410,
+    "lfs_job": 121189117235,
+    "lfs_conclusion": "SUCCESS",
+    "uploaded_objects": 17
+  }
+}

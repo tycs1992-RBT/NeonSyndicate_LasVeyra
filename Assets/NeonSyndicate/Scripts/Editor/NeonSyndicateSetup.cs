@@ -155,8 +155,8 @@ namespace NeonSyndicate.EditorTools
         /// </summary>
         public static void EnsureShaderKeep(bool force)
         {
-            // Standard_Pbr_3 is the newest keep material: a project from before Phase 2 regenerates the set once.
-            if (!force && File.Exists(KeepFolder + "/Standard_Cutout.mat") && File.Exists(KeepFolder + "/Standard_Pbr_3.mat")) return;
+            // Standard_Hair is the newest keep material: a project from before the live hair regenerates the set once.
+            if (!force && File.Exists(KeepFolder + "/Standard_Cutout.mat") && File.Exists(KeepFolder + "/Standard_Pbr_3.mat") && File.Exists(KeepFolder + "/Standard_Hair.mat")) return;
             CreateFolder(KeepFolder);
             Shader std = Shader.Find("Standard");
             if (std != null)
@@ -227,6 +227,20 @@ namespace NeonSyndicate.EditorTools
                 cut.EnableKeyword("_ALPHATEST_ON");
                 cut.renderQueue = (int)UnityEngine.Rendering.RenderQueue.AlphaTest;
                 SaveMaterial(cut, KeepFolder + "/Standard_Cutout.mat");
+                // The live hair strands (LiveHairMaterials): alpha-tested with a normal map and emission, so the strands,
+                // their relief and the hit flash survive variant stripping in a player build.
+                Material hair = new Material(std);
+                hair.name = "Keep Standard Hair";
+                hair.enableInstancing = true;
+                hair.SetFloat("_Mode", 1f);
+                hair.SetOverrideTag("RenderType", "TransparentCutout");
+                hair.EnableKeyword("_ALPHATEST_ON");
+                hair.EnableKeyword("_NORMALMAP");
+                hair.EnableKeyword("_EMISSION");
+                hair.SetColor("_EmissionColor", Color.white);
+                hair.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+                hair.renderQueue = (int)UnityEngine.Rendering.RenderQueue.AlphaTest;
+                SaveMaterial(hair, KeepFolder + "/Standard_Hair.mat");
             }
             string[] others = { "Unlit/Color", "Unlit/Texture", "Sprites/Default", "Legacy Shaders/Particles/Additive", "Particles/Standard Unlit", "Skybox/Procedural" };
             foreach (string s in others)
@@ -356,6 +370,8 @@ namespace NeonSyndicate.EditorTools
         {
             RunSetup(false);
             EnsureShaderKeep(true);
+            // Wave 4 owner decision: prepare the owner-approved live characters (a no-op when their art has not changed).
+            global::NeonSyndicate.Editor.LiveCastSetup.PrepareForBuild();
             BuildPlayerOptions o = new BuildPlayerOptions
             {
                 scenes = new[] { ScenePath },

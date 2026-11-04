@@ -151,9 +151,12 @@ namespace NeonSyndicate
                 if (Anim != null) Anim.CrystalCast04G = 0f;
                 _castPulse04G = 0f;
                 if (_crMirrored) RestoreLegacyHeat();
+                CrystalHeatCuesH8S(d, b);
                 return false;
             }
             MirrorCrystalHeat(d);
+            // H8S: heat band, counts and one cue per crossing (WeaponController.CrystalCuesH8S).
+            CrystalHeatCuesH8S(d, b);
             switch (b)
             {
                 case CrystalBehavior.GyreCrescent:

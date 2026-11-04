@@ -28,6 +28,8 @@ namespace NeonSyndicate
             float bottom = DrawCard(r, g, cmp, cmpLabel, 17);
             string prompt = GInput.Prompt("Press E to take, hold to equip") + (BackpackFull ? "  (backpack full)" : "");
             UIKit.Text(new Rect(r.x + 14f, bottom + 6f, r.width - 28f, 26f), prompt, 16, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+            // H8S: where holding puts it and the gear score before and after.
+            DrawPickupWhatIfH8S(r, bottom + 32f, g);
         }
 
         private static void DrawWeaponBars(float w, float h, PlayerController p)

@@ -203,9 +203,14 @@ namespace NeonSyndicate
             RecordTrail();
             ManageBody(dt);
             if (playing) ReadInput();
-            else _hold.Reset();
+            else
+            {
+                _hold.Reset();
+                _call.Reset();
+            }
             TickAssist(dt);
             TickBrace(dt);
+            TickBehaviourH8S(dt);
             TickRescue();
             TickCareStations();
             TickHome();
@@ -246,6 +251,7 @@ namespace NeonSyndicate
                 {
                     _revealT = 0f;
                     Say(NameOf(r) + " has rested and is back on its feet.", 4f, false);
+                    Bark(CompanionBarkH8S.Recovered);
                     ReportStatus();
                 }
                 if (r.State == (int)CompanionState.Downed) continue;
@@ -270,7 +276,9 @@ namespace NeonSyndicate
             CompanionRecord r = Active;
             if (r == null || amount <= 0f || r.State == (int)CompanionState.Downed || r.State == (int)CompanionState.Fused) return;
             _lastHurt = Time.time;
+            float before01 = r.Health01;
             bool downed = BondRules.Hurt(r, amount, MaxHealthOf(r));
+            if (!downed) NoteHealthDropH8S(before01, r.Health01);
             if (_body != null) _body.Flinch(Mathf.Clamp01(amount / Mathf.Max(1f, MaxHealthOf(r)) * 4f + 0.3f), fromDirection);
             if (downed)
             {
@@ -296,6 +304,7 @@ namespace NeonSyndicate
                 Underheart04ESounds.Play(UhSfx.CompanionDowned, _body.ChestPosition, 0.9f, 1f);
             }
             Say(NameOf(r) + " is down. It will rest and recover in " + BondRules.Clock(r.RecoverIn) + ", or at once at a care station.", 5f, true);
+            Bark(CompanionBarkH8S.Downed);
             ReportStatus();
         }
 
@@ -399,7 +408,11 @@ namespace NeonSyndicate
             if (_body.WantsRecall && _body.Mode == CompanionMode.Follow)
             {
                 string why;
-                if (_body.TryRecall(false, out why)) _summonFailures = 0;
+                if (_body.TryRecall(false, out why))
+                {
+                    _summonFailures = 0;
+                    Bark(CompanionBarkH8S.Regrouping);
+                }
             }
         }
 
@@ -615,6 +628,8 @@ namespace NeonSyndicate
             EndBrace(false);
             CompanionTrailFx.Clear();
             CompanionBudget.ResetStatics();
+            _call.Reset();
+            ClearBehaviourH8S();
         }
 
         /// <summary>Keeps the STATUS page row honest: what is bonded and active, or how to get the first companion.</summary>

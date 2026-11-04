@@ -1,0 +1,749 @@
+{
+  "scope": "Actual Living Streets asset integrity and frozen owners. Source checks, never Unity import or play.",
+  "fetched_baseline": "4e6246006836db88222303bc41bee24b74c90114",
+  "passed": 183,
+  "total": 185,
+  "checks": [
+    {
+      "name": "Original rights, nine buildings, four court families and three LODs",
+      "passed": true
+    },
+    {
+      "name": "Fifteen original maps reused without texture copies",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetTownhouse_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetTownhouse_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetTownhouse_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetTownhouse_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetTownhouse_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetTownhouse_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetTownhouse_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetTownhouse_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetTownhouse_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetResidence_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetResidence_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetResidence_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetResidence_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetResidence_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetResidence_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetResidence_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetResidence_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetResidence_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetMerchant_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetMerchant_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetMerchant_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetMerchant_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetMerchant_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetMerchant_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetMerchant_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetMerchant_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetMerchant_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetWorkshop_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetWorkshop_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetWorkshop_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetWorkshop_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetWorkshop_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetWorkshop_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetWorkshop_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetWorkshop_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetWorkshop_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetGuild_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetGuild_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetGuild_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetGuild_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetGuild_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetGuild_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetGuild_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetGuild_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetGuild_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetCourtRow_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetCourtRow_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetCourtRow_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetCourtRow_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetCourtRow_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetCourtRow_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetCourtRow_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetCourtRow_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetCourtRow_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetRuin_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetRuin_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetRuin_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetRuin_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetRuin_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetRuin_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetRuin_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetRuin_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetRuin_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetCorner_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetCorner_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetCorner_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetCorner_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetCorner_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetCorner_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetCorner_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetCorner_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetCorner_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetGallery_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetGallery_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetGallery_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetGallery_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetGallery_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetGallery_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload StreetGallery_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX StreetGallery_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source StreetGallery_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtMarket_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtMarket_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtMarket_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtMarket_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtMarket_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtMarket_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtMarket_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtMarket_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtMarket_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtWorkyard_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtWorkyard_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtWorkyard_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtWorkyard_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtWorkyard_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtWorkyard_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtWorkyard_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtWorkyard_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtWorkyard_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtGarden_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtGarden_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtGarden_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtGarden_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtGarden_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtGarden_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtGarden_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtGarden_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtGarden_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtLantern_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtLantern_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtLantern_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtLantern_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtLantern_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtLantern_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CourtLantern_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Real binary FBX CourtLantern_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Shared slots and grounded source CourtLantern_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact payload Masonry_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload Masonry_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload Masonry_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CarvedTrim_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CarvedTrim_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload CarvedTrim_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload SlateTimber_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload SlateTimber_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload SlateTimber_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload MossRoot_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload MossRoot_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload MossRoot_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload AmethystBronze_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload AmethystBronze_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact payload AmethystBronze_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs CourtGarden",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained CourtGarden",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs CourtLantern",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained CourtLantern",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs CourtMarket",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained CourtMarket",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs CourtWorkyard",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained CourtWorkyard",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetCorner",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetCorner",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetCourtRow",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetCourtRow",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetGallery",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetGallery",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetGuild",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetGuild",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetMerchant",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetMerchant",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetResidence",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetResidence",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetRuin",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetRuin",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetTownhouse",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetTownhouse",
+      "passed": true
+    },
+    {
+      "name": "Three genuine LODs StreetWorkshop",
+      "passed": true
+    },
+    {
+      "name": "Structural height retained StreetWorkshop",
+      "passed": true
+    },
+    {
+      "name": "Editable source payload",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs",
+      "passed": false
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.Gothic04OB.cs",
+      "passed": false
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.HeartFR01.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.GroundL3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.Frost.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/GothicHeartH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/GothicCivicH5.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.Refinement.cs",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Art/LiveCast",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Art/ProductionH9",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Art/HeartFR01",
+      "passed": true
+    },
+    {
+      "name": "Original tree ArtSource/HeartFR01",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Art/WorldFoundationH8R",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Scripts/Runtime/Gameplay",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Scripts/Runtime/Core",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Scripts/Runtime/Combat",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Scripts/Runtime/AI",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Scripts/Runtime/Vehicles",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Resources/Quests",
+      "passed": true
+    },
+    {
+      "name": "Original tree Assets/NeonSyndicate/Resources/Events",
+      "passed": true
+    },
+    {
+      "name": "Original tree Packages",
+      "passed": true
+    },
+    {
+      "name": "Original tree ProjectSettings",
+      "passed": true
+    },
+    {
+      "name": "Every preexisting test and category retained",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

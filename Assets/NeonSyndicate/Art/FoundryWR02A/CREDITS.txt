@@ -1,0 +1,6 @@
+Crystal Manor Saga WR02-A asset foundry demonstration.
+Original local AI-assisted Blender Python authorship, CC0-1.0 for newly authored model and texture content.
+No Tripo generation task, paid model, ripped asset, downloaded model or external character was used.
+SanctuaryArchive reuses the original project-authored FR01 Masonry, CarvedTrim, SlateTimber, AmethystBronze and MossRoot material families with their original paths, bytes and GUIDs.
+The Crystal Basilisk candidate reuses the existing project's canonical skeleton, hit declarations and procedural pose authority as source data. AI, damage, hitboxes, live creature visuals, progression and rewards remain unchanged.
+No native Unity acceptance, character appearance, motion, gameplay or owner artistic acceptance is asserted.

@@ -305,6 +305,8 @@ namespace NeonSyndicate
             float s = Npc.Rig != null ? Mathf.Max(0.5f, Npc.Rig.Scale) : 1f;
             float edge = dist - p.BodyRadius;
             if (kit == null || Npc.CreatureAttacking || Npc.IsStaggered || now < _nextSlamAt || edge > 3.4f * s) return;
+            // H8S: the slam waits a beat when it would land on top of another blow on the player (CombatCadenceH8S).
+            if (!kit.SlamFitsH8S(1f, EncounterRules04D.WardenSlamWindup(_difficulty))) return;
             if (!CombatDirector.TryMeleeToken(Npc)) return;
             if (kit.StartSlam(1f, EncounterRules04D.WardenSlamWindup(_difficulty), 1.4f))
             {

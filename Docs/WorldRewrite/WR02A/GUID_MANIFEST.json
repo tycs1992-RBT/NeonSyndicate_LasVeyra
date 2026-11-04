@@ -1,0 +1,236 @@
+{
+  "scope": "New source assets plus 15 reused FR01 PBR texture identities. Native material/catalog generation NOT RUN. Original metadata is preserved.",
+  "rows": [
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png.meta",
+      "guid": "4b16370c0e28d2f267423bfcebc242e2",
+      "meta_sha256": "5ebb4340e7baef9c3905766b01779b659f4e1d74690e61c394d5c0572c3dcba5"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png.meta",
+      "guid": "383760189d5f4b11a627649ebd228584",
+      "meta_sha256": "dbdabaf0963dcc044163b6d783ddfc18d7acfe4d02c8f76e35413fec59c46829"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png.meta",
+      "guid": "ab284c6624d2287ab18781c354b5ae1a",
+      "meta_sha256": "65a13c6e7344467656a94f2fd8f6f2eddf5f5073ac9befb89fdf62be95b95c44"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png.meta",
+      "guid": "3a568cb51bc9422a326034d47dc319b6",
+      "meta_sha256": "68f6d5a7d81308771e9a5b43628e4b03f5879e47a7b33672dccf1a1d75be9091"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png.meta",
+      "guid": "51a5f31b350d0e154b8f03abd9a50eca",
+      "meta_sha256": "4d3bd81773db8db15078de2205975b2143b9e75c048949e75f002ba964e0d8fa"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png.meta",
+      "guid": "2a799e5b421925d52aab5b6639683008",
+      "meta_sha256": "3df2bf06ef97ab3ad3f034076c3e1a339dd091b62f2a66feb844b247dc5d017c"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CREDITS.txt",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CREDITS.txt.meta",
+      "guid": "1ee9a97641c63670785b6c3f19f402ba",
+      "meta_sha256": "1f97c342bc0fd9fb1c637ce62bfcd2293ca29a1051222cfcc9b8068fbdf751e5"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx.meta",
+      "guid": "67509887782a60e586406d237bdf8b54",
+      "meta_sha256": "853e56de1109affcd77769aee4fe09769c468d9e50c4085f6440d3934834f8a2"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx.meta",
+      "guid": "acac6cbe7b38bc01fee074c7d4236a94",
+      "meta_sha256": "d93fd4d3d3d02b80db8ef0b3abeb71057f6c764313ced2687bc6d55a172bbf88"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx.meta",
+      "guid": "9dd65ccc7b5a0a3923067a6c9f6cfe56",
+      "meta_sha256": "e97f486ba4641de4701e6faf3fcc38e2ba80c30685e3e0c72d7699c9053281c7"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/colliders.json",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/colliders.json.meta",
+      "guid": "790190bfddb20713f5becaca6f54f4ec",
+      "meta_sha256": "a66fec13192308d5c5205cd8fd1a1e668d13c819fadf0577469bad417a860613"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/processed.json",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/processed.json.meta",
+      "guid": "9bad8c689fb34517aae9c69ef8268800",
+      "meta_sha256": "61ef05d64d3a8838afa1433dacbeee4e53c64358e5670939b34b51c6b1641442"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate.meta",
+      "guid": "1d455694c32e64a1d2836db083cce95e",
+      "meta_sha256": "6f91263e1a9ae9e2c1f199337a981631b2086e786eb5f801d1ee04fa6fe8b83c"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx.meta",
+      "guid": "e1e38aee303c01dc63325a7a3b2ec2c1",
+      "meta_sha256": "e196b66c2c220ba344698eb98979d6d817556fbd8fcf7b8131ac70a2865d9990"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx.meta",
+      "guid": "a660ba13d5943517ca4abbc4fa9fd6da",
+      "meta_sha256": "e8775a7ff5ea205d9cb04fc5be7a01f1eaf1fac5f9f479a44372c6083b67e7dc"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx.meta",
+      "guid": "0d8451fcbbb7d4eeca66d7645e44b2f8",
+      "meta_sha256": "f78c9a60a41dc84b224396441b2d0e30c9bd0ba57fbfbabef11ed93ffb8f45da"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/colliders.json",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/colliders.json.meta",
+      "guid": "b8040f259cf3d43a222b6e73f75be118",
+      "meta_sha256": "6b38d2be8d65c16e5e9a3a5216df1e1b31deaeae810db29ab61b91d83d57f2c5"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/processed.json",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/processed.json.meta",
+      "guid": "8c6749403ff6df350e3d1646818ae4e6",
+      "meta_sha256": "86d91e22d6f4fb8799b48a0023812224627ce255cab68ca60803cff706cffdbb"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive.meta",
+      "guid": "1903ee7cb6f5500f86e886c41cdcea4b",
+      "meta_sha256": "859e14d2be4ed431b08b77c5036d5ba54b8aa27664feaa040d168c8c4e26fd5e"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json.meta",
+      "guid": "08ba6c9cab4bf195e8970debc1b8b6b0",
+      "meta_sha256": "cab869341c14d4919590f0ebbfd2ff3be734225717e11d16d952f0ec874e53f9"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/FoundryWR02A",
+      "meta": "Assets/NeonSyndicate/Art/FoundryWR02A.meta",
+      "guid": "d0bd7919b40d7ccddce7997260b38405",
+      "meta_sha256": "ab3d0a6e3aa5870cd4f7b4d90fea5e88fceb48923fe938763468781be67b9fc8"
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png.meta",
+      "guid": "b656b30bc1fd5fc0b9c103d39fc465e8",
+      "meta_sha256": "9b33c9a4ac5f9ed59396cfefb37d6e76574107320de9bdc912c68330b6232dd6",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png.meta",
+      "guid": "dc9e41cd149b5cf2b92595c4d08ca9fc",
+      "meta_sha256": "3b84b14554a1fece2ddf882ca836602133beca8cb1e5e08cef8bcb6cdeb936ac",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png.meta",
+      "guid": "6ebdf00a4b6a5b40920294549fc90d93",
+      "meta_sha256": "6a2f259fb9525911d5ea8a830ec34ba2fac9db731c25f76a6943f93a2290beb2",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png.meta",
+      "guid": "e526a245a82750de9a4ae4fc7ba08e64",
+      "meta_sha256": "7e96e600d9e958a0f2437198756295295d2d5a73ed93b7066b445515e8f223b3",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png.meta",
+      "guid": "1a9667dfcb80598cb547404c2c80ceea",
+      "meta_sha256": "50af661c5bed9c39a7ee1382b0fc3b040ce9bcf659e6ad13fc20adf1828aae9c",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png.meta",
+      "guid": "cb5f77b704505dc18e0b3a431063abaf",
+      "meta_sha256": "59b37d18c808495da0586998eea02dcca44993b1b948d50028564d94c3fdc30f",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png.meta",
+      "guid": "3fdfa5e1c1835d6284443ac46b287d86",
+      "meta_sha256": "c68744bf742ace81b2f0e5809a85983ffb1becffc80c463d953d5abe470eb887",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png.meta",
+      "guid": "f9e3af0b597e5340a74878560f404d45",
+      "meta_sha256": "fdea2724f3ae221811354939c323de1a0e2675c953185d353ac5277ba5919762",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png.meta",
+      "guid": "61bfd6a0e129552bb2ddde43241ede7e",
+      "meta_sha256": "0e3883d8fd1a27fb1537e617e6ad0eee382908acc050c96a971559cd4c33e272",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png.meta",
+      "guid": "887114bf422057579abe3834134e9440",
+      "meta_sha256": "6cb46603e56d53a7cffd2673497b210520f0293c8b50c31ba9de7b5a59eb3596",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png.meta",
+      "guid": "7e9609bc23385348bb25bf4811a67ba2",
+      "meta_sha256": "fecc693e06e58dfa97f9b53e44d40118ffd1968866943c3216a72e885ba806fd",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png.meta",
+      "guid": "33eef4b97008536b828b196f5d613341",
+      "meta_sha256": "73dc20e0e11cf1792028e3a95dc6e066a0853385d13b271b645d56964fed244a",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png.meta",
+      "guid": "39f0d9218f29547caec4a8da8a8c2e20",
+      "meta_sha256": "482f27e48d586fa9cd7879f08b597e84f3357c612a36eaff07d241ab2c584e1d",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png.meta",
+      "guid": "f596138ef4de5863a2fb4efc118a251d",
+      "meta_sha256": "dc947d11cbc5ae244d09747f9f2d8cbbfd7d1a961594204025dda907a7787af1",
+      "reused": true
+    },
+    {
+      "asset": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "meta": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png.meta",
+      "guid": "fd004c4ffca65de8b7e1222cc8664bc4",
+      "meta_sha256": "9677cfe28608f52bd0545205b2b24fe24a163c90bfb9d994b8200c22bf99822c",
+      "reused": true
+    }
+  ]
+}

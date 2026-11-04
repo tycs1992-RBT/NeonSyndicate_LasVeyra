@@ -180,10 +180,18 @@ namespace NeonSyndicate
             }
             CharacterBase locked = pl.Combat != null ? pl.Combat.LockTarget : null;
             CharacterBase aimed = pl.AimTarget;
-            CharacterBase target = IsHostileTarget(locked) ? locked : (IsHostileTarget(aimed) ? aimed : null);
+            // H8S: the player's current target, in order: the lock, the aim, the aimed boss body, lure or vent, then (when
+            // not aiming at someone else) the foe the player hit most recently, so U works in a sword fight without a lock
+            // and a boss's adds never take a strike aimed at the boss.
+            bool lockedValid = IsHostileTarget(locked), aimedValid = IsHostileTarget(aimed);
+            bool aimingAtOther = pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer && !aimedValid;
             IDamageable boss = null;
             Vector3 bossPoint = Vector3.zero;
-            if (target == null) AimedBossTarget(pl, out boss, out bossPoint);
+            bool bossAimed = !lockedValid && !aimedValid && AimedBossTarget(pl, out boss, out bossPoint);
+            CharacterBase engaged = lockedValid || aimedValid || bossAimed || aimingAtOther ? null : EngagedTargetH8S(pl);
+            CompanionTargetSourceH8S source = CompanionTargetRulesH8S.Pick(lockedValid, aimedValid, bossAimed, engaged != null);
+            CharacterBase target = source == CompanionTargetSourceH8S.Locked ? locked : (source == CompanionTargetSourceH8S.Aimed ? aimed : (source == CompanionTargetSourceH8S.Engaged ? engaged : null));
+            if (source != CompanionTargetSourceH8S.Boss) boss = null;
             bool hasTarget = target != null || boss != null;
             bool neutral = !hasTarget && pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer;
             bool fight = (CombatDirector.InCombat && FoeNear(pl.transform.position, BondRules.AssistRange)) || BossFightOn;
@@ -221,9 +229,15 @@ namespace NeonSyndicate
                     Refuse(t, r, 0f);
                     return;
                 }
+                NoteCommandH8S(false);
+                BracketTargetH8S(target, boss != null);
                 if(!TrySynergy04N(r,target))StartCombat(r, target, boss, bossPoint);
             }
-            else StartExplore(r);
+            else
+            {
+                NoteCommandH8S(false);
+                StartExplore(r);
+            }
         }
 
         private void BeginAssist(CompanionRecord r, AssistKind kind)
@@ -389,6 +403,7 @@ namespace NeonSyndicate
                             if (Game.Fx != null) Game.Fx.Sparks(_point + Vector3.up * 0.8f, Vector3.up * 2f, 12);
                             RaiseExplore(_point);
                             Say(NameOf(r) + " braces it. The mechanism holds while it pushes.", 3f, false);
+                            Bark(CompanionBarkH8S.Found);
                         }
                         else if (_at > 6f)
                         {
@@ -495,12 +510,14 @@ namespace NeonSyndicate
                 // A boss body, lure or vent: the lance wounds it. A boss body hit is read by the fight as a Glassbound mark on its lock
                 // stand-in (UnderBossFight.Resonance), never a stun.
                 DealDamage(_bossTarget, to, dmg, from, 12f);
+                Bark(CompanionBarkH8S.AbilityUsed);
                 ExposureAt(r, to);
                 return;
             }
             CharacterBase primary = _target;
             DealDamage(primary, dmg, from, 12f);
             if (!primary.IsDead) ResonanceSystem.Prime(primary, ResonanceState.Glassbound);
+            Bark(primary.IsDead ? CompanionBarkH8S.AbilityUsed : CompanionBarkH8S.TargetMarked);
             if (r.Specialization == BondRules.SpecPrism)
             {
                 PlayerController pl = Game.Player;
@@ -538,6 +555,7 @@ namespace NeonSyndicate
             float dmg = BondRules.AssistDamage(r.Archetype, r.Rank, r.Tuning, r.Specialization);
             Arc(from, to, prof.Accent);
             Underheart04ESounds.Play(UhSfx.SkimmerArc, to, 1f, 1f);
+            Bark(CompanionBarkH8S.AbilityUsed);
             if (_target == null)
             {
                 // A boss body, lure or vent: the snare's arc damages it; a boss is never stunned by it.
@@ -653,6 +671,7 @@ namespace NeonSyndicate
             Underheart04ESounds.Play(UhSfx.GuardianBrace, _body.ChestPosition, 1f, 1f);
             if (Game.Fx != null) Game.Fx.Sparks(_body.ChestPosition + _braceDir * 0.4f, _braceDir * 2f, 14);
             Say(NameOf(r) + " braces against hits from that side. Stay close to it.", 3f, false);
+            Bark(CompanionBarkH8S.AbilityUsed);
         }
 
         private void TickBrace(float dt)
@@ -837,6 +856,7 @@ namespace NeonSyndicate
             {
                 CompanionTrailFx.Show(_route, prof.Accent, 15f, true);
                 Say(NameOf(r) + " lights the way to " + label + ".", 3.5f, false);
+                Bark(CompanionBarkH8S.Found);
                 _stage = 1;
                 _at = 0f;
                 Vector3 ahead = _route[Mathf.Min(4, _route.Count - 1)];
@@ -869,6 +889,7 @@ namespace NeonSyndicate
             Underheart04ESounds.Play(UhSfx.AssistReveal, _body.ChestPosition, 0.8f, 0.8f);
             RaiseExplore(_body.transform.position);
             Say(found > 0 ? NameOf(r) + " senses dangerous heat: " + found + " hot spot" + (found == 1 ? "" : "s") + " ringed on the ground." : NameOf(r) + " senses no dangerous heat nearby.", 3.5f, false);
+            if (found > 0) Bark(CompanionBarkH8S.Found);
         }
 
         private void OnRelayStrike()
@@ -885,6 +906,7 @@ namespace NeonSyndicate
             StraightRoute(from, _point);
             if (_route.Count >= 2) CompanionTrailFx.Show(_route, prof.Accent, 12f, true);
             Say(NameOf(r) + " bridges it with an arc.", 3f, false);
+            Bark(CompanionBarkH8S.Found);
         }
 
         private void OnScoutReveal()
@@ -902,6 +924,7 @@ namespace NeonSyndicate
             {
                 CompanionTrailFx.Show(_route, prof.Accent, 15f, true);
                 Say(NameOf(r) + " scouts from above and lights the way to " + label + ".", 3.5f, false);
+                Bark(CompanionBarkH8S.Found);
             }
             else Say(NameOf(r) + " scouts from above: nothing to follow here. Track a lead first.", 3.5f, false);
         }

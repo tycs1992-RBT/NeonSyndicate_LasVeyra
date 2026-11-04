@@ -1,0 +1,14 @@
+[
+  {
+    "name": "test_tripo_v3",
+    "exit": 0
+  },
+  {
+    "name": "test_factory_queue",
+    "exit": 0
+  },
+  {
+    "name": "test_policy",
+    "exit": 0
+  }
+]

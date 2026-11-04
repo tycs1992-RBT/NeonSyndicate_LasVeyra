@@ -1,0 +1,40 @@
+{
+  "scope": "Executed H8 test receipt preserved from this session. Raw final logs were removed by workspace maintenance before final publication. No raw XML reconstructed.",
+  "csharp_sha256": "5b7b32da37b6d924d7f275ea9513e04b540833799f04347dcf5c4631063534ac",
+  "restored_source_matches_tested_bytes": true,
+  "external_api_matrix": {
+    "passed": 12,
+    "total": 12
+  },
+  "bundled_api_matrix": {
+    "passed": 12,
+    "total": 12
+  },
+  "assemblies": {
+    "passed": 3,
+    "total": 3
+  },
+  "syntax": {
+    "configurations": 12,
+    "errors": 0
+  },
+  "new_h8_tests": {
+    "passed": 34,
+    "failed": 0,
+    "assertions": 14401
+  },
+  "external_nunit": {
+    "passed": 1853,
+    "failed": 46,
+    "excluded": 58,
+    "raw_result": "Failed",
+    "exit_code": 46,
+    "duration_seconds": 231.914474,
+    "new_failure_names": [],
+    "changed_failure_reasons": [],
+    "comparison": "Exact H7 names and messages matched during the completed run"
+  },
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "production_complete": false
+}

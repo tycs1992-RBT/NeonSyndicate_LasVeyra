@@ -1,0 +1,12 @@
+{
+  "assetId": "ErodedCliff63279",
+  "method": "Original local Blender Python authorship; processed by unchanged WR02-A foundry",
+  "authorScriptSha256": "32bf6f2b5a41733929b53de18bfefe401831d59c7728eb0c1ebefa81aea5d759",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author.blend",
+  "editableSha256": "91617e9cb899248373c144e782d5e45dcf217a15fdff416d7d91dcec020d21dd",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.raw.glb",
+  "inputSha256": "8a36e07508afa3533352acd7ea0a71ae95200cc0127cf3da866cc0e05672469d",
+  "license": "CC0-1.0",
+  "creditsSpent": 0,
+  "nativeUnity": "NOT RUN"
+}

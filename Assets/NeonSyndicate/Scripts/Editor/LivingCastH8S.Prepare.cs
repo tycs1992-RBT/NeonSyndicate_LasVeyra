@@ -1,0 +1,364 @@
+#if UNITY_EDITOR
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering;
+namespace NeonSyndicate.Editor
+{
+    /// <summary>
+    /// LivingCastH8S, preparation: receipt, shared texture and source verification, complete-weight import settings and the
+    /// disabled review prefab. Its three LODs share ONE skeleton (LOD1 and LOD2 skins are rebound to the LOD0 bones by name
+    /// with matching bind frames), every weighted bone is kept, imported Animators are removed and the materials use the
+    /// project's existing Built-in or URP lit shader. The prefab and materials go to the uncommitted Prepared folder.
+    /// </summary>
+    public static partial class LivingCastH8S
+    {
+        /// <summary>Import limit: no pruning at import. The adapter's own complete-weight check then refuses over eight.</summary>
+        private const int MaxInfluences = 255;
+        private const string SharedTextures = "Assets/NeonSyndicate/Art/ProductionH8S/Textures/";
+        private const string SharedReceipt = "Assets/NeonSyndicate/Art/ProductionH8S/candidate.json";
+
+        [Serializable] private sealed class Receipt
+        {
+            public string assetId = "", creator = "", license = "";
+            public bool commercialUse, publicSourceApproved, preserveInfluences, ownerApproved, enabled;
+            public int bones;
+            public LodRow[] lods;
+            public FileRow[] files;
+        }
+        [Serializable] private sealed class LodRow { public int lod, vertices, skins; }
+        [Serializable] private sealed class FileRow { public string path = "", sha256 = ""; }
+
+        private static string ModelPath(int level)
+        {
+            return _cut.Root + _cut.ModelName + (level == 0 ? "" : "_LOD" + level) + ".fbx";
+        }
+
+        private static string Project(string relative)
+        {
+            return Path.Combine(Directory.GetParent(Application.dataPath).FullName, relative);
+        }
+
+        private static void PrepareOrVerify()
+        {
+            try
+            {
+                Receipt receipt = ReadReceipt();
+                VerifySharedTextures();
+                VerifySource();
+                ConfigureImporters();
+                GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(_cut.PreparedPrefab);
+                // A copy prepared from earlier files (a re-export at the same path) would bind the old skeleton and sockets.
+                bool stale = prepared != null && !StampMatches(receipt);
+                if (stale && !AssetDatabase.DeleteAsset(_cut.PreparedPrefab)) throw new IOException("The stale review copy could not be removed: " + _cut.PreparedPrefab);
+                if (stale) prepared = null;
+                bool built = prepared == null;
+                if (built) prepared = Prepare(receipt);
+                string summary;
+                ImportedModel04OD row = ReviewRow(prepared, receipt, out summary);
+                string reason;
+                if (!_cut.CanReview(row, out reason)) throw new InvalidDataException(reason);
+                Selection.activeObject = prepared;
+                Log.Info(_cut.Label + " Dante review copy " + (stale ? "re-prepared (the delivered files changed since the last copy)" : built ? "prepared" : "verified (an existing copy was not overwritten)") + ", DISABLED and NOT APPROVED. " + summary
+                    + " Next: enter Play mode in the existing world, meet Dante Rook at his Forge (story mission 4 or Free Roam), stand near him and choose \"" + _cut.ReviewMenu + "\" again.");
+            }
+            catch (Exception e)
+            {
+                Log.Warn(_cut.Label + " Dante review preparation refused safely, nothing is enabled: " + e.Message);
+            }
+        }
+
+        private static Receipt ReadReceipt()
+        {
+            string path = _cut.Root + "candidate.json";
+            if (!File.Exists(Project(path))) throw new FileNotFoundException("Missing the Dante candidate receipt: " + path);
+            Receipt r = JsonUtility.FromJson<Receipt>(File.ReadAllText(Project(path)));
+            if (r == null || r.assetId != DanteReviewH8S.AssetId || r.license != DanteReviewH8S.License || !r.commercialUse || !r.publicSourceApproved
+                || !r.preserveInfluences || r.ownerApproved || r.enabled || r.bones != DanteReviewH8S.SourceBoneCount || r.lods == null || r.lods.Length != 3
+                || r.files == null || r.files.Length != _cut.ReceiptFiles || string.IsNullOrWhiteSpace(r.creator))
+                throw new InvalidDataException("The Dante receipt does not record the exact disabled, unapproved CC0 candidate with three LODs and its recorded files.");
+            foreach (LodRow lod in r.lods)
+                if (lod == null || lod.skins != _cut.SkinsPerLod) throw new InvalidDataException("The Dante receipt must record " + _cut.SkinsPerLod + " skins in every LOD.");
+            bool export = false;
+            foreach (FileRow e in r.files)
+            {
+                // Owner report 2026-10-23: Windows checks the receipt's .json files out with CRLF endings; ReceiptFileHash accepts exactly that.
+                if (e == null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(_cut.Root, StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256, 64)
+                    || !ReceiptFileHash.Matches(e.path, e.sha256))
+                    throw new InvalidDataException("A Dante candidate file is missing, is a Git LFS pointer, or changed. Pull the LFS binaries and reinspect: " + (e != null ? e.path : "missing entry"));
+                if (e.path == _cut.ExportPath) export = true;
+            }
+            if (!export) throw new InvalidDataException("The Dante receipt does not fingerprint " + _cut.ExportPath + ".");
+            return r;
+        }
+
+        /// <summary>The wool and leather maps the source materials use belong to the H8S hero receipt; verify them there.</summary>
+        private static void VerifySharedTextures()
+        {
+            if (!File.Exists(Project(SharedReceipt))) throw new FileNotFoundException("Missing the shared H8S texture receipt: " + SharedReceipt);
+            Receipt shared = JsonUtility.FromJson<Receipt>(File.ReadAllText(Project(SharedReceipt)));
+            if (shared == null || shared.license != DanteReviewH8S.License || !shared.commercialUse || !shared.publicSourceApproved || shared.files == null)
+                throw new InvalidDataException("The shared H8S texture receipt does not record CC0-1.0 commercial and public-source rights.");
+            foreach (string name in new[] { "Cloth_Albedo.png", "Cloth_Normal.png", "Leather_Albedo.png", "Leather_Normal.png" })
+            {
+                string path = SharedTextures + name;
+                FileRow row = null;
+                foreach (FileRow candidate in shared.files) if (candidate != null && candidate.path == path) { row = candidate; break; }
+                if (row == null || !ImportedArt04OH.Hex(row.sha256, 64) || !string.Equals(ImportedArtProof04OH.FileHash(path), row.sha256, StringComparison.OrdinalIgnoreCase))
+                    throw new InvalidDataException("A shared wool or leather texture is missing, is a Git LFS pointer, or changed: " + path);
+            }
+        }
+
+        private static void VerifySource()
+        {
+            string hash = SourceHash(_cut.SourceBlend);
+            if (!string.Equals(hash, _cut.SourceSha256, StringComparison.OrdinalIgnoreCase))
+                throw new InvalidDataException("The editable source " + _cut.SourceBlend + " is missing, is a Git LFS pointer, or changed (expected SHA-256 " + _cut.SourceSha256 + ").");
+        }
+
+        /// <summary>SHA-256 of a project file outside Assets (the original FileHash only reads Assets paths).</summary>
+        private static string SourceHash(string relative)
+        {
+            if (!CinematicAcceptance04OF.RelativeBonePath(relative) || !relative.StartsWith("ArtSource/", StringComparison.Ordinal)) return "";
+            string full = Project(relative);
+            if (!File.Exists(full)) return "";
+            using (SHA256 hash = SHA256.Create())
+            using (FileStream stream = File.OpenRead(full))
+                return BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant();
+        }
+
+        private static bool ModelReady(ModelImporter m)
+        {
+            return HumanoidPrepH9.ModelReady(m, MaxInfluences);
+        }
+
+        private static bool TextureReady(TextureImporter t, bool normal)
+        {
+            return HumanoidPrepH9.TextureReady(t, normal);
+        }
+
+        /// <summary>Complete weights (no import pruning), readable meshes, no imported clips, plain hierarchy; base colour maps
+        /// sRGB and normal maps as normal maps. An importer is only re-imported when a value actually changes.</summary>
+        private static void ConfigureImporters()
+        {
+            for (int level = 0; level < 3; level++)
+            {
+                string path = ModelPath(level);
+                ModelImporter importer = AssetImporter.GetAtPath(path) as ModelImporter;
+                if (importer == null) throw new InvalidDataException("Wait for the actual FBX import, then inspect the first Console error: " + path);
+                // Embedded materials keep the FBX material names that DanteReviewH8S.MaterialRole reads; the copy replaces them.
+                HumanoidPrepH9.ConfigureModel(importer, MaxInfluences);
+            }
+            for (int i = 0; i < _cut.AlbedoMaps.Length + _cut.NormalMaps.Length; i++)
+            {
+                bool normal = i >= _cut.AlbedoMaps.Length;
+                string path = normal ? _cut.NormalMaps[i - _cut.AlbedoMaps.Length] : _cut.AlbedoMaps[i];
+                TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (importer == null) throw new FileNotFoundException("Wait for the actual texture import: " + path);
+                HumanoidPrepH9.ConfigureTexture(importer, normal);
+            }
+        }
+
+        /// <summary>Play mode never re-imports; a review copy needs the settings applied beforehand.</summary>
+        private static void CheckImporters()
+        {
+            for (int level = 0; level < 3; level++)
+            {
+                ModelImporter importer = AssetImporter.GetAtPath(ModelPath(level)) as ModelImporter;
+                if (importer == null || !ModelReady(importer)) throw new InvalidDataException("The complete-weight import settings are not applied to " + ModelPath(level) + ". Stop Play mode and choose \"" + _cut.ReviewMenu + "\" once.");
+            }
+            for (int i = 0; i < _cut.AlbedoMaps.Length + _cut.NormalMaps.Length; i++)
+            {
+                bool normal = i >= _cut.AlbedoMaps.Length;
+                string path = normal ? _cut.NormalMaps[i - _cut.AlbedoMaps.Length] : _cut.AlbedoMaps[i];
+                TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (importer == null || !TextureReady(importer, normal)) throw new InvalidDataException("Texture import settings are not applied to " + path + ". Stop Play mode and choose \"" + _cut.ReviewMenu + "\" once.");
+            }
+        }
+
+        private static void CheckSourceComponents(GameObject source, string path)
+        {
+            HumanoidPrepH9.CheckSourceComponents(source, path);
+        }
+
+        private static GameObject Prepare(Receipt receipt)
+        {
+            GameObject copy = null;
+            try
+            {
+                GameObject[] sources = new GameObject[3];
+                for (int level = 0; level < 3; level++)
+                {
+                    sources[level] = AssetDatabase.LoadAssetAtPath<GameObject>(ModelPath(level));
+                    if (sources[level] == null) throw new InvalidDataException("The native FBX import did not return a model: " + ModelPath(level));
+                    CheckSourceComponents(sources[level], ModelPath(level));
+                }
+                if (!AssetDatabase.IsValidFolder(_cut.PreparedFolder)) AssetDatabase.CreateFolder(_cut.Root.TrimEnd('/'), "Prepared");
+                copy = new GameObject("Dante Rook " + _cut.Label + " candidate, appearance NOT APPROVED");
+                GameObject art = new GameObject("Art");
+                art.transform.SetParent(copy.transform, false);
+                // A plain clone, not a model prefab instance, so the LOD skins may move under Art.
+                GameObject primary = UnityEngine.Object.Instantiate(sources[0], art.transform, false);
+                primary.name = "LOD0 source";
+                Dictionary<string, Transform> nodes = UniqueNodes(primary.transform);
+                for (int level = 1; level < 3; level++) AttachLod(art.transform, primary.transform, nodes, sources[level], level);
+                // The original adapter never runs a second animation owner; the copy carries no Animator at all.
+                foreach (Animator animator in copy.GetComponentsInChildren<Animator>(true)) UnityEngine.Object.DestroyImmediate(animator);
+                Orient(copy);
+                List<Renderer>[] lods = { new List<Renderer>(), new List<Renderer>(), new List<Renderer>() };
+                Material[] surfaces = new Material[DanteReviewH8S.MaterialRoles.Count];
+                foreach (SkinnedMeshRenderer skin in copy.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+                {
+                    if (skin.sharedMesh == null || skin.bones.Length == 0 || skin.sharedMesh.bindposes.Length != skin.bones.Length)
+                        throw new InvalidDataException("Incomplete native skin: " + skin.name);
+                    // Complete, normalized and at most eight influences per vertex; nothing is pruned to fit.
+                    SkinWeightsH5.Referenced(skin.sharedMesh, skin.bones.Length);
+                    skin.quality = SkinQuality.Auto;
+                    Material[] slots = skin.sharedMaterials;
+                    for (int i = 0; i < slots.Length; i++)
+                    {
+                        string imported = slots[i] != null ? slots[i].name : "";
+                        int role = DanteReviewH8S.MaterialRole(imported);
+                        if (role < 0) throw new InvalidDataException("Unrecorded material on " + skin.name + ": \"" + imported + "\".");
+                        if (surfaces[role] == null) surfaces[role] = Surface(role);
+                        slots[i] = surfaces[role];
+                    }
+                    skin.sharedMaterials = slots;
+                    skin.updateWhenOffscreen = false;
+                    skin.shadowCastingMode = ShadowCastingMode.On;
+                    skin.receiveShadows = true;
+                    // Bounds live in the root bone's space; a 3 m box around the hips covers the whole posed body.
+                    Transform space = skin.rootBone != null ? skin.rootBone : skin.transform;
+                    Vector3 center = space.InverseTransformPoint(copy.transform.TransformPoint(new Vector3(0f, .95f, 0f)));
+                    skin.localBounds = new Bounds(center, Vector3.one * (3f / Mathf.Max(.0001f, space.lossyScale.x)));
+                    int lod = LodLevel(skin.name);
+                    if (lod < 0) throw new InvalidDataException("Missing LOD membership: " + skin.name);
+                    lods[lod].Add(skin);
+                }
+                for (int i = 0; i < 3; i++)
+                    if (lods[i].Count != _cut.SkinsPerLod) throw new InvalidDataException("LOD" + i + " has " + lods[i].Count + " skins; the receipt records " + _cut.SkinsPerLod + ".");
+                LODGroup group = copy.AddComponent<LODGroup>();
+                group.SetLODs(new[] { new LOD(.40f, lods[0].ToArray()), new LOD(.14f, lods[1].ToArray()), new LOD(.02f, lods[2].ToArray()) });
+                group.localReferencePoint = new Vector3(0f, .95f, 0f);
+                group.size = 1.9f;
+                GameObject saved = PrefabUtility.SaveAsPrefabAsset(copy, _cut.PreparedPrefab);
+                if (saved == null) throw new InvalidOperationException("The native prefab save failed.");
+                WriteStamp(receipt);
+                AssetDatabase.SaveAssets();
+                return saved;
+            }
+            finally
+            {
+                if (copy != null) UnityEngine.Object.DestroyImmediate(copy);
+            }
+        }
+
+        /// <summary>The record of which receipt files a review copy was prepared from (generated, git-ignored).</summary>
+        private static string StampPath { get { return _cut.PreparedFolder + "/PreparedFrom.txt"; } }
+
+        private static string StampText(Receipt receipt)
+        {
+            StringBuilder text = new StringBuilder("Dante " + _cut.Label + " review copy prepared from receipt " + receipt.assetId + ", source " + _cut.SourceSha256 + "\n");
+            foreach (FileRow file in receipt.files) text.Append(file.path).Append(' ').Append(file.sha256.ToLowerInvariant()).Append('\n');
+            return text.ToString();
+        }
+
+        /// <summary>True when the prepared copy was built from exactly the receipt's current files.</summary>
+        private static bool StampMatches(Receipt receipt)
+        {
+            string full = Project(StampPath);
+            return File.Exists(full) && File.ReadAllText(full) == StampText(receipt);
+        }
+
+        private static void WriteStamp(Receipt receipt)
+        {
+            File.WriteAllText(Project(StampPath), StampText(receipt));
+            AssetDatabase.ImportAsset(StampPath);
+        }
+
+        private static int LodLevel(string name)
+        {
+            return HumanoidPrepH9.LodLevel(name);
+        }
+
+        /// <summary>Every transform below root by name. Names must be unique, so a bone can be found without guessing.</summary>
+        private static Dictionary<string, Transform> UniqueNodes(Transform root)
+        {
+            return HumanoidPrepH9.UniqueNodes(root);
+        }
+
+        /// <summary>Rebinds one lower LOD's skins to the LOD0 skeleton by bone name, refusing any missing bone or bind mismatch.</summary>
+        private static void AttachLod(Transform art, Transform primaryRoot, Dictionary<string, Transform> nodes, GameObject source, int level)
+        {
+            HumanoidPrepH9.AttachLod(art, primaryRoot, nodes, source, level, _cut.SkinsPerLod);
+        }
+
+        private static Transform Named(GameObject root, string name)
+        {
+            return HumanoidPrepH9.Named(root, name);
+        }
+
+        /// <summary>The original rig faces +Z with its left hand at -X, in metres. Correct a backward export, never mirror.</summary>
+        private static void Orient(GameObject root)
+        {
+            HumanoidPrepH9.Orient(root);
+        }
+
+        private static Texture2D Texture(string path)
+        {
+            Texture2D texture = HumanoidPrepH9.LoadTexture(path);
+            if (texture == null) throw new FileNotFoundException("Missing actual texture: " + path);
+            return texture;
+        }
+
+        /// <summary>
+        /// One prepared material per recorded role, through the project's original lit shader owner (Mats.StandardShader, URP
+        /// Lit on the URP path). Solid source colours are the source's linear base colours converted for Unity's colour
+        /// fields. The brows use the hair colour instead of the base character's red default. No surface emits light.
+        /// </summary>
+        private static Material Surface(int role)
+        {
+            string file = _cut.PreparedFolder + "/Dante_" + DanteReviewH8S.MaterialRoles[role] + ".mat";
+            Material existing = AssetDatabase.LoadAssetAtPath<Material>(file);
+            if (existing != null) return existing;
+            Color color = Color.white;
+            float smooth = .3f, bump = .5f;
+            string albedo = "", normal = "";
+            switch (role)
+            {
+                case 0: albedo = _cut.Root + "DanteAlbedo.png"; normal = _cut.Root + "T_Superhero_Male_Normal.png"; smooth = .3f; bump = .35f; break;
+                case 1: albedo = SharedTextures + "Cloth_Albedo.png"; normal = SharedTextures + "Cloth_Normal.png"; smooth = .21f; bump = .65f; break;
+                case 2: albedo = SharedTextures + "Leather_Albedo.png"; normal = SharedTextures + "Leather_Normal.png"; smooth = .24f; bump = .65f; break;
+                case 3: color = new Color(.11f, .055f, .026f).gamma; smooth = .25f; break;
+                case 4:
+                    // H9 carries strand-textured hair maps; the H8S hair keeps its solid source colour.
+                    if (_cut.HairAlbedo != "") { albedo = _cut.HairAlbedo; normal = _cut.HairNormal; smooth = .25f; bump = .5f; }
+                    else { color = new Color(.012f, .009f, .007f).gamma; smooth = .25f; }
+                    break;
+                case 5: color = new Color(.012f, .009f, .007f).gamma; smooth = .2f; break;
+                case 6: albedo = _cut.Root + "T_Eye_Brown.png"; normal = _cut.Root + "T_Eye_Normal.png"; smooth = .65f; bump = .5f; break;
+                default: throw new InvalidDataException("Unrecorded material role " + role + ".");
+            }
+            Shader shader = Mats.StandardShader;
+            if (shader == null) throw new InvalidOperationException("The original supported lit shader is unavailable.");
+            Material m = new Material(shader) { name = "Dante " + DanteReviewH8S.MaterialRoles[role] };
+            m.SetColor(RenderPath.IsURP ? "_BaseColor" : "_Color", color);
+            m.SetFloat("_Metallic", 0f);
+            m.SetFloat(RenderPath.IsURP ? "_Smoothness" : "_Glossiness", smooth);
+            if (albedo != "") m.SetTexture(RenderPath.IsURP ? "_BaseMap" : "_MainTex", Texture(albedo));
+            if (normal != "")
+            {
+                m.SetTexture("_BumpMap", Texture(normal));
+                m.SetFloat("_BumpScale", bump);
+                m.EnableKeyword("_NORMALMAP");
+            }
+            AssetDatabase.CreateAsset(m, file);
+            return m;
+        }
+    }
+}
+#endif

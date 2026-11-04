@@ -1,0 +1,11 @@
+The syndicate heavy (the owner's Blender character, a generic enemy) is built from these MakeHuman assets.
+Every community creator is credited here whether the piece is CC0 or CC-BY.
+
+- Body: MakeHuman system assets (makehuman_system), CC0
+- Tattooed male skin: MakeHuman community skin (its creator is not recorded in the .blend; Tyler, please add the
+  name shown in the MPFB asset library here), CC-BY or CC0
+- Eyes: MakeHuman system eyes taken from the boy's file, CC0
+
+The jacket, trousers, boots and armoured vest are original: tools/convert_mpfb_crowd_dropin.py makes them from the
+body's own surface and paints them (tools/mpfb_recipes/syndicate_heavy.json).
+Scaled from 2.34 m to an ordinary height (head bone at 1.70 m) so the crowd rig drives him without stretching.

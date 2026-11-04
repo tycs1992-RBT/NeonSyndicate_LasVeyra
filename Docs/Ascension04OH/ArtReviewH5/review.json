@@ -1,0 +1,9 @@
+{
+  "scope": "Orthographic software review of actual repaired FBX components. NOT UNITY, PBR approval, authored animation or final Malik.",
+  "source_components": "H5 lossless normalized derivative of H3 CC0 components",
+  "triangles": 35244,
+  "camera": "orthographic Y-up, FBX source converted from Z-up",
+  "shading": "simple offline albedo and directional diffuse, not Unity/PBR",
+  "owner_art_approval": "NOT REQUESTED AS FINAL / technical reference only",
+  "native": "NOT RUN"
+}

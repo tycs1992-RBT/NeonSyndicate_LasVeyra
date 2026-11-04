@@ -1,0 +1,17 @@
+{
+  "scope": "Observed current host capabilities, not an attempted native run",
+  "Unity_on_PATH": null,
+  "unity_on_PATH": null,
+  "checked_executables": {
+    "/workspace/scratch/149a3b29f23c/l2-validation/unity/Editor/Unity": false,
+    "/opt/Unity/Editor/Unity": false,
+    "/opt/unity/Editor/Unity": false
+  },
+  "matching_managed_assemblies_available": true,
+  "native_import": "NOT RUN",
+  "native_tests": "NOT RUN",
+  "playmode": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "profiler_fps": "NOT RUN",
+  "windows_build_launch": "NOT RUN"
+}

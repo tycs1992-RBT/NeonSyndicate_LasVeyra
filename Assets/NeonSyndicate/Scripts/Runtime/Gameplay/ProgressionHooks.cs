@@ -15,11 +15,17 @@ namespace NeonSyndicate
         public static void ResetStatics()
         {
             _gunCritTextAt = -99f;
+            ProgressionReadoutStaticsH8S.ResetStatics();
         }
 
-        /// <summary>Progression.LevelUp: a new level means a new skill point.</summary>
+        /// <summary>Progression.LevelUp: a new level means a new skill point (and, H8S, a "what changed" banner once the HUD shows).</summary>
         public static void OnLevelUp(int level)
         {
+            try
+            {
+                LevelUpReadoutH8S.Begin(level);
+            }
+            catch (Exception e) { Log.Exception("Level up readout", e); }
             try
             {
                 if (Game.Skills != null) Game.Skills.OnLevelUp(level);

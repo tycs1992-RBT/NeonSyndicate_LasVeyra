@@ -11,8 +11,28 @@ namespace NeonSyndicate
             if((broken & (PartEffect.ArmorLost|PartEffect.CoreExposed))!=0)baseline+=12f;
             return Mathf.Clamp(baseline+Mathf.Clamp01(cast)*18f-Mathf.Clamp01(recovery)*8f,0,65);
         }
+        public static Vector3 MantleAnglesH3(int side,int phase,float cast,float recovery)
+        {
+            float stage=Mathf.Clamp(phase,0,2);return new Vector3(-Mathf.Clamp01(cast)*9+Mathf.Clamp01(recovery)*5,side*(stage<1?0:stage<2?8:18),side*stage*3);
+        }
         public static void Crest(MeshBuilder stone,MeshBuilder crystal,bool azure,int side)
         {
+            if(!azure)
+            {
+                // Castellan: a tall, hollow reliquary mantle articulates open as phases advance and armour breaks.
+                // Its three load-bearing ribs read at distance without obscuring the existing exposed core.
+                for(int rib=0;rib<3;rib++)
+                {
+                    Vector3 foot=new Vector3(side*(.18f+rib*.10f),-.16f-rib*.13f,-.19f);
+                    Vector3 shoulder=new Vector3(side*(.48f+rib*.13f),.26f-rib*.05f,-.21f);
+                    Vector3 crown=new Vector3(side*(.22f+rib*.10f),1.04f-rib*.15f,-.15f);
+                    GothicRealmGeometry04OB.Beam(stone,foot,shoulder,.105f-rib*.012f,.095f);
+                    GothicRealmGeometry04OB.Beam(stone,shoulder,crown,.075f,.07f);
+                    GothicRealmGeometry04OB.Crystal(crystal,crown,new Vector3(.12f,.39f-rib*.06f,.14f),side*.22f,2940+rib+side);
+                    if(rib<2)GothicRealmGeometry04OB.Beam(stone,shoulder,new Vector3(side*.16f,.42f,-.15f),.055f,.06f);
+                }
+                return;
+            }
             Vector3 root=new Vector3(side*.19f,.10f,-.17f),elbow=new Vector3(side*.38f,.43f,-.18f),tip=new Vector3(side*.27f,.78f,-.10f);
             GothicRealmGeometry04OB.Beam(stone,root,elbow,azure?.10f:.08f,.08f);
             GothicRealmGeometry04OB.Beam(stone,elbow,tip,.06f,.055f);
@@ -33,12 +53,12 @@ namespace NeonSyndicate
     }
     public sealed class RegionalBossPresentation04OF : MonoBehaviour
     {
-        private NpcController _owner;private bool _azure;
+        private NpcController _owner;private bool _azure,_heart;
         private readonly Transform[] _roots04OG=new Transform[4];
         private readonly Transform[] _vanes=new Transform[2];private float _spread;
         public void Bind(NpcController owner,bool azure)
         {
-            _owner=owner;_azure=azure;owner.Anim.FrontierBossKind04OG=azure?2:1;
+            _owner=owner;_azure=azure;_heart=Game.Layout!=null && Game.Layout.GothicHeartH3;owner.Anim.FrontierBossKind04OG=azure?2:1;
             if(azure)for(int i=0;i<_roots04OG.Length;i++)
             {
                 GameObject root=new GameObject("04OG rooted hip fan "+i);root.transform.SetParent(owner.Rig.Hips,false);_roots04OG[i]=root.transform;
@@ -53,12 +73,26 @@ namespace NeonSyndicate
             for(int i=0;i<2;i++)
             {
                 GameObject pivot=new GameObject("04OF articulated crest "+i);pivot.transform.SetParent(owner.Rig.Chest,false);_vanes[i]=pivot.transform;
-                MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1);RegionalBossPose04OF.Crest(stone,crystal,azure,i==0?-1:1);
+                MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1);
+                bool authored=!azure && Game.Layout!=null && Game.Layout.ArtRevolutionH2 && AscensionArtH2.Ready();
+                if(authored)
+                {
+                    MeshBuilder asset=AscensionArtH2.Source("castellan_mantle",Settings.Graphics==GraphicsPreset.Low);
+                    stone.Append(i==0?AscensionArtH2.MirrorX(asset):asset);
+                    if(_heart)
+                    {
+                        MeshBuilder leaf=i==0?AscensionArtH2.MirrorX(asset):asset;
+                        AscensionArtH2.Append(stone,leaf,new Vector3((i==0?-1:1)*.4f,-.24f,-.09f),0,new Vector3(.55f,.60f,.8f));
+                    }
+                    // Retain the original part-driven mineral tips; the articulated mantle uses the fixed H2 asset.
+                    MeshBuilder ignored=new MeshBuilder(1);RegionalBossPose04OF.Crest(ignored,crystal,false,i==0?-1:1);
+                }
+                else RegionalBossPose04OF.Crest(stone,crystal,azure,i==0?-1:1);
                 foreach(MeshBuilder builder in new[]{stone,crystal})
                 {
                     GameObject mesh=new GameObject("04OF crest surface");mesh.transform.SetParent(pivot.transform,false);mesh.layer=Layers.IgnoreRaycast;
                     mesh.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(mesh,builder.ToMesh(mesh.name));
-                    mesh.AddComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(builder==stone?azure?"timber":"stone":azure?"teal":"crystal");
+                    mesh.AddComponent<MeshRenderer>().sharedMaterial=(authored?AscensionArtH2.Surface(builder==stone?"iron":"amethyst"):GothicRealmMaterials04OB.For(builder==stone?azure?"timber":"stone":azure?"teal":"crystal"));
                 }
             }
         }
@@ -75,7 +109,15 @@ namespace NeonSyndicate
                 _roots04OG[i].gameObject.SetActive(i<2 || (broken & PartEffect.ArmorLost)==0);
                 _roots04OG[i].localRotation=QMath.AZ((i%2==0?-1:1)*(_spread*.3f))*QMath.AX(_owner.Anim.CrystalCast04G*12-(broken!=PartEffect.None?8:0));
             }
-            for(int i=0;i<2;i++)if(_vanes[i]!=null)_vanes[i].localRotation=QMath.AZ((i==0?1:-1)*_spread);
+            for(int i=0;i<2;i++)if(_vanes[i]!=null)
+            {
+                _vanes[i].localRotation=QMath.AZ((i==0?1:-1)*_spread);
+                if(_heart && !_azure)
+                {
+                    Vector3 angles=RegionalBossPose04OF.MantleAnglesH3(i==0?1:-1,phase,_owner.Anim.CrystalCast04G,_owner.Anim.Telegraph<.5f?_owner.Anim.Telegraph:0);
+                    _vanes[i].localRotation*=QMath.Euler(angles.x,angles.y,angles.z);
+                }
+            }
         }
     }
 }

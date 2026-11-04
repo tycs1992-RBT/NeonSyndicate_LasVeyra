@@ -1,0 +1,92 @@
+{
+  "sha": "95dab623d70d23eb0863fa9afe69bd533c60cc1b",
+  "run_id": 40338129032,
+  "job_id": 121625100789,
+  "confirmed_failures": [
+    "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+    "All prior tests and exclusions preserved"
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Preservation guard regression tests",
+      "conclusion": "success"
+    },
+    {
+      "name": "Solid wild landmark preservation and integrity",
+      "conclusion": "success"
+    },
+    {
+      "name": "Redspire kit and unchanged original owners",
+      "conclusion": "success"
+    },
+    {
+      "name": "Redspire ground maps and original owners",
+      "conclusion": "success"
+    },
+    {
+      "name": "FR01 assets and original authorities",
+      "conclusion": "success"
+    },
+    {
+      "name": "Redspire strict independent FBX inspection",
+      "conclusion": "success"
+    },
+    {
+      "name": "Original owners, intake and metadata",
+      "conclusion": "failure"
+    },
+    {
+      "name": "Independent FBX parser, not Unity import",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Actual H6 candidate parse, not native import",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Actual derived skin and source stress proof, not native import",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Actual H7 geometry and authored action parse, not native import",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-dotnet@v4",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

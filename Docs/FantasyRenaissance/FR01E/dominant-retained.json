@@ -1,0 +1,182 @@
+[
+  {
+    "owner": "archive",
+    "model": "mineral_pier",
+    "position": [
+      -17.4,
+      5.85,
+      157.04001
+    ],
+    "scale": [
+      1.75,
+      5.2,
+      1.8
+    ],
+    "source_top_y": 30.816231903784207
+  },
+  {
+    "owner": "archive",
+    "model": "mineral_pier",
+    "position": [
+      5.3999996,
+      5.85,
+      157.04001
+    ],
+    "scale": [
+      1.75,
+      5.2,
+      1.8
+    ],
+    "source_top_y": 30.816231903784207
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      124.6
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      131.73334
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      138.86667
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      146
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      153.13333
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      160.26666
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "archive",
+    "model": "slate_roof",
+    "position": [
+      -6,
+      14.949999,
+      167.4
+    ],
+    "scale": [
+      1.56,
+      0.72,
+      0.85
+    ],
+    "source_top_y": 20.976399
+  },
+  {
+    "owner": "forge",
+    "model": "slate_roof",
+    "position": [
+      63.5,
+      14.549999,
+      121
+    ],
+    "scale": [
+      0.56,
+      0.6,
+      0.7
+    ],
+    "source_top_y": 19.571998999999998
+  },
+  {
+    "owner": "archive",
+    "model": "ribbed_vault",
+    "position": [
+      -6,
+      5.349,
+      124.6
+    ],
+    "scale": [
+      1.48,
+      0.9,
+      0.95
+    ],
+    "source_top_y": 17.445
+  },
+  {
+    "owner": "archive",
+    "model": "ribbed_vault",
+    "position": [
+      -6,
+      5.349,
+      131.73334
+    ],
+    "scale": [
+      1.48,
+      0.9,
+      0.95
+    ],
+    "source_top_y": 17.445
+  }
+]

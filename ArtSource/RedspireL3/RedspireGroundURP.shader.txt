@@ -1,0 +1,106 @@
+Shader "NeonSyndicate/Redspire Ground L3 URP"
+{
+    Properties
+    {
+        _LegacyTex ("Original ground", 2D) = "white" {}
+        _LegacyColor ("Original tint", Color) = (1,1,1,1)
+        _LegacySmoothness ("Original smoothness", Range(0,1)) = 0.1
+        [Normal] _LegacyNormal ("Original normal", 2D) = "bump" {}
+        _LegacyPacked ("Original packed mask", 2D) = "white" {}
+        _LegacyDetail ("Original detail color", 2D) = "gray" {}
+        [Normal] _LegacyDetailNormal ("Original detail normal", 2D) = "bump" {}
+        _LegacyHasMask ("Original mask present", Float) = 0
+        _LegacyMaskScale ("Original mask scale", Float) = 1
+        _LegacyHasNormal ("Original normal present", Float) = 0
+        _LegacyBumpScale ("Original normal scale", Float) = 1
+        _LegacyDetailEnabled ("Original detail enabled", Float) = 0
+        _LegacyDetailBump ("Original detail normal scale", Float) = 0
+        _LegacyOcclusion ("Original occlusion", Float) = 0
+        _EarthColor ("Earth color", 2D) = "white" {}
+        [Normal] _EarthNormal ("Earth normal", 2D) = "bump" {}
+        _EarthMask ("Earth metallic smoothness", 2D) = "black" {}
+        _SandColor ("Stony sand color", 2D) = "white" {}
+        [Normal] _SandNormal ("Stony sand normal", 2D) = "bump" {}
+        _SandMask ("Stony sand metallic smoothness", 2D) = "black" {}
+        _RegionMask ("Existing biome weight", 2D) = "black" {}
+        _MapHalf ("Map half metres", Float) = 1600
+        _TileMetres ("Repeat metres", Float) = 4
+    }
+    SubShader
+    {
+        Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
+        Pass
+        {
+            Name "ForwardLit"
+            Tags { "LightMode"="UniversalForward" }
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma target 3.0
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fog
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+            TEXTURE2D(_LegacyTex); SAMPLER(sampler_LegacyTex);
+            TEXTURE2D(_EarthColor); SAMPLER(sampler_EarthColor);
+            TEXTURE2D(_EarthNormal); SAMPLER(sampler_EarthNormal);
+            TEXTURE2D(_EarthMask); SAMPLER(sampler_EarthMask);
+            TEXTURE2D(_SandColor); SAMPLER(sampler_SandColor);
+            TEXTURE2D(_SandNormal); SAMPLER(sampler_SandNormal);
+            TEXTURE2D(_SandMask); SAMPLER(sampler_SandMask);
+            TEXTURE2D(_RegionMask); SAMPLER(sampler_RegionMask);
+            TEXTURE2D(_LegacyNormal);
+            TEXTURE2D(_LegacyPacked);
+            TEXTURE2D(_LegacyDetail);
+            TEXTURE2D(_LegacyDetailNormal);
+            CBUFFER_START(UnityPerMaterial)
+                float4 _LegacyTex_ST, _LegacyColor, _LegacyDetail_ST;
+                float _LegacyHasMask,_LegacyMaskScale,_LegacyHasNormal,_LegacyBumpScale,_LegacyDetailEnabled,_LegacyDetailBump,_LegacyOcclusion;
+                float _LegacySmoothness, _MapHalf, _TileMetres;
+            CBUFFER_END
+            struct Attributes { float4 positionOS:POSITION; float3 normalOS:NORMAL; float2 uv:TEXCOORD0; };
+            struct Varyings { float4 positionCS:SV_POSITION; float3 positionWS:TEXCOORD0; half3 normalWS:TEXCOORD1; float2 uv:TEXCOORD2; half fog:TEXCOORD3; };
+            Varyings vert(Attributes i)
+            {
+                Varyings o; VertexPositionInputs p=GetVertexPositionInputs(i.positionOS.xyz);
+                o.positionCS=p.positionCS; o.positionWS=p.positionWS;
+                o.normalWS=TransformObjectToWorldNormal(i.normalOS); o.uv=TRANSFORM_TEX(i.uv,_LegacyTex);
+                o.fog=ComputeFogFactor(p.positionCS.z); return o;
+            }
+            half4 frag(Varyings i):SV_Target
+            {
+                float2 region=SAMPLE_TEXTURE2D(_RegionMask,sampler_RegionMask,i.positionWS.xz/(_MapHalf*2)+.5).rg;
+                half3 up=normalize(i.normalWS); float blend=saturate(region.g+(1-saturate(up.y))*1.8);
+                float2 uv=i.positionWS.xz/_TileMetres;
+                half3 ground=lerp(SAMPLE_TEXTURE2D(_EarthColor,sampler_EarthColor,uv).rgb,SAMPLE_TEXTURE2D(_SandColor,sampler_SandColor,uv).rgb,blend);
+                half3 n=normalize(lerp(UnpackNormal(SAMPLE_TEXTURE2D(_EarthNormal,sampler_EarthNormal,uv)),UnpackNormal(SAMPLE_TEXTURE2D(_SandNormal,sampler_SandNormal,uv)),blend));
+                half3 east=normalize(half3(1,0,0)-up*up.x); half3 north=normalize(cross(east,up));
+                SurfaceData s=(SurfaceData)0;
+                float2 duv=i.uv*_LegacyDetail_ST.xy+_LegacyDetail_ST.zw;
+                half3 legacy=SAMPLE_TEXTURE2D(_LegacyTex,sampler_LegacyTex,i.uv).rgb*_LegacyColor.rgb;
+                legacy*=lerp(half3(1,1,1),SAMPLE_TEXTURE2D(_LegacyDetail,sampler_LegacyTex,duv).rgb*2,_LegacyDetailEnabled);
+                half4 oldMask=SAMPLE_TEXTURE2D(_LegacyPacked,sampler_LegacyTex,i.uv);
+                half3 oldNormal=UnpackNormal(SAMPLE_TEXTURE2D(_LegacyNormal,sampler_LegacyTex,i.uv));
+                oldNormal.xy*=_LegacyBumpScale; oldNormal=normalize(lerp(half3(0,0,1),oldNormal,_LegacyHasNormal));
+                half3 detail=UnpackNormal(SAMPLE_TEXTURE2D(_LegacyDetailNormal,sampler_LegacyTex,duv));
+                oldNormal=normalize(oldNormal+half3(detail.xy*_LegacyDetailBump*_LegacyDetailEnabled,0));
+                s.albedo=lerp(legacy,ground,region.r);
+                s.smoothness=lerp(lerp(_LegacySmoothness,oldMask.a*_LegacyMaskScale,_LegacyHasMask),lerp(SAMPLE_TEXTURE2D(_EarthMask,sampler_EarthMask,uv).a,SAMPLE_TEXTURE2D(_SandMask,sampler_SandMask,uv).a,blend),region.r);
+                s.metallic=oldMask.r*_LegacyHasMask*(1-region.r); s.occlusion=lerp(lerp(1,oldMask.g,_LegacyOcclusion*_LegacyHasMask),1,region.r); s.alpha=1; s.normalTS=half3(0,0,1);
+                InputData d=(InputData)0; d.positionWS=i.positionWS;
+                d.normalWS=normalize(lerp(east*oldNormal.x+north*oldNormal.y+up*oldNormal.z,east*n.x+north*n.y+up*n.z,region.r));
+                d.viewDirectionWS=GetWorldSpaceNormalizeViewDir(i.positionWS); d.shadowCoord=TransformWorldToShadowCoord(i.positionWS);
+                d.bakedGI=SampleSH(d.normalWS); d.vertexLighting=VertexLighting(i.positionWS,d.normalWS);
+                d.normalizedScreenSpaceUV=GetNormalizedScreenSpaceUV(i.positionCS); d.shadowMask=half4(1,1,1,1);
+                half4 color=UniversalFragmentPBR(d,s); color.rgb=MixFog(color.rgb,i.fog); return color;
+            }
+            ENDHLSL
+        }
+        UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+        UsePass "Universal Render Pipeline/Lit/DepthOnly"
+    }
+    FallBack Off
+}

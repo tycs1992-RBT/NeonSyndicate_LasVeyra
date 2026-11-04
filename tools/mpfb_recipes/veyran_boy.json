@@ -1,0 +1,38 @@
+{
+  "file": "VeyranBoy",
+  "pieces": [
+    {"match": ".body", "material": "Complexion", "object": "Body", "size": 2048},
+    {"match": "hair", "material": "Hairpiece", "object": "Hair", "alpha": true, "budget": 5000},
+    {"match": "mask", "material": "Mask", "object": "Mask"},
+    {"match": "eyebrow", "material": "Browline", "object": "Brows", "alpha": true, "size": 512},
+    {"match": "-poly", "material": "Eyes", "object": "Eyes", "size": 512},
+    {"match": "teeth", "material": "Teeth", "object": "Teeth", "size": 512, "budget": 1200},
+    {"match": "tongue", "material": "Tongue", "object": "Tongue", "size": 256}
+  ],
+  "livecast": {
+    "identity": "crowd:veyran-boy",
+    "female": false,
+    "age": "child",
+    "roles": ["Civilian"],
+    "hair": "own",
+    "creator": "Tyler (his MPFB character, converted for the H9 skeleton)",
+    "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+    "materials": [
+      {"material": "Complexion", "smoothness": 0.35},
+      {"material": "Hairpiece", "mode": "cutout", "smoothness": 0.25},
+      {"material": "Browline", "mode": "cutout", "smoothness": 0.15},
+      {"material": "Mask", "smoothness": 0.45},
+      {"material": "Eyes", "smoothness": 0.85}
+    ]
+  },
+  "credits": [
+    "The boy (the owner's Blender character, a child of the city) is built from these MakeHuman assets.",
+    "Every community creator is credited here whether the piece is CC0 or CC-BY.",
+    "",
+    "- Body, eyes, eyebrows, teeth, tongue and the painted suit skin: MakeHuman system assets (makehuman_system), CC0",
+    "- Hair 14: culturalibre (MakeHuman community), CC-BY or CC0",
+    "- Hero mask 3: culturalibre (MakeHuman community), CC-BY or CC0",
+    "",
+    "Converted to the game skeleton by tools/convert_mpfb_crowd_dropin.py with tools/mpfb_recipes/veyran_boy.json."
+  ]
+}

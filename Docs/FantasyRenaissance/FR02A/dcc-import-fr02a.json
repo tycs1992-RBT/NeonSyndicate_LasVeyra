@@ -1,0 +1,710 @@
+{
+  "scope": "Actual Blender FBX reimports and UV checks, not Unity",
+  "passed": 39,
+  "total": 39,
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx",
+      "sha256": "ed700117358bf72b3050868a6b0ebcb03c544c654b845e583280af66669c83b0",
+      "passed": true,
+      "bounds": [
+        [
+          -3.9628078937530518,
+          -5.47499942779541,
+          -3.529526964030083e-07
+        ],
+        [
+          3.9628078937530518,
+          4.950000762939453,
+          11.734999656677246
+        ]
+      ],
+      "triangles": 3400
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx",
+      "sha256": "cc671ce2b49c26fa4ef1957d8f35f46f3e76a4a39e5ed3c5c6f947d8823a1f92",
+      "passed": true,
+      "bounds": [
+        [
+          -3.9628078937530518,
+          -5.47499942779541,
+          -3.529526964030083e-07
+        ],
+        [
+          3.9628078937530518,
+          4.950000762939453,
+          11.734999656677246
+        ]
+      ],
+      "triangles": 2332
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx",
+      "sha256": "de58cd5fba09dd783a61c071d303d3acaa79b187901fabdeaf6f37bd21c71158",
+      "passed": true,
+      "bounds": [
+        [
+          -3.9628078937530518,
+          -5.375,
+          -3.529526964030083e-07
+        ],
+        [
+          3.9628078937530518,
+          4.950000762939453,
+          11.734999656677246
+        ]
+      ],
+      "triangles": 1412
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx",
+      "sha256": "356a67d9fe34bccf2d4dc6108289e84277d71da59a65b2e0c6ff7f9312d112c1",
+      "passed": true,
+      "bounds": [
+        [
+          -4.467564582824707,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.467564582824707,
+          5.450001239776611,
+          18.399999618530273
+        ]
+      ],
+      "triangles": 4042
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx",
+      "sha256": "02b8f8fe5f5001118aa6b1a7ed1c6544ec14faf98d54b9a1df44af7aa7f15a94",
+      "passed": true,
+      "bounds": [
+        [
+          -4.467564582824707,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.467564582824707,
+          5.450001239776611,
+          18.399999618530273
+        ]
+      ],
+      "triangles": 2838
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx",
+      "sha256": "4d6132104ca753e58f1531e78b0329c30ee6eec3c26015af8ead3c9e6c00a01f",
+      "passed": true,
+      "bounds": [
+        [
+          -4.467564582824707,
+          -5.875,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.467564582824707,
+          5.450001239776611,
+          18.399999618530273
+        ]
+      ],
+      "triangles": 2014
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx",
+      "sha256": "4c12f2829f7f5bdeab0eb7c8c3ed16b5ee6552bb2cf7e08cf423304acd084fde",
+      "passed": true,
+      "bounds": [
+        [
+          -4.9551544189453125,
+          -7.349999904632568,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.9551544189453125,
+          5.450000762939453,
+          12.03499984741211
+        ]
+      ],
+      "triangles": 3951
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx",
+      "sha256": "bda45859070697e3e5c68935b330a756954428be246e4129722569455d9eb74a",
+      "passed": true,
+      "bounds": [
+        [
+          -4.9551544189453125,
+          -7.349999904632568,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.9551544189453125,
+          5.450000762939453,
+          12.03499984741211
+        ]
+      ],
+      "triangles": 2635
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx",
+      "sha256": "3d916c534b1db6f608af78dc4a74edf570a1040ad24458025a554cbfe9598c6d",
+      "passed": true,
+      "bounds": [
+        [
+          -4.9551544189453125,
+          -7.349999904632568,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.9551544189453125,
+          5.450000762939453,
+          12.03499984741211
+        ]
+      ],
+      "triangles": 1595
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx",
+      "sha256": "57a9389e597de696d74533d3b4d786080186bdf9ffbae6b3310ad9faab85dd55",
+      "passed": true,
+      "bounds": [
+        [
+          -5.799999713897705,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          5.799999713897705,
+          5.450000286102295,
+          11.835000038146973
+        ]
+      ],
+      "triangles": 2008
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx",
+      "sha256": "527d182ecec4b6d6d1e789f9820c8d28324c430ebcdec3a48822527182d4570b",
+      "passed": true,
+      "bounds": [
+        [
+          -5.799999713897705,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          5.799999713897705,
+          5.450000286102295,
+          11.835000038146973
+        ]
+      ],
+      "triangles": 1324
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx",
+      "sha256": "01db62ab05d5bd418aad1111d538cb5f542e2b47dce2138678e98bfc097586fb",
+      "passed": true,
+      "bounds": [
+        [
+          -5.799999713897705,
+          -5.875,
+          -3.9070161506060685e-07
+        ],
+        [
+          5.799999713897705,
+          5.450000286102295,
+          11.835000038146973
+        ]
+      ],
+      "triangles": 904
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx",
+      "sha256": "b1162879038f01acab2269cc79f7265af1a4de9a060f572fe6326d4186dc2d67",
+      "passed": true,
+      "bounds": [
+        [
+          -4.9551544189453125,
+          -7.0799994468688965,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.9551544189453125,
+          5.450000762939453,
+          12.734999656677246
+        ]
+      ],
+      "triangles": 3460
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx",
+      "sha256": "53e76d71bcda7e702e9e08499e8e5dd96013740380baa0dc1fbeaf88f24ec135",
+      "passed": true,
+      "bounds": [
+        [
+          -4.9551544189453125,
+          -7.0799994468688965,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.9551544189453125,
+          5.450000762939453,
+          12.734999656677246
+        ]
+      ],
+      "triangles": 2392
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx",
+      "sha256": "3c661963d1232aa15cce3447a3523c7389e3ac18558981bfe72e1e2e2412cfaa",
+      "passed": true,
+      "bounds": [
+        [
+          -4.9551544189453125,
+          -7.0799994468688965,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.9551544189453125,
+          5.450000762939453,
+          12.734999656677246
+        ]
+      ],
+      "triangles": 1708
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx",
+      "sha256": "0344607e741c21f0bde760a2832698c6595100ce9a2b1cec46b59964091d809c",
+      "passed": true,
+      "bounds": [
+        [
+          -7.664440155029297,
+          -4.97499942779541,
+          -3.152037493237003e-07
+        ],
+        [
+          7.664440155029297,
+          4.500000953674316,
+          11.710000991821289
+        ]
+      ],
+      "triangles": 3028
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx",
+      "sha256": "cb6ba073705946d0a2779dc824beca4e72efe5a7357be0e0284539f70cf9915e",
+      "passed": true,
+      "bounds": [
+        [
+          -7.664440155029297,
+          -4.97499942779541,
+          -3.152037493237003e-07
+        ],
+        [
+          7.664440155029297,
+          4.500000953674316,
+          11.710000991821289
+        ]
+      ],
+      "triangles": 2056
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx",
+      "sha256": "54a0f2895deddcdafc2c80cca72083b056a837b775a9932ace1eb18aa4c39c88",
+      "passed": true,
+      "bounds": [
+        [
+          -7.664440155029297,
+          -4.875,
+          -3.152037493237003e-07
+        ],
+        [
+          7.664440155029297,
+          4.500000953674316,
+          11.710000991821289
+        ]
+      ],
+      "triangles": 1420
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx",
+      "sha256": "3a7baba852ee1a558aefce9df8f2b3966c50fd1e9321c7a499f85c924c3f0f49",
+      "passed": true,
+      "bounds": [
+        [
+          -4.320156097412109,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.300000190734863,
+          5.174999713897705,
+          8.110000610351562
+        ]
+      ],
+      "triangles": 1844
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx",
+      "sha256": "2fbedad2fbc9f36ec1b8624a079f6f7dfba85d7aa21b94a67c8c78bc456008c3",
+      "passed": true,
+      "bounds": [
+        [
+          -4.320156097412109,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.300000190734863,
+          5.174999713897705,
+          8.110000610351562
+        ]
+      ],
+      "triangles": 1256
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx",
+      "sha256": "25f2d8962e9c8eea61134bd62a61c4a9554364f51a3aea005b36fabc0bc6b689",
+      "passed": true,
+      "bounds": [
+        [
+          -4.320156097412109,
+          -5.875,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.300000190734863,
+          5.174999713897705,
+          8.110000610351562
+        ]
+      ],
+      "triangles": 884
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx",
+      "sha256": "725ddb1e845232327524f7e11c023488e87c86afc4379f2a7e9cb88be2f1a14b",
+      "passed": true,
+      "bounds": [
+        [
+          -4.453101634979248,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.465335369110107,
+          5.450000762939453,
+          15.399999618530273
+        ]
+      ],
+      "triangles": 2986
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx",
+      "sha256": "00bf182a319f5277e5f177ded3a9058bb37d90916b3d48ef394e65b3cd76944b",
+      "passed": true,
+      "bounds": [
+        [
+          -4.453101634979248,
+          -5.97499942779541,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.465335369110107,
+          5.450000762939453,
+          15.399999618530273
+        ]
+      ],
+      "triangles": 2070
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx",
+      "sha256": "858eb71144f20cb1ec852c9b596ba567c81d1c3cad79fc3bc445fc520d1a5a37",
+      "passed": true,
+      "bounds": [
+        [
+          -4.453101634979248,
+          -5.875,
+          -3.9070161506060685e-07
+        ],
+        [
+          4.465335369110107,
+          5.450000762939453,
+          15.399999618530273
+        ]
+      ],
+      "triangles": 1462
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx",
+      "sha256": "3173177c2ef2f4a128aad42263649854a870ffed4c8e480ae6143e213fe71da8",
+      "passed": true,
+      "bounds": [
+        [
+          -5.948733329772949,
+          -7.0799994468688965,
+          -3.9070161506060685e-07
+        ],
+        [
+          5.948733329772949,
+          5.450000762939453,
+          12.734999656677246
+        ]
+      ],
+      "triangles": 3792
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx",
+      "sha256": "0e680ac3eca7f5badf49c716925ef681a56e3395e9f2a1d87dc10db808068586",
+      "passed": true,
+      "bounds": [
+        [
+          -5.948733329772949,
+          -7.0799994468688965,
+          -3.9070161506060685e-07
+        ],
+        [
+          5.948733329772949,
+          5.450000762939453,
+          12.734999656677246
+        ]
+      ],
+      "triangles": 2628
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx",
+      "sha256": "1d20ba0c22b7e8e259c0a0c1c5cbd980c439a10aa07e442cdfcf5c7abffae1dd",
+      "passed": true,
+      "bounds": [
+        [
+          -5.948733329772949,
+          -7.0799994468688965,
+          -3.9070161506060685e-07
+        ],
+        [
+          5.948733329772949,
+          5.450000762939453,
+          12.734999656677246
+        ]
+      ],
+      "triangles": 1660
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx",
+      "sha256": "7f5a2231b4978cc839f9b854cb9699e74526f543fde0ca73be6be8bbb604c4c1",
+      "passed": true,
+      "bounds": [
+        [
+          -3.0506651401519775,
+          -2.249999761581421,
+          -1.41558572863687e-07
+        ],
+        [
+          3.0506649017333984,
+          2.125000238418579,
+          4.610000133514404
+        ]
+      ],
+      "triangles": 659
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx",
+      "sha256": "d90e0f917b0037a1a24a4cccf55e69ba79644ecec016f2100b837893faa8fd76",
+      "passed": true,
+      "bounds": [
+        [
+          -3.0506651401519775,
+          -2.249999761581421,
+          -1.41558572863687e-07
+        ],
+        [
+          3.0506649017333984,
+          2.125000238418579,
+          4.610000133514404
+        ]
+      ],
+      "triangles": 363
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx",
+      "sha256": "f087b10242d030d9109a4d4777db6de97cf3b8f21ca8c1cbe7f5f29544706eac",
+      "passed": true,
+      "bounds": [
+        [
+          -3.0506651401519775,
+          -2.249999761581421,
+          -1.41558572863687e-07
+        ],
+        [
+          3.0506649017333984,
+          2.125000238418579,
+          4.610000133514404
+        ]
+      ],
+      "triangles": 219
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx",
+      "sha256": "0b246d553ba254e96cf25685894d04180bc359f61acb1027f22ca664dd97926b",
+      "passed": true,
+      "bounds": [
+        [
+          -1.8049999475479126,
+          -0.6999999284744263,
+          -1.1702174163019663e-07
+        ],
+        [
+          1.649999976158142,
+          1.5500000715255737,
+          1.6399998664855957
+        ]
+      ],
+      "triangles": 240
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx",
+      "sha256": "d8497598d48a0c8cd3f9e09e7461c4608c3dfc6949bd0d26df5376515e943977",
+      "passed": true,
+      "bounds": [
+        [
+          -1.8049999475479126,
+          -0.6999999284744263,
+          -1.1702174163019663e-07
+        ],
+        [
+          1.649999976158142,
+          1.5500000715255737,
+          1.6399998664855957
+        ]
+      ],
+      "triangles": 192
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx",
+      "sha256": "68e102eddeeb7cb9a5eefb06c6576d61d0ada499727ffe13ef5d6c1bf1dd7982",
+      "passed": true,
+      "bounds": [
+        [
+          -1.8049999475479126,
+          -0.6999999284744263,
+          -1.1702174163019663e-07
+        ],
+        [
+          1.649999976158142,
+          1.5500000715255737,
+          1.6399998664855957
+        ]
+      ],
+      "triangles": 168
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx",
+      "sha256": "257e850f255f3499ededbef9e5fc302b23ce129b27d65d97bdaca08c6756a28c",
+      "passed": true,
+      "bounds": [
+        [
+          -2.0,
+          -1.7249999046325684,
+          -1.0003471118125162e-07
+        ],
+        [
+          2.0,
+          1.3250000476837158,
+          1.9656672477722168
+        ]
+      ],
+      "triangles": 432
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx",
+      "sha256": "505a5e2213597d731b73ec5f43559167875b252f85bb0469d52e0c8767a1d6a4",
+      "passed": true,
+      "bounds": [
+        [
+          -2.0,
+          -1.7249999046325684,
+          -1.0003471118125162e-07
+        ],
+        [
+          2.0,
+          1.3250000476837158,
+          1.927070140838623
+        ]
+      ],
+      "triangles": 272
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx",
+      "sha256": "3b111f97a5589d3a0e3562983ce32f2d38efacbe8aa92f88d565613e53010857",
+      "passed": true,
+      "bounds": [
+        [
+          -2.0,
+          -1.7249999046325684,
+          -1.0003471118125162e-07
+        ],
+        [
+          2.0,
+          1.3250000476837158,
+          1.930851697921753
+        ]
+      ],
+      "triangles": 176
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx",
+      "sha256": "188571c58baee1758c342518d045755f8eb28f3c6bedac161562318410e94bd8",
+      "passed": true,
+      "bounds": [
+        [
+          -0.4406583607196808,
+          -0.5049996972084045,
+          -1.8119495237556293e-08
+        ],
+        [
+          0.4406583607196808,
+          0.4250003397464752,
+          4.160000324249268
+        ]
+      ],
+      "triangles": 376
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx",
+      "sha256": "0e56e9409a82da15e4f735004066b673afc81429c4b5b02a3eec7ae70a4c919f",
+      "passed": true,
+      "bounds": [
+        [
+          -0.4406583607196808,
+          -0.5049996972084045,
+          -1.8119495237556293e-08
+        ],
+        [
+          0.4406583607196808,
+          0.4250003397464752,
+          4.160000324249268
+        ]
+      ],
+      "triangles": 216
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx",
+      "sha256": "a80f1c492b37c360555a90fe92b4579068b6f5d994bf751e25e96b038ec4bbd4",
+      "passed": true,
+      "bounds": [
+        [
+          -0.4406583607196808,
+          -0.5049996972084045,
+          -1.5691941968043466e-08
+        ],
+        [
+          0.4406583607196808,
+          0.4250003397464752,
+          4.160000324249268
+        ]
+      ],
+      "triangles": 136
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

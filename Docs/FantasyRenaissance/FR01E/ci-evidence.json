@@ -1,0 +1,150 @@
+{
+  "checkpoint": "6a95643872db91742593c3f082c9134d140b6450",
+  "normalized_checkpoint": "8d529f32a9bb8859dd4bda9080cead85b33041ce",
+  "source_run": 40358720651,
+  "pr_run": 40358735627,
+  "lfs_run": 40358720779,
+  "source_conclusion": "failure",
+  "lfs_conclusion": "success",
+  "failure_excerpt": [
+    "2026-10-26T16:25:20.4160855Z {\"passed\": 46, \"total\": 48, \"failed\": [\"Original actor/gameplay authority / Characters/HumanoidPose.cs\", \"All prior tests and exclusions preserved\"]}"
+  ],
+  "jobs": [
+    {
+      "id": 121698071037,
+      "name": "source-and-fixture",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 40358720651,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Preservation guard regression tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Solid wild landmark preservation and integrity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Redspire kit and unchanged original owners",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Redspire ground maps and original owners",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "FR01 assets and original authorities",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Redspire strict independent FBX inspection",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "FR01E strict architecture and full-height LOD support",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Original owners, intake and metadata",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 12
+        },
+        {
+          "name": "Independent FBX parser, not Unity import",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13
+        },
+        {
+          "name": "Actual H6 candidate parse, not native import",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14
+        },
+        {
+          "name": "Actual derived skin and source stress proof, not native import",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15
+        },
+        {
+          "name": "Actual H7 geometry and authored action parse, not native import",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 32
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 33
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35
+        }
+      ]
+    }
+  ]
+}

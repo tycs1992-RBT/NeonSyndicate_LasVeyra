@@ -1,0 +1,762 @@
+{
+  "scope": "Actual H2 asset integrity and old-owner preservation. NOT native import, visual approval or FPS.",
+  "accepted_H1": "9c75dfa83c4619d1776d970f571af27172b35567",
+  "checks": [
+    {
+      "name": "Original source method and missing native approval are explicit",
+      "passed": true
+    },
+    {
+      "name": "Nineteen distinct source meshes, twelve distinct architectural categories",
+      "passed": true
+    },
+    {
+      "name": "portal_bay / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "portal_bay / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "portal_bay actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "portal_bay interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "flying_buttress / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "flying_buttress / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "flying_buttress actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "flying_buttress interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "ribbed_vault / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "ribbed_vault / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "ribbed_vault actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "ribbed_vault interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "cluster_column / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "cluster_column / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "cluster_column actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "cluster_column interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "reliquary_door / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "reliquary_door / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "reliquary_door actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "reliquary_door interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "tracery_wall / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "tracery_wall / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "tracery_wall actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "tracery_wall interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "gallery_rail / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "gallery_rail / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "gallery_rail actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "gallery_rail interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "processional_stair / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "processional_stair / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "processional_stair actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "processional_stair interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "broken_apse / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "broken_apse / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "broken_apse actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "broken_apse interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "forge_bay / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "forge_bay / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "forge_bay actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "forge_bay interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "slate_roof / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "slate_roof / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "slate_roof actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "slate_roof interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "mineral_pier / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "mineral_pier / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "mineral_pier actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "mineral_pier interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "basalt_strata / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "basalt_strata / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "basalt_strata actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "basalt_strata interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "root_causeway / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "root_causeway / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "root_causeway actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "root_causeway interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "cavern_shell / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "cavern_shell / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "cavern_shell actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "cavern_shell interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "fern_colony / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "fern_colony / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "fern_colony actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "fern_colony interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "crystal_seam / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "crystal_seam / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "crystal_seam actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "crystal_seam interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "castellan_mantle / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "castellan_mantle / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "castellan_mantle actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "castellan_mantle interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "record_lens / high finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "record_lens / low finite mesh, normals, length and budget",
+      "passed": true
+    },
+    {
+      "name": "record_lens actual lower detail does not exceed high",
+      "passed": true
+    },
+    {
+      "name": "record_lens interchange positions match actual runtime stream",
+      "passed": true
+    },
+    {
+      "name": "amethyst / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "amethyst / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "amethyst / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "azure / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "azure / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "azure / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "basalt / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "basalt / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "basalt / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "iron / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "iron / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "iron / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "leaf / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "leaf / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "leaf / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "masonry / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "masonry / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "masonry / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "root / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "root / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "root / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "slate / Albedo real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "slate / Normal real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "slate / Mask real PNG and correct color/normal importer",
+      "passed": true
+    },
+    {
+      "name": "H1 geometry, skin, original pose/import/companion/damage/Forge owners and default boot retain identical bytes",
+      "passed": true
+    },
+    {
+      "name": "H3 owner runtime lifecycle fix and explicit optional bind alignment retain the original importer validation",
+      "passed": false
+    },
+    {
+      "name": "New bind option defaults false without changing registry lookup or entitlement policy",
+      "passed": true
+    },
+    {
+      "name": "Production hero registry not silently created",
+      "passed": true
+    },
+    {
+      "name": "Only original city batching/collision dispatch, no disconnected scene",
+      "passed": true
+    },
+    {
+      "name": "Both finite first-win admission paths include new revision",
+      "passed": true
+    },
+    {
+      "name": "Physical commission is data, original host, four finite creatures, three interactions, no entitlement grant",
+      "passed": true
+    },
+    {
+      "name": "No unsupported NUnit AnyOf remains in shipped tests",
+      "passed": true
+    }
+  ],
+  "passed": 109,
+  "total": 110,
+  "asset_inventory": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/portal_bay_high.bytes",
+      "sha256": "887bf0824ecee1b56a5f55e74ca6ab54b7c464a4e1c8ba2bab236f8549331670",
+      "vertices": 5928
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/portal_bay_low.bytes",
+      "sha256": "d24b4c91a77afacf749144f43192f33a018eeb65ed5d38006c5cd366ef6bdce2",
+      "vertices": 5064
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/flying_buttress_high.bytes",
+      "sha256": "214d11700e079a922a38d28228033f091734a072210ab05b0b45f532ca88917e",
+      "vertices": 720
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/flying_buttress_low.bytes",
+      "sha256": "989cfdb6245969625ad2832e8406fd100d51bbda42a75a9758dfd6f1ef709673",
+      "vertices": 624
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/ribbed_vault_high.bytes",
+      "sha256": "3e7fe47daf05226b769efbca3cb2d632b47eae36ded1387f9a507087ce43e486",
+      "vertices": 4128
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/ribbed_vault_low.bytes",
+      "sha256": "7bbd1083ad31a8f68af08a5f5d09a87e943ec89302f88a4e97022a1df30af4b2",
+      "vertices": 1776
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cluster_column_high.bytes",
+      "sha256": "5f65d147b941f8eb3e28e7d3e28ade09eca45421b9ee055521cdb9ad058ae3c2",
+      "vertices": 2580
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cluster_column_low.bytes",
+      "sha256": "8085a9014791115fc85ef21e9ab49c88bb9487c9445530ff1f254fe269c9bb9c",
+      "vertices": 1236
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/reliquary_door_high.bytes",
+      "sha256": "5100ac679753687472b3e20c218efb317c286aba059e7d4697bc177c4e33acc4",
+      "vertices": 3576
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/reliquary_door_low.bytes",
+      "sha256": "6d01331f70aec55531701dac9ac996a39d19c56e49277cbc24eab35a1f24e4a1",
+      "vertices": 2712
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/tracery_wall_high.bytes",
+      "sha256": "fb059252751a8baf101aaade7637add8ca246dd32db50e57d4af3e6a42bde899",
+      "vertices": 3300
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/tracery_wall_low.bytes",
+      "sha256": "ed28cb0ee651b640bea0b9311c5b0e86e4c0eb445135bf881cea475c827740e8",
+      "vertices": 2868
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/gallery_rail_high.bytes",
+      "sha256": "285c5c38646a61b8bbe427ba46b9a36b59681622b9a7c6f4ca74c1c9879e848d",
+      "vertices": 3108
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/gallery_rail_low.bytes",
+      "sha256": "dc40eb3d68708274a928e3a214a0a3167edfc14a3a187820a10d1a403434de1a",
+      "vertices": 2244
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/processional_stair_high.bytes",
+      "sha256": "eb116a597001bd84b7eae6a0cbcffe49d400486face61fbc87911f2aaf309e40",
+      "vertices": 456
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/processional_stair_low.bytes",
+      "sha256": "0a4666c11879a12925743b9da17e19afa832ddc3cd00673f5722ab5058d8f337",
+      "vertices": 204
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/broken_apse_high.bytes",
+      "sha256": "32ad5e6be01ab0916a0f386539aa90f5563275fc0deead02e7d42a9f5d978c15",
+      "vertices": 720
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/broken_apse_low.bytes",
+      "sha256": "05d8fdb4c43274f18145ec42084017c3804cb9d72cdc42df93521ed7755a3ecf",
+      "vertices": 360
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/forge_bay_high.bytes",
+      "sha256": "d25450f009614894e6a3597465afaae40f122e7a8e3d43292723cd6309825f59",
+      "vertices": 2400
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/forge_bay_low.bytes",
+      "sha256": "89b231abb0f44aab1172e53e81f187ab98bef16ab7f5c94a0c00961122162285",
+      "vertices": 1968
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_high.bytes",
+      "sha256": "1f21c939b3fdcaad2d769a655215274a647d2b14bbb44c48a02065e6f3ee5b88",
+      "vertices": 840
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_low.bytes",
+      "sha256": "0b8d1e1495891ca90dc7351f7bf2cbfcaee16348b57a3fa833c05968ad9a7b55",
+      "vertices": 264
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_high.bytes",
+      "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa",
+      "vertices": 528
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_low.bytes",
+      "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa",
+      "vertices": 528
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/basalt_strata_high.bytes",
+      "sha256": "d80e6543e23a1ad1ff2230625a0ba447d83c6623501654b19bfb9925e10abb9b",
+      "vertices": 528
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/basalt_strata_low.bytes",
+      "sha256": "b3a8ed21235180e9ef3f1bc54dc1ed194b7d983e2ea22c805b76e9bdbc2c9007",
+      "vertices": 288
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/root_causeway_high.bytes",
+      "sha256": "e0bd685bc3173ea5cc0554775d9332d9271e1f5e180aab9bd9e5831e635cf67b",
+      "vertices": 2772
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/root_causeway_low.bytes",
+      "sha256": "c23983a2450a4594b120f50765b913db7e6ca59670b7f16c53e507bdba914b98",
+      "vertices": 972
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cavern_shell_high.bytes",
+      "sha256": "2bbbc167d25dced92774cdf5fd97d428255906270c8cd28690e8be5c434aeb89",
+      "vertices": 1920
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cavern_shell_low.bytes",
+      "sha256": "430eba98fb327ea99e20f72afe4d95fc2bfc412474430ac4db7afcdd43c1edb6",
+      "vertices": 1008
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/fern_colony_high.bytes",
+      "sha256": "80fd24ae42bfa12441c44355b3cc335ee6f706fe455d6727d7b585ae617aaa14",
+      "vertices": 144
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/fern_colony_low.bytes",
+      "sha256": "143ce5496810cd78c81e4316da3ae47c46dd7220025536290113600e67a3ab6d",
+      "vertices": 72
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/crystal_seam_high.bytes",
+      "sha256": "3b1e4a2e4b127cac0f946948d7ea0b4ac3c0b49ccebf6e0a0d3882bbc2dbcd27",
+      "vertices": 672
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/crystal_seam_low.bytes",
+      "sha256": "3b1e4a2e4b127cac0f946948d7ea0b4ac3c0b49ccebf6e0a0d3882bbc2dbcd27",
+      "vertices": 672
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/castellan_mantle_high.bytes",
+      "sha256": "a51a83b2b699feee760cd8d1048a3b34fbc9857c0cb95f3a176759d779dae8be",
+      "vertices": 1392
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/castellan_mantle_low.bytes",
+      "sha256": "af18ca60896e60cbfc1b4275d35350b7c79fa46f5ff82ba8d2f5e0d24bc5e303",
+      "vertices": 1008
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/record_lens_high.bytes",
+      "sha256": "b4b2c1ddfbc3a9d1ad2efa395b6da7c8885cdea1c21bcae985eb3d21da28c822",
+      "vertices": 4920
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/record_lens_low.bytes",
+      "sha256": "54ed0738413fe44e8c18e05599b6a29699ba139ead7ecc6b23a962a51e28d6ec",
+      "vertices": 1968
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/amethyst_Albedo.png",
+      "sha256": "e3c43f684044e885a4c60bb56fcca4a18f96b5ef266d5a96b8f18fa117576a4b",
+      "bytes": 69346
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/amethyst_Normal.png",
+      "sha256": "0a6e2765436e53308647bdfbea52a017b442e04a761db7bee6df5d079ab7c527",
+      "bytes": 133514
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/amethyst_Mask.png",
+      "sha256": "45c83900435ed201104d61be624cb458bf18248af08a3cf22a330c34e4d48beb",
+      "bytes": 40847
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/azure_Albedo.png",
+      "sha256": "46246b76e41f38b303b173d728f4d92d8259693ccf1ca28955c7969ac5929ea2",
+      "bytes": 70129
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/azure_Normal.png",
+      "sha256": "0a6e2765436e53308647bdfbea52a017b442e04a761db7bee6df5d079ab7c527",
+      "bytes": 133514
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/azure_Mask.png",
+      "sha256": "45c83900435ed201104d61be624cb458bf18248af08a3cf22a330c34e4d48beb",
+      "bytes": 40847
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/basalt_Albedo.png",
+      "sha256": "ce9012daddfed0fb7ee0ef632bc4b041c27cde0bdf3f5b26b93c01c143071851",
+      "bytes": 58643
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/basalt_Normal.png",
+      "sha256": "33e74bdd374e37282233453c78ae0b893402bb729c7d8f2dd579073e2cf549a1",
+      "bytes": 137738
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/basalt_Mask.png",
+      "sha256": "f5f01c81d73bacf10a24b9f0fa2e7f3063c57d44a72cbbebb1eb64f2ac0a01b6",
+      "bytes": 46675
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/iron_Albedo.png",
+      "sha256": "a25fad36ffd1dec2e669dc4ea4a858c4df54f4a8a03c1274f3311731a82d7309",
+      "bytes": 60786
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/iron_Normal.png",
+      "sha256": "fc1431e7d0d0beb4d143d5e5f12af5d540dda182c0f96035785a4865b70fa96a",
+      "bytes": 133581
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/iron_Mask.png",
+      "sha256": "efc248d42753e8260b7af7b651a1af259d093c5db870047076ec72d4d4d15588",
+      "bytes": 40881
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/leaf_Albedo.png",
+      "sha256": "2d3998ce571d3c8fdd48f568d12993e7d8f9fe19fcec918db940932384fda56e",
+      "bytes": 59656
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/leaf_Normal.png",
+      "sha256": "c7102295ed9c0e6f979ccf878045ec48d1e506877b39660db3af13dae81303cb",
+      "bytes": 134498
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/leaf_Mask.png",
+      "sha256": "1edb066d50445bf7ff39e2710cabd3148d7831490d4fff8f2d4ab61e4100d862",
+      "bytes": 40149
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/masonry_Albedo.png",
+      "sha256": "1fdeafe36f7119b8355a6b7401cb1328ac269d965d660b6431e6e4c2e033cec7",
+      "bytes": 63918
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/masonry_Normal.png",
+      "sha256": "ab0289f9fb3da4f49ce71c3c3a2a496781ae60dea523594f070bca898c24eb46",
+      "bytes": 134421
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/masonry_Mask.png",
+      "sha256": "ff9fa52b37d1b451e4b22d86cc9fd9b0ac08c79b4404257cd4856a78560c3c45",
+      "bytes": 41759
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/root_Albedo.png",
+      "sha256": "dd4c0bbe5aaadc0385a0e3f8afe30cff3b2dfd2da2c376ab64f71336cf08630e",
+      "bytes": 55050
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/root_Normal.png",
+      "sha256": "b32e5fd99ce5ca7c151282a4ec61fd497a3435c558bcd72bc00c4a1c38b2365a",
+      "bytes": 135046
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/root_Mask.png",
+      "sha256": "2a78dbc5cf5399859ebb098de792cbd6acbd3e629491f92ae46352cfe7214a8f",
+      "bytes": 40392
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/slate_Albedo.png",
+      "sha256": "7d1da40d1387f9884032e5d8a6df55d5e127dd040111fd564fe97af15e124602",
+      "bytes": 64036
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/slate_Normal.png",
+      "sha256": "51ba4c5654d8391cac2018a7a3829572388983d760523096baf4b30c01a73eb8",
+      "bytes": 141064
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Textures/slate_Mask.png",
+      "sha256": "d3333fc683f386c6d0849f255cb28ba6b88aea2c3ed2bbc2bf6df5404f92ea25",
+      "bytes": 48184
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "visual_acceptance": "NOT RUN"
+}

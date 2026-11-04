@@ -378,6 +378,8 @@ namespace NeonSyndicate
                 return;
             }
             _supports.Add(g);
+            // H8S: the golem claws up, then waits a moment before its first swing.
+            ArrivalGraceH8S(g);
             _budget.NoteAdmitted(1);
             if (Game.Fx != null)
             {

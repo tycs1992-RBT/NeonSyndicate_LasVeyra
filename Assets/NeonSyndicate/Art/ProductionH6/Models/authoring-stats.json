@@ -1,0 +1,975 @@
+{
+  "source": "Actual CC0 anatomical base and fitted parts, original DCC coat and armor",
+  "candidate": "MALIK-H6-REVIEW-01",
+  "owner_approval": "NOT GIVEN",
+  "runtime_enabled": false,
+  "native_unity": "NOT RUN",
+  "authored_animation": "ASSET REQUIRED",
+  "bone_count": 53,
+  "editable_meshes": [
+    {
+      "mesh": "Armor panel -1",
+      "vertices": 76,
+      "triangles": 148,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Armor panel 1",
+      "vertices": 76,
+      "triangles": 148,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Beard",
+      "vertices": 87000,
+      "triangles": 58000,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Short groom"
+      ]
+    },
+    {
+      "mesh": "Boots",
+      "vertices": 1594,
+      "triangles": 3064,
+      "max_influences": 2,
+      "pre_normalize_sum_error": 2.9802322387695312e-08,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Bronze coat fastener",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Bronze coat fastener.001",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Bronze coat fastener.002",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Bronze coat fastener.003",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Bronze coat fastener.004",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Bronze coat fastener.005",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Bronze eye setting",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Aged bronze"
+      ]
+    },
+    {
+      "mesh": "Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Brows"
+      ]
+    },
+    {
+      "mesh": "Coat sleeve l",
+      "vertices": 3248,
+      "triangles": 6496,
+      "max_influences": 5,
+      "pre_normalize_sum_error": 4.470348358154297e-08,
+      "materials": [
+        "H6 Charcoal wool"
+      ]
+    },
+    {
+      "mesh": "Coat sleeve r",
+      "vertices": 3248,
+      "triangles": 6496,
+      "max_influences": 5,
+      "pre_normalize_sum_error": 4.470348358154297e-08,
+      "materials": [
+        "H6 Charcoal wool"
+      ]
+    },
+    {
+      "mesh": "Coat upper",
+      "vertices": 2106,
+      "triangles": 4208,
+      "max_influences": 6,
+      "pre_normalize_sum_error": 4.470348358154297e-08,
+      "materials": [
+        "H6 Charcoal wool"
+      ]
+    },
+    {
+      "mesh": "Cornea 0",
+      "vertices": 289,
+      "triangles": 528,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Cornea"
+      ]
+    },
+    {
+      "mesh": "Cornea 1",
+      "vertices": 289,
+      "triangles": 528,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Cornea"
+      ]
+    },
+    {
+      "mesh": "Fitted leather underlayer",
+      "vertices": 2618,
+      "triangles": 5092,
+      "max_influences": 6,
+      "pre_normalize_sum_error": 4.47762431576848e-08,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Forearm fitting l",
+      "vertices": 1232,
+      "triangles": 2464,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Forearm fitting r",
+      "vertices": 1232,
+      "triangles": 2464,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Hair",
+      "vertices": 65436,
+      "triangles": 54530,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Short groom"
+      ]
+    },
+    {
+      "mesh": "Iris 0",
+      "vertices": 289,
+      "triangles": 528,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Eyes"
+      ]
+    },
+    {
+      "mesh": "Iris 1",
+      "vertices": 289,
+      "triangles": 528,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Eyes"
+      ]
+    },
+    {
+      "mesh": "Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Lashes"
+      ]
+    },
+    {
+      "mesh": "Layered lapel -1",
+      "vertices": 8,
+      "triangles": 12,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Layered lapel 1",
+      "vertices": 8,
+      "triangles": 12,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "MalikBody",
+      "vertices": 8005,
+      "triangles": 15892,
+      "max_influences": 5,
+      "pre_normalize_sum_error": 4.842877388000488e-08,
+      "materials": [
+        "H6 Skin"
+      ]
+    },
+    {
+      "mesh": "Pants",
+      "vertices": 1283,
+      "triangles": 2296,
+      "max_influences": 5,
+      "pre_normalize_sum_error": 4.284083843231201e-08,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Pupil 0",
+      "vertices": 289,
+      "triangles": 528,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Pupils"
+      ]
+    },
+    {
+      "mesh": "Pupil 1",
+      "vertices": 289,
+      "triangles": 528,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Pupils"
+      ]
+    },
+    {
+      "mesh": "Restrained amethyst seal",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Restrained amethyst"
+      ]
+    },
+    {
+      "mesh": "Sclera 0",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Sclera"
+      ]
+    },
+    {
+      "mesh": "Sclera 1",
+      "vertices": 222,
+      "triangles": 440,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Sclera"
+      ]
+    },
+    {
+      "mesh": "Shoulder articulated lame l0",
+      "vertices": 462,
+      "triangles": 920,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Shoulder articulated lame l1",
+      "vertices": 462,
+      "triangles": 920,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Shoulder articulated lame l2",
+      "vertices": 462,
+      "triangles": 920,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Shoulder articulated lame r0",
+      "vertices": 462,
+      "triangles": 920,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Shoulder articulated lame r1",
+      "vertices": 462,
+      "triangles": 920,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Shoulder articulated lame r2",
+      "vertices": 462,
+      "triangles": 920,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Blackened steel"
+      ]
+    },
+    {
+      "mesh": "Split coat tail l",
+      "vertices": 1782,
+      "triangles": 3560,
+      "max_influences": 2,
+      "pre_normalize_sum_error": 2.9802322387695312e-08,
+      "materials": [
+        "H6 Charcoal wool"
+      ]
+    },
+    {
+      "mesh": "Split coat tail r",
+      "vertices": 1782,
+      "triangles": 3560,
+      "max_influences": 2,
+      "pre_normalize_sum_error": 2.9802322387695312e-08,
+      "materials": [
+        "H6 Charcoal wool"
+      ]
+    },
+    {
+      "mesh": "Stand collar",
+      "vertices": 650,
+      "triangles": 1296,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    },
+    {
+      "mesh": "Utility waist belt",
+      "vertices": 582,
+      "triangles": 1160,
+      "max_influences": 1,
+      "pre_normalize_sum_error": 0,
+      "materials": [
+        "H6 Worn leather"
+      ]
+    }
+  ],
+  "runtime_skins": 39,
+  "lods": [
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Blackened steel",
+      "vertices": 2924,
+      "triangles": 5816,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Short groom",
+      "vertices": 152436,
+      "triangles": 112530,
+      "material": "H6 Short groom"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Worn leather",
+      "vertices": 9207,
+      "triangles": 17860,
+      "material": "H6 Worn leather"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Aged bronze",
+      "vertices": 1554,
+      "triangles": 3080,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Charcoal wool",
+      "vertices": 12166,
+      "triangles": 24320,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Cornea",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Cornea"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Eyes",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Eyes"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "material": "H6 Lashes"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Skin",
+      "vertices": 8005,
+      "triangles": 15892,
+      "material": "H6 Skin"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Pupils",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Pupils"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Restrained amethyst",
+      "vertices": 222,
+      "triangles": 440,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "lod": "LOD0",
+      "mesh": "LOD0_H6 Sclera",
+      "vertices": 444,
+      "triangles": 880,
+      "material": "H6 Sclera"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Blackened steel",
+      "vertices": 1760,
+      "triangles": 3488,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Short groom",
+      "vertices": 61728,
+      "triangles": 46606,
+      "material": "H6 Short groom"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Worn leather",
+      "vertices": 5630,
+      "triangles": 10708,
+      "material": "H6 Worn leather"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Aged bronze",
+      "vertices": 938,
+      "triangles": 1848,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Charcoal wool",
+      "vertices": 7300,
+      "triangles": 14588,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Cornea",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Cornea"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Eyes",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Eyes"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "material": "H6 Lashes"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Skin",
+      "vertices": 8005,
+      "triangles": 15892,
+      "material": "H6 Skin"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Pupils",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Pupils"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Restrained amethyst",
+      "vertices": 134,
+      "triangles": 264,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "lod": "LOD1",
+      "mesh": "LOD1_H6 Sclera",
+      "vertices": 444,
+      "triangles": 880,
+      "material": "H6 Sclera"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Blackened steel",
+      "vertices": 824,
+      "triangles": 1616,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Short groom",
+      "vertices": 9810,
+      "triangles": 7450,
+      "material": "H6 Short groom"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Worn leather",
+      "vertices": 2738,
+      "triangles": 4989,
+      "material": "H6 Worn leather"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Aged bronze",
+      "vertices": 441,
+      "triangles": 854,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Charcoal wool",
+      "vertices": 3409,
+      "triangles": 6806,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Cornea",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Cornea"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Eyes",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Eyes"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "material": "H6 Lashes"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Skin",
+      "vertices": 8005,
+      "triangles": 15892,
+      "material": "H6 Skin"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Pupils",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Pupils"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Restrained amethyst",
+      "vertices": 63,
+      "triangles": 122,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "lod": "LOD2",
+      "mesh": "LOD2_H6 Sclera",
+      "vertices": 444,
+      "triangles": 880,
+      "material": "H6 Sclera"
+    }
+  ],
+  "meshes": [
+    {
+      "mesh": "LOD0_H6 Aged bronze",
+      "vertices": 1554,
+      "triangles": 3080,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "mesh": "LOD0_H6 Blackened steel",
+      "vertices": 2924,
+      "triangles": 5816,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "mesh": "LOD0_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "mesh": "LOD0_H6 Charcoal wool",
+      "vertices": 12166,
+      "triangles": 24320,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "mesh": "LOD0_H6 Cornea",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Cornea"
+    },
+    {
+      "mesh": "LOD0_H6 Eyes",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Eyes"
+    },
+    {
+      "mesh": "LOD0_H6 Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "material": "H6 Lashes"
+    },
+    {
+      "mesh": "LOD0_H6 Pupils",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Pupils"
+    },
+    {
+      "mesh": "LOD0_H6 Restrained amethyst",
+      "vertices": 222,
+      "triangles": 440,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "mesh": "LOD0_H6 Sclera",
+      "vertices": 444,
+      "triangles": 880,
+      "material": "H6 Sclera"
+    },
+    {
+      "mesh": "LOD0_H6 Short groom",
+      "vertices": 152436,
+      "triangles": 112530,
+      "material": "H6 Short groom"
+    },
+    {
+      "mesh": "LOD0_H6 Skin",
+      "vertices": 8005,
+      "triangles": 15892,
+      "material": "H6 Skin"
+    },
+    {
+      "mesh": "LOD0_H6 Worn leather",
+      "vertices": 9207,
+      "triangles": 17860,
+      "material": "H6 Worn leather"
+    },
+    {
+      "mesh": "LOD1_H6 Aged bronze",
+      "vertices": 938,
+      "triangles": 1848,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "mesh": "LOD1_H6 Blackened steel",
+      "vertices": 1760,
+      "triangles": 3488,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "mesh": "LOD1_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "mesh": "LOD1_H6 Charcoal wool",
+      "vertices": 7300,
+      "triangles": 14588,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "mesh": "LOD1_H6 Cornea",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Cornea"
+    },
+    {
+      "mesh": "LOD1_H6 Eyes",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Eyes"
+    },
+    {
+      "mesh": "LOD1_H6 Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "material": "H6 Lashes"
+    },
+    {
+      "mesh": "LOD1_H6 Pupils",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Pupils"
+    },
+    {
+      "mesh": "LOD1_H6 Restrained amethyst",
+      "vertices": 134,
+      "triangles": 264,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "mesh": "LOD1_H6 Sclera",
+      "vertices": 444,
+      "triangles": 880,
+      "material": "H6 Sclera"
+    },
+    {
+      "mesh": "LOD1_H6 Short groom",
+      "vertices": 61728,
+      "triangles": 46606,
+      "material": "H6 Short groom"
+    },
+    {
+      "mesh": "LOD1_H6 Skin",
+      "vertices": 8005,
+      "triangles": 15892,
+      "material": "H6 Skin"
+    },
+    {
+      "mesh": "LOD1_H6 Worn leather",
+      "vertices": 5630,
+      "triangles": 10708,
+      "material": "H6 Worn leather"
+    },
+    {
+      "mesh": "LOD2_H6 Aged bronze",
+      "vertices": 441,
+      "triangles": 854,
+      "material": "H6 Aged bronze"
+    },
+    {
+      "mesh": "LOD2_H6 Blackened steel",
+      "vertices": 824,
+      "triangles": 1616,
+      "material": "H6 Blackened steel"
+    },
+    {
+      "mesh": "LOD2_H6 Brows",
+      "vertices": 124,
+      "triangles": 192,
+      "material": "H6 Brows"
+    },
+    {
+      "mesh": "LOD2_H6 Charcoal wool",
+      "vertices": 3409,
+      "triangles": 6806,
+      "material": "H6 Charcoal wool"
+    },
+    {
+      "mesh": "LOD2_H6 Cornea",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Cornea"
+    },
+    {
+      "mesh": "LOD2_H6 Eyes",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Eyes"
+    },
+    {
+      "mesh": "LOD2_H6 Lashes",
+      "vertices": 250,
+      "triangles": 368,
+      "material": "H6 Lashes"
+    },
+    {
+      "mesh": "LOD2_H6 Pupils",
+      "vertices": 578,
+      "triangles": 1056,
+      "material": "H6 Pupils"
+    },
+    {
+      "mesh": "LOD2_H6 Restrained amethyst",
+      "vertices": 63,
+      "triangles": 122,
+      "material": "H6 Restrained amethyst"
+    },
+    {
+      "mesh": "LOD2_H6 Sclera",
+      "vertices": 444,
+      "triangles": 880,
+      "material": "H6 Sclera"
+    },
+    {
+      "mesh": "LOD2_H6 Short groom",
+      "vertices": 9810,
+      "triangles": 7450,
+      "material": "H6 Short groom"
+    },
+    {
+      "mesh": "LOD2_H6 Skin",
+      "vertices": 8005,
+      "triangles": 15892,
+      "material": "H6 Skin"
+    },
+    {
+      "mesh": "LOD2_H6 Worn leather",
+      "vertices": 2738,
+      "triangles": 4989,
+      "material": "H6 Worn leather"
+    }
+  ],
+  "files": [
+    {
+      "path": "MalikVeyrH6.blend",
+      "bytes": 5721096,
+      "sha256": "d19e814f6586ef87315fa210bad71e6b8fbb24078b2629505cdb64eb0f0420d1"
+    },
+    {
+      "path": "MalikVeyrH6.fbx",
+      "bytes": 9309948,
+      "sha256": "4223ba735935f7d15936d2aaa122de75ec350a2fb5e413c47c88b22848c07aa8"
+    },
+    {
+      "path": "MalikVeyrH6_LOD1.fbx",
+      "bytes": 5081740,
+      "sha256": "aae50c673970cb236da173f4e570afd7ecec06be03fce9937ba52d5e2fc837b8"
+    },
+    {
+      "path": "MalikVeyrH6_LOD2.fbx",
+      "bytes": 2415132,
+      "sha256": "e3579f3a6c9a4f91b9ff732dc1be55dde29881a188a1cc07344effafa06ae241"
+    }
+  ]
+}

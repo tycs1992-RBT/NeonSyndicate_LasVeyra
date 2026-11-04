@@ -1,0 +1,26 @@
+{
+  "python": "3.11.17",
+  "dcc": "bpy 4.2.23 LTS",
+  "mpfb_commit": "b1a2dc98776da9d1eea751b159d42cf61778fe2e",
+  "official_core_commit": "a8bc2d54ff0ac92e78ff71431b1023eda42bf482",
+  "initial_fit_exit": 139,
+  "initial_fit_status": "Saved real scene, then addon teardown crashed; not a passed process",
+  "fit_fix": "After successful export, exec independent fresh-process scene reopen validator; successful validation returns zero, creation failures cannot reach handoff",
+  "verified_fit_exit": 0,
+  "author_export_exit": 0,
+  "initial_real_review": [
+    "eyes too dark",
+    "coarse pale groom/cards",
+    "shoulder gaps"
+  ],
+  "corrections": [
+    "separate eye anatomy and thin highlight shell",
+    "original surface-following short groom",
+    "soft skin UV root fade",
+    "fitted underlayer and contoured armor"
+  ],
+  "excluded_source": "Trial WDG beard, conflicting legacy AGPL header versus pack CC0 label; no trial mesh/mask/texture retained in final candidate",
+  "native_unity": "NOT RUN, unchanged pre-import IPC host not retried",
+  "purchases": false,
+  "owner_approval": "NOT GIVEN"
+}

@@ -34,6 +34,7 @@ namespace NeonSyndicate
             w.Anatomy04I(evo, archetype);
             w.Expression04K(evo, archetype);
             w.GothicAnatomy04OB(evo,archetype);
+            w.GuardianCarapaceH3(archetype);
             w.FinishBounds();
             return w.Added;
         }

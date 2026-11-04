@@ -1,0 +1,238 @@
+{
+  "id": "H3-RECEIVED-HUMANOID-01",
+  "state": "RECEIVED CANDIDATE, NOT APPROVED MALIK",
+  "creator": "Quaternius",
+  "license": "CC0-1.0",
+  "source_urls": [
+    "https://quaternius.com/packs/universalbasecharacters.html",
+    "https://quaternius.com/packs/modularcharacteroutfitsfantasy.html"
+  ],
+  "archive_sha256": [
+    "fdbf1804c90dfc1ea03e992bff7da2dfd1a79318e13270a660180f9308455f40",
+    "c3468b18871cc8c8f05ab14df7712baf22cb9f389cbd870babf130e595187f70"
+  ],
+  "paid_content_received": false,
+  "owner_appearance_approved": false,
+  "registry_enabled": false,
+  "native_import": "NOT RUN",
+  "native_deformation": "NOT RUN",
+  "canonical_clothing": "ASSET REQUIRED: final long charcoal coat and crystal armor identity, artist/native review",
+  "authored_clips": "ASSET REQUIRED: no clips in received FBXs",
+  "facial_blendshapes": "NOT VERIFIED",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Models/MaleBase.fbx",
+      "source_entry": "Universal Base Characters[Standard]/Base Characters/Unity/Superhero_Male_FullBody.fbx",
+      "source_sha256": "79344418d754a59730b79d1874752e9592143db34abe8adf138fa9a92a4768e9",
+      "sha256": "79344418d754a59730b79d1874752e9592143db34abe8adf138fa9a92a4768e9",
+      "bytes": 826876,
+      "derivation": "Unchanged source FBX bytes"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Models/TravelClothing.fbx",
+      "source_entry": "Modular Character Outfits - Fantasy[Standard]/Exports/FBX (Unity)/Outfits/Male_Ranger.fbx",
+      "source_sha256": "f142f1c0fee43d0b1a635928469289dff2abeaaa2c3daf95dd7b74a8044b244e",
+      "sha256": "f142f1c0fee43d0b1a635928469289dff2abeaaa2c3daf95dd7b74a8044b244e",
+      "bytes": 1648444,
+      "derivation": "Unchanged source FBX bytes"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Models/Beard.fbx",
+      "source_entry": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_Beard.fbx",
+      "source_sha256": "00899e7d2cceebab8c07456ca1c25e54e441eb271bb3427c3d12e371c2ef5189",
+      "sha256": "00899e7d2cceebab8c07456ca1c25e54e441eb271bb3427c3d12e371c2ef5189",
+      "bytes": 169804,
+      "derivation": "Unchanged source FBX bytes"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Models/ShortHair.fbx",
+      "source_entry": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_Buzzed.fbx",
+      "source_sha256": "01c5c2ededd8b164274147ee8713a7a68cf74cd699fad6b969ce5e37c1b7b686",
+      "sha256": "01c5c2ededd8b164274147ee8713a7a68cf74cd699fad6b969ce5e37c1b7b686",
+      "bytes": 165884,
+      "derivation": "Unchanged source FBX bytes"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Models/Brows.fbx",
+      "source_entry": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Eyebrows_Regular.fbx",
+      "source_sha256": "1005c97901cc6eb09d0d9f8b11fb2a692f1dab90229498b27cd50b87c48f96e8",
+      "sha256": "1005c97901cc6eb09d0d9f8b11fb2a692f1dab90229498b27cd50b87c48f96e8",
+      "bytes": 168636,
+      "derivation": "Unchanged source FBX bytes"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Skin_Albedo.jpg",
+      "source_entry": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Male_Dark.png",
+      "source_sha256": "df680cbc1967a61e85998bfafb8f7bc0a36dd604bb3266486c4b06b1a184bb45",
+      "sha256": "40750410c2de1b33aeeb5f5a87867262b18042ed6a1b04f4cde2f3db8eb0f3b9",
+      "bytes": 105250,
+      "source_dimensions": [
+        2048,
+        2048
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Skin_Normal.png",
+      "source_entry": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/T_Superhero_Male_Normal.png",
+      "source_sha256": "9b25cf9200216eb754b79cf4c63b5380c419780788322f3c57cdd2b3e02679a6",
+      "sha256": "31c957572ca64d2942ae5cac4f833b4945eb5e04bcb1761986f316651b82b1a8",
+      "bytes": 991186,
+      "source_dimensions": [
+        2048,
+        2048
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Eye_Albedo.jpg",
+      "source_entry": "Universal Base Characters[Standard]/Base Characters/Textures/T_Eye_Brown.png",
+      "source_sha256": "d08e3356a83211bc6ca21fe3a8e39f4b5c1a3b8f85457fc2c0fb57be09935025",
+      "sha256": "f8d29ce5afed77fff6c471b1729b73964f5aaf651a5ca51549059dc2fba5606a",
+      "bytes": 8692,
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "dimensions": [
+        256,
+        256
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Hair_Albedo.png",
+      "source_entry": "Universal Base Characters[Standard]/Hairstyles/Textures/T_Hair_1_BaseColor.png",
+      "source_sha256": "bc7aa863bd22ab0a995cd838cceb4d3a5186ee54ee2fb0108fad85d20c057e6e",
+      "sha256": "9da924f7a5572c28ebb68994f0e1fe1dc9e6bddab9e7294c91a1571edab3c340",
+      "bytes": 784127,
+      "source_dimensions": [
+        2048,
+        2048
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Hair_Normal.png",
+      "source_entry": "Universal Base Characters[Standard]/Hairstyles/Textures/Normals Unity - Godot/T_Hair_1_Normal.png",
+      "source_sha256": "57fd0ad8c96a4d01b38769637e066cecaa285b456f6e48ce00863754a457affb",
+      "sha256": "f5218b4b51d877c492f8249ef9c4a7bad8a6424d617b497cef1ea251c36b6783",
+      "bytes": 1115015,
+      "source_dimensions": [
+        2048,
+        2048
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Cloth_Albedo.jpg",
+      "source_entry": "Modular Character Outfits - Fantasy[Standard]/Textures/Ranger/T_Ranger_3_BaseColor.png",
+      "source_sha256": "018b93098e400421fc29d2fac28be35dd2b704fda285b113ee9ac2cecd26be08",
+      "sha256": "74e6d8243142a3cb57fadeff7184fbb7265758d560798364796d6aba04c8d818",
+      "bytes": 193923,
+      "source_dimensions": [
+        4096,
+        4096
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Cloth_Normal.png",
+      "source_entry": "Modular Character Outfits - Fantasy[Standard]/Textures/Ranger/T_Ranger_Normal.png",
+      "source_sha256": "dd64da2af3180f0c8f0b721cfc5f0d2720c351b97da8285c6cf49e7717c84147",
+      "sha256": "46817f9910bfb41d3fce8d979ea62331cc87015371a747fdc8c526042c664806",
+      "bytes": 993833,
+      "source_dimensions": [
+        4096,
+        4096
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Hands_Albedo.jpg",
+      "source_entry": "Modular Character Outfits - Fantasy[Standard]/Textures/Base/T_Regular_Male_Dark_BaseColor.png",
+      "source_sha256": "b4dcc0f4139aab548d7c070c4655bd2080ef16caeaaabee6c4aeb693c524e802",
+      "sha256": "db84407985d6376712d73913c4b771f446a6a03b267c5571f169056ea442e712",
+      "bytes": 101741,
+      "source_dimensions": [
+        2048,
+        2048
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Hands_Normal.png",
+      "source_entry": "Modular Character Outfits - Fantasy[Standard]/Textures/Base/T_Regular_Male_Normal.png",
+      "source_sha256": "10cd71e2453e577fdd43e912b6016a99baf64964f0593e524bdd304855e15e2a",
+      "sha256": "0bcb23675bf37903fe80f0b8ec4e78e0ee28994fb2d1c8f3a2f0a49cc5b6d108",
+      "bytes": 912404,
+      "source_dimensions": [
+        2048,
+        2048
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "Bounded 1024px preview mip from actual licensed source, not a newly authored texture"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Skin_Mask.png",
+      "sha256": "ef2ebd5f30d1171050d8c2af6a021d051ad49f85cfa740d7eaea7bfcc97d49f1",
+      "bytes": 750396,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "RGBA metallic, occlusion, unused, smoothness. Smoothness = 255 - source roughness."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Hands_Mask.png",
+      "sha256": "8bea435692389bcf31209fa06d232834f070340aea416f21a184e9c33f8e53d9",
+      "bytes": 639124,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "RGBA metallic, occlusion, unused, smoothness. Smoothness = 255 - source roughness."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/CandidatesH3/Textures/Cloth_Mask.png",
+      "sha256": "566dc90a4e3f60f34d32d2a5da33089061da94fab3b361f14ac215afd5820ac8",
+      "bytes": 920046,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "derivation": "RGBA metallic, occlusion, unused, smoothness. Smoothness = 255 - source roughness."
+    }
+  ]
+}

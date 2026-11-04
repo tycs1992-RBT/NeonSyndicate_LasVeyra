@@ -1,0 +1,4546 @@
+{
+  "scope": "Actual compiled revision-10 source plans and authored anchor data. Source candidates are not native admissions or activated objects. No Unity Editor, renderer, GPU, physics, NPC spawn or gameplay was executed.",
+  "sourceCommit": "7b7716f16417607391b3b3c097b8c6c95fb2cc92",
+  "sourceCSharpSha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "managedAssemblySha256": "4e86a55483ddec005234a8f76b884ead0e44259b32eeff8c043fd84baf6f95de",
+  "sourceCommitVerified": true,
+  "workingTreeBaseCommit": "e89c965baf67efc757a0fd5353784757a2427926",
+  "workingTreeDirty": true,
+  "sourceOnly": true,
+  "nativeUnity": "NOT RUN",
+  "sourcePlannedReplacements": 26,
+  "nativeCounts": {
+    "admitted": "NOT RUN",
+    "active": "NOT RUN",
+    "refused": "NOT RUN"
+  },
+  "wholePhysicalBuildingsRemoved": 0,
+  "countingContract": "Physical buildings, their individually replaceable visual groups and existing underground cells are different row types. Five surface visual rows refer to their physical parent; they are not five additional buildings. Source eligibility is not native admission.",
+  "records": [
+    {
+      "stableId": "revision:10/seed:32874/skyline",
+      "worldRevision": 10,
+      "sourceOwner": "CityBuilder.Gothic04OB.BuildGothicBuilding04OB",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing four-pier skyline visual can be isolated before merging. All collision and roof receipts remain.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "seed": 32874,
+      "lotSeed": 612821,
+      "blockId": 74,
+      "family": 9,
+      "currentVisualCategory": "existing generated family 9",
+      "poiName": "Glass Pier Records",
+      "poiType": "Property",
+      "serviceOwner": "",
+      "worldFootprint": [
+        -232.5,
+        367.13513,
+        -181.75201,
+        387.17123
+      ],
+      "nominalHeight": 128.66837,
+      "roofType": "Antenna",
+      "roofPad": false,
+      "receipts": [],
+      "fr01ExistingCandidate": false,
+      "collisionOwner": "CityBuilder.Gothic04OB / 04O-B exact compound solid",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "HIGH: preview only, native contact and flight review required",
+      "proposedFantasyFamily": "WRSkyline32874",
+      "legacyBatch": "160m chunk -8589934590, per-material stone/trim/mineral groups",
+      "sharedBatchMembership": "Three exact original material appends isolated before shared city merging",
+      "visualRoot": "WR01 isolated original skyline / 32874",
+      "replacementScope": "One audited skyline emitter; full original source remains as physical witness, landing and receipts unchanged",
+      "bounds": {
+        "min": [
+          -233.006,
+          0.15,
+          367.13513
+        ],
+        "max": [
+          -181.34402,
+          132.81836,
+          387.17126
+        ],
+        "center": [
+          -207.17502,
+          66.48418,
+          377.1532
+        ],
+        "size": [
+          51.661972,
+          132.66837,
+          20.036133
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled source structural vertices; no native collider or renderer observed."
+      },
+      "serviceAnchors": [],
+      "fitPolicy": "Exact audited seed, footprint and receipt height. Authored local metres at footprint centre, unit scale. Original full source geometry remains as physical witness. New upper belfry and roof volumes are nonauthoritative visuals without new collision; native flight and contact review required before acceptance.",
+      "fallbackPolicy": "Restore every captured source append on any preparation or transaction failure.",
+      "requiredPortalContract": "Open four-pier frame. No doorway is replaced. Every original support, roof landing and ordered receipt remains under its original owner.",
+      "requiredPortalLocalCenter": [
+        0,
+        0,
+        0
+      ],
+      "requiredPortalLocalSize": [
+        0,
+        0,
+        0
+      ],
+      "rowType": "SURFACE_VISUAL_GROUP",
+      "parentStableId": "revision:10/lot:612821/seed:32874/building",
+      "wholePhysicalBuildingRemoved": false,
+      "rendererGroup": "WR01 isolated original skyline / 32874"
+    },
+    {
+      "stableId": "revision:10/seed:809556/skyline",
+      "worldRevision": 10,
+      "sourceOwner": "CityBuilder.Gothic04OB.BuildGothicBuilding04OB",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing four-pier skyline visual can be isolated before merging. All collision and roof receipts remain.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "seed": 809556,
+      "lotSeed": 157594,
+      "blockId": 105,
+      "family": 9,
+      "currentVisualCategory": "existing generated family 9",
+      "poiName": "Thread Theory",
+      "poiType": "Clothing",
+      "serviceOwner": "",
+      "worldFootprint": [
+        68.09897,
+        367.45792,
+        113.100075,
+        388.64154
+      ],
+      "nominalHeight": 162.37482,
+      "roofType": "Helipad",
+      "roofPad": false,
+      "receipts": [],
+      "fr01ExistingCandidate": false,
+      "collisionOwner": "CityBuilder.Gothic04OB / 04O-B exact compound solid",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "HIGH: preview only, native contact and flight review required",
+      "proposedFantasyFamily": "WRSkyline809556",
+      "legacyBatch": "160m chunk 2, per-material stone/trim/mineral groups",
+      "sharedBatchMembership": "Three exact original material appends isolated before shared city merging",
+      "visualRoot": "WR01 isolated original skyline / 809556",
+      "replacementScope": "One audited skyline emitter; full original source remains as physical witness, landing and receipts unchanged",
+      "bounds": {
+        "min": [
+          67.666466,
+          0.15,
+          367.45795
+        ],
+        "max": [
+          113.55707,
+          166.52481,
+          388.64154
+        ],
+        "center": [
+          90.61177,
+          83.3374,
+          378.04974
+        ],
+        "size": [
+          45.890602,
+          166.37482,
+          21.183594
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled source structural vertices; no native collider or renderer observed."
+      },
+      "serviceAnchors": [],
+      "fitPolicy": "Exact audited seed, footprint and receipt height. Authored local metres at footprint centre, unit scale. Original full source geometry remains as physical witness. New upper belfry and roof volumes are nonauthoritative visuals without new collision; native flight and contact review required before acceptance.",
+      "fallbackPolicy": "Restore every captured source append on any preparation or transaction failure.",
+      "requiredPortalContract": "Open four-pier frame. No doorway is replaced. Every original support, roof landing and ordered receipt remains under its original owner.",
+      "requiredPortalLocalCenter": [
+        0,
+        0,
+        0
+      ],
+      "requiredPortalLocalSize": [
+        0,
+        0,
+        0
+      ],
+      "rowType": "SURFACE_VISUAL_GROUP",
+      "parentStableId": "revision:10/lot:157594/seed:809556/building",
+      "wholePhysicalBuildingRemoved": false,
+      "rendererGroup": "WR01 isolated original skyline / 809556"
+    },
+    {
+      "stableId": "revision:10/seed:53496/skyline",
+      "worldRevision": 10,
+      "sourceOwner": "CityBuilder.Gothic04OB.BuildGothicBuilding04OB",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing four-pier skyline visual can be isolated before merging. All collision and roof receipts remain.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "seed": 53496,
+      "lotSeed": 646863074,
+      "blockId": 130,
+      "family": 9,
+      "currentVisualCategory": "existing generated family 9",
+      "poiName": "THE GLASS SAINT",
+      "poiType": "Casino",
+      "serviceOwner": "",
+      "worldFootprint": [
+        281.06775,
+        38.778107,
+        321.06775,
+        72.77811
+      ],
+      "nominalHeight": 162.56671,
+      "roofType": "Antenna",
+      "roofPad": false,
+      "receipts": [],
+      "fr01ExistingCandidate": false,
+      "collisionOwner": "CityBuilder.Gothic04OB / 04O-B exact compound solid",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "HIGH: preview only, native contact and flight review required",
+      "proposedFantasyFamily": "WRSkyline53496",
+      "legacyBatch": "160m chunk 4294967296, per-material stone/trim/mineral groups",
+      "sharedBatchMembership": "Three exact original material appends isolated before shared city merging",
+      "visualRoot": "WR01 isolated original skyline / 53496",
+      "replacementScope": "One audited skyline emitter; full original source remains as physical witness, landing and receipts unchanged",
+      "bounds": {
+        "min": [
+          280.63525,
+          0.15,
+          38.778107
+        ],
+        "max": [
+          321.52475,
+          166.7167,
+          72.77811
+        ],
+        "center": [
+          301.08002,
+          83.43335,
+          55.778107
+        ],
+        "size": [
+          40.889496,
+          166.56671,
+          34
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled source structural vertices; no native collider or renderer observed."
+      },
+      "serviceAnchors": [],
+      "fitPolicy": "Exact audited seed, footprint and receipt height. Authored local metres at footprint centre, unit scale. Original full source geometry remains as physical witness. New upper belfry and roof volumes are nonauthoritative visuals without new collision; native flight and contact review required before acceptance.",
+      "fallbackPolicy": "Restore every captured source append on any preparation or transaction failure.",
+      "requiredPortalContract": "Open four-pier frame. No doorway is replaced. Every original support, roof landing and ordered receipt remains under its original owner.",
+      "requiredPortalLocalCenter": [
+        0,
+        0,
+        0
+      ],
+      "requiredPortalLocalSize": [
+        0,
+        0,
+        0
+      ],
+      "rowType": "SURFACE_VISUAL_GROUP",
+      "parentStableId": "revision:10/lot:646863074/seed:53496/building",
+      "wholePhysicalBuildingRemoved": false,
+      "rendererGroup": "WR01 isolated original skyline / 53496"
+    },
+    {
+      "stableId": "revision:10/venue:archive/seed:479130/crown",
+      "worldRevision": 10,
+      "sourceOwner": "VenueView04C.GothicHeartShellH3",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Only slate_roof and mineral_pier visuals may switch. All original collision, portal, structure and service owners remain.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/ascension_h8s_living_cast.json",
+          "questId": "fg_04oh_h8s_margin_note",
+          "field": ".VenueGiver",
+          "token": "archive",
+          "questIndex": 1
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/ascension_h8s_living_cast.json",
+          "questId": "fg_04oh_h8s_margin_note",
+          "field": ".Phases[0].Steps[1].At",
+          "token": "Venue:archive.record3",
+          "questIndex": 1
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/ascension_h8s_living_cast.json",
+          "questId": "fg_04oh_h8s_margin_note",
+          "field": ".Phases[2].Steps[0].At",
+          "token": "Venue:archive.exit",
+          "questIndex": 1
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_01_ledger",
+          "field": ".Phases[1].ResumeAt",
+          "token": "Venue:archive.activity",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_01_ledger",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_01_ledger",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_01_ledger",
+          "field": ".Phases[1].Steps[2].At",
+          "token": "Venue:archive.record2",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_01_ledger",
+          "field": ".Phases[1].Steps[3].At",
+          "token": "Cast:iris",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/fractured_wilds_04oc.json",
+          "questId": "fg_04oc_roots_remember",
+          "field": ".Phases[2].Steps[0].At",
+          "token": "Venue:archive.record2",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/gothic_realm_04ob.json",
+          "questId": "fg_04ob_stone_not_silence",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Venue:archive.record2",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/gothic_realm_04ob.json",
+          "questId": "fg_04ob_stone_not_silence",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Venue:archive.record2",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/quiet_signal_04c.json",
+          "questId": "quiet_signal_04_missing_piece",
+          "field": ".VenueGiver",
+          "token": "archive",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[1].Steps[2].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[1].ResumeAt",
+          "token": "Venue:archive.activity",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Giver",
+          "token": "Cast:iris",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[0].Steps[1].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[0].Steps[2].At",
+          "token": "Venue:archive.record2",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[0].Steps[3].At",
+          "token": "Venue:archive.record3",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[5].Steps[0].At",
+          "token": "Venue:archive.service",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[6].Steps[0].At",
+          "token": "Cast:iris",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[7].Steps[0].At",
+          "token": "Cast:iris",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[8].Steps[0].At",
+          "token": "Cast:iris",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_12_keep",
+          "field": ".Phases[4].Steps[0].At",
+          "token": "Venue:archive.service",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_12_keep",
+          "field": ".Phases[4].Steps[1].At",
+          "token": "Venue:archive.activity",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act4.json",
+          "questId": "uh05_16_answers",
+          "field": ".Phases[7].Steps[0].At",
+          "token": "Venue:archive.service",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act4.json",
+          "questId": "uh05_16_answers",
+          "field": ".Phases[7].Steps[1].At",
+          "token": "Venue:archive.activity",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act4.json",
+          "questId": "uh05_16_answers",
+          "field": ".Phases[7].Steps[2].At",
+          "token": "Cast:iris",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s10_shortcut",
+          "field": ".Giver",
+          "token": "Cast:iris",
+          "questIndex": 9
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s10_shortcut",
+          "field": ".Phases[0].Steps[1].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 9
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s11_drone",
+          "field": ".Giver",
+          "token": "Cast:iris",
+          "questIndex": 10
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s11_drone",
+          "field": ".Phases[2].Steps[0].At",
+          "token": "Venue:archive.service",
+          "questIndex": 10
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s11_drone",
+          "field": ".Phases[2].Steps[1].At",
+          "token": "Cast:iris",
+          "questIndex": 10
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s12_entries",
+          "field": ".Giver",
+          "token": "Cast:iris",
+          "questIndex": 11
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s12_entries",
+          "field": ".Phases[0].Steps[1].At",
+          "token": "Venue:archive.record2",
+          "questIndex": 11
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[1].Steps[2].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[1].ResumeAt",
+          "token": "Venue:archive.activity",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[6].Steps[1].To",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[6].Steps[2].At",
+          "token": "Venue:archive.record1",
+          "questIndex": 0
+        }
+      ],
+      "npcAnchors": [
+        {
+          "id": "iris",
+          "name": "Iris Moon",
+          "post": "VenueStaff",
+          "venue": "archive",
+          "anchor": "staff",
+          "remoteVenue": "",
+          "remoteAnchor": "",
+          "onDemand": false,
+          "storyIdentity": true,
+          "storyUnlock": 7,
+          "sourceOwner": "CastRoster04E",
+          "nativeSpawned": "NOT RUN"
+        }
+      ],
+      "portalAnchors": [
+        {
+          "kind": "existing venue binding",
+          "origin": [
+            -6,
+            0.15,
+            122
+          ],
+          "outside": [
+            -6,
+            0.15,
+            118
+          ],
+          "entrance": [
+            -6,
+            0.15,
+            122
+          ],
+          "yaw": 0,
+          "sourceOwner": "VenueBinding04C",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "seed": 479130,
+      "lotSeed": 639752,
+      "blockId": 186,
+      "family": 0,
+      "currentVisualCategory": "existing civic/service shell",
+      "poiName": null,
+      "poiType": "None",
+      "serviceOwner": "archive",
+      "worldFootprint": [
+        -21,
+        122,
+        9,
+        170
+      ],
+      "nominalHeight": 22,
+      "roofType": "FlatWithProps",
+      "roofPad": false,
+      "receipts": [],
+      "fr01ExistingCandidate": false,
+      "collisionOwner": "VenueView04C original room and H3 fixed-asset service shell / archive",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "HIGH: preview only, native contact and flight review required",
+      "proposedFantasyFamily": "WRArchiveCrown",
+      "legacyBatch": "Existing per-venue VisualRebirth04ABatch",
+      "sharedBatchMembership": "Only slate_roof/mineral_pier isolated from the existing venue batch",
+      "visualRoot": "Visual Rebirth 04A / WR01 isolated legacy / revision:10/venue:archive/seed:479130/crown",
+      "replacementScope": "Civic crown only; all rooms, doors, supporting structure and full original collider remain",
+      "bounds": {
+        "min": [
+          -21.043999,
+          5.85,
+          120.724
+        ],
+        "max": [
+          9.044,
+          30.816229,
+          171.276
+        ],
+        "center": [
+          -5.9999995,
+          18.333115,
+          146
+        ],
+        "size": [
+          30.087997,
+          24.966228,
+          50.552002
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled source structural vertices; no native collider or renderer observed."
+      },
+      "serviceAnchors": [
+        {
+          "token": "Venue:archive.staff",
+          "id": "staff",
+          "localPosition": [
+            5.3,
+            0.012,
+            10
+          ],
+          "worldPosition": [
+            -0.6999998,
+            0.162,
+            132
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.staff_next",
+          "id": "staff_next",
+          "localPosition": [
+            5.3,
+            0.012,
+            12
+          ],
+          "worldPosition": [
+            -0.6999998,
+            0.162,
+            134
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.visitor1",
+          "id": "visitor1",
+          "localPosition": [
+            -4.7,
+            0.012,
+            3.8
+          ],
+          "worldPosition": [
+            -10.7,
+            0.162,
+            125.8
+          ],
+          "yaw": 90,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.visitor1_next",
+          "id": "visitor1_next",
+          "localPosition": [
+            -4.7,
+            0.012,
+            5.2
+          ],
+          "worldPosition": [
+            -10.7,
+            0.162,
+            127.2
+          ],
+          "yaw": 90,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.visitor2",
+          "id": "visitor2",
+          "localPosition": [
+            4.8,
+            0.012,
+            2.6
+          ],
+          "worldPosition": [
+            -1.1999998,
+            0.162,
+            124.6
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.visitor2_next",
+          "id": "visitor2_next",
+          "localPosition": [
+            6.2,
+            0.012,
+            2.6
+          ],
+          "worldPosition": [
+            0.19999981,
+            0.162,
+            124.6
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.exit",
+          "id": "exit",
+          "localPosition": [
+            0,
+            0,
+            -2
+          ],
+          "worldPosition": [
+            -6,
+            0.15,
+            120
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.service",
+          "id": "service",
+          "localPosition": [
+            3.6,
+            0.012,
+            6.1
+          ],
+          "worldPosition": [
+            -2.4,
+            0.162,
+            128.1
+          ],
+          "yaw": 0,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.activity",
+          "id": "activity",
+          "localPosition": [
+            2.8,
+            0.012,
+            14.5
+          ],
+          "worldPosition": [
+            -3.2,
+            0.162,
+            136.5
+          ],
+          "yaw": 90,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.record1",
+          "id": "record1",
+          "localPosition": [
+            -4.3,
+            0.012,
+            11.2
+          ],
+          "worldPosition": [
+            -10.3,
+            0.162,
+            133.2
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.record2",
+          "id": "record2",
+          "localPosition": [
+            -5,
+            0,
+            28
+          ],
+          "worldPosition": [
+            -11,
+            0.15,
+            150
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.record3",
+          "id": "record3",
+          "localPosition": [
+            0,
+            1.2,
+            43
+          ],
+          "worldPosition": [
+            -6,
+            1.35,
+            165
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.defense1",
+          "id": "defense1",
+          "localPosition": [
+            -2.8,
+            0.012,
+            9
+          ],
+          "worldPosition": [
+            -8.8,
+            0.162,
+            131
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.defense2",
+          "id": "defense2",
+          "localPosition": [
+            2.8,
+            0.012,
+            11
+          ],
+          "worldPosition": [
+            -3.2,
+            0.162,
+            133
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.retrieve",
+          "id": "retrieve",
+          "localPosition": [
+            0,
+            0.012,
+            15.2
+          ],
+          "worldPosition": [
+            -6,
+            0.162,
+            137.2
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.instrument1",
+          "id": "instrument1",
+          "localPosition": [
+            -1.5,
+            0.012,
+            3.5
+          ],
+          "worldPosition": [
+            -7.5,
+            0.162,
+            125.5
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.instrument2",
+          "id": "instrument2",
+          "localPosition": [
+            2.1,
+            0.012,
+            5.3
+          ],
+          "worldPosition": [
+            -3.9,
+            0.162,
+            127.3
+          ],
+          "yaw": 90,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:archive.instrument3",
+          "id": "instrument3",
+          "localPosition": [
+            3.8,
+            0.012,
+            3.1
+          ],
+          "worldPosition": [
+            -2.2,
+            0.162,
+            125.1
+          ],
+          "yaw": 180,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        }
+      ],
+      "fitPolicy": "Authored local frame, unit scale. Original low roof and mineral surfaces retained as visible physical witnesses. New crown volume is presentation only; native roof, camera and flight contact review required.",
+      "fallbackPolicy": "Keep the isolated original crown on every missing asset, invalid candidate or failed transaction.",
+      "requiredPortalContract": "Required canonical 04C Front opening (halfDoor 1.4, lintel 3.2, front plane .15, depth .3). Retained H5 doorway unchanged; native opening not measured.",
+      "requiredPortalLocalCenter": [
+        0,
+        1.6,
+        0.15
+      ],
+      "requiredPortalLocalSize": [
+        2.8,
+        3.2,
+        0.3
+      ],
+      "rowType": "SURFACE_VISUAL_GROUP",
+      "parentStableId": "revision:10/lot:639752/seed:479130/building",
+      "wholePhysicalBuildingRemoved": false,
+      "rendererGroup": "Visual Rebirth 04A / WR01 isolated legacy / revision:10/venue:archive/seed:479130/crown"
+    },
+    {
+      "stableId": "revision:10/venue:office/seed:472154/crown",
+      "worldRevision": 10,
+      "sourceOwner": "VenueView04C.GothicHeartShellH3",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Only slate_roof and mineral_pier visuals may switch. All original collision, portal, structure and service owners remain.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[1].ResumeAt",
+          "token": "Venue:office.exit",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Venue:office.visitor1",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Cast:clerk",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[3].Steps[0].At",
+          "token": "Venue:office.testimony",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[4].Steps[0].At",
+          "token": "Venue:office.back_room",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+          "questId": "uh05_09_ledger",
+          "field": ".Phases[4].Steps[1].At",
+          "token": "Venue:office.terminal",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s12_entries",
+          "field": ".Phases[0].Steps[2].At",
+          "token": "Venue:office.records",
+          "questIndex": 11
+        }
+      ],
+      "npcAnchors": [
+        {
+          "id": "clerk",
+          "name": "Ansel Whit",
+          "post": "VenueStaff",
+          "venue": "office",
+          "anchor": "staff",
+          "remoteVenue": "",
+          "remoteAnchor": "",
+          "onDemand": false,
+          "storyIdentity": false,
+          "storyUnlock": 0,
+          "sourceOwner": "CastRoster04E",
+          "nativeSpawned": "NOT RUN"
+        }
+      ],
+      "portalAnchors": [
+        {
+          "kind": "existing venue binding",
+          "origin": [
+            -65,
+            0.15,
+            -65
+          ],
+          "outside": [
+            -61,
+            0.15,
+            -65
+          ],
+          "entrance": [
+            -65,
+            0.15,
+            -65
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueBinding04C",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "seed": 472154,
+      "lotSeed": 753588,
+      "blockId": 192,
+      "family": 0,
+      "currentVisualCategory": "existing civic/service shell",
+      "poiName": null,
+      "poiType": "None",
+      "serviceOwner": "office",
+      "worldFootprint": [
+        -95,
+        -80,
+        -65,
+        -50
+      ],
+      "nominalHeight": 13.5,
+      "roofType": "FlatWithProps",
+      "roofPad": false,
+      "receipts": [],
+      "fr01ExistingCandidate": false,
+      "collisionOwner": "VenueView04C original room and H3 fixed-asset service shell / office",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "HIGH: preview only, native contact and flight review required",
+      "proposedFantasyFamily": "WROfficeCrown",
+      "legacyBatch": "Existing per-venue VisualRebirth04ABatch",
+      "sharedBatchMembership": "Only slate_roof/mineral_pier isolated from the existing venue batch",
+      "visualRoot": "Visual Rebirth 04A / WR01 isolated legacy / revision:10/venue:office/seed:472154/crown",
+      "replacementScope": "Civic crown only; all rooms, doors, supporting structure and full original collider remain",
+      "bounds": {
+        "min": [
+          -96.276,
+          0.15,
+          -80.077
+        ],
+        "max": [
+          -63.724,
+          25.546,
+          -49.956
+        ],
+        "center": [
+          -80,
+          12.848,
+          -65.0165
+        ],
+        "size": [
+          32.552002,
+          25.396,
+          30.121002
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled source structural vertices; no native collider or renderer observed."
+      },
+      "serviceAnchors": [
+        {
+          "token": "Venue:office.service",
+          "id": "service",
+          "localPosition": [
+            2.4,
+            0.012,
+            5.3
+          ],
+          "worldPosition": [
+            -70.3,
+            0.162,
+            -62.6
+          ],
+          "yaw": 450,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.activity",
+          "id": "activity",
+          "localPosition": [
+            0,
+            0.012,
+            10
+          ],
+          "worldPosition": [
+            -75,
+            0.162,
+            -65
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.records",
+          "id": "records",
+          "localPosition": [
+            -5.75,
+            0.012,
+            9.8
+          ],
+          "worldPosition": [
+            -74.8,
+            0.162,
+            -70.75
+          ],
+          "yaw": 540,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.terminal",
+          "id": "terminal",
+          "localPosition": [
+            4.15,
+            0.012,
+            11.6
+          ],
+          "worldPosition": [
+            -76.6,
+            0.162,
+            -60.85
+          ],
+          "yaw": 360,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.back_room",
+          "id": "back_room",
+          "localPosition": [
+            4.5,
+            0.012,
+            16
+          ],
+          "worldPosition": [
+            -81,
+            0.162,
+            -60.5
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.testimony",
+          "id": "testimony",
+          "localPosition": [
+            -4.4,
+            0.012,
+            3.55
+          ],
+          "worldPosition": [
+            -68.55,
+            0.162,
+            -69.4
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.staff",
+          "id": "staff",
+          "localPosition": [
+            5.4,
+            0.012,
+            8.9
+          ],
+          "worldPosition": [
+            -73.9,
+            0.162,
+            -59.6
+          ],
+          "yaw": 450,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.staff_next",
+          "id": "staff_next",
+          "localPosition": [
+            6.7,
+            0.012,
+            9.5
+          ],
+          "worldPosition": [
+            -74.5,
+            0.162,
+            -58.3
+          ],
+          "yaw": 450,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.visitor1",
+          "id": "visitor1",
+          "localPosition": [
+            -2.6,
+            0.012,
+            6.6
+          ],
+          "worldPosition": [
+            -71.6,
+            0.162,
+            -67.6
+          ],
+          "yaw": 540,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.visitor1_next",
+          "id": "visitor1_next",
+          "localPosition": [
+            -2.6,
+            0.012,
+            8.3
+          ],
+          "worldPosition": [
+            -73.3,
+            0.162,
+            -67.6
+          ],
+          "yaw": 540,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.visitor2",
+          "id": "visitor2",
+          "localPosition": [
+            -3.6,
+            0.012,
+            12.2
+          ],
+          "worldPosition": [
+            -77.2,
+            0.162,
+            -68.6
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.visitor2_next",
+          "id": "visitor2_next",
+          "localPosition": [
+            -1.9,
+            0.012,
+            12.6
+          ],
+          "worldPosition": [
+            -77.6,
+            0.162,
+            -66.9
+          ],
+          "yaw": 270,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Venue:office.exit",
+          "id": "exit",
+          "localPosition": [
+            0,
+            0,
+            -2
+          ],
+          "worldPosition": [
+            -63,
+            0.15,
+            -65
+          ],
+          "yaw": 450,
+          "sourceOwner": "VenueExpanded04C.anchors",
+          "nativeObserved": false
+        }
+      ],
+      "fitPolicy": "Authored local frame, unit scale. Original low roof and mineral surfaces retained as visible physical witnesses. New crown volume is presentation only; native roof, camera and flight contact review required.",
+      "fallbackPolicy": "Keep the isolated original crown on every missing asset, invalid candidate or failed transaction.",
+      "requiredPortalContract": "Required canonical 04C Front opening (halfDoor 1.4, lintel 3.2, front plane .15, depth .3). Retained H5 doorway unchanged; native opening not measured.",
+      "requiredPortalLocalCenter": [
+        0,
+        1.6,
+        0.15
+      ],
+      "requiredPortalLocalSize": [
+        2.8,
+        3.2,
+        0.3
+      ],
+      "rowType": "SURFACE_VISUAL_GROUP",
+      "parentStableId": "revision:10/lot:753588/seed:472154/building",
+      "wholePhysicalBuildingRemoved": false,
+      "rendererGroup": "Visual Rebirth 04A / WR01 isolated legacy / revision:10/venue:office/seed:472154/crown"
+    },
+    {
+      "stableId": "under:service.stair",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 0,
+          "otherCell": "service.hall",
+          "kind": "Walk",
+          "width": 2.8,
+          "height": 3,
+          "localPosition": [
+            5.7,
+            -6,
+            14.2
+          ],
+          "worldPosition": [
+            52.2,
+            -6,
+            6.3
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.stair",
+      "cellIndex": 0,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Stair",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          41.2,
+          -6,
+          4.9
+        ],
+        "max": [
+          52.2,
+          3.3500001,
+          7.7
+        ],
+        "center": [
+          46.7,
+          -1.3249999,
+          6.3
+        ],
+        "size": [
+          11,
+          9.35,
+          2.7999997
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        41.2,
+        4.9,
+        52.2,
+        7.7
+      ],
+      "floorLo": 0.15,
+      "floorHi": -6,
+      "headroom": 3.2,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.stair",
+      "rendererGroup": "Masonry upper region / service.stair",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.hall",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_02_sparks",
+          "field": ".Phases[5].Steps[1].At",
+          "token": "Under:service.stair_bottom",
+          "questIndex": 1
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_02_sparks",
+          "field": ".Phases[11].ResumeAt",
+          "token": "Under:service.stair_bottom",
+          "questIndex": 1
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_03_bond",
+          "field": ".Phases[2].ResumeAt",
+          "token": "Under:service.stair_bottom",
+          "questIndex": 2
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 0,
+          "otherCell": "service.stair",
+          "kind": "Walk",
+          "width": 2.8,
+          "height": 3,
+          "localPosition": [
+            5.7,
+            -6,
+            14.2
+          ],
+          "worldPosition": [
+            52.2,
+            -6,
+            6.3
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 1,
+          "otherCell": "service.construct",
+          "kind": "Walk",
+          "width": 3,
+          "height": 2.8,
+          "localPosition": [
+            1,
+            -6,
+            26
+          ],
+          "worldPosition": [
+            64,
+            -6,
+            11
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 2,
+          "otherCell": "service.panel",
+          "kind": "Walk",
+          "width": 1.6,
+          "height": 2.4,
+          "localPosition": [
+            11,
+            -6,
+            21
+          ],
+          "worldPosition": [
+            59,
+            -6,
+            1
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 3,
+          "otherCell": "service.ventroom",
+          "kind": "Walk",
+          "width": 1.6,
+          "height": 2.4,
+          "localPosition": [
+            11,
+            -6,
+            34
+          ],
+          "worldPosition": [
+            72,
+            -6,
+            1
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 4,
+          "otherCell": "service.nook",
+          "kind": "Walk",
+          "width": 2,
+          "height": 2.4,
+          "localPosition": [
+            1,
+            -6,
+            37
+          ],
+          "worldPosition": [
+            75,
+            -6,
+            11
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 5,
+          "otherCell": "service.tunneltop",
+          "kind": "Walk",
+          "width": 6,
+          "height": 3,
+          "localPosition": [
+            6,
+            -6,
+            40
+          ],
+          "worldPosition": [
+            78,
+            -6,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.hall",
+      "cellIndex": 1,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Corridor",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          52.2,
+          -6,
+          1
+        ],
+        "max": [
+          78,
+          -2.6,
+          11
+        ],
+        "center": [
+          65.1,
+          -4.3,
+          6
+        ],
+        "size": [
+          25.8,
+          3.4,
+          10
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        52.2,
+        1,
+        78,
+        11
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.hall",
+      "rendererGroup": "Masonry upper region / service.hall",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.stair_bottom",
+          "id": "service.stair_bottom",
+          "localPosition": [
+            5.7,
+            -6,
+            15.4
+          ],
+          "worldPosition": [
+            53.4,
+            -6,
+            6.3
+          ],
+          "yaw": 90,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:service.gate",
+          "id": "service.gate",
+          "localPosition": [
+            6,
+            -6,
+            38.6
+          ],
+          "worldPosition": [
+            76.6,
+            -6,
+            6
+          ],
+          "yaw": 90,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.construct",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_02_sparks",
+          "field": ".Phases[9].Steps[1].At",
+          "token": "Under:service.construct_room",
+          "questIndex": 1
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 1,
+          "otherCell": "service.hall",
+          "kind": "Walk",
+          "width": 3,
+          "height": 2.8,
+          "localPosition": [
+            1,
+            -6,
+            26
+          ],
+          "worldPosition": [
+            64,
+            -6,
+            11
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.construct",
+      "cellIndex": 2,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          56,
+          -6,
+          11
+        ],
+        "max": [
+          72,
+          -2.6,
+          27
+        ],
+        "center": [
+          64,
+          -4.3,
+          19
+        ],
+        "size": [
+          16,
+          3.4,
+          16
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        56,
+        11,
+        72,
+        27
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.construct",
+      "rendererGroup": "Masonry upper region / service.construct",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.construct_room",
+          "id": "service.construct_room",
+          "localPosition": [
+            -7,
+            -6,
+            26
+          ],
+          "worldPosition": [
+            64,
+            -6,
+            19
+          ],
+          "yaw": 180,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.panel",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_02_sparks",
+          "field": ".Phases[10].Steps[0].At",
+          "token": "Under:service.service_panel",
+          "questIndex": 1
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 2,
+          "otherCell": "service.hall",
+          "kind": "Walk",
+          "width": 1.6,
+          "height": 2.4,
+          "localPosition": [
+            11,
+            -6,
+            21
+          ],
+          "worldPosition": [
+            59,
+            -6,
+            1
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.panel",
+      "cellIndex": 3,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          56,
+          -6,
+          -4
+        ],
+        "max": [
+          62,
+          -3,
+          1
+        ],
+        "center": [
+          59,
+          -4.5,
+          -1.5
+        ],
+        "size": [
+          6,
+          3,
+          5
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        56,
+        -4,
+        62,
+        1
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.panel",
+      "rendererGroup": "Masonry upper region / service.panel",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.service_panel",
+          "id": "service.service_panel",
+          "localPosition": [
+            14.6,
+            -6,
+            21
+          ],
+          "worldPosition": [
+            59,
+            -6,
+            -2.6000004
+          ],
+          "yaw": 180,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.ventroom",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_02_sparks",
+          "field": ".Phases[11].Steps[0].At",
+          "token": "Under:service.vent",
+          "questIndex": 1
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 3,
+          "otherCell": "service.hall",
+          "kind": "Walk",
+          "width": 1.6,
+          "height": 2.4,
+          "localPosition": [
+            11,
+            -6,
+            34
+          ],
+          "worldPosition": [
+            72,
+            -6,
+            1
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.ventroom",
+      "cellIndex": 4,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          68,
+          -6,
+          -5
+        ],
+        "max": [
+          76,
+          -3,
+          1
+        ],
+        "center": [
+          72,
+          -4.5,
+          -2
+        ],
+        "size": [
+          8,
+          3,
+          6
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        68,
+        -5,
+        76,
+        1
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.ventroom",
+      "rendererGroup": "Masonry upper region / service.ventroom",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.vent",
+          "id": "service.vent",
+          "localPosition": [
+            14.5,
+            -6,
+            34
+          ],
+          "worldPosition": [
+            72,
+            -6,
+            -2.5
+          ],
+          "yaw": 180,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.nook",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_02_sparks",
+          "field": ".Phases[7].Steps[0].At",
+          "token": "Under:service.juveniles",
+          "questIndex": 1
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 4,
+          "otherCell": "service.hall",
+          "kind": "Walk",
+          "width": 2,
+          "height": 2.4,
+          "localPosition": [
+            1,
+            -6,
+            37
+          ],
+          "worldPosition": [
+            75,
+            -6,
+            11
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.nook",
+      "cellIndex": 5,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          72,
+          -6,
+          11
+        ],
+        "max": [
+          78,
+          -3,
+          18
+        ],
+        "center": [
+          75,
+          -4.5,
+          14.5
+        ],
+        "size": [
+          6,
+          3,
+          7
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        72,
+        11,
+        78,
+        18
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.nook",
+      "rendererGroup": "Masonry upper region / service.nook",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.juveniles",
+          "id": "service.juveniles",
+          "localPosition": [
+            -3,
+            -6,
+            37
+          ],
+          "worldPosition": [
+            75,
+            -6,
+            15
+          ],
+          "yaw": 0,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.tunneltop",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Under:service.tunnel_top",
+          "questIndex": 3
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 5,
+          "otherCell": "service.hall",
+          "kind": "Walk",
+          "width": 6,
+          "height": 3,
+          "localPosition": [
+            6,
+            -6,
+            40
+          ],
+          "worldPosition": [
+            78,
+            -6,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 6,
+          "otherCell": "service.hollow",
+          "kind": "Walk",
+          "width": 2.4,
+          "height": 2.6,
+          "localPosition": [
+            11,
+            -6,
+            44
+          ],
+          "worldPosition": [
+            82,
+            -6,
+            1
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 7,
+          "otherCell": "service.tunnel1",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -6,
+            48
+          ],
+          "worldPosition": [
+            86,
+            -6,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.tunneltop",
+      "cellIndex": 6,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          78,
+          -6,
+          1
+        ],
+        "max": [
+          86,
+          -2.6,
+          11
+        ],
+        "center": [
+          82,
+          -4.3,
+          6
+        ],
+        "size": [
+          8,
+          3.4,
+          10
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        78,
+        1,
+        86,
+        11
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.tunneltop",
+      "rendererGroup": "Masonry upper region / service.tunneltop",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.tunnel_top",
+          "id": "service.tunnel_top",
+          "localPosition": [
+            6,
+            -6,
+            45.5
+          ],
+          "worldPosition": [
+            83.5,
+            -6,
+            6
+          ],
+          "yaw": 90,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.hollow",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_03_bond",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Under:service.clamp_hollow",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_03_bond",
+          "field": ".Phases[2].Steps[0].At",
+          "token": "Under:service.clamp_hollow",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_03_bond",
+          "field": ".Phases[2].Steps[0].Points[0]",
+          "token": "Under:service.clamp_a",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_03_bond",
+          "field": ".Phases[2].Steps[0].Points[1]",
+          "token": "Under:service.clamp_b",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_03_bond",
+          "field": ".Phases[2].Steps[0].Points[2]",
+          "token": "Under:service.clamp_c",
+          "questIndex": 2
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 6,
+          "otherCell": "service.tunneltop",
+          "kind": "Walk",
+          "width": 2.4,
+          "height": 2.6,
+          "localPosition": [
+            11,
+            -6,
+            44
+          ],
+          "worldPosition": [
+            82,
+            -6,
+            1
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.hollow",
+      "cellIndex": 7,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Cavern",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          78,
+          -6,
+          -13
+        ],
+        "max": [
+          92,
+          -2.6,
+          1
+        ],
+        "center": [
+          85,
+          -4.3,
+          -6
+        ],
+        "size": [
+          14,
+          3.4,
+          14
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        78,
+        -13,
+        92,
+        1
+      ],
+      "floorLo": -6,
+      "floorHi": -6,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.hollow",
+      "rendererGroup": "Masonry upper region / service.hollow",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:service.clamp_hollow",
+          "id": "service.clamp_hollow",
+          "localPosition": [
+            18,
+            -6,
+            47
+          ],
+          "worldPosition": [
+            85,
+            -6,
+            -6
+          ],
+          "yaw": 180,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:service.clamp_a",
+          "id": "service.clamp_a",
+          "localPosition": [
+            15,
+            -6,
+            50.5
+          ],
+          "worldPosition": [
+            88.5,
+            -6,
+            -3
+          ],
+          "yaw": 225,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:service.clamp_b",
+          "id": "service.clamp_b",
+          "localPosition": [
+            21,
+            -6,
+            50.5
+          ],
+          "worldPosition": [
+            88.5,
+            -6,
+            -9
+          ],
+          "yaw": 315,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:service.clamp_c",
+          "id": "service.clamp_c",
+          "localPosition": [
+            18,
+            -6,
+            43
+          ],
+          "worldPosition": [
+            81,
+            -6,
+            -6
+          ],
+          "yaw": 90,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.tunnel1",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 7,
+          "otherCell": "service.tunneltop",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -6,
+            48
+          ],
+          "worldPosition": [
+            86,
+            -6,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 8,
+          "otherCell": "service.landing1",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -10,
+            55.5
+          ],
+          "worldPosition": [
+            93.5,
+            -10,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.tunnel1",
+      "cellIndex": 8,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Stair",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          86,
+          -10,
+          4
+        ],
+        "max": [
+          93.5,
+          -2.6,
+          8
+        ],
+        "center": [
+          89.75,
+          -6.3,
+          6
+        ],
+        "size": [
+          7.5,
+          7.4,
+          4
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        86,
+        4,
+        93.5,
+        8
+      ],
+      "floorLo": -6,
+      "floorHi": -10,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.tunnel1",
+      "rendererGroup": "Masonry upper region / service.tunnel1",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.landing1",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 8,
+          "otherCell": "service.tunnel1",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -10,
+            55.5
+          ],
+          "worldPosition": [
+            93.5,
+            -10,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 9,
+          "otherCell": "service.tunnel2",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -10,
+            59.5
+          ],
+          "worldPosition": [
+            97.5,
+            -10,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.landing1",
+      "cellIndex": 9,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Corridor",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          93.5,
+          -10,
+          4
+        ],
+        "max": [
+          97.5,
+          -6.6,
+          8
+        ],
+        "center": [
+          95.5,
+          -8.3,
+          6
+        ],
+        "size": [
+          4,
+          3.4,
+          4
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        93.5,
+        4,
+        97.5,
+        8
+      ],
+      "floorLo": -10,
+      "floorHi": -10,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.landing1",
+      "rendererGroup": "Masonry upper region / service.landing1",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.tunnel2",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 9,
+          "otherCell": "service.landing1",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -10,
+            59.5
+          ],
+          "worldPosition": [
+            97.5,
+            -10,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 10,
+          "otherCell": "service.landing2",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -14,
+            72.5
+          ],
+          "worldPosition": [
+            110.5,
+            -14,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.tunnel2",
+      "cellIndex": 10,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Ramp",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          97.5,
+          -14,
+          4
+        ],
+        "max": [
+          110.5,
+          -6.6,
+          8
+        ],
+        "center": [
+          104,
+          -10.3,
+          6
+        ],
+        "size": [
+          13,
+          7.4,
+          4
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        97.5,
+        4,
+        110.5,
+        8
+      ],
+      "floorLo": -10,
+      "floorHi": -14,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.tunnel2",
+      "rendererGroup": "Masonry upper region / service.tunnel2",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.landing2",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 10,
+          "otherCell": "service.tunnel2",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -14,
+            72.5
+          ],
+          "worldPosition": [
+            110.5,
+            -14,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 11,
+          "otherCell": "service.tunnel3",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -14,
+            76.5
+          ],
+          "worldPosition": [
+            114.5,
+            -14,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.landing2",
+      "cellIndex": 11,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Corridor",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          110.5,
+          -14,
+          4
+        ],
+        "max": [
+          114.5,
+          -10.6,
+          8
+        ],
+        "center": [
+          112.5,
+          -12.3,
+          6
+        ],
+        "size": [
+          4,
+          3.3999996,
+          4
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        110.5,
+        4,
+        114.5,
+        8
+      ],
+      "floorLo": -14,
+      "floorHi": -14,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.landing2",
+      "rendererGroup": "Masonry upper region / service.landing2",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:service.tunnel3",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 11,
+          "otherCell": "service.landing2",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -14,
+            76.5
+          ],
+          "worldPosition": [
+            114.5,
+            -14,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 12,
+          "otherCell": "refuge.vestibule",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -18,
+            84
+          ],
+          "worldPosition": [
+            122,
+            -18,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "service.tunnel3",
+      "cellIndex": 12,
+      "region": "service_level",
+      "theme": "Service",
+      "cellKind": "Stair",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          114.5,
+          -18,
+          4
+        ],
+        "max": [
+          122,
+          -10.6,
+          8
+        ],
+        "center": [
+          118.25,
+          -14.3,
+          6
+        ],
+        "size": [
+          7.5,
+          7.3999996,
+          4
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        114.5,
+        4,
+        122,
+        8
+      ],
+      "floorLo": -14,
+      "floorHi": -18,
+      "headroom": 3.4,
+      "safe": false,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / service.tunnel3",
+      "rendererGroup": "Masonry upper region / service.tunnel3",
+      "legacyBatch": "Existing UnderheartBuilder region / service_level, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.vestibule",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Under:refuge.entry",
+          "questIndex": 3
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 12,
+          "otherCell": "service.tunnel3",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3,
+          "localPosition": [
+            6,
+            -18,
+            84
+          ],
+          "worldPosition": [
+            122,
+            -18,
+            6
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 13,
+          "otherCell": "refuge.corridor",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3.2,
+          "localPosition": [
+            0,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            12
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.vestibule",
+      "cellIndex": 13,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          122,
+          -18,
+          0
+        ],
+        "max": [
+          134,
+          -13,
+          12
+        ],
+        "center": [
+          128,
+          -15.5,
+          6
+        ],
+        "size": [
+          12,
+          5,
+          12
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        122,
+        0,
+        134,
+        12
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 5,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.vestibule",
+      "rendererGroup": "Masonry upper region / refuge.vestibule",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.entry",
+          "id": "refuge.entry",
+          "localPosition": [
+            4,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            8
+          ],
+          "yaw": 0,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.corridor",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 13,
+          "otherCell": "refuge.vestibule",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3.2,
+          "localPosition": [
+            0,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            12
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 14,
+          "otherCell": "refuge.hall",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3.6,
+          "localPosition": [
+            -8,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            20
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.corridor",
+      "cellIndex": 14,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Corridor",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          126,
+          -18,
+          12
+        ],
+        "max": [
+          130,
+          -14,
+          20
+        ],
+        "center": [
+          128,
+          -16,
+          16
+        ],
+        "size": [
+          4,
+          4,
+          8
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        126,
+        12,
+        130,
+        20
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 4,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.corridor",
+      "rendererGroup": "Masonry upper region / refuge.corridor",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.hall",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[6].Steps[0].At",
+          "token": "Under:refuge.sample_drop",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[6].Steps[1].At",
+          "token": "Under:refuge.sample_drop",
+          "questIndex": 3
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 14,
+          "otherCell": "refuge.corridor",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3.6,
+          "localPosition": [
+            -8,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            20
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 15,
+          "otherCell": "refuge.camp",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3.4,
+          "localPosition": [
+            -26,
+            -18,
+            99
+          ],
+          "worldPosition": [
+            137,
+            -18,
+            38
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 16,
+          "otherCell": "refuge.works",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3.4,
+          "localPosition": [
+            -20,
+            -18,
+            81
+          ],
+          "worldPosition": [
+            119,
+            -18,
+            32
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 17,
+          "otherCell": "refuge.liftbay",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3.2,
+          "localPosition": [
+            -39,
+            -18,
+            81
+          ],
+          "worldPosition": [
+            119,
+            -18,
+            51
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 18,
+          "otherCell": "refuge.restroom",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3,
+          "localPosition": [
+            -45,
+            -18,
+            99
+          ],
+          "worldPosition": [
+            137,
+            -18,
+            57
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 19,
+          "otherCell": "refuge.exit",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3.2,
+          "localPosition": [
+            -56,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            68
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.hall",
+      "cellIndex": 15,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          119,
+          -18,
+          20
+        ],
+        "max": [
+          137,
+          -9,
+          68
+        ],
+        "center": [
+          128,
+          -13.5,
+          44
+        ],
+        "size": [
+          18,
+          9,
+          48
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        119,
+        20,
+        137,
+        68
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 9,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.hall",
+      "rendererGroup": "Masonry upper region / refuge.hall",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.map_board",
+          "id": "refuge.map_board",
+          "localPosition": [
+            -51,
+            -18,
+            83.5
+          ],
+          "worldPosition": [
+            121.5,
+            -18,
+            63
+          ],
+          "yaw": 270,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:refuge.sample_drop",
+          "id": "refuge.sample_drop",
+          "localPosition": [
+            -14,
+            -18,
+            96
+          ],
+          "worldPosition": [
+            134,
+            -18,
+            26
+          ],
+          "yaw": 90,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.camp",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_03_habitat",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Under:refuge.residents",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s03_shelter",
+          "field": ".Phases[2].Steps[0].At",
+          "token": "Under:refuge.residents",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s03_shelter",
+          "field": ".Phases[2].Steps[1].At",
+          "token": "Under:refuge.residents",
+          "questIndex": 2
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 15,
+          "otherCell": "refuge.hall",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3.4,
+          "localPosition": [
+            -26,
+            -18,
+            99
+          ],
+          "worldPosition": [
+            137,
+            -18,
+            38
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.camp",
+      "cellIndex": 16,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          137,
+          -18,
+          28
+        ],
+        "max": [
+          147,
+          -13,
+          48
+        ],
+        "center": [
+          142,
+          -15.5,
+          38
+        ],
+        "size": [
+          10,
+          5,
+          20
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        137,
+        28,
+        147,
+        48
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 5,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.camp",
+      "rendererGroup": "Masonry upper region / refuge.camp",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.residents",
+          "id": "refuge.residents",
+          "localPosition": [
+            -26,
+            -18,
+            104
+          ],
+          "worldPosition": [
+            142,
+            -18,
+            38
+          ],
+          "yaw": 270,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.works",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[2].Steps[0].At",
+          "token": "Cast:refuge_keeper",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s03_shelter",
+          "field": ".Phases[2].Steps[3].At",
+          "token": "Cast:refuge_keeper",
+          "questIndex": 2
+        }
+      ],
+      "npcAnchors": [
+        {
+          "id": "refuge_keeper",
+          "name": "Ilse Varro",
+          "post": "UnderAnchor",
+          "anchor": "refuge.caretaker",
+          "onDemand": false,
+          "storyIdentity": false,
+          "storyUnlock": 0,
+          "sourceOwner": "CastRoster04E",
+          "nativeSpawned": "NOT RUN"
+        }
+      ],
+      "portalAnchors": [
+        {
+          "index": 16,
+          "otherCell": "refuge.hall",
+          "kind": "Walk",
+          "width": 4,
+          "height": 3.4,
+          "localPosition": [
+            -20,
+            -18,
+            81
+          ],
+          "worldPosition": [
+            119,
+            -18,
+            32
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 32,
+          "otherCell": "canals.sctop",
+          "kind": "Walk",
+          "width": 2,
+          "height": 2.8,
+          "localPosition": [
+            -20,
+            -18,
+            71
+          ],
+          "worldPosition": [
+            109,
+            -18,
+            32
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.works",
+      "cellIndex": 17,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          109,
+          -18,
+          24
+        ],
+        "max": [
+          119,
+          -13,
+          40
+        ],
+        "center": [
+          114,
+          -15.5,
+          32
+        ],
+        "size": [
+          10,
+          5,
+          16
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        109,
+        24,
+        119,
+        40
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 5,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.works",
+      "rendererGroup": "Masonry upper region / refuge.works",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.caretaker",
+          "id": "refuge.caretaker",
+          "localPosition": [
+            -24,
+            -18,
+            76
+          ],
+          "worldPosition": [
+            114,
+            -18,
+            36
+          ],
+          "yaw": 90,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:refuge.fitting",
+          "id": "refuge.fitting",
+          "localPosition": [
+            -15.5,
+            -18,
+            74
+          ],
+          "worldPosition": [
+            112,
+            -18,
+            27.5
+          ],
+          "yaw": 270,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        },
+        {
+          "token": "Under:refuge.ledger",
+          "id": "refuge.ledger",
+          "localPosition": [
+            -14,
+            -18,
+            78.5
+          ],
+          "worldPosition": [
+            116.5,
+            -18,
+            26
+          ],
+          "yaw": 180,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.liftbay",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_03_habitat",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Under:refuge.lift",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[3].Steps[2].At",
+          "token": "Under:refuge.lift",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s10_shortcut",
+          "field": ".Phases[1].Steps[0].At",
+          "token": "Under:refuge.lift",
+          "questIndex": 9
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s10_shortcut",
+          "field": ".Phases[1].Steps[1].At",
+          "token": "Under:refuge.lift",
+          "questIndex": 9
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s10_shortcut",
+          "field": ".Phases[1].Steps[2].At",
+          "token": "Under:refuge.lift",
+          "questIndex": 9
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[4].Steps[1].At",
+          "token": "Under:refuge.lift",
+          "questIndex": 0
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 17,
+          "otherCell": "refuge.hall",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3.2,
+          "localPosition": [
+            -39,
+            -18,
+            81
+          ],
+          "worldPosition": [
+            119,
+            -18,
+            51
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.liftbay",
+      "cellIndex": 18,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          111,
+          -18,
+          46
+        ],
+        "max": [
+          119,
+          -13,
+          56
+        ],
+        "center": [
+          115,
+          -15.5,
+          51
+        ],
+        "size": [
+          8,
+          5,
+          10
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        111,
+        46,
+        119,
+        56
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 5,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.liftbay",
+      "rendererGroup": "Masonry upper region / refuge.liftbay",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.lift",
+          "id": "refuge.lift",
+          "localPosition": [
+            -36,
+            -18,
+            75.6
+          ],
+          "worldPosition": [
+            113.6,
+            -18,
+            48
+          ],
+          "yaw": 270,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.restroom",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+          "questId": "uh05_04i_03_habitat",
+          "field": ".Phases[1].ResumeAt",
+          "token": "Under:refuge.rest",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[2].Steps[1].At",
+          "token": "Under:refuge.rest",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+          "questId": "uh05_04k_01_fractured_bell",
+          "field": ".Phases[2].ResumeAt",
+          "token": "Under:refuge.rest",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[2].ResumeAt",
+          "token": "Under:refuge.rest",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s03_shelter",
+          "field": ".Phases[2].ResumeAt",
+          "token": "Under:refuge.rest",
+          "questIndex": 2
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+          "questId": "uh05_s10_shortcut",
+          "field": ".Phases[1].ResumeAt",
+          "token": "Under:refuge.rest",
+          "questIndex": 9
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[3].Steps[1].At",
+          "token": "Under:refuge.rest",
+          "questIndex": 0
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+          "questId": "uh05_04l_01_veil_memory",
+          "field": ".Phases[5].ResumeAt",
+          "token": "Under:refuge.rest",
+          "questIndex": 0
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 18,
+          "otherCell": "refuge.hall",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3,
+          "localPosition": [
+            -45,
+            -18,
+            99
+          ],
+          "worldPosition": [
+            137,
+            -18,
+            57
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.restroom",
+      "cellIndex": 19,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Room",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          137,
+          -18,
+          52
+        ],
+        "max": [
+          145,
+          -14,
+          62
+        ],
+        "center": [
+          141,
+          -16,
+          57
+        ],
+        "size": [
+          8,
+          4,
+          10
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        137,
+        52,
+        145,
+        62
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 4,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.restroom",
+      "rendererGroup": "Masonry upper region / refuge.restroom",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.rest",
+          "id": "refuge.rest",
+          "localPosition": [
+            -46,
+            -18,
+            103
+          ],
+          "worldPosition": [
+            141,
+            -18,
+            58
+          ],
+          "yaw": 270,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    },
+    {
+      "stableId": "under:refuge.exit",
+      "worldRevision": 10,
+      "sourceOwner": "UnderheartBuilder.WorldRewrite",
+      "replacementClass": "REPLACE_VISUAL",
+      "reason": "Existing upper-cell shell and selected industrial material groups are isolated; candidate reuses exact shell meshes plus overhead ribs. Doors, fixtures, gates, hazards, collision and streaming remain under original owners.",
+      "nativeAdmission": "NOT RUN",
+      "nativeActiveCount": null,
+      "nativeRefusalCount": null,
+      "questAnchors": [
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[2].Steps[2].At",
+          "token": "Under:refuge.exit_canals",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+          "questId": "uh05_04_descent",
+          "field": ".Phases[3].ResumeAt",
+          "token": "Under:refuge.exit_canals",
+          "questIndex": 3
+        },
+        {
+          "file": "Assets/NeonSyndicate/Resources/Quests/underheart_act2.json",
+          "questId": "uh05_06_pressure",
+          "field": ".Phases[6].ResumeAt",
+          "token": "Under:refuge.exit_canals",
+          "questIndex": 1
+        }
+      ],
+      "npcAnchors": [],
+      "portalAnchors": [
+        {
+          "index": 19,
+          "otherCell": "refuge.hall",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3.2,
+          "localPosition": [
+            -56,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            68
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        },
+        {
+          "index": 20,
+          "otherCell": "canals.stairA",
+          "kind": "Walk",
+          "width": 3,
+          "height": 3,
+          "localPosition": [
+            -62,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            74
+          ],
+          "shortcut": "",
+          "sourceOwner": "UnderheartLayout.Portals",
+          "nativeObserved": false
+        }
+      ],
+      "questRuntimeTriggerVolumes": "NOT RUN; authored source tokens are inventoried separately from native trigger objects.",
+      "cellId": "refuge.exit",
+      "cellIndex": 20,
+      "region": "lantern_refuge",
+      "theme": "Transit",
+      "cellKind": "Corridor",
+      "serviceOwner": "UnderheartWorld / Pressure House",
+      "sourceFrame": {
+        "origin": [
+          38,
+          0,
+          12
+        ],
+        "yaw": 90,
+        "variant": 5,
+        "evidence": "SOURCE_ONLY planner-selected sample, not a measured native or loaded-save frame",
+        "nativeVariant": "NOT RUN"
+      },
+      "bounds": {
+        "min": [
+          126,
+          -18,
+          68
+        ],
+        "max": [
+          130,
+          -14,
+          74
+        ],
+        "center": [
+          128,
+          -16,
+          71
+        ],
+        "size": [
+          4,
+          4,
+          6
+        ],
+        "frame": "world",
+        "measurement": "Actual compiled cell walk volume; decorative mesh bounds and native renderer bounds are distinct."
+      },
+      "worldFootprint": [
+        126,
+        68,
+        130,
+        74
+      ],
+      "floorLo": -18,
+      "floorHi": -18,
+      "headroom": 4,
+      "safe": true,
+      "vehicle": false,
+      "visualRoot": "Retained upper region / refuge.exit",
+      "rendererGroup": "Masonry upper region / refuge.exit",
+      "legacyBatch": "Existing UnderheartBuilder region / lantern_refuge, cell-scoped shell/dressing bucket",
+      "sharedBatchMembership": "One passive visual pair beneath the same original region streaming parent",
+      "collisionOwner": "UnderheartBuilder original floor, wall, mesh and doorway collision outside both visual roots",
+      "collisionPolicy": "NATIVE_COLLISION_REVIEW",
+      "risk": "Preview only, native stair, camera and contact review required",
+      "proposedFantasyFamily": "UpperUnderheartMasonry",
+      "fitPolicy": "Original cell dimensions, source shell and floor heights retained; material substitution and decorative ribs only, minimum2.8m headroom",
+      "fallbackPolicy": "Keep original complete cell presentation when required shared maps, shell or candidate validation fails",
+      "serviceAnchors": [
+        {
+          "token": "Under:refuge.exit_canals",
+          "id": "refuge.exit_canals",
+          "localPosition": [
+            -59,
+            -18,
+            90
+          ],
+          "worldPosition": [
+            128,
+            -18,
+            71
+          ],
+          "yaw": 0,
+          "sourceOwner": "UnderheartLayout.Anchors",
+          "nativeObserved": false
+        }
+      ],
+      "rowType": "UNDERHEART_CELL"
+    }
+  ]
+}

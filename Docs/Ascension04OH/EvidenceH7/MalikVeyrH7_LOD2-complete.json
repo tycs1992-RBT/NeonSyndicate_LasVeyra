@@ -1,0 +1,91 @@
+{
+  "scope": "Independent source skin, actual bind matrices and eight deterministic joint-stress poses. Not authored animation, Unity import or owner appearance approval",
+  "meshes": [
+    {
+      "mesh": "shoes06.003",
+      "samples": 17024,
+      "maximum_error_metres": 2.25487362244e-16,
+      "rms_error_metres": 3.16901012078e-17
+    },
+    {
+      "mesh": "Sphere.028",
+      "samples": 3784,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "eyebrow001.002",
+      "samples": 992,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "Cornea 0.002",
+      "samples": 4624,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "H7 contoured chest plate -1.003",
+      "samples": 6240,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "H7 neat beard.002",
+      "samples": 62208,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "H7 split walking panel l.003",
+      "samples": 155632,
+      "maximum_error_metres": 8.89911452411e-16,
+      "rms_error_metres": 1.00641183425e-16
+    },
+    {
+      "mesh": "Iris 0.002",
+      "samples": 4624,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "eyelashes01.002",
+      "samples": 2000,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "base.005",
+      "samples": 64040,
+      "maximum_error_metres": 8.88185195938e-16,
+      "rms_error_metres": 1.10743940484e-16
+    },
+    {
+      "mesh": "Pupil 0.002",
+      "samples": 4624,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "Sphere.042",
+      "samples": 504,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    },
+    {
+      "mesh": "Sphere.044",
+      "samples": 3552,
+      "maximum_error_metres": 0,
+      "rms_error_metres": 0
+    }
+  ],
+  "samples": 329848,
+  "binds_and_bone_names_unchanged": true,
+  "maximum_error_metres": 8.89911452411e-16,
+  "acceptance_bound_metres": 0.005,
+  "passed": true,
+  "native_unity": "NOT RUN",
+  "exit_code": 0,
+  "selected_source_sha256": "90d510ea6522144917a5a4ecab0e6af704843d903c5553bd94c93c8ecf3d4d95"
+}

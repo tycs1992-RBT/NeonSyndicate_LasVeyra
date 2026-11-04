@@ -1,0 +1,61 @@
+{
+  "scope": "Execute the existing NUnit suite on .NET, with genuine Unity managed modules.\n\nNeedsEngine tests are excluded. Other tests that reach native Unity calls can\nstill fail; retain the XML and compare baseline/current rather than hiding them.\nThis is not Unity Test Runner, native scene execution, rendering or playtesting.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/offline04f_tests.py",
+    "--root",
+    "/workspace/scratch/39ce986e9cbf/repo",
+    "--dotnet",
+    "/workspace/scratch/39ce986e9cbf/fr01/deps/dotnet/dotnet",
+    "--unity-references",
+    "/workspace/scratch/39ce986e9cbf/fr01/deps/unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/workspace/scratch/39ce986e9cbf/fr01/deps/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/workspace/scratch/39ce986e9cbf/fr01/deps/nunitlite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "/workspace/scratch/39ce986e9cbf/fr01e/current-matrix/player-classic-builtin.dll",
+    "--output",
+    "/workspace/scratch/39ce986e9cbf/fr01e/focused",
+    "--where",
+    "class == NeonSyndicate.Tests.HeartFR01Tests or class == NeonSyndicate.Tests.HeartFR01ETests"
+  ],
+  "command": [
+    "/workspace/scratch/39ce986e9cbf/fr01/deps/dotnet/dotnet",
+    "/workspace/scratch/39ce986e9cbf/fr01e/focused/OfflineNUnit.dll",
+    "--workers=0",
+    "--noheader",
+    "--where=class == NeonSyndicate.Tests.HeartFR01Tests or class == NeonSyndicate.Tests.HeartFR01ETests",
+    "--result=/workspace/scratch/39ce986e9cbf/fr01e/focused/nunit-results.xml",
+    "--work=/workspace/scratch/39ce986e9cbf/repo"
+  ],
+  "exit_code": 1,
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/39ce986e9cbf/fr01e/focused/player-classic-builtin.dll",
+    "testcasecount": "2493",
+    "result": "Failed",
+    "start-time": "2026-10-26T15:38:45.0289187Z",
+    "end-time": "2026-10-26T15:39:35.3916449Z",
+    "duration": "50.362694",
+    "total": "25",
+    "passed": "24",
+    "failed": "1",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "17284",
+    "random-seed": "139422964"
+  },
+  "excluded_by_filter": 2468,
+  "failures": [
+    {
+      "name": "NeonSyndicate.Tests.HeartFR01Tests.NativePreparedArchitectureIsPassiveAndHasActualLods",
+      "message": "System.Security.SecurityException : ECall methods must be packaged into a system module.",
+      "stack_trace": "   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)\n   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)\n   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)\n   at UnityEngine.Resources.Load[T](String path)\n   at NeonSyndicate.Tests.HeartFR01Tests.NativePreparedArchitectureIsPassiveAndHasActualLods()\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "comparison_exit_code": 1
+}

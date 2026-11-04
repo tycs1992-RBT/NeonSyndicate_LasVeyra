@@ -1,0 +1,358 @@
+{
+  "tag": "SOURCE RENDER",
+  "not": "Not a Unity screenshot, not native acceptance, not owner approval",
+  "source_blend": "MalikVeyrH9.blend",
+  "source_sha256": "f37cac9bef149abca41e6c1abbcc815f3671f8da1e5d6edaa5e524dea97529a6",
+  "engine": "Blender Cycles CPU, 24 samples, denoised, AgX Medium High Contrast",
+  "resolution": [
+    640,
+    800
+  ],
+  "lighting": "Neutral key, soft fill and rim area lights as render_selected_malik_h8r.py",
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "views": [
+    {
+      "view": "cast",
+      "file": "cast.png",
+      "authored_action": "H8_CrystalCast",
+      "action_frame": 13,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "cast_upper",
+      "file": "cast_upper.png",
+      "authored_action": "H8_CrystalCast",
+      "action_frame": 13,
+      "camera": [
+        1.25,
+        -1.75,
+        1.62
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.38
+      ],
+      "lens_mm": 50,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "dodge",
+      "file": "dodge.png",
+      "authored_action": "H8_Dodge",
+      "action_frame": 12,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "dodge_upper",
+      "file": "dodge_upper.png",
+      "authored_action": "H8_Dodge",
+      "action_frame": 12,
+      "camera": [
+        1.25,
+        -1.75,
+        1.62
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.38
+      ],
+      "lens_mm": 50,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "face_front",
+      "file": "face_front.png",
+      "authored_action": null,
+      "action_frame": 1,
+      "camera": [
+        0.0,
+        -0.95,
+        1.745
+      ],
+      "target": [
+        0.0,
+        -0.04,
+        1.735
+      ],
+      "lens_mm": 85,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "face_three_quarter",
+      "file": "face_three_quarter.png",
+      "authored_action": null,
+      "action_frame": 1,
+      "camera": [
+        0.62,
+        -0.74,
+        1.77
+      ],
+      "target": [
+        0.0,
+        -0.04,
+        1.74
+      ],
+      "lens_mm": 85,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "flight",
+      "file": "flight.png",
+      "authored_action": "H8_FlightTakeoff",
+      "action_frame": 16,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "guard",
+      "file": "guard.png",
+      "authored_action": "H8_Guard_Brace",
+      "action_frame": 20,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "guard_upper",
+      "file": "guard_upper.png",
+      "authored_action": "H8_Guard_Brace",
+      "action_frame": 20,
+      "camera": [
+        1.25,
+        -1.75,
+        1.62
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.38
+      ],
+      "lens_mm": 50,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "head_turn",
+      "file": "head_turn.png",
+      "authored_action": null,
+      "action_frame": 1,
+      "camera": [
+        0.95,
+        -1.25,
+        1.72
+      ],
+      "target": [
+        0.0,
+        -0.02,
+        1.62
+      ],
+      "lens_mm": 70,
+      "synthetic_deformation_pose": true
+    },
+    {
+      "view": "neutral_front",
+      "file": "neutral_front.png",
+      "authored_action": null,
+      "action_frame": 1,
+      "camera": [
+        0.0,
+        -4.2,
+        1.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ortho_scale": 2.2,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "neutral_profile",
+      "file": "neutral_profile.png",
+      "authored_action": null,
+      "action_frame": 1,
+      "camera": [
+        4.2,
+        0.0,
+        1.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ortho_scale": 2.2,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "neutral_three_quarter",
+      "file": "neutral_three_quarter.png",
+      "authored_action": null,
+      "action_frame": 1,
+      "camera": [
+        2.6,
+        -3.3,
+        1.25
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lens_mm": 50,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "planted_stop",
+      "file": "planted_stop.png",
+      "authored_action": "H8_JumpLanding",
+      "action_frame": 12,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "run",
+      "file": "run.png",
+      "authored_action": "H7_Run",
+      "action_frame": 7,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "sword_sweep",
+      "file": "sword_sweep.png",
+      "authored_action": "H7_OathCut",
+      "action_frame": 21,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "sword_sweep_upper",
+      "file": "sword_sweep_upper.png",
+      "authored_action": "H7_OathCut",
+      "action_frame": 21,
+      "camera": [
+        1.25,
+        -1.75,
+        1.62
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.38
+      ],
+      "lens_mm": 50,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "two_handed_gun",
+      "file": "two_handed_gun.png",
+      "authored_action": "H8_FireAim",
+      "action_frame": 30,
+      "camera": [
+        2.3,
+        -3.1,
+        1.35
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.98
+      ],
+      "lens_mm": 45,
+      "synthetic_deformation_pose": false
+    },
+    {
+      "view": "two_handed_gun_upper",
+      "file": "two_handed_gun_upper.png",
+      "authored_action": "H8_FireAim",
+      "action_frame": 30,
+      "camera": [
+        1.25,
+        -1.75,
+        1.62
+      ],
+      "target": [
+        0.0,
+        0.0,
+        1.38
+      ],
+      "lens_mm": 50,
+      "synthetic_deformation_pose": false
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "Actual fresh starting-HEAD worktree and current source, same inherited H5 assertion failures. No preservation guard disabled or broadened.",
+  "baseline_commit": "e2eb89aaa6a3c63868beee219be2e42a55273acf",
+  "current_source_commit": "9116546b08f69e159afc83feb14649002dfa1f4d",
+  "baseline_failed": [
+    "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+    "All prior tests and exclusions preserved"
+  ],
+  "current_failed": [
+    "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+    "All prior tests and exclusions preserved"
+  ],
+  "same_failures": true,
+  "github_run": 40216616558,
+  "github_job": 121239017000,
+  "ci_result": "failure"
+}

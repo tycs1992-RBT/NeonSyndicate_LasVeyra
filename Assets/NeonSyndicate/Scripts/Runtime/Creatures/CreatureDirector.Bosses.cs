@@ -337,6 +337,8 @@ namespace NeonSyndicate
             _bossBrain = n.gameObject.AddComponent<CreatureBoss>();
             _bossBrain.Init(n, sp, center, radius, BossAddsTag(sp.Id));
             if(RegionalBossRules04OD.IsRegional(sp.Id))AddRegionalCrown04OD(n,sp.Id);
+            // H8S: the crystal sovereign regalia of the four classic bosses (visual only, follows the breakable parts).
+            if (!ObsidianLookH8S.Classic) BossRegaliaH8S.Attach(n, sp.Id);
             PrewarmAdds(sp.Id, o.Seed);
             if (Game.Fx != null)
             {

@@ -1,0 +1,9 @@
+{
+  "observed_issue": "Incomplete remesh boot coverage and resting thigh penetration in actual source renders",
+  "correction": "Closed body-section boot volumes with continuous calf/foot weights; coat projected outside actual body by 35mm",
+  "corrected_panel_vertices": 1591,
+  "boot_vertices": 720,
+  "cloth_simulation": false,
+  "native_unity": "NOT RUN",
+  "deep_pose_contact": "Still requires native review"
+}

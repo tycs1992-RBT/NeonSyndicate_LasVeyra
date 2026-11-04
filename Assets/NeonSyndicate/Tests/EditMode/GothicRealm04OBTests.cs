@@ -21,7 +21,7 @@ namespace NeonSyndicate.Tests
                 Assert.That(realm, Is.Not.EqualTo(SaveFileTransaction.BackupPath(original)));
                 Assert.That(realm, Is.Not.EqualTo(SaveFileTransaction.TempPath(original)));
             }
-            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(0, 7));
+            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(0, 99));
             Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(-1, 2));
             Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(4, 0));
         }
@@ -106,7 +106,7 @@ namespace NeonSyndicate.Tests
         {
             Assert.That(new SaveData().WorldRevision04O,Is.Zero);
             foreach(int known in new[]{0,1,2})Assert.That(CityRebirthRules04O.Known(known),Is.True);
-            Assert.That(CityRebirthRules04O.Known(7),Is.False);
+            Assert.That(CityRebirthRules04O.Known(99),Is.False);
             CityLayout l=new CityLayout(61724);l.Generate();List<VenueBinding04C> v=InhabitedCityBindings04C.Select(l,InhabitedCityBindings04CTests.ReadCatalog());
             Assert.That(l.ApplyProfile04O(CityRevision04O.GothicRealm04OB,null),Is.False);
             Assert.That(l.ApplyProfile04O(CityRevision04O.Crystalline04O,v),Is.True);

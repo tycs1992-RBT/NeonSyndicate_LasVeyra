@@ -31,6 +31,11 @@ namespace NeonSyndicate
             b.Chest*=QMath.AY((azure?3f:-5f)*phase)*QMath.AX(tell*5);
             b.Neck*=QMath.AY((azure?-2f:4f)*phase)*QMath.AX(-tell*3);
             b.Plant=Mathf.Max(b.Plant,tell*.8f);
+            if(!azure)
+            {
+                b.Hips*=QMath.AY(phase*3);b.Pelvis+=S(0,-phase*.012f-tell*.025f,0);
+                b.Chest*=QMath.AZ(-phase*2+tell*3);b.Neck*=QMath.AZ(phase*1.5f-tell*2);
+            }
         }
         private float _regionalSynergyWeight04OF,_regionalSynergyTime04OF;
         private int _regionalSynergyKind04OF;
@@ -47,7 +52,7 @@ namespace NeonSyndicate
             Vector3 beat=CinematicMotion04OF.Beat(_regionalSynergyTime04OF);
             bool guardian=_regionalSynergyKind04OF==1;
             // The right hand and weapon IK are untouched. A guardian braces; a storm partner gets a precise aiming palm.
-            b.Chest*=QMath.AY((guardian?-9f:8f)*beat.x*weight);
+            b.Chest*=QMath.AY((guardian?-16f:11f)*beat.x*weight+beat.y*weight*(guardian?8:-6));
             b.Spine*=QMath.AX((guardian?5f:2f)*beat.x*weight-3f*beat.y*weight);
             b.Neck*=QMath.AY((guardian?7f:-6f)*beat.x*weight);
             // Defensive cooperation braces down; storm offense coils through the hips before release.
@@ -55,7 +60,7 @@ namespace NeonSyndicate
             b.Hips*=QMath.AY((guardian?-3f:6f)*beat.x*weight);
             b.Plant=Mathf.Max(b.Plant,beat.x*weight*.8f);
             Quaternion frame=ChestRot(ref b);
-            Vector3 gather=guardian?S(-.26f,.03f,.19f):S(-.16f,-.10f,.31f);
+            Vector3 gather=guardian?S(-.30f,.07f,.22f):S(-.16f,-.10f,.31f);
             Vector3 strike=guardian?S(-.12f,-.06f,.42f):S(-.09f,-.08f,.45f);
             Vector3 local=Vector3.Lerp(gather,strike,beat.y);
             Arm support=IkArm(ref b,-1,ChestPos(ref b)+frame*local,frame*new Vector3(-.8f,-.6f,-.2f),frame*Vector3.up,frame*Vector3.right,1);

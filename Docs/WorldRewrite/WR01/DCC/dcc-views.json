@@ -1,0 +1,791 @@
+{
+  "scope": "Matched DCC compositions using actual retained CMH1 high/low meshes and compiled original structure. Not Unity screenshots, runtime admission, gameplay, collision or performance proof. Fresh recovery run.",
+  "source_context_sha256": "15081c59b8d0cc8306b6530b9528c247ce5b0866fe27fff92bcb1e0fe654b825",
+  "source_context": "Historical compiled FR02A source context; unchanged layout/H3/H5/family9 geometry is retained. WR01 splits presentation only. These comparisons isolate WR01 with FR01/FR02A optional art absent in both states.",
+  "retained_placements": 355,
+  "retained_geometry_files": 98,
+  "actual_h5_low_source_witnesses": 37,
+  "actual_family9_full_source_witnesses": 3,
+  "actual_collision_witness_roots": 40,
+  "suppressed_high_parts": [
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        124.6
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        124.6
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        124.6
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        131.73334
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        131.73334
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        131.73334
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        138.86667
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        138.86667
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        138.86667
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        146
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        146
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        146
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        153.13333
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        153.13333
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        153.13333
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        160.26666
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        160.26666
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        160.26666
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -6,
+        14.949999,
+        167.4
+      ],
+      "yaw": 0,
+      "scale": [
+        1.56,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        -17.6,
+        8.549999,
+        167.4
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "slate_roof",
+      "position": [
+        5.6000004,
+        8.549999,
+        167.4
+      ],
+      "yaw": 90,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "mineral_pier",
+      "position": [
+        -17.4,
+        5.85,
+        157.04001
+      ],
+      "yaw": -8,
+      "scale": [
+        1.75,
+        5.2,
+        1.8
+      ]
+    },
+    {
+      "owner": "archive",
+      "model": "mineral_pier",
+      "position": [
+        5.3999996,
+        5.85,
+        157.04001
+      ],
+      "yaw": 8,
+      "scale": [
+        1.75,
+        5.2,
+        1.8
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -67.6,
+        12.949999,
+        -65
+      ],
+      "yaw": 270,
+      "scale": [
+        1.56,
+        0.48,
+        0.85
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -67.6,
+        8.549999,
+        -76.6
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -67.6,
+        8.549999,
+        -53.4
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -75.86667,
+        12.949999,
+        -65
+      ],
+      "yaw": 270,
+      "scale": [
+        1.56,
+        0.48,
+        0.85
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -75.86667,
+        8.549999,
+        -76.6
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -75.86667,
+        8.549999,
+        -53.4
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -84.13333,
+        12.949999,
+        -65
+      ],
+      "yaw": 270,
+      "scale": [
+        1.56,
+        0.48,
+        0.85
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -84.13333,
+        8.549999,
+        -76.6
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -84.13333,
+        8.549999,
+        -53.4
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -92.399994,
+        12.949999,
+        -65
+      ],
+      "yaw": 270,
+      "scale": [
+        1.56,
+        0.48,
+        0.85
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -92.399994,
+        8.549999,
+        -76.6
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -92.399994,
+        8.549999,
+        -53.4
+      ],
+      "yaw": 360,
+      "scale": [
+        0.68,
+        0.38,
+        0.82
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "slate_roof",
+      "position": [
+        -82.4,
+        18.85,
+        -76.6
+      ],
+      "yaw": 270,
+      "scale": [
+        0.61,
+        0.8,
+        0.94
+      ]
+    },
+    {
+      "owner": "office",
+      "model": "mineral_pier",
+      "position": [
+        -86,
+        0.15,
+        -53.1
+      ],
+      "yaw": 287,
+      "scale": [
+        1.4,
+        2.7,
+        1.4
+      ]
+    }
+  ],
+  "art_source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+  "image_receipts": [
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/Home_North_Legacy_DCC.png",
+      "bytes": 1046851,
+      "sha256": "9d707989df07baa4611ee6054796c2de686018b5dcdbc0db1dfe494d97953d42",
+      "native_unity": "NOT RUN"
+    },
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/Home_North_Rewrite_DCC.png",
+      "bytes": 1066881,
+      "sha256": "7023bc497e172b422ba689b0532fb4bfc9509a231fcc67770e142e2a14fc950c",
+      "native_unity": "NOT RUN"
+    },
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/North_Civic_Legacy_DCC.png",
+      "bytes": 1049540,
+      "sha256": "6d5d04bff5a4183edc61dd8be4ea14ff0db76144495d99a6156800536ff8ff37",
+      "native_unity": "NOT RUN"
+    },
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/North_Civic_Rewrite_DCC.png",
+      "bytes": 1059363,
+      "sha256": "0616c976c5df185fbd7f183fde6fcf8eec3172aa02d97503da5b8ae5f8efe34c",
+      "native_unity": "NOT RUN"
+    },
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/West_Civic_Legacy_DCC.png",
+      "bytes": 988222,
+      "sha256": "41c9f52233d4fe7741b49442ff3c8869e891ed7be4c9c7f7b0ff3480937bae6f",
+      "native_unity": "NOT RUN"
+    },
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/West_Civic_Rewrite_DCC.png",
+      "bytes": 1003092,
+      "sha256": "692cc3476cfb6c17cc28daeb54bb7e7078abe6197c3b49a84d9c1504466a03be",
+      "native_unity": "NOT RUN"
+    },
+    {
+      "path": "Docs/WorldRewrite/WR01/DCC/Archive_High_Oblique_Rewrite_DCC.png",
+      "bytes": 1189686,
+      "sha256": "d587ebef2b11117ff55d14d31653e98ae80c9289ceb5557de25da4fd4460d7c3",
+      "native_unity": "NOT RUN"
+    }
+  ],
+  "approximate_service_ids": [
+    "inn",
+    "garage",
+    "observatory",
+    "depot",
+    "pressure"
+  ],
+  "native_ground_and_actors": "NOT SIMULATED",
+  "validated_mesh_references": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/reliquary_door_high.bytes",
+      "sha256": "5100ac679753687472b3e20c218efb317c286aba059e7d4697bc177c4e33acc4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/tracery_wall_high.bytes",
+      "sha256": "fb059252751a8baf101aaade7637add8ca246dd32db50e57d4af3e6a42bde899"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/portal_bay_high.bytes",
+      "sha256": "887bf0824ecee1b56a5f55e74ca6ab54b7c464a4e1c8ba2bab236f8549331670"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_high.bytes",
+      "sha256": "1f21c939b3fdcaad2d769a655215274a647d2b14bbb44c48a02065e6f3ee5b88"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/flying_buttress_high.bytes",
+      "sha256": "214d11700e079a922a38d28228033f091734a072210ab05b0b45f532ca88917e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cluster_column_high.bytes",
+      "sha256": "5f65d147b941f8eb3e28e7d3e28ade09eca45421b9ee055521cdb9ad058ae3c2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/ribbed_vault_high.bytes",
+      "sha256": "3e7fe47daf05226b769efbca3cb2d632b47eae36ded1387f9a507087ce43e486"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/processional_stair_high.bytes",
+      "sha256": "eb116a597001bd84b7eae6a0cbcffe49d400486face61fbc87911f2aaf309e40"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/gallery_rail_high.bytes",
+      "sha256": "285c5c38646a61b8bbe427ba46b9a36b59681622b9a7c6f4ca74c1c9879e848d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/forge_bay_high.bytes",
+      "sha256": "d25450f009614894e6a3597465afaae40f122e7a8e3d43292723cd6309825f59"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_high.bytes",
+      "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_low.bytes",
+      "sha256": "0b8d1e1495891ca90dc7351f7bf2cbfcaee16348b57a3fa833c05968ad9a7b55"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_low.bytes",
+      "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/broken_apse_high.bytes",
+      "sha256": "32ad5e6be01ab0916a0f386539aa90f5563275fc0deead02e7d42a9f5d978c15"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/basalt_strata_high.bytes",
+      "sha256": "d80e6543e23a1ad1ff2230625a0ba447d83c6623501654b19bfb9925e10abb9b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/fern_colony_high.bytes",
+      "sha256": "80fd24ae42bfa12441c44355b3cc335ee6f706fe455d6727d7b585ae617aaa14"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/root_causeway_high.bytes",
+      "sha256": "e0bd685bc3173ea5cc0554775d9332d9271e1f5e180aab9bd9e5831e635cf67b"
+    }
+  ],
+  "views": [
+    [
+      "Home_North_Legacy_DCC",
+      [
+        0,
+        -28,
+        1.8
+      ],
+      [
+        -4,
+        135,
+        18
+      ],
+      false
+    ],
+    [
+      "Home_North_Rewrite_DCC",
+      [
+        0,
+        -28,
+        1.8
+      ],
+      [
+        -4,
+        135,
+        18
+      ],
+      true
+    ],
+    [
+      "North_Civic_Legacy_DCC",
+      [
+        -10,
+        72,
+        1.8
+      ],
+      [
+        -6,
+        146,
+        16
+      ],
+      false
+    ],
+    [
+      "North_Civic_Rewrite_DCC",
+      [
+        -10,
+        72,
+        1.8
+      ],
+      [
+        -6,
+        146,
+        16
+      ],
+      true
+    ],
+    [
+      "West_Civic_Legacy_DCC",
+      [
+        -16,
+        -30,
+        1.8
+      ],
+      [
+        -68,
+        -58,
+        14
+      ],
+      false
+    ],
+    [
+      "West_Civic_Rewrite_DCC",
+      [
+        -16,
+        -30,
+        1.8
+      ],
+      [
+        -68,
+        -58,
+        14
+      ],
+      true
+    ],
+    [
+      "Archive_High_Oblique_Rewrite_DCC",
+      [
+        -60,
+        82,
+        35
+      ],
+      [
+        -6,
+        145,
+        18
+      ],
+      true
+    ]
+  ],
+  "native_unity": "NOT RUN"
+}

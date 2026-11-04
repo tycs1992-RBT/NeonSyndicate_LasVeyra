@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// item details compared with what is equipped, equip, salvage for Lumen and (at a shrine) upgrades.
     /// Every control is a UIKit button, so mouse, arrow keys and the controller all work.
     /// </summary>
-    public static class GearMenu
+    public static partial class GearMenu
     {
         private static GearSlot _slot = GearSlot.Shell;
         private static int _page;
@@ -38,6 +38,8 @@ namespace NeonSyndicate
         {
             UIKit.Text(new Rect(r.x, r.y, r.width, 30f), "EQUIPPED", 22, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             UIKit.Text(new Rect(r.x, r.y + 2f, r.width, 28f), "GEAR SCORE " + GearScore.Current, 18, UIKit.Gold, TextAnchor.UpperRight, FontStyle.Bold);
+            // H8S: how far the gear score has come toward the next city tier.
+            ProgressionReadoutUiH8S.DrawTierBar(new Rect(r.x + r.width * 0.5f, r.y + 29f, r.width * 0.5f, 4f), GearScore.Current);
             float y = r.y + 36f;
             for (int s = 0; s < GearSystem.SlotCount; s++)
             {
@@ -64,12 +66,12 @@ namespace NeonSyndicate
                 int tier = GearScore.Tier;
                 stats += "\n<color=#" + ColorUtility.ToHtmlStringRGB(GadgetSystem.TierColor(tier)) + "><b>" + GearScoreRules.TierLabel(tier) + "</b></color>" +
                          "\n<size=14>Enemy level " + GearScoreRules.EnemyLevel(Game.Progress != null ? Game.Progress.Level : 1, tier) + ", loot +" + GearScoreRules.LootLevelBonus(tier) + " item levels" +
-                         (GearScoreRules.NextTierScore(GearScoreRules.TierFor(GearScore.Current)) > 0 ? ", next tier at " + GearScoreRules.NextTierScore(GearScoreRules.TierFor(GearScore.Current)) : "") + "</size>";
+                         TierHintH8S(GearScore.Current) + "</size>";
                 for (int s = 0; s < GearSystem.SetNames.Length; s++)
                 {
                     int n = g.SetPieces(s);
                     if (n <= 0) continue;
-                    stats += "\n<color=#9fe8ff>" + GearSystem.SetNames[s] + " (" + n + "/4)</color>";
+                    stats += "\n<color=#9fe8ff>" + GearSystem.SetNames[s] + SetCountTextH8S(s, n) + "</color>";
                 }
                 // Active set bonuses, one line each, so a build reads at a glance.
                 List<string> active = GearBuildRules.ActiveLines(BuildPieces(g), GearSystem.SetNames, GearSystem.SetBonus2, GearSystem.SetBonus3, GearSystem.SetBonus4);
@@ -135,6 +137,7 @@ namespace NeonSyndicate
             UIKit.Text(new Rect(r.x, r.y + 46f, r.width, 26f), sub, 18, new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperLeft);
             float y = r.y + 82f;
             GearItem cur = g.Equipped[(int)it.Slot];
+            y = DrawVerdictH8S(r.x + 8f, y, r.width - 16f, it, cur, g);
             foreach (Affix a in it.Affixes)
             {
                 float v = a.Value * it.UpgradeScale;
@@ -163,6 +166,8 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(r.x + 8f, y, r.width - 16f, 100f), setText, 16, new Color(0.62f, 0.9f, 1f), TextAnchor.UpperLeft, FontStyle.Normal, false, true);
                 y += three.Length > 0 ? 96f : 76f;
             }
+            // H8S: what equipping it would take away (affixes, set bonuses) or turn on, clear of the Lumen line and buttons.
+            DrawEquipChangesH8S(r.x + 8f, y + 4f, r.width - 16f, r.yMax - 100f);
             float by = r.yMax - 60f;
             float bw = Mathf.Min(220f, (r.width - 30f) / 3f);
             bool eq = g.IsEquipped(it);

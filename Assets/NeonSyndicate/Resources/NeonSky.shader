@@ -351,12 +351,17 @@ Shader "Skybox/NeonSky"
                 float4 cloud = Clouds(d, sun);
                 sky = lerp(sky, cloud.rgb, cloud.a * (1.0 - _Veil));
 
-                // Horizon haze toward the scene fog colour so the buildings' fog meets the sky without a seam.
+                // Horizon haze toward the scene fog colour so the buildings' fog meets the sky without a seam. The dome is
+                // computed in linear light, so in the gamma colour space the fog colour is decoded first (H8S realism).
+                float3 fogLinear = unity_FogColor.rgb;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                fogLinear = GammaToLinearSpace(fogLinear);
+                #endif
                 float haze = pow(1.0 - saturate(d.y * 1.2), 6.0) * _HazeBlend;
-                sky = lerp(sky, unity_FogColor.rgb, haze);
+                sky = lerp(sky, fogLinear, haze);
 
                 // The ground hemisphere: the ground's bounce radiance, meeting the haze at the horizon.
-                float3 ground = lerp(_GroundColor.rgb, unity_FogColor.rgb, 0.5 * _HazeBlend);
+                float3 ground = lerp(_GroundColor.rgb, fogLinear, 0.5 * _HazeBlend);
                 float below = smoothstep(0.0, 0.08, -d.y);
                 float3 col = lerp(sky, ground, below);
 
@@ -365,6 +370,12 @@ Shader "Skybox/NeonSky"
                 if (angSun < _SunSize * 1.6) veilSky += float3(1.0, 0.2, 0.26) * _SunDisc * 0.5 * (1.0 - smoothstep(0.7, 1.0, angSun / (_SunSize * 1.6)));
                 float3 veilGround = _VeilGround.rgb;
                 float3 veil = lerp(veilSky, veilGround, below);
+                #ifdef UNITY_COLORSPACE_GAMMA
+                // H8S realism: the project renders in the gamma colour space, where the camera stores gamma values and
+                // the post pass decodes them; the linear dome is encoded the way Unity's own skyboxes do. The Veil keeps
+                // the look it was tuned with, so only the ordinary sky changes.
+                col = LinearToGammaSpace(max(col, 0.0));
+                #endif
                 col = lerp(col, veil, _Veil);
 
                 // Lightning.

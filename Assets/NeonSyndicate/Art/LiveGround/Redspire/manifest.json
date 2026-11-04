@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "license": "CC0-1.0",
+  "external_inputs": [],
+  "source": "tools/author_redspire_ground_l3.py",
+  "size": 1024,
+  "tile_metres": 4,
+  "normal": "tangent +Y",
+  "packed": "RGB metallic zero, A smoothness (1 minus roughness)",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireStonySand_BaseColor.png",
+      "bytes": 1066259,
+      "sha256": "94c344617eb38a689c7b10ae665fb82c3d8cbd87cc4274fc8031c29b1968facb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireStonySand_MetallicSmoothness.png",
+      "bytes": 510086,
+      "sha256": "7960858fa97c2dd9fbc854c4da24913304815330aa238b8057e5f5e9e5501dcd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireStonySand_Normal.png",
+      "bytes": 2364558,
+      "sha256": "e9dfaa67975f330cdf07b269144cfd04e82fae8747274125314c4c50af44bd03"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireWeatheredEarth_BaseColor.png",
+      "bytes": 1051965,
+      "sha256": "d79f47fb4f0f9fd020b296ba6e5cd790081e9d98d993514eee63c9631ab58ca6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireWeatheredEarth_MetallicSmoothness.png",
+      "bytes": 433475,
+      "sha256": "4cb1566775907a4d3e0c3086091a8bf090a481f70feee6e49dab44d05d8915cd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireWeatheredEarth_Normal.png",
+      "bytes": 2361497,
+      "sha256": "a9fa1e417c3720bddcfd474eb2fca5269fc80f4e9a4990ac81fae59e3a297a0e"
+    }
+  ]
+}

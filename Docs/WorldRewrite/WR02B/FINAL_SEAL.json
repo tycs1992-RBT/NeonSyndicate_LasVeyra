@@ -1,0 +1,25 @@
+{
+  "start": "38ec685deafa3cf6f20a013f7c9556d8e02897f6",
+  "testedSource": "20d8ddcaae3e7025f24bcf899ff6608deadb0738",
+  "lfsCheckpoint": "cedb86c41aeae5c3672fa273c649626db5aaa1fd",
+  "sourceCSharpSha256": "a86687b5009f98313c24d599dc0856278b6b43ad1849e4d0237478e7f300a0f0",
+  "matrices": [
+    12,
+    12
+  ],
+  "assemblyBoundaries": 3,
+  "syntaxModes": 12,
+  "managedPassed": 2585,
+  "managedFailed": 47,
+  "managedExcluded": 74,
+  "introducedFailures": 0,
+  "changedFailureReasons": 0,
+  "newBinaryPayloadsFreshlyVerified": 44,
+  "allCurrentLFSEntries": 2382,
+  "allCurrentLFSUniqueObjects": 1658,
+  "allCurrentLFSUniqueBytes": 841719167,
+  "sourceCI": "FAILED, two inherited H5 assertions; WR02-B PASS; four later stages SKIPPED",
+  "nativeUnity": "NOT RUN",
+  "ownerAccepted": "NOT RUN",
+  "nextDependency": "Native Unity preparation and ordinary Free Roam visual/contact/motion/gameplay acceptance; no WR03."
+}

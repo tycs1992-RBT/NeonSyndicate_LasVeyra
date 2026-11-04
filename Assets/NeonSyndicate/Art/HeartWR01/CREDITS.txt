@@ -1,0 +1,4 @@
+Original Gothic Heart World Rewrite civic crowns and skyline reliquaries authored for this project. CC0-1.0.
+No external mesh, purchased asset or texture input. Reuses the original FR01 shared maps by reference.
+Editable source: ArtSource/HeartWR01/GothicCivicCrownsWR01.blend.
+Runtime art is visual only. Existing H5 physical surfaces and service owners remain authoritative.

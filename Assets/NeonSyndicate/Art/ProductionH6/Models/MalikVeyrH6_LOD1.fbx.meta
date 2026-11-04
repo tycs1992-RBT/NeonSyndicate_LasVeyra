@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 09e926710757501a9e443eeee6cde59d
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+  animations:
+    importAnimation: 0
+  meshes:
+    globalScale: 1
+    isReadable: 1
+    useFileUnits: 1
+    preserveHierarchy: 1
+    skinWeightsMode: 2
+    maxBonesPerVertex: 8
+    minBoneWeight: 0
+  animationType: 2
+  userData: H6 candidate, full weights, NOT APPROVED
+  assetBundleName:
+  assetBundleVariant:

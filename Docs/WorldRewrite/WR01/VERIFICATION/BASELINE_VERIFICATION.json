@@ -1,0 +1,39 @@
+{
+  "generation": "FRESH POST-MAINTENANCE EXECUTION, raw artifacts exist",
+  "source": {
+    "sha": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+    "source_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+    "files": 1284
+  },
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/39ce986e9cbf/wrt1-checks/baseline-full/player-classic-builtin.dll",
+    "testcasecount": "2532",
+    "result": "Failed",
+    "start-time": "2026-10-27T20:11:15.3282341Z",
+    "end-time": "2026-10-27T20:17:41.2319119Z",
+    "duration": "385.903639",
+    "total": "2467",
+    "passed": "2420",
+    "failed": "47",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "28174122",
+    "random-seed": "70660500"
+  },
+  "excluded_by_filter": 65,
+  "NUnit_exit_code": 47,
+  "comparison_to_durable_prior_same_source": {
+    "introduced_failure_names": [],
+    "resolved_failure_names": [],
+    "changed_failure_reasons": []
+  },
+  "raw_artifact_sha256": {
+    "nunit-results.xml": "dcbf438b5e8fb0e4de919213c19e4ddb8f30e646a33c6a9e8f2d82da4c4418ef",
+    "nunit.log": "8f09798bf69e7a3c64f98a31eea2c50ad4775faa8ef0bcea312be27d6dd28ddc",
+    "test-report.json": "98b032cc2e990d42bafa3feb69fd3632afcd7ca5f486f343a04f1c3c021c83bb"
+  },
+  "native_unity": "NOT RUN"
+}

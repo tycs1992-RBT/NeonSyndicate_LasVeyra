@@ -183,10 +183,10 @@ namespace NeonSyndicate
                 MeanFrameMs = frames.Count > 0 ? sum / frames.Count : -1f,
                 P50FrameMs = Percentile(frames, .5f), P95FrameMs = Percentile(frames, .95f), P99FrameMs = Percentile(frames, .99f),
                 UnityAllocatedBytes = Profiler.GetTotalAllocatedMemoryLong(), ManagedBytes = GC.GetTotalMemory(false),
-                LoadedGameObjects = UnityEngine.Object.FindObjectsOfType<GameObject>().Length,
-                Renderers = UnityEngine.Object.FindObjectsOfType<Renderer>().Length,
-                LiveCreatures = UnityEngine.Object.FindObjectsOfType<Creature>().Length,
-                LiveNpcs = UnityEngine.Object.FindObjectsOfType<NpcController>().Length
+                LoadedGameObjects = UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None).Length,
+                Renderers = UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None).Length,
+                LiveCreatures = UnityEngine.Object.FindObjectsByType<Creature>(FindObjectsSortMode.None).Length,
+                LiveNpcs = UnityEngine.Object.FindObjectsByType<NpcController>(FindObjectsSortMode.None).Length
             };
             if (counters != null) counters.Read(sample);
             return sample;

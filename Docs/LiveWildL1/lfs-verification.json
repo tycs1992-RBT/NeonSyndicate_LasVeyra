@@ -1,0 +1,92 @@
+{
+  "lfs_commit": "cb9de701f0304c6fdd1f859477d60b70b4c6ab54",
+  "passed": 17,
+  "total": 17,
+  "objects": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCarved_BaseColor.png",
+      "sha256": "6edc0b0177e9cff5603e9f4c8d66458f7c7b484e2c52b0ff7c979287550a822b",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCarved_MetallicSmoothness.png",
+      "sha256": "2907245304e6ac1626cf96a1c9ff5a611d02c1abb24acb008d408e040bc825a2",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCarved_Normal.png",
+      "sha256": "cc7daa60393366ad5b7b7bfbb949350416a7b96948a21daddf4d3420dee3338e",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_BaseColor.png",
+      "sha256": "e11c758ae401f0f7c168ddbadbdeb72d2843e51955995f7b2f5b47f587ef37f7",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_Emission.png",
+      "sha256": "4e3951f36bbec51158b4575d5996ad2beab741a8b5de18a6500e68a4cd8d1c88",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_MetallicSmoothness.png",
+      "sha256": "0a6454bfb8c7e76bd5a893f288ba2f5a226076dde3edaa10054a3246672dadd8",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_Normal.png",
+      "sha256": "6033a40c9f457ec5196d1fd8431146fc78e8a867e06421d3ecc5f5ac87c5eb4a",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisMineral_BaseColor.png",
+      "sha256": "6d24ee8e7c058e7035f2ea295e953d9f7bbf0d4a782cbcc96141bfc1d7c6a924",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisMineral_MetallicSmoothness.png",
+      "sha256": "b296a6b0f8a6f8074ee50332b42605ac8006de8cf5d5e56e6611a285758d3e81",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisMineral_Normal.png",
+      "sha256": "0a676e0c2df398837f45d3603abe0e5953398bd00d64e4b5dfe3f6da07973bff",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisPavilion.fbx",
+      "sha256": "c63edc214f1dda8dc5875584feb6456bd907f6b5848b1ada86498a6e1eb20327",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisStone_BaseColor.png",
+      "sha256": "d901a56c1b3bf135091d9b7fa887d5a0a43cce761faeabc991ceba81340265db",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisStone_MetallicSmoothness.png",
+      "sha256": "bcfc15b3810570771775863b8a3c672f907c9c95d0a6d71b580d0d698c081100",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisStone_Normal.png",
+      "sha256": "d2245e5cf26bb286eced7273a94a2087e5612da59c7044a68e02667373de1d32",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "ArtSource/OasisPavilionL1/OasisPavilion.blend",
+      "sha256": "4cc1b7eece371660655342e6af9a870ac00ed9ee55607824f4b6162f2bcef758",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Docs/LiveWildL1/OasisPavilion_Daylight.png",
+      "sha256": "661da33d3cd3e8acc0a610aaf020957ce96eee800edc0e486f4176542d8a391a",
+      "fresh_server_download_and_worktree_match": true
+    },
+    {
+      "path": "Docs/LiveWildL1/OasisPavilion_Night.png",
+      "sha256": "7e1074a4b0fbed341043affd9237727170ff771db8e1f2311477dbaee632f27a",
+      "fresh_server_download_and_worktree_match": true
+    }
+  ]
+}

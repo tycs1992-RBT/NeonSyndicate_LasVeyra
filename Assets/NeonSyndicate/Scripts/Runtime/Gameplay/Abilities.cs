@@ -19,8 +19,9 @@ namespace NeonSyndicate
     /// Everything runs on one crystal energy meter that refills over time (not inside the Veil, which drains it), with
     /// kills and with stunts.
     /// </summary>
-    public sealed class Abilities : MonoBehaviour
+    public sealed partial class Abilities : MonoBehaviour
     {
+        // Partial: the hero powers (Shard Gaze beam, hero unlock sync, the beam visual) live in Abilities.HeroH8S.cs.
         /// <summary>Power damage multiplier from Focus, gear affixes and the skill trees (SkillMods.PowerDamage).</summary>
         public static float PowerScale
         {
@@ -42,6 +43,8 @@ namespace NeonSyndicate
             new Spell { Id = "GHOST_FREQ", Name = "Ghost Frequency", Description = "Silences you and scrambles enemy aim.", Color = new Color(0.45f, 0.65f, 0.9f), Cost = 30f, Cooldown = 20f },
             new Spell { Id = "DRIVE_SIGIL", Name = "Drive Sigil", Description = "Supercharges your vehicle's engine, grip and armor.", Color = new Color(0.95f, 0.75f, 0.25f), Cost = 25f, Cooldown = 14f },
             new Spell { Id = "SUNBOLT", Name = "Sunbolt", Description = "The Third Eye's first gift: a blazing crystal orb.", Color = new Color(1f, 0.7f, 0.25f), Cost = 18f, Cooldown = 1.2f },
+            // H8S hero powers (appended: saves list unlocks by index). Opens with the Super Leap; hold the cast button to keep it burning.
+            new Spell { Id = "SHARD_GAZE", Name = "Shard Gaze", Description = "A focused crystal beam from the hands. Hold to keep it burning.", Color = new Color(0.55f, 0.95f, 1f), Cost = 10f, Cooldown = 1.5f },
         };
 
         public static float EnemyAccuracyScale = 1f;
@@ -134,6 +137,7 @@ namespace NeonSyndicate
             }
             else if (!inVeil) Energy = Mathf.Min(MaxEnergy, Energy + dt * 2.2f * SkillMods.EnergyRegen);
 
+            SyncHeroUnlocksH8S();
             if (canAct)
             {
                 bool car = p.InVehicle;
@@ -236,6 +240,7 @@ namespace NeonSyndicate
                 case 7: ok = RocCall(p); break;
                 case 8: _ghostTimer = 20f; ok = true; break;
                 case 9: ok = DriveSigil(p); break;
+                case ShardGazeIndex: ok = !p.InVehicle && p.BeginBeamH8S(); break;
                 default: ok = Sunbolt(p); break;
             }
             if (!ok) return false;

@@ -1,0 +1,114 @@
+{
+  "baseline": "556ac54f8b15993fc208f2932166f5059315310d",
+  "scope": "Exact H8 original-owner, source action, review and no-default checks. Not native acceptance.",
+  "passed": 22,
+  "total": 26,
+  "checks": [
+    {
+      "name": "Only exact original pose hook / HumanoidAnimator.cs",
+      "passed": true
+    },
+    {
+      "name": "Only exact original pose hook / HumanoidPose.cs",
+      "passed": false
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "passed": false
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": false
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidRig.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedBindH3.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": false
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/RegionalArsenal04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "All original H7 sources/assets preserved / ArtSource/AscensionH7/",
+      "passed": true
+    },
+    {
+      "name": "All original H7 sources/assets preserved / Assets/NeonSyndicate/Art/ProductionH7/",
+      "passed": true
+    },
+    {
+      "name": "No authored motor, damage, resource, reward, camera, input or time writer",
+      "passed": true
+    },
+    {
+      "name": "Complete body goes into original feet, smoothing and weapon IK",
+      "passed": true
+    },
+    {
+      "name": "Rollback clears real pose data and restores visibility cadence",
+      "passed": true
+    },
+    {
+      "name": "Actual source action samples have exact lineage",
+      "passed": true
+    },
+    {
+      "name": "No enabled registry or prepared model shipped",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN"
+}

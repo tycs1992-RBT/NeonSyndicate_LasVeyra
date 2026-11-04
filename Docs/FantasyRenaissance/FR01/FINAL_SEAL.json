@@ -1,0 +1,57 @@
+{
+  "source_sha": "95dab623d70d23eb0863fa9afe69bd533c60cc1b",
+  "csharp_sha256": "8781296ace5d38b8b2b0318a0e1eaa84bc0eceb483bf8a68f44896a257f1a5da",
+  "owner_fetched_sha": "6a779c232eecad2925e2b2bbc9cf77a3201399a6",
+  "normalized_art_and_evidence_sha": "f1386f52ece0767101b26bd266bc45f567b940df",
+  "final_published_head": "This text-only seal commit is a forward descendant. Its exact SHA is recorded in PR12 and the delivery response.",
+  "source_equality": "No tracked Assets, Packages or ProjectSettings changes after tested source; exact C# fingerprint verified again after evidence normalization.",
+  "api_matrices": {
+    "external_nunit": "12/12 PASS",
+    "bundled_nunit": "12/12 PASS",
+    "assembly_boundaries": "3/3 PASS"
+  },
+  "full_suite": {
+    "passed": 2369,
+    "failed": 47,
+    "excluded": 64,
+    "raw_result": "FAILED",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "baseline_passed": 2358,
+    "baseline_failed": 47,
+    "baseline_excluded": 63
+  },
+  "focused_pure": "11/11 PASS",
+  "asset_guard": "144/144 PASS",
+  "blender_reimport": "33/33 PASS",
+  "independent_fbx": "33/33 PASS",
+  "ci_source": "FAILED: 2 unchanged inherited H5 assertions; later skipped steps not passed",
+  "lfs": "Fresh remote fetch of 2174 pointer paths / 1450 unique objects, fsck PASS; 61 FR01 hydrated paths match exact SHA256",
+  "native": {
+    "Unity import and shader compilation": "NOT RUN",
+    "Unity Test Runner EditMode": "NOT RUN",
+    "PlayMode": "NOT RUN",
+    "Save and load": "NOT RUN",
+    "Keyboard and controller": "NOT RUN",
+    "Traversal and collision": "NOT RUN",
+    "Native screenshots": "NOT RUN",
+    "Profiler performance": "NOT RUN",
+    "Windows build and launch": "NOT RUN"
+  },
+  "source_delivery": "BUILT",
+  "art_delivery": "DELIVERED",
+  "acceptance": "PARTIAL: native and owner gates open",
+  "defaults": "OFF, no renderer default changes",
+  "follow_on": "No FR02 or L4. Native focused review and concrete fixes before another sprint.",
+  "pr12": "Keep draft, unmerged, existing base unchanged",
+  "evidence": [
+    "FINAL_STATUS.md",
+    "OWNER_WALKTHROUGH.md",
+    "ci-source.json",
+    "ci-evidence.json",
+    "lfs-final.json",
+    "full-tests.json",
+    "managed-api-external.json",
+    "managed-api-bundled.json"
+  ]
+}

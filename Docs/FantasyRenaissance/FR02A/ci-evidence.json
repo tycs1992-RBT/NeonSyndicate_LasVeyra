@@ -1,0 +1,17 @@
+{
+  "head": "d8f51c0a3cb74d704ef7f89165942c47ce62e110",
+  "push_run": 40378635922,
+  "pr_run": 40378646852,
+  "job": 121768486186,
+  "conclusion": "failure",
+  "fr02a_step": "success",
+  "h5_passed": 46,
+  "h5_total": 48,
+  "failed_assertions": [
+    "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+    "All prior tests and exclusions preserved"
+  ],
+  "later_stages": "Skipped, not passes",
+  "lfs_run": 40378635918,
+  "lfs_conclusion": "success"
+}

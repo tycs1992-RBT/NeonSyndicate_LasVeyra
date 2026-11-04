@@ -1,0 +1,13 @@
+Published checkpoint a6b5b8a5ad5a79e1c025057f73876fc4da7c447d
+Run 41273162231, job 124749906150. Selected original job-log lines follow.
+2026-11-01T04:28:43.0390302Z {"passed": 51, "total": 51, "failed": []}
+2026-11-01T04:28:43.8364586Z {"passed": 65, "total": 65, "failed": []}
+2026-11-01T04:28:48.0959210Z {"passed": 63, "total": 63, "failed": []}
+2026-11-01T04:28:48.6091689Z {"passed": 144, "total": 144, "failed": []}
+2026-11-01T04:29:06.0695166Z {"passed": 185, "total": 185, "native_unity": "NOT RUN", "failed": []}
+2026-11-01T04:29:12.7357839Z {"passed": 33, "total": 33, "failed": []}
+2026-11-01T04:29:15.4755982Z {"passed": 59, "total": 59, "failed": []}
+2026-11-01T04:29:26.8827143Z {"passed": 57, "total": 57, "failed": []}
+2026-11-01T04:29:31.8827379Z ##[group]Run python3 tools/test_foundry_lineage_wr02a.py
+2026-11-01T04:29:36.2935503Z {"passed": 68, "total": 69, "failed": ["No new gameplay, credential or per-object owner AddComponent<MeshCollider>"]}
+2026-11-01T04:29:36.3054985Z ##[error]Process completed with exit code 1.

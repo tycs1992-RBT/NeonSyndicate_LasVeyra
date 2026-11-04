@@ -1,0 +1,10 @@
+Redspire Living Ground L3
+Creator: Neon Syndicate project environment art, original authoring for Tyler Sheedy.
+License: CC0-1.0. Original project procedural maps and shaders dedicated to the public domain.
+Source: tools/author_redspire_ground_l3.py and tools/render_redspire_ground_l3.py
+Editable source: ArtSource/RedspireL3/RedspireGroundL3.blend, portable relative image references and editable material nodes.
+No external art inputs, paid assets, photos or third-party texture sources.
+Two 1024 square families. Albedo sRGB, tangent normal +Y linear, packed RGB metallic zero and alpha smoothness linear.
+Four metre repeats. Height sources are editable authoring evidence, not runtime displacement.
+Rights reference: https://creativecommons.org/publicdomain/zero/1.0/
+Native Unity import, gameplay and performance acceptance remain pending.

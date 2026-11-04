@@ -1,0 +1,12 @@
+{
+  "assetId": "AzureElder",
+  "method": "Original local Blender Python authorship; processed by unchanged WR02-A foundry",
+  "authorScriptSha256": "32bf6f2b5a41733929b53de18bfefe401831d59c7728eb0c1ebefa81aea5d759",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author.blend",
+  "editableSha256": "0a07c3b1db825686ee1fd63a7b63c3fb862844805e4b1fc3bdbd14b068243706",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.raw.glb",
+  "inputSha256": "4fd758d8c79700ca2ffa5f009098cfe14722906aac03adf44b2f15ad37142198",
+  "license": "CC0-1.0",
+  "creditsSpent": 0,
+  "nativeUnity": "NOT RUN"
+}

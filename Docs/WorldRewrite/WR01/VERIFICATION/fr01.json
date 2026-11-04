@@ -1,0 +1,585 @@
+{
+  "scope": "FR01 real asset integrity and exact preservation. Not a native importer or gameplay test.",
+  "baseline": "6a779c232eecad2925e2b2bbc9cf77a3201399a6",
+  "passed": 144,
+  "total": 144,
+  "checks": [
+    {
+      "name": "Original rights and complete production families",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartGate_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartGate_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartGate_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartGate_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartGate_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartGate_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartHouseA_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartHouseA_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartHouseA_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartHouseA_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartHouseA_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartHouseA_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartHouseB_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartHouseB_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartHouseB_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartHouseB_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartHouseB_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartHouseB_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartArcade_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartArcade_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartArcade_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartArcade_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartArcade_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartArcade_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartBlindBay_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartBlindBay_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartBlindBay_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartBlindBay_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartBlindBay_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartBlindBay_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRoofSpire_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRoofSpire_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRoofSpire_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRoofSpire_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRoofSpire_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRoofSpire_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRoofGable_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRoofGable_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRoofGable_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRoofGable_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRoofGable_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRoofGable_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartStreet_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartStreet_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartStreet_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartStreet_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartStreet_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartStreet_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRootCourt_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRootCourt_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRootCourt_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRootCourt_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartRootCourt_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartRootCourt_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartIvyRuin_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartIvyRuin_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartIvyRuin_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartIvyRuin_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartIvyRuin_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartIvyRuin_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartFocus_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartFocus_LOD0.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartFocus_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartFocus_LOD1.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes HeartFocus_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Binary FBX HeartFocus_LOD2.fbx",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes Masonry_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes Masonry_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes Masonry_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes CarvedTrim_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes CarvedTrim_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes CarvedTrim_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes SlateTimber_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes SlateTimber_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes SlateTimber_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes MossRoot_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes MossRoot_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes MossRoot_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes AmethystBronze_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes AmethystBronze_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact delivered bytes AmethystBronze_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartBlindBay",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartStreet",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartHouseA",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartRootCourt",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartFocus",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartArcade",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartGate",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartHouseB",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartIvyRuin",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartRoofSpire",
+      "passed": true
+    },
+    {
+      "name": "Complete bounded LOD family HeartRoofGable",
+      "passed": true
+    },
+    {
+      "name": "1K valid map Masonry_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space Masonry_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map Masonry_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space Masonry_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map Masonry_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space Masonry_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map CarvedTrim_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space CarvedTrim_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map CarvedTrim_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space CarvedTrim_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map CarvedTrim_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space CarvedTrim_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map SlateTimber_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space SlateTimber_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map SlateTimber_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space SlateTimber_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map SlateTimber_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space SlateTimber_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map MossRoot_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space MossRoot_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map MossRoot_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space MossRoot_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map MossRoot_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space MossRoot_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map AmethystBronze_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space AmethystBronze_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map AmethystBronze_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space AmethystBronze_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "1K valid map AmethystBronze_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Correct color space AmethystBronze_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.GroundL3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.Frost.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/GothicHeartH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/World/GothicCivicH5.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Frozen owner ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original source content Assets/NeonSyndicate/Art/LiveCast",
+      "passed": true
+    },
+    {
+      "name": "Original source content Assets/NeonSyndicate/Art/ProductionH9",
+      "passed": true
+    },
+    {
+      "name": "Original source content Assets/NeonSyndicate/Art/WorldFoundationH8R",
+      "passed": true
+    },
+    {
+      "name": "Original source content Assets/NeonSyndicate/Resources/Quests",
+      "passed": true
+    },
+    {
+      "name": "Original source content Assets/NeonSyndicate/Resources/Events",
+      "passed": true
+    },
+    {
+      "name": "No runtime file IO, new game loop or reward controller",
+      "passed": true
+    },
+    {
+      "name": "Visual source partition, never shared renderer suppression",
+      "passed": true
+    },
+    {
+      "name": "New collision bounded to two gate bases",
+      "passed": true
+    },
+    {
+      "name": "Opt-in, comparison and suspended lifetime",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

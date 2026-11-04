@@ -1,0 +1,113 @@
+{
+  "tested_source_commit": "314483f52ace34751c928b1e827876817f6d7c8e",
+  "csharp_sha256": "a309e09b0804888e787080d452735acb44ae15f6c26ce19614615ad860cf15c9",
+  "overall": "SOURCE AND ASSET REPAIR DELIVERED; PRIMARY MODERN MALIK BLOCKED",
+  "malik": "FALLBACK / NOT FINAL",
+  "owner_approval": "NOT GIVEN",
+  "features": [
+    {
+      "gate": "A",
+      "feature": "Source and native baseline",
+      "source_implemented": true,
+      "managed_tested": true,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": false,
+      "remaining": "Native Console/import/play evidence unavailable"
+    },
+    {
+      "gate": "B",
+      "feature": "Received candidate and skin repair",
+      "source_implemented": true,
+      "managed_tested": true,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": true,
+      "remaining": "Technical reference source proof only; production model and native import required"
+    },
+    {
+      "gate": "C",
+      "feature": "Modern Malik likeness and outfit",
+      "source_implemented": false,
+      "managed_tested": false,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": true,
+      "remaining": "No production face/skin/hair/coat/armor/LODs created; artist brief delivered"
+    },
+    {
+      "gate": "D",
+      "feature": "Motion and equipment compatibility",
+      "source_implemented": true,
+      "managed_tested": true,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": true,
+      "remaining": "ExistingPose safety implemented; native grip/deformation not run; AuthoredClips SOURCE INCOMPLETE"
+    },
+    {
+      "gate": "E",
+      "feature": "Approved replacement in real game",
+      "source_implemented": false,
+      "managed_tested": false,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": true,
+      "remaining": "Fallback remains; no production registry or playable imported replacement"
+    },
+    {
+      "gate": "F",
+      "feature": "Two civic categories and skyline",
+      "source_implemented": true,
+      "managed_tested": true,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": false,
+      "remaining": "Source geometry integrated in isolated revision10; native visual/physical acceptance required"
+    },
+    {
+      "gate": "G",
+      "feature": "Verification",
+      "source_implemented": true,
+      "managed_tested": true,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": false,
+      "remaining": "46 unchanged raw NUnit failures; all native gates not run"
+    },
+    {
+      "gate": "H",
+      "feature": "Recoverable source and handoff",
+      "source_implemented": true,
+      "managed_tested": true,
+      "native_imported": "NOT RUN",
+      "native_playtested": "NOT RUN",
+      "visually_accepted": "NOT RUN",
+      "performance_accepted": "NOT RUN",
+      "windows_build_verified": "NOT RUN",
+      "asset_required": false,
+      "remaining": "Draft PR delivery, no merge/default promotion; primary hero asset remains blocked"
+    }
+  ]
+}

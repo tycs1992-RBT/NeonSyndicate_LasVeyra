@@ -1,0 +1,86 @@
+{
+  "assetId": "MALIK-H8R-REVIEW-01",
+  "creator": "Owner selected CC0 human and skin; original project fitted wardrobe and selected-surface groom; supplied CC0 defense motion by Quaternius",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "preserveInfluences": true,
+  "sourceFbx": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R.fbx",
+  "authoringSource": "ArtSource/AscensionH8R/MalikVeyrH8R.blend",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R.fbx",
+      "bytes": 11039420,
+      "sha256": "e88a3810ea10a37d7dfacad36ed097bac3feeb39cbd90369c0cdc324420fd494"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R_LOD1.fbx",
+      "bytes": 6311260,
+      "sha256": "923f088b56845af45048b8e48c8679b7a3616af3ad4e24df27403ba7b2871f37"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R_LOD2.fbx",
+      "bytes": 3495052,
+      "sha256": "f413e57054fc777569c71972f3373419292f23feff98e8cf852261f25e3c412d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/export-stats.json",
+      "bytes": 5603,
+      "sha256": "e1a9bbe358cb18b423f850f3e05994aa8b06682c8fac10cedecf5a0730b0d906"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Brows_Albedo.png",
+      "bytes": 89619,
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Cloth_Albedo.png",
+      "bytes": 841803,
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Cloth_Normal.png",
+      "bytes": 548880,
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Eyes_Albedo.png",
+      "bytes": 249197,
+      "sha256": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Leather_Albedo.png",
+      "bytes": 1210160,
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Leather_Normal.png",
+      "bytes": 575648,
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Skin_Albedo.png",
+      "bytes": 4706203,
+      "sha256": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Skin_Normal.png",
+      "bytes": 4810829,
+      "sha256": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Animations/GuardBraceH8R.fbx",
+      "bytes": 473468,
+      "sha256": "82b1682d20a691ef75447cf95cf3aad7b64603913abc2c184c3545d01d8a8722"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/Animations/MalikFullBodyH8R.json",
+      "bytes": 1694644,
+      "sha256": "7178ee92bb8525c11b1ce26c3a57597ed86e7c149bbfc7b41a2059dd84b2752b"
+    }
+  ]
+}

@@ -1,0 +1,4809 @@
+{
+  "scope": "Actual compiled revision-10 source census. Source-eligible is not native admitted/active. Existing FR02 source reservations included; quest/trigger/ground/camera probes run only natively.",
+  "seed": 61724,
+  "sourcePlanned": 220,
+  "sourceEligible": 39,
+  "sourceRefused": 181,
+  "nativeAdmitted": null,
+  "nativeActive": null,
+  "sourceReservedFR02": 25,
+  "softPlacementLimit": 48,
+  "trees": [
+    {
+      "stableId": "revision:10/original-tree:2098468620",
+      "Seed": 2098468620,
+      "Region": 0,
+      "position": [
+        -454,
+        0.15,
+        -158
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1499910808",
+      "Seed": -1499910808,
+      "Region": 0,
+      "position": [
+        -449,
+        0.15,
+        -132
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-106735072",
+      "Seed": -106735072,
+      "Region": 0,
+      "position": [
+        -456,
+        0.15,
+        -57
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1983028532",
+      "Seed": 1983028532,
+      "Region": 0,
+      "position": [
+        -452,
+        0.15,
+        47
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-222175160",
+      "Seed": -222175160,
+      "Region": 1,
+      "position": [
+        -446,
+        0.15,
+        157
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:474412708",
+      "Seed": 474412708,
+      "Region": 1,
+      "position": [
+        -454,
+        0.15,
+        201
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1158908540",
+      "Seed": 1158908540,
+      "Region": 0,
+      "position": [
+        -416,
+        0.15,
+        -128
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1742883020",
+      "Seed": -1742883020,
+      "Region": 0,
+      "position": [
+        -420,
+        0.15,
+        -55
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1046295152",
+      "Seed": -1046295152,
+      "Region": 0,
+      "position": [
+        -411,
+        0.15,
+        -23
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-349707284",
+      "Seed": -349707284,
+      "Region": 0,
+      "position": [
+        -411,
+        0.15,
+        18
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:346880584",
+      "Seed": 346880584,
+      "Region": 0,
+      "position": [
+        -411,
+        0.15,
+        50
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1740056320",
+      "Seed": 1740056320,
+      "Region": 1,
+      "position": [
+        -413,
+        0.15,
+        127
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1858323108",
+      "Seed": -1858323108,
+      "Region": 1,
+      "position": [
+        -415,
+        0.15,
+        159
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1161735240",
+      "Seed": -1161735240,
+      "Region": 1,
+      "position": [
+        -415,
+        0.15,
+        193
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:928028364",
+      "Seed": 928028364,
+      "Region": 1,
+      "position": [
+        -412,
+        0.15,
+        304
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1484992072",
+      "Seed": 1484992072,
+      "Region": 0,
+      "position": [
+        -339,
+        0.15,
+        -160
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-720211620",
+      "Seed": -720211620,
+      "Region": 0,
+      "position": [
+        -342,
+        0.15,
+        -62
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1369551984",
+      "Seed": 1369551984,
+      "Region": 0,
+      "position": [
+        -348,
+        0.15,
+        52
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1950699764",
+      "Seed": 1950699764,
+      "Region": 1,
+      "position": [
+        -344,
+        0.15,
+        299
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1938607728",
+      "Seed": 1938607728,
+      "Region": 0,
+      "position": [
+        -304,
+        0.15,
+        -60
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1659771700",
+      "Seed": -1659771700,
+      "Region": 0,
+      "position": [
+        -312,
+        0.15,
+        -25
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1126579772",
+      "Seed": 1126579772,
+      "Region": 1,
+      "position": [
+        -309,
+        0.15,
+        120
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:314551816",
+      "Seed": 314551816,
+      "Region": 1,
+      "position": [
+        -311,
+        0.15,
+        305
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1090715956",
+      "Seed": -1090715956,
+      "Region": 0,
+      "position": [
+        -270,
+        0.15,
+        -126
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1321596132",
+      "Seed": -1321596132,
+      "Region": 1,
+      "position": [
+        -267,
+        0.15,
+        310
+      ],
+      "family": "AzureElder",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-2030276036",
+      "Seed": -2030276036,
+      "Region": 0,
+      "position": [
+        -242,
+        0.15,
+        -93
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-68044556",
+      "Seed": -68044556,
+      "Region": 0,
+      "position": [
+        -197,
+        0.15,
+        -133
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-912401280",
+      "Seed": -912401280,
+      "Region": 0,
+      "position": [
+        -98,
+        0.15,
+        304
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:1746418068",
+      "Seed": 1746418068,
+      "Region": 0,
+      "position": [
+        -60,
+        0.15,
+        309
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/original-tree:-1525877828",
+      "Seed": -1525877828,
+      "Region": 0,
+      "position": [
+        13,
+        0.15,
+        299
+      ],
+      "family": "SanctuaryCedar",
+      "originalPhysicalTrunkRetained": true,
+      "nativeAdmission": "NOT RUN"
+    }
+  ],
+  "placements": [
+    {
+      "stableId": "revision:10/composition:home-court/1/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        -14.965738,
+        0.15,
+        -25.873661
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -36.962486,
+      "sourceEligible": false,
+      "reason": "Original route office",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/1/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        6.9657383,
+        0.15,
+        -16.126339
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -10.962488,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3403",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/1/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        -21.36242,
+        0.15,
+        -28.71663
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -36.962486,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 970617",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/1/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        13.362419,
+        0.15,
+        -13.283369
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -10.962488,
+      "sourceEligible": false,
+      "reason": "Original route garage-foot-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/2/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        -15.469347,
+        0.15,
+        4.52903
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 4.10273,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/2/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        7.469347,
+        0.15,
+        -2.5290298
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 30.10273,
+      "sourceEligible": false,
+      "reason": "Original route garage-foot-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/2/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        -22.1598,
+        0.15,
+        6.5876307
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 4.10273,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/2/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        14.1598,
+        0.15,
+        -4.5876307
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 30.10273,
+      "sourceEligible": false,
+      "reason": "Original route garage-foot-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/3/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        -12,
+        0.15,
+        26
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/3/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        12,
+        0.15,
+        26
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original route pressure-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/3/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        -19,
+        0.15,
+        26
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:home-court/3/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "home-court",
+      "family": "RootFernBank",
+      "position": [
+        19,
+        0.15,
+        26
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original route pressure-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/1/0/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        -4.5701685,
+        0.15,
+        56.53007
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 10.198589,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/1/0/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        16.570168,
+        0.15,
+        47.46993
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 36.19859,
+      "sourceEligible": false,
+      "reason": "Original route depot",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/1/0/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        -11.004183,
+        0.15,
+        59.287506
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 10.198589,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/1/0/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        23.004183,
+        0.15,
+        44.712494
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 36.19859,
+      "sourceEligible": false,
+      "reason": "Original route depot",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/2/0/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        0.5,
+        0.15,
+        79
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Existing compact gothic gateway reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/2/0/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        23.5,
+        0.15,
+        79
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/2/0/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        -6.5,
+        0.15,
+        79
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Delivered original street-bay reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/2/0/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        30.5,
+        0.15,
+        79
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/3/0/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        -6.4552097,
+        0.15,
+        98.45409
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -47.695156,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/3/0/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        12.45521,
+        0.15,
+        111.54591
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -21.695156,
+      "sourceEligible": false,
+      "reason": "Original route sanctuary-observatory",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/3/0/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        -12.210556,
+        0.15,
+        94.46961
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -47.695156,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-approach/3/0/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-approach",
+      "family": "RootFernBank",
+      "position": [
+        18.210556,
+        0.15,
+        115.53039
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -21.695156,
+      "sourceEligible": false,
+      "reason": "Original route sanctuary-observatory",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/1/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        26.235031,
+        0.15,
+        78.47453
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 73.18592,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/1/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        27.764969,
+        0.15,
+        55.52547
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 99.18592,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/1/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        25.769398,
+        0.15,
+        85.45902
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 73.18592,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/1/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        28.230602,
+        0.15,
+        48.540977
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 99.18592,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/2/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        54.56984,
+        0.15,
+        83.97652
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 59.645973,
+      "sourceEligible": false,
+      "reason": "Original physical prop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/2/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        61.43016,
+        0.15,
+        62.02348
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 85.64597,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/2/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        52.48191,
+        0.15,
+        90.65788
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 59.645973,
+      "sourceEligible": false,
+      "reason": "Original physical prop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/2/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        63.51809,
+        0.15,
+        55.342117
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 85.64597,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/3/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        63.017704,
+        0.15,
+        87.63791
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -9.820169,
+      "sourceEligible": false,
+      "reason": "Original point of interest",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/3/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        85.98229,
+        0.15,
+        86.36209
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 16.17983,
+      "sourceEligible": false,
+      "reason": "Original route forge-scar",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/3/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        56.02848,
+        0.15,
+        88.02619
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -9.820169,
+      "sourceEligible": false,
+      "reason": "Original physical prop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:forge-market/3/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "forge-market",
+      "family": "RootFernBank",
+      "position": [
+        92.97152,
+        0.15,
+        85.97381
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 16.17983,
+      "sourceEligible": false,
+      "reason": "Original route forge-scar",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/1/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -54.299427,
+        0.15,
+        -51.862183
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 62.25644,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/1/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -48.700573,
+        0.15,
+        -73.13782
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 88.25644,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/1/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -56.08088,
+        0.15,
+        -45.09266
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 62.25644,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/1/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -46.91912,
+        0.15,
+        -79.90734
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 88.25644,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/2/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -43.070244,
+        0.15,
+        -39.576862
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 16.538782,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/2/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -23.929756,
+        0.15,
+        -50.423138
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 42.53878,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/2/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -49.1604,
+        0.15,
+        -36.125774
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 16.538782,
+      "sourceEligible": false,
+      "reason": "Existing or staged architectural reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/2/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -17.8396,
+        0.15,
+        -53.874226
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 42.53878,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 970617",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/3/0/0/-1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -12.5,
+        0.15,
+        -19
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 77,
+      "sourceEligible": false,
+      "reason": "Original route home-court",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/3/0/0/1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -12.5,
+        0.15,
+        -41
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 970617",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/3/0/1/-1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -12.5,
+        0.15,
+        -12
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 77,
+      "sourceEligible": false,
+      "reason": "Original route home-court",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:office/3/0/1/1",
+      "zone": "Gothic settlement",
+      "route": "office",
+      "family": "RootFernBank",
+      "position": [
+        -12.5,
+        0.15,
+        -48
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 970617",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/1/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -37.8,
+        0.15,
+        11.4
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -49.869896,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/1/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -20.2,
+        0.15,
+        24.6
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -23.869896,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/1/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -43.4,
+        0.15,
+        7.2
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -49.869896,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 855223",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/1/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -14.599999,
+        0.15,
+        28.8
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -23.869896,
+      "sourceEligible": false,
+      "reason": "Original route dispatch-clinic",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        19
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 855223",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        41
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        12
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 855223",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        48
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/1/0/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        19
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 855223",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/1/0/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        41
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/1/1/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        12
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 855223",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/2/1/1/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        48
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/3/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -91.313835,
+        0.15,
+        18.021421
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -106.57634,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/3/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -92.686165,
+        0.15,
+        39.978577
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -80.57634,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3442",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/3/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -90.87719,
+        0.15,
+        11.035053
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -106.57634,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:shardwood-threshold/3/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "shardwood-threshold",
+      "family": "RootFernBank",
+      "position": [
+        -93.12281,
+        0.15,
+        46.964947
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -80.57634,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/1/0/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -48,
+        0.15,
+        82
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 131595",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/1/0/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -28,
+        0.15,
+        82
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original route inn",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/1/0/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -55,
+        0.15,
+        82
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 131595",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/1/0/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -21,
+        0.15,
+        82
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/0/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        82
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 131595",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/0/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        102
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original route inn",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/0/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        75
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 131595",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/0/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -47.5,
+        0.15,
+        109
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original route inn",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/1/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        82
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 131595",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/1/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        102
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 382485",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/1/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        75
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 131595",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/2/1/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -66.5,
+        0.15,
+        109
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 382485",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/3/0/0/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -90.98347,
+        0.15,
+        78.70543
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -114.63364,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 961824",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/3/0/0/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -95.01653,
+        0.15,
+        98.29457
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -88.63364,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 382485",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/3/0/1/-1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -89.5719,
+        0.15,
+        71.84923
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -114.63364,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:sanctuary-wilds/3/0/1/1",
+      "zone": "Sanctuary grounds",
+      "route": "sanctuary-wilds",
+      "family": "RootFernBank",
+      "position": [
+        -96.4281,
+        0.15,
+        105.15077
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -88.63364,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 382485",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -118.2,
+        0.15,
+        17
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -118.2,
+        0.15,
+        39
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original route grotto-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -118.2,
+        0.15,
+        10
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -118.2,
+        0.15,
+        46
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original route grotto-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/1/0/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -138.6,
+        0.15,
+        17
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/1/0/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -138.6,
+        0.15,
+        39
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/1/1/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -138.6,
+        0.15,
+        10
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/1/1/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -138.6,
+        0.15,
+        46
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/2/0/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -159,
+        0.15,
+        17
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/2/0/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -159,
+        0.15,
+        39
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/2/1/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -159,
+        0.15,
+        10
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/2/1/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -159,
+        0.15,
+        46
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/3/0/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -179.4,
+        0.15,
+        17
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/3/0/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -179.4,
+        0.15,
+        39
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/3/1/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -179.4,
+        0.15,
+        10
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/3/1/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -179.4,
+        0.15,
+        46
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/4/0/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -199.79999,
+        0.15,
+        17
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3459",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/4/0/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -199.79999,
+        0.15,
+        39
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/4/1/-1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -199.79999,
+        0.15,
+        10
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -103,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3459",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:amethyst-challenge/1/4/1/1",
+      "zone": "Woodland causeway",
+      "route": "amethyst-challenge",
+      "family": "RootFernBank",
+      "position": [
+        -199.79999,
+        0.15,
+        46
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -77,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -223.81929,
+        0.15,
+        32.8856
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -204.75215,
+        0.15,
+        41.685825
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -230.17502,
+        0.15,
+        29.952194
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -198.39642,
+        0.15,
+        44.619232
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/1/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -232.39072,
+        0.15,
+        51.45703
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/1/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -213.32358,
+        0.15,
+        60.257256
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/1/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -238.74643,
+        0.15,
+        48.523624
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/1/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -206.96786,
+        0.15,
+        63.190662
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/2/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -240.96214,
+        0.15,
+        70.028465
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/2/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -221.895,
+        0.15,
+        78.82868
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/2/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -247.31787,
+        0.15,
+        67.095055
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/2/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -215.53928,
+        0.15,
+        81.76209
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/3/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -249.53357,
+        0.15,
+        88.59989
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/3/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -230.46643,
+        0.15,
+        97.40011
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/3/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -255.88928,
+        0.15,
+        85.66648
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/3/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -224.11072,
+        0.15,
+        100.33352
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/4/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -258.105,
+        0.15,
+        107.17132
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/4/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -239.03786,
+        0.15,
+        115.971535
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/4/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -264.46072,
+        0.15,
+        104.23791
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/4/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -232.68213,
+        0.15,
+        118.904945
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/5/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -266.67642,
+        0.15,
+        125.742744
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/5/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -247.60928,
+        0.15,
+        134.54297
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/5/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -273.03214,
+        0.15,
+        122.80933
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/5/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -241.25357,
+        0.15,
+        137.47636
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/6/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -275.24786,
+        0.15,
+        144.31416
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/6/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -256.18073,
+        0.15,
+        153.1144
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original route azure-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/6/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -281.60358,
+        0.15,
+        141.38077
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -37.77514,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-expedition/1/6/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-expedition",
+      "family": "RootFernBank",
+      "position": [
+        -249.82501,
+        0.15,
+        156.04779
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -11.775141,
+      "sourceEligible": false,
+      "reason": "Original route azure-return",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -257.46103,
+        0.15,
+        165.0473
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3457",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -262.53897,
+        0.15,
+        145.7027
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original route azure-expedition",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -255.68373,
+        0.15,
+        171.81793
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3460",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -264.31625,
+        0.15,
+        138.93207
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original route azure-expedition",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/1/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -237.46101,
+        0.15,
+        159.7973
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/1/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -242.53899,
+        0.15,
+        140.4527
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/1/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -235.68373,
+        0.15,
+        166.56793
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 90020",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/1/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -244.31627,
+        0.15,
+        133.68207
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original physical prop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/2/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -217.46101,
+        0.15,
+        154.5473
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/2/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -222.53899,
+        0.15,
+        135.2027
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/2/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -215.68373,
+        0.15,
+        161.31793
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 90020",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/2/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -224.31627,
+        0.15,
+        128.43207
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/3/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -197.46101,
+        0.15,
+        149.2973
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/3/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -202.53899,
+        0.15,
+        129.9527
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/3/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -195.68373,
+        0.15,
+        156.06793
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 91.708305,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/1/3/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -204.31627,
+        0.15,
+        123.182076
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 117.708305,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/0/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -176.55011,
+        0.15,
+        140.18443
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/0/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -187.44989,
+        0.15,
+        123.415565
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/0/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -172.7352,
+        0.15,
+        146.05354
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/0/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -191.2648,
+        0.15,
+        117.54646
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 607653",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/1/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -160.55011,
+        0.15,
+        129.78444
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/1/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -171.44989,
+        0.15,
+        113.015564
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/1/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -156.7352,
+        0.15,
+        135.65355
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/1/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -175.2648,
+        0.15,
+        107.14646
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/2/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -144.55011,
+        0.15,
+        119.38444
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/2/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -155.44989,
+        0.15,
+        102.61556
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/2/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -140.7352,
+        0.15,
+        125.25354
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/2/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -159.2648,
+        0.15,
+        96.74646
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original vehicle corridor",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/3/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -128.55011,
+        0.15,
+        108.98444
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/3/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -139.44989,
+        0.15,
+        92.21557
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/3/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -124.7352,
+        0.15,
+        114.853546
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/3/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -143.2648,
+        0.15,
+        86.346466
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/4/0/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -112.55012,
+        0.15,
+        98.584435
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/4/0/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -123.44988,
+        0.15,
+        81.81556
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 961824",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/4/1/-1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -108.7352,
+        0.15,
+        104.45354
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 110.023865,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:azure-return/2/4/1/1",
+      "zone": "Woodland causeway",
+      "route": "azure-return",
+      "family": "RootFernBank",
+      "position": [
+        -127.2648,
+        0.15,
+        75.94646
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 136.02386,
+      "sourceEligible": false,
+      "reason": "Original parcel/service envelope 961824",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:storm-shrine/1/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "storm-shrine",
+      "family": "RootFernBank",
+      "position": [
+        -280,
+        0.15,
+        167
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Original route neighbor-path/3480",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:storm-shrine/1/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "storm-shrine",
+      "family": "RootFernBank",
+      "position": [
+        -260,
+        0.15,
+        167
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-return-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:storm-shrine/1/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "storm-shrine",
+      "family": "RootFernBank",
+      "position": [
+        -287,
+        0.15,
+        167
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -13,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:storm-shrine/1/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "storm-shrine",
+      "family": "RootFernBank",
+      "position": [
+        -253,
+        0.15,
+        167
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 13,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/1/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -286.54413,
+        0.15,
+        184.97058
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 121.999954,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/1/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -300.68628,
+        0.15,
+        170.82843
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 147.99995,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/1/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -281.5944,
+        0.15,
+        189.92033
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 121.999954,
+      "sourceEligible": false,
+      "reason": "Original physical prop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/1/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -305.63602,
+        0.15,
+        165.87868
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 147.99995,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -288.66544,
+        0.15,
+        160.22183
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -302.8076,
+        0.15,
+        174.36395
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -283.7157,
+        0.15,
+        155.27208
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -307.75732,
+        0.15,
+        179.3137
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/1/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -301.39337,
+        0.15,
+        147.49391
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/1/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -315.53552,
+        0.15,
+        161.63603
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/1/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -296.44363,
+        0.15,
+        142.54416
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/1/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -320.48526,
+        0.15,
+        166.58578
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04oe/storm-ledge",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/2/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -314.12128,
+        0.15,
+        134.76598
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/2/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -328.26343,
+        0.15,
+        148.9081
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/2/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -309.17154,
+        0.15,
+        129.81622
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/2/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -333.21317,
+        0.15,
+        153.85785
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/3/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -326.8492,
+        0.15,
+        122.03805
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/3/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -340.99136,
+        0.15,
+        136.18018
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/3/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -321.89948,
+        0.15,
+        117.0883
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148.00002,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/2/3/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -345.9411,
+        0.15,
+        141.12993
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122.000015,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/3/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -351.59796,
+        0.15,
+        119.916725
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -58.000027,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/3/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -337.4558,
+        0.15,
+        134.05887
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -32.000027,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/3/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -356.5477,
+        0.15,
+        114.96697
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -58.000027,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-access/3/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-access",
+      "family": "RootFernBank",
+      "position": [
+        -332.50607,
+        0.15,
+        139.0086
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -32.000027,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/1/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -344.88043,
+        2.15,
+        149.96877
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 32,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/1/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -330.0312,
+        2.15,
+        135.11952
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 58,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/1/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -349.83017,
+        2.15,
+        154.91852
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 32,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/1/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -325.08145,
+        2.15,
+        130.16977
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 58,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-access",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/2/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -343.46625,
+        4.15,
+        156.33272
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -58,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/2/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -328.617,
+        4.15,
+        171.18196
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -32,
+      "sourceEligible": false,
+      "reason": "Original receipt, creature or vehicle reservation",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/2/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -348.416,
+        4.15,
+        151.38297
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -58,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/2/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -323.66727,
+        4.15,
+        176.13171
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -32,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/3/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -349.8302,
+        2.15,
+        154.9185
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/3/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -364.67944,
+        2.15,
+        169.76775
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-vein",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/3/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -344.88046,
+        2.15,
+        149.96875
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -148,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/3/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -369.62918,
+        2.15,
+        174.7175
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -122,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-vein",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/4/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -351.2444,
+        0.15,
+        148.55455
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 122,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/4/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -366.09363,
+        0.15,
+        133.7053
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 148,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/4/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -346.29465,
+        0.15,
+        153.5043
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 122,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-loop/4/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-loop",
+      "family": "RootFernBank",
+      "position": [
+        -371.04337,
+        0.15,
+        128.75555
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 148,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/1/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -382.0035,
+        0.15,
+        148.90811
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -57.99996,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/1/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -366.44717,
+        0.15,
+        164.46445
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -31.999962,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/1/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -386.95328,
+        0.15,
+        143.95837
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -57.99996,
+      "sourceEligible": true,
+      "reason": "Source reservations clear. Actual ground, actors, triggers and geometry still require the existing native admission probes.",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/1/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -361.4974,
+        0.15,
+        169.41418
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -31.999962,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/2/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -393.31723,
+        0.15,
+        160.22179
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -58.00004,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/2/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -377.7609,
+        0.15,
+        175.77815
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -32.00004,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-vein",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/2/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -398.26697,
+        0.15,
+        155.27203
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -58.00004,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-cavern/2/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-cavern",
+      "family": "RootFernBank",
+      "position": [
+        -372.81116,
+        0.15,
+        180.7279
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": -32.00004,
+      "sourceEligible": false,
+      "reason": "Original pedestrian graph",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-vein/1/0/0/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-vein",
+      "family": "RootFernBank",
+      "position": [
+        -382.35706,
+        0.15,
+        174.7175
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 32.000042,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-cavern",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-vein/1/0/0/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-vein",
+      "family": "RootFernBank",
+      "position": [
+        -367.5078,
+        0.15,
+        159.86826
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 58.000042,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-vein/1/0/1/-1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-vein",
+      "family": "RootFernBank",
+      "position": [
+        -387.3068,
+        0.15,
+        179.66725
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 32.000042,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-cavern",
+      "nativeAdmission": "NOT RUN"
+    },
+    {
+      "stableId": "revision:10/composition:04og/storm-vein/1/0/1/1",
+      "zone": "Wilderness threshold",
+      "route": "04og/storm-vein",
+      "family": "RootFernBank",
+      "position": [
+        -362.55807,
+        0.15,
+        154.9185
+      ],
+      "size": [
+        6,
+        1.4,
+        4
+      ],
+      "yaw": 58.000042,
+      "sourceEligible": false,
+      "reason": "Original route 04og/storm-loop",
+      "nativeAdmission": "NOT RUN"
+    }
+  ],
+  "geometry": [],
+  "nativeUnity": "NOT RUN",
+  "sourceCommit": "20d8ddcaae3e7025f24bcf899ff6608deadb0738",
+  "sourceCSharpSha256": "a86687b5009f98313c24d599dc0856278b6b43ad1849e4d0237478e7f300a0f0"
+}

@@ -1,0 +1,34 @@
+{
+  "scope": "Check Runtime, Editor and EditMode assembly boundaries using a captured genuine-metadata matrix case.\nThis still does not execute the Unity importer or its assembly-definition graph.",
+  "configuration": "Editor, both input systems, Built-in",
+  "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "assemblies": [
+    {
+      "assembly": "NeonSyndicate.Runtime",
+      "source_files": 1049,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Editor",
+      "source_files": 53,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Tests.EditMode",
+      "source_files": 193,
+      "exit_code": 0,
+      "errors": []
+    }
+  ],
+  "invocation": [
+    "/workspace/scratch/39ce986e9cbf/wr02-baseline/tools/check_04g_assemblies.py",
+    "--matrix",
+    "/workspace/scratch/39ce986e9cbf/wr02-checks/baseline/matrix",
+    "--dotnet",
+    "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/dotnet/dotnet",
+    "--output",
+    "/workspace/scratch/39ce986e9cbf/wr02-checks/baseline/boundaries"
+  ]
+}

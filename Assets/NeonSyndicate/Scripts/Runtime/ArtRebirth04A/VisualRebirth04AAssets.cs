@@ -98,6 +98,8 @@ namespace NeonSyndicate
                 else if (Mats.DetailEnabled && (role == "stone" || role == "roof")) Mats.ApplyDetail(material, SurfaceKind.Pores, 6f, 0.4f);
                 material.renderQueue = 2000;
                 material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+                // H8S realism: weathered Gothic Heart stone and paving, calmer crystal (RealismMaterialsH8S).
+                RealismMaterialsH8S.UpgradeRebirth04A(material, style, role);
                 Materials.Add(key, material);
                 return material;
             }

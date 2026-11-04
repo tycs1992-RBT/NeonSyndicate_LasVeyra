@@ -75,26 +75,31 @@ namespace NeonSyndicate
             float inner = Mathf.Clamp01(InnerWorld), frost = Mathf.Clamp01(Frost) * (1f - inner), rift = Mathf.Clamp01(Rift);
             float under = Mathf.Clamp01(Underground);
             bool chromatic = Settings.ChromaticAberration && quality >= GraphicsPreset.Medium;
-            // Outer City: bright and warm by day, deep blues and hot neon by night.
-            v.BloomIntensity = Mathf.Lerp(0.09f, 0.2f, night) * (quality == GraphicsPreset.Low ? 0.8f : 1f);
-            v.BloomThreshold = Mathf.Lerp(1.05f, 0.9f, night);
-            v.BloomTint = Color.Lerp(new Color(1f, 0.96f, 0.9f), new Color(0.95f, 0.9f, 1.05f), night);
-            v.Exposure = Mathf.Lerp(0.98f, 1.1f, night) * Mathf.Pow(2f, Settings.Brightness);
-            v.Saturation = Mathf.Lerp(1.06f, 1.1f, night);
-            v.Contrast = Mathf.Lerp(1.04f, 1.07f, night);
-            // Lifted blacks: the darkest tones sit a touch above pure black, cooler at night.
-            v.Lift = Color.Lerp(new Color(0.012f, 0.011f, 0.016f), new Color(0.008f, 0.01f, 0.02f), night);
-            v.Gain = Color.Lerp(new Color(1.02f, 1f, 0.97f), new Color(0.98f, 0.99f, 1.04f), night);
-            // Split tone: cool shadows, warm highlights, by day and by night.
-            v.ShadowTint = Color.Lerp(new Color(-0.008f, -0.002f, 0.014f), new Color(-0.004f, 0.002f, 0.018f), night);
-            v.HighlightTint = Color.Lerp(new Color(0.022f, 0.01f, -0.014f), new Color(0.02f, 0.006f, -0.004f), night);
-            v.Vignette = Mathf.Lerp(0.14f, 0.2f, night);
+            // Outer world (the Gothic Heart), H8S realism: grounded and moody by day (restrained colour, a lower
+            // exposure that keeps sunlit stone out of the curve's shoulder, cool charcoal shadows under warm bronze
+            // highlights), deep blue air and amber lanterns by night. Before H8S: exposure 0.98 and 1.1, saturation
+            // 1.06 and 1.1, contrast 1.04 and 1.07, key 0.2 and 0.085, vignette 0.14 and 0.2, darkest adaptation -1.2.
+            v.BloomIntensity = Mathf.Lerp(0.08f, 0.18f, night) * (quality == GraphicsPreset.Low ? 0.8f : 1f);
+            // Only true emissives bloom (crystals, lanterns, abilities), never sunlit stone.
+            v.BloomThreshold = Mathf.Lerp(1.1f, 0.95f, night);
+            v.BloomTint = Color.Lerp(new Color(1f, 0.95f, 0.88f), new Color(0.95f, 0.9f, 1.05f), night);
+            v.Exposure = Mathf.Lerp(0.82f, 1.0f, night) * Mathf.Pow(2f, Settings.Brightness);
+            v.Saturation = Mathf.Lerp(0.9f, 0.96f, night);
+            v.Contrast = 1.1f;
+            // Lifted blacks: the darkest tones sit a touch above pure black, in the palette's cool charcoal.
+            v.Lift = Color.Lerp(new Color(0.010f, 0.012f, 0.018f), new Color(0.008f, 0.011f, 0.022f), night);
+            v.Gain = Color.Lerp(new Color(1.03f, 1f, 0.94f), new Color(1f, 0.99f, 1.03f), night);
+            // Split tone: cool slate shadows, warm parchment and bronze highlights; amber lantern highlights by night.
+            v.ShadowTint = Color.Lerp(new Color(-0.014f, 0.001f, 0.022f), new Color(-0.008f, 0.003f, 0.024f), night);
+            v.HighlightTint = Color.Lerp(new Color(0.026f, 0.012f, -0.022f), new Color(0.03f, 0.012f, -0.012f), night);
+            v.Vignette = Mathf.Lerp(0.2f, 0.22f, night);
             v.Chromatic = chromatic ? 0.003f : 0f;
             v.Grain = Settings.FilmGrain ? Mathf.Lerp(0.012f, 0.02f, night) : 0f;
             // Night aims lower than day so it still feels like night, just readable. Partial strength keeps a dark
-            // alley darker than a lit plaza instead of flattening everything to the same brightness.
-            v.AdaptKey = Mathf.Log(Mathf.Lerp(0.2f, 0.085f, night), 2f);
-            v.AdaptMinEv = -1.2f;
+            // alley darker than a lit plaza instead of flattening everything to the same brightness. The darkest
+            // adaptation reaches a little further so pale open ground no longer washes out (still about one stop).
+            v.AdaptKey = Mathf.Log(Mathf.Lerp(0.15f, 0.075f, night), 2f);
+            v.AdaptMinEv = -1.5f;
             v.AdaptMaxEv = Mathf.Lerp(0.6f, 2.4f, night) + 0.6f * under;
             v.AdaptStrength = 0.75f;
 
@@ -102,7 +107,8 @@ namespace NeonSyndicate
             if (frost > 0f)
             {
                 v.Gain = Color.Lerp(v.Gain, new Color(0.95f, 1f, 1.07f), frost);
-                v.Saturation = Mathf.Lerp(v.Saturation, 0.94f, frost);
+                // Below the new day saturation, so the snow still reads a touch paler than the city (0.94 before H8S).
+                v.Saturation = Mathf.Lerp(v.Saturation, 0.86f, frost);
                 v.Lift = Color.Lerp(v.Lift, new Color(0.008f, 0.011f, 0.018f), frost);
                 v.HighlightTint = Color.Lerp(v.HighlightTint, new Color(0f, 0.006f, 0.016f), frost);
                 v.BloomIntensity *= Mathf.Lerp(1f, 0.85f, frost);
@@ -111,7 +117,8 @@ namespace NeonSyndicate
             // Inner World: violet shadows, crimson highlights, harder contrast, lens fringing.
             if (inner > 0f)
             {
-                v.Saturation = Mathf.Lerp(v.Saturation, 1.22f, inner);
+                // Supernatural but never a neon wash (1.22 before H8S).
+                v.Saturation = Mathf.Lerp(v.Saturation, 1.15f, inner);
                 v.Contrast = Mathf.Lerp(v.Contrast, 1.12f, inner);
                 v.Lift = Color.Lerp(v.Lift, new Color(0.014f, 0.004f, 0.022f), inner);
                 v.Gain = Color.Lerp(v.Gain, new Color(1.06f, 0.9f, 1.04f), inner);

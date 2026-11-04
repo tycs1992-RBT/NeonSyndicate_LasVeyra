@@ -1,0 +1,15 @@
+{
+  "candidateId": "MALIK-H6-REVIEW-01",
+  "sourceCommit": "d25981cab6d908e58e6a1d4f348dae61e9454943",
+  "appearanceDecision": "NOT GIVEN",
+  "allowedDecisions": [
+    "APPROVED",
+    "REVISE FACE",
+    "REVISE COSTUME",
+    "MODEL INADEQUATE"
+  ],
+  "nativeImport": "NOT RUN",
+  "nativeGameplay": "NOT RUN",
+  "productionEnabled": false,
+  "note": "Source parsing and a DCC render are not approval. Do not mutate this record into production approval without an explicit owner decision and actual native evidence."
+}

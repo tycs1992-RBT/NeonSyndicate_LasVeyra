@@ -1,0 +1,22 @@
+{
+  "native_unity": "NOT RUN",
+  "new_launch_attempts": 0,
+  "why": "Same host, pinned Editor and unchanged previously recorded pre-import UPM IPC failure. No repeated setup or licensing workaround.",
+  "inherited_blocker": "Docs/CityRebirth04O/Evidence04OG/native-environment.json",
+  "native_fixture_import": "NOT RUN",
+  "professional_models_imported": 0,
+  "renderer": "Built-in assigned; no renderer package/assignment change",
+  "fixture_parser": {
+    "repository": "https://github.com/ufbx/ufbx",
+    "commit": "5955c5c0b042ac2dc6f32955ab206aaec0620cfc",
+    "compiler": "cc -O1",
+    "test": "tools/validate_import_fixture_04oh.c",
+    "result": "Passed strict parsing, bind/skin/actual clip motion and recovery",
+    "native_unity": "NOT RUN"
+  },
+  "development_notes": [
+    "First fixture bind matrix check failed and was corrected; failure report retained.",
+    "Initial Python parser binding attempt with strict options exited 139. It is not counted as validation. Standalone pinned C parser is the executed verification.",
+    "First full managed run caught a new 21-versus-25 public-checklist API regression. Original API/test retained; separate extended panel API and regression added."
+  ]
+}

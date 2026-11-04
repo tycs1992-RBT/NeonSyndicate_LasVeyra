@@ -1,0 +1,12 @@
+{
+  "bootstrap_commit": "e26a5b32da5e50f4fabf5450895f3fe6f19ca09c",
+  "bootstrap_run": 39630703129,
+  "bootstrap_job": 119327852044,
+  "raw_result": "failure",
+  "reason": "git lfs fsck correctly rejected 48 raw bootstrap files before forward pointer publication. Source owners, asset fingerprints, metadata and all twelve syntax configurations passed before that pointer check.",
+  "source_or_unit_test_regression": false,
+  "forward_lfs_art_commit": "1512abd2db526ca07c0ab70ee55c85ccaef88bd4",
+  "final_lfs_publication_verified": "final-lfs-publication.json",
+  "final_ci": "A clean normal CI run is requested by this receipt commit. Record its actual result from PR12; no rules were weakened.",
+  "native_unity": "NOT RUN"
+}

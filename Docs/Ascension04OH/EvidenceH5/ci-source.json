@@ -1,0 +1,26 @@
+{
+  "scope": "GitHub source validation, not Unity import/play/tests or production art acceptance",
+  "source_commit": "314483f52ace34751c928b1e827876817f6d7c8e",
+  "runs": [
+    {
+      "id": 39527448390,
+      "name": "04OH art-proof source validation",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "314483f52ace34751c928b1e827876817f6d7c8e",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39527448390",
+      "updated_at": "2026-10-21T01:29:07Z"
+    },
+    {
+      "id": 39527442023,
+      "name": "04OH art-proof source validation",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "314483f52ace34751c928b1e827876817f6d7c8e",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39527442023",
+      "updated_at": "2026-10-21T01:28:49Z"
+    }
+  ]
+}

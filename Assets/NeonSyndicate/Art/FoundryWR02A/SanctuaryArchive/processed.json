@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SanctuaryArchive",
+  "kind": "architecture",
+  "method": "Local original Blender source, processed through the same GLB intake used for optional remote output",
+  "input": "ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb",
+  "input_sha256": "c86cd699caf405c8e65db10a8dcced0dbac2582e7775bb5d157bc130d6ecc547",
+  "brief_sha256": "152c138ee5724bf2e20777091de1ac0f9cfb4751befa8ea9156d938d9a40b42e",
+  "processor_sha256": "c8840c0da61ab0f7bce14b1d0571f5225704a90189350571a675d2dae9a13f10",
+  "license": "CC0-1.0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1.0,
+  "beforeBoundsBlender": [
+    [
+      -15.020000457763672,
+      -0.7250000238418579,
+      8.329999923706055
+    ],
+    [
+      15.020000457763672,
+      48.47999954223633,
+      35.099998474121094
+    ]
+  ],
+  "repairs": [],
+  "outputs": [
+    {
+      "meshes": 7,
+      "vertices": 129510,
+      "triangles": 65100,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 128620,
+      "boundsBlender": [
+        [
+          -15.020000457763672,
+          -0.7250000238418579,
+          8.329999923706055
+        ],
+        [
+          15.020000457763672,
+          48.47999954223633,
+          35.099998474121094
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict FBX parse, not native Unity",
+        "meshes": 7,
+        "vertices": 129510,
+        "triangles": 65100,
+        "uvDegenerate": 0,
+        "unweighted": 0,
+        "overFourInfluences": 0,
+        "bones": 0,
+        "bindErrorMetres": 0,
+        "minimum": [
+          -15.0200005,
+          8.32999992,
+          -0.725000024
+        ],
+        "maximum": [
+          15.0200005,
+          35.0999985,
+          48.4799995
+        ],
+        "clips": [],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+      "sha256": "45e4cee14a423f2fa1dd91c00b13d88612dcb0584de7c4b7cf6b67881d977ec3",
+      "bytes": 3746636,
+      "lod": 0
+    },
+    {
+      "meshes": 7,
+      "vertices": 119140,
+      "triangles": 54730,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 115080,
+      "boundsBlender": [
+        [
+          -15.020000457763672,
+          -0.7250000238418579,
+          8.329999923706055
+        ],
+        [
+          15.020000457763672,
+          48.47999954223633,
+          35.099998474121094
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict FBX parse, not native Unity",
+        "meshes": 7,
+        "vertices": 119140,
+        "triangles": 54730,
+        "uvDegenerate": 0,
+        "unweighted": 0,
+        "overFourInfluences": 0,
+        "bones": 0,
+        "bindErrorMetres": 0,
+        "minimum": [
+          -15.0200005,
+          8.32999992,
+          -0.725000024
+        ],
+        "maximum": [
+          15.0200005,
+          35.0999985,
+          48.4799995
+        ],
+        "clips": [],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+      "sha256": "e6c888645380f88ac5b409e414e97e6647579dc4c6ba9a048307f5cf3f9c2b7c",
+      "bytes": 2982092,
+      "lod": 1
+    },
+    {
+      "meshes": 7,
+      "vertices": 109421,
+      "triangles": 45011,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 98892,
+      "boundsBlender": [
+        [
+          -15.020000457763672,
+          -0.7250000238418579,
+          8.329999923706055
+        ],
+        [
+          15.020000457763672,
+          48.47999954223633,
+          35.099998474121094
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict FBX parse, not native Unity",
+        "meshes": 7,
+        "vertices": 109421,
+        "triangles": 45011,
+        "uvDegenerate": 0,
+        "unweighted": 0,
+        "overFourInfluences": 0,
+        "bones": 0,
+        "bindErrorMetres": 0,
+        "minimum": [
+          -15.0200005,
+          8.32999992,
+          -0.725000024
+        ],
+        "maximum": [
+          15.0200005,
+          35.0999985,
+          48.4799995
+        ],
+        "clips": [],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+      "sha256": "7753167ee70a3d5bee3237e5aa6e33dc55069b59183e17c3ee5f1d646c4e0849",
+      "bytes": 2443356,
+      "lod": 2
+    }
+  ],
+  "editableSource": "ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+  "editable_sha256": "09b2f8f5284a44ca4da325d130c0c0a50660ed1bad323a0e9d93fc3983e03fc8",
+  "textures": [
+    {
+      "material": "MossRoot",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    },
+    {
+      "material": "CarvedTrim",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259"
+    },
+    {
+      "material": "CarvedTrim",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3"
+    },
+    {
+      "material": "CarvedTrim",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51"
+    },
+    {
+      "material": "Masonry",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "sha256": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189"
+    },
+    {
+      "material": "Masonry",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "sha256": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b"
+    },
+    {
+      "material": "Masonry",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "sha256": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87"
+    },
+    {
+      "material": "SlateTimber",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "sha256": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a"
+    },
+    {
+      "material": "SlateTimber",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "sha256": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece"
+    },
+    {
+      "material": "SlateTimber",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "sha256": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec"
+    },
+    {
+      "material": "AmethystBronze",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "sha256": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa"
+    },
+    {
+      "material": "AmethystBronze",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "sha256": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4"
+    },
+    {
+      "material": "AmethystBronze",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae"
+    }
+  ],
+  "colliderManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/colliders.json",
+  "actions": [],
+  "nativeUnity": "NOT RUN",
+  "candidateOnly": false
+}

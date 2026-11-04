@@ -1,0 +1,4 @@
+# Anvil: the delivered CC0 anvil gives Dante Rook's Forge station its modeled look.
+# It is fitted inside the station's own collider; the station, its E or gamepad Y use and its collider never change.
+model Assets/NeonSyndicate/Art/ProductionH8S/Props/Anvil.fbx
+replace forge-anvil

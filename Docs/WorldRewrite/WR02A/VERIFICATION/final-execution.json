@@ -1,0 +1,111 @@
+{
+  "phase": "wr02a-final",
+  "root": "/workspace/scratch/39ce986e9cbf/wr02a-final-source",
+  "head": "fafe816fc6dbcd6086941f31af7c2386c8253dda",
+  "jobs": [
+    {
+      "name": "matrix",
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source/tools/offline04f_compile.py",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source",
+        "--dotnet",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/dotnet/dotnet",
+        "--unity-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-engine",
+        "--editor-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-editor",
+        "--urp-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-urp",
+        "--input-system",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/input-build/Unity.InputSystem.dll",
+        "--nunit",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/nunit/lib/netstandard2.0/nunit.framework.dll",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/matrix"
+      ],
+      "exit": 0,
+      "seconds": 209.56691575050354
+    },
+    {
+      "name": "bundled",
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source/tools/offline04f_compile.py",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source",
+        "--dotnet",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/dotnet/dotnet",
+        "--unity-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-engine",
+        "--editor-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-editor",
+        "--urp-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-urp",
+        "--input-system",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/input-build/Unity.InputSystem.dll",
+        "--nunit",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/unity-nunit/package/net40/unity-custom/nunit.framework.dll",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/bundled"
+      ],
+      "exit": 0,
+      "seconds": 209.48280835151672
+    },
+    {
+      "name": "full",
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source/tools/offline04f_tests.py",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source",
+        "--dotnet",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/dotnet/dotnet",
+        "--unity-references",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/refs-engine",
+        "--nunit",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/nunit/lib/netstandard2.0/nunit.framework.dll",
+        "--nunitlite",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/nunitlite/lib/netstandard2.0/nunitlite.dll",
+        "--assembly",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/matrix/player-both-builtin.dll",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/full",
+        "--baseline-report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-baseline/full/test-report.json"
+      ],
+      "exit": 0,
+      "seconds": 362.740341424942
+    },
+    {
+      "name": "boundaries",
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source/tools/check_04g_assemblies.py",
+        "--matrix",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/matrix",
+        "--dotnet",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/dotnet/dotnet",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/boundaries"
+      ],
+      "exit": 0,
+      "seconds": 12.414903163909912
+    },
+    {
+      "name": "syntax",
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02a-final-source/tools/check_visual_rebirth_04a_syntax.py",
+        "--dotnet",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/deps/dotnet/dotnet",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/wr02a-final/syntax.json"
+      ],
+      "exit": 0,
+      "seconds": 19.439446926116943
+    }
+  ],
+  "native": "NOT RUN"
+}

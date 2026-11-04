@@ -47,6 +47,8 @@ namespace NeonSyndicate
             for(int sub=0;sub<_tris.Length;sub++)foreach(int index in source._tris[sub])_tris[sub].Add(index+offset);
         }
         public int SubmeshCount { get { return _tris.Length; } }
+        /// <summary>The triangle indices of one submesh (read only; the wilds builder packs only the used submeshes).</summary>
+        public IReadOnlyList<int> Triangles(int submesh) { return _tris[submesh]; }
         public int VertexCount { get { return Vertices.Count; } }
 
         public bool HasGeometry(int submesh)

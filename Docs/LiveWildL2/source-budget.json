@@ -1,0 +1,34 @@
+{
+  "scope": "Source arithmetic only; runtime reserved areas differ, not native performance",
+  "eligible": {
+    "Boulder": 965,
+    "RockSpire": 327,
+    "DeadTree": 169
+  },
+  "chunks_whole_plan": 294,
+  "triangles_per_variant": {
+    "Boulder": [
+      1600,
+      768,
+      320
+    ],
+    "RockSpire": [
+      2160,
+      1036,
+      432
+    ],
+    "DeadTree": [
+      2172,
+      1042,
+      434
+    ]
+  },
+  "shared_material_sets": 2,
+  "texture_maps": 6,
+  "texture_resolution": [
+    1024,
+    1024
+  ],
+  "runtime_policy": "At most three LOD renderer meshes per admitted family per existing chunk, no per-piece object/Update; boot resident mesh ownership",
+  "native_profiler": "NOT RUN"
+}

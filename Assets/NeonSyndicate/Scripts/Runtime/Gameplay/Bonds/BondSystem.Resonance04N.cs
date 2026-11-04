@@ -78,6 +78,7 @@ namespace NeonSyndicate
                 CreatureAction action=r.Archetype=="ash_warden"?CreatureAction.Charge:r.Archetype=="storm_skimmer"?CreatureAction.Spit:CreatureAction.Breath;
                 if(_regionalArt04OE==2)action=CreatureAction.Dive;
                 _body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);_body.Glow(1.4f);
+                if(_regionalArt04OE>0 && Game.Fx!=null)Game.Fx.AscensionLens04OH(_body.transform.position+Vector3.up*.07f,_body.transform.eulerAngles.y,1.1f,.55f,_regionalArt04OE==2);
                 Underheart04ESounds.Play(UhSfx.AssistBurst,_body.ChestPosition,.35f,.8f);
                 if(r.Archetype=="ash_warden"){StartBrace(r);_braceUntil=UnityEngine.Time.time+3f;_braceCap=Mathf.Min(_braceCap,40f);_braceCapMax=_braceCap;_body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);}
             }
@@ -107,6 +108,7 @@ namespace NeonSyndicate
             if(regional==1)hit.Poise+=refined?10f:8f;
             if(regional==2)hit.Element=Element.Volt;
             target.Health.TakeDamage(hit);float applied=target.Health.LastApplied+target.Health.LastArmorApplied;
+            if(_regionalArt04OE>0 && Game.Fx!=null)Game.Fx.AscensionLens04OH(at-Vector3.up*.4f,p.transform.eulerAngles.y,confirmed?1.7f:.8f,.4f,_regionalArt04OE==2);
             CompanionProfile profile=ProfileOf(r);
             if(Game.Fx!=null)
             {

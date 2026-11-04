@@ -1,0 +1,12 @@
+{
+  "head": "cedb86c41aeae5c3672fa273c649626db5aaa1fd",
+  "currentEntries": 2382,
+  "uniqueObjects": 1658,
+  "uniqueBytes": 841719167,
+  "allCurrentObjectHashesAndSizesPass": true,
+  "allCurrentErrors": [],
+  "newEntriesFreshlyFetchedIntoEmptyObjectCache": 44,
+  "newFreshErrors": [],
+  "passed": true,
+  "nativeUnity": "NOT RUN"
+}

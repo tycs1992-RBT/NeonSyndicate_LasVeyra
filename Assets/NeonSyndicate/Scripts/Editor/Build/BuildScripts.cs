@@ -64,6 +64,8 @@ namespace NeonSyndicate.EditorTools
             NeonSyndicateSetup.FixInputHandling(false);
             NeonSyndicateSetup.RunSetup(false);
             NeonSyndicateSetup.EnsureShaderKeep(true);
+            // Wave 4 owner decision: prepare the owner-approved live characters (a no-op when their art has not changed).
+            global::NeonSyndicate.Editor.LiveCastSetup.PrepareForBuild();
             string scene = NeonSyndicateSetup.ScenePath;
             if (!File.Exists(scene))
             {

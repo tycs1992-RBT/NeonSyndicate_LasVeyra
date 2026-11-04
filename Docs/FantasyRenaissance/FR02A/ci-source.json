@@ -1,0 +1,18 @@
+{
+  "source_sha": "7c70784f612b89349a49ec3cafcff8c609627da5",
+  "push_run": 40375716513,
+  "pr_run": 40375728892,
+  "source_job": 121758102317,
+  "source_conclusion": "failure",
+  "new_fr02a_stage": "success,185/185 and39strict exports",
+  "earlier_l1_l2_l3_fr01_fr01e": "success",
+  "failed_assertions": [
+    "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+    "All prior tests and exclusions preserved"
+  ],
+  "later_skipped_steps": "Not passes",
+  "lfs_run": 40375716475,
+  "lfs_conclusion": "success",
+  "normalized_source": "c61df9c5f9a98578aae8d8716bd499d8bc78f5d4",
+  "native_unity": "NOT RUN"
+}

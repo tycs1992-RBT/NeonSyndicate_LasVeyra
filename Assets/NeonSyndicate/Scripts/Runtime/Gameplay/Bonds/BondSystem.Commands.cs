@@ -12,12 +12,21 @@ namespace NeonSyndicate
     public sealed partial class BondSystem
     {
         private readonly HoldGesture _hold = new HoldGesture(0.6f);
+        /// <summary>H8S: tap, hold and the optional double tap of the companion button turned into commands.</summary>
+        private readonly CompanionCallGestureH8S _call = new CompanionCallGestureH8S();
 
         private struct Message
         {
             public string Text;
             public float Left;
             public bool Warn;
+            /// <summary>H8S: a companion bark (subtitle of its call), drawn larger with the text size setting when it fits.</summary>
+            public bool Bark;
+            /// <summary>Measured widths (base and scaled font), filled once on the first GUI pass that draws the line.</summary>
+            public bool Measured;
+            public float Width;
+            public float WidthScaled;
+            public int ScaledFont;
         }
 
         private readonly List<Message> _messages = new List<Message>();
@@ -32,11 +41,13 @@ namespace NeonSyndicate
             if (!can)
             {
                 _hold.Reset();
+                _call.Reset();
                 return;
             }
             HoldGesture.Result g = _hold.Update(Act.CompanionDown, Act.CompanionHeld, Time.unscaledDeltaTime);
-            if (g == HoldGesture.Result.Tap) ToggleFollowWait();
-            else if (g == HoldGesture.Result.Hold) ManualRecall();
+            CompanionCallGestureH8S.Command command = _call.Update(g, Act.CompanionDown, Settings.CompanionDoubleTapCallH8S, Time.unscaledDeltaTime);
+            if (command == CompanionCallGestureH8S.Command.Toggle) ToggleFollowWait();
+            else if (command == CompanionCallGestureH8S.Command.Recall) ManualRecall();
             if (Act.CompanionAssist)
             {if(_synergyRunning04N)_synergyPress04N=true;else RequestAssist();}
         }
@@ -68,6 +79,7 @@ namespace NeonSyndicate
                 _body.ClearBlock();
                 Underheart04ESounds.Play(UhSfx.CompanionFollow, _body.ChestPosition, 0.8f, 1f);
                 Say(NameOf(r) + " follows you.", 2f, false);
+                NoteCommandH8S(false);
             }
             else
             {
@@ -76,6 +88,7 @@ namespace NeonSyndicate
                 _body.Mode = CompanionMode.Wait;
                 Underheart04ESounds.Play(UhSfx.CompanionWait, _body.ChestPosition, 0.8f, 1f);
                 Say(NameOf(r) + " waits here. Tap N to call it on, hold N to call it to your side.", 3f, false);
+                NoteCommandH8S(false);
             }
             ReportStatus();
         }
@@ -112,6 +125,8 @@ namespace NeonSyndicate
                 r.State = (int)CompanionState.Following;
                 _body.Mode = CompanionMode.Follow;
                 Say(NameOf(r) + " comes to your side.", 2f, false);
+                NoteCommandH8S(false);
+                Bark(CompanionBarkH8S.Regrouping);
                 ReportStatus();
             }
             else
@@ -125,6 +140,7 @@ namespace NeonSyndicate
         {
             string text = BondAssistRules.RefusalText(why, r != null ? NameOf(r) : null, cooldown);
             PlayRefuse(r != null);
+            NoteCommandH8S(true);
             if (r == null && Game.Hud != null) Game.Hud.Notify(text, 3f);
             else Say(text, 3.5f, true);
         }

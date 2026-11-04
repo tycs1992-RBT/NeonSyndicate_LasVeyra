@@ -1,0 +1,1143 @@
+{
+  "license": "CC0-1.0",
+  "creator": "Original project geometry for FR02A",
+  "source": "ArtSource/HeartFR02A/LivingGothicStreets.blend",
+  "source_sha256": "ce0950101e00d060452714ba9c004980bf5723969f9c56311f2ce6aaec259e9d",
+  "source_bytes": 6044291,
+  "axis": "Blender Z-up metres, FBX -Z forward Y-up, baked transform",
+  "modules": [
+    {
+      "name": "StreetTownhouse",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx",
+      "triangles": 3400,
+      "vertices": 2268,
+      "source_bounds": [
+        [
+          -3.9628078937530518,
+          -5.474999904632568,
+          0.0
+        ],
+        [
+          3.9628078937530518,
+          4.949999809265137,
+          11.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "ed700117358bf72b3050868a6b0ebcb03c544c654b845e583280af66669c83b0",
+      "bytes": 158620
+    },
+    {
+      "name": "StreetTownhouse",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx",
+      "triangles": 2332,
+      "vertices": 1556,
+      "source_bounds": [
+        [
+          -3.9628078937530518,
+          -5.474999904632568,
+          0.0
+        ],
+        [
+          3.9628078937530518,
+          4.949999809265137,
+          11.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "cc671ce2b49c26fa4ef1957d8f35f46f3e76a4a39e5ed3c5c6f947d8823a1f92",
+      "bytes": 112060
+    },
+    {
+      "name": "StreetTownhouse",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx",
+      "triangles": 1412,
+      "vertices": 942,
+      "source_bounds": [
+        [
+          -3.9628078937530518,
+          -5.375,
+          0.0
+        ],
+        [
+          3.9628078937530518,
+          4.949999809265137,
+          11.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "de58cd5fba09dd783a61c071d303d3acaa79b187901fabdeaf6f37bd21c71158",
+      "bytes": 76972
+    },
+    {
+      "name": "StreetResidence",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx",
+      "triangles": 4042,
+      "vertices": 2683,
+      "source_bounds": [
+        [
+          -4.467564582824707,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          4.467564582824707,
+          5.449999809265137,
+          18.399999618530273
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "356a67d9fe34bccf2d4dc6108289e84277d71da59a65b2e0c6ff7f9312d112c1",
+      "bytes": 175660
+    },
+    {
+      "name": "StreetResidence",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx",
+      "triangles": 2838,
+      "vertices": 1887,
+      "source_bounds": [
+        [
+          -4.467564582824707,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          4.467564582824707,
+          5.449999809265137,
+          18.399999618530273
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "02b8f8fe5f5001118aa6b1a7ed1c6544ec14faf98d54b9a1df44af7aa7f15a94",
+      "bytes": 123596
+    },
+    {
+      "name": "StreetResidence",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx",
+      "triangles": 2014,
+      "vertices": 1341,
+      "source_bounds": [
+        [
+          -4.467564582824707,
+          -5.875,
+          0.0
+        ],
+        [
+          4.467564582824707,
+          5.449999809265137,
+          18.399999618530273
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "4d6132104ca753e58f1531e78b0329c30ee6eec3c26015af8ead3c9e6c00a01f",
+      "bytes": 94652
+    },
+    {
+      "name": "StreetMerchant",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx",
+      "triangles": 3951,
+      "vertices": 2607,
+      "source_bounds": [
+        [
+          -4.9551544189453125,
+          -7.349999904632568,
+          0.0
+        ],
+        [
+          4.9551544189453125,
+          5.449999809265137,
+          12.03499984741211
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "4c12f2829f7f5bdeab0eb7c8c3ed16b5ee6552bb2cf7e08cf423304acd084fde",
+      "bytes": 174860
+    },
+    {
+      "name": "StreetMerchant",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx",
+      "triangles": 2635,
+      "vertices": 1751,
+      "source_bounds": [
+        [
+          -4.9551544189453125,
+          -7.349999904632568,
+          0.0
+        ],
+        [
+          4.9551544189453125,
+          5.449999809265137,
+          12.03499984741211
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "bda45859070697e3e5c68935b330a756954428be246e4129722569455d9eb74a",
+      "bytes": 124236
+    },
+    {
+      "name": "StreetMerchant",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx",
+      "triangles": 1595,
+      "vertices": 1065,
+      "source_bounds": [
+        [
+          -4.9551544189453125,
+          -7.349999904632568,
+          0.0
+        ],
+        [
+          4.9551544189453125,
+          5.449999809265137,
+          12.03499984741211
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "3d916c534b1db6f608af78dc4a74edf570a1040ad24458025a554cbfe9598c6d",
+      "bytes": 86828
+    },
+    {
+      "name": "StreetWorkshop",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx",
+      "triangles": 2008,
+      "vertices": 1340,
+      "source_bounds": [
+        [
+          -5.800000190734863,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          5.800000190734863,
+          5.449999809265137,
+          11.835000038146973
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "57a9389e597de696d74533d3b4d786080186bdf9ffbae6b3310ad9faab85dd55",
+      "bytes": 109020
+    },
+    {
+      "name": "StreetWorkshop",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx",
+      "triangles": 1324,
+      "vertices": 884,
+      "source_bounds": [
+        [
+          -5.800000190734863,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          5.800000190734863,
+          5.449999809265137,
+          11.835000038146973
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "527d182ecec4b6d6d1e789f9820c8d28324c430ebcdec3a48822527182d4570b",
+      "bytes": 77244
+    },
+    {
+      "name": "StreetWorkshop",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx",
+      "triangles": 904,
+      "vertices": 604,
+      "source_bounds": [
+        [
+          -5.800000190734863,
+          -5.875,
+          0.0
+        ],
+        [
+          5.800000190734863,
+          5.449999809265137,
+          11.835000038146973
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "01db62ab05d5bd418aad1111d538cb5f542e2b47dce2138678e98bfc097586fb",
+      "bytes": 61996
+    },
+    {
+      "name": "StreetGuild",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx",
+      "triangles": 3460,
+      "vertices": 2308,
+      "source_bounds": [
+        [
+          -4.9551544189453125,
+          -7.079999923706055,
+          0.0
+        ],
+        [
+          4.9551544189453125,
+          5.449999809265137,
+          12.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "b1162879038f01acab2269cc79f7265af1a4de9a060f572fe6326d4186dc2d67",
+      "bytes": 157516
+    },
+    {
+      "name": "StreetGuild",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx",
+      "triangles": 2392,
+      "vertices": 1596,
+      "source_bounds": [
+        [
+          -4.9551544189453125,
+          -7.079999923706055,
+          0.0
+        ],
+        [
+          4.9551544189453125,
+          5.449999809265137,
+          12.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "53e76d71bcda7e702e9e08499e8e5dd96013740380baa0dc1fbeaf88f24ec135",
+      "bytes": 111148
+    },
+    {
+      "name": "StreetGuild",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx",
+      "triangles": 1708,
+      "vertices": 1140,
+      "source_bounds": [
+        [
+          -4.9551544189453125,
+          -7.079999923706055,
+          0.0
+        ],
+        [
+          4.9551544189453125,
+          5.449999809265137,
+          12.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "3c661963d1232aa15cce3447a3523c7389e3ac18558981bfe72e1e2e2412cfaa",
+      "bytes": 87292
+    },
+    {
+      "name": "StreetCourtRow",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx",
+      "triangles": 3028,
+      "vertices": 2020,
+      "source_bounds": [
+        [
+          -7.664440155029297,
+          -4.974999904632568,
+          0.0
+        ],
+        [
+          7.664440155029297,
+          4.5,
+          11.710000991821289
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "0344607e741c21f0bde760a2832698c6595100ce9a2b1cec46b59964091d809c",
+      "bytes": 142092
+    },
+    {
+      "name": "StreetCourtRow",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx",
+      "triangles": 2056,
+      "vertices": 1372,
+      "source_bounds": [
+        [
+          -7.664440155029297,
+          -4.974999904632568,
+          0.0
+        ],
+        [
+          7.664440155029297,
+          4.5,
+          11.710000991821289
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "cb6ba073705946d0a2779dc824beca4e72efe5a7357be0e0284539f70cf9915e",
+      "bytes": 100684
+    },
+    {
+      "name": "StreetCourtRow",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx",
+      "triangles": 1420,
+      "vertices": 948,
+      "source_bounds": [
+        [
+          -7.664440155029297,
+          -4.875,
+          0.0
+        ],
+        [
+          7.664440155029297,
+          4.5,
+          11.710000991821289
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "54a0f2895deddcdafc2c80cca72083b056a837b775a9932ace1eb18aa4c39c88",
+      "bytes": 77052
+    },
+    {
+      "name": "StreetRuin",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx",
+      "triangles": 1844,
+      "vertices": 1230,
+      "source_bounds": [
+        [
+          -4.320156097412109,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          4.300000190734863,
+          5.175000190734863,
+          8.110000610351562
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "3a7baba852ee1a558aefce9df8f2b3966c50fd1e9321c7a499f85c924c3f0f49",
+      "bytes": 102316
+    },
+    {
+      "name": "StreetRuin",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx",
+      "triangles": 1256,
+      "vertices": 838,
+      "source_bounds": [
+        [
+          -4.320156097412109,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          4.300000190734863,
+          5.175000190734863,
+          8.110000610351562
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "2fbedad2fbc9f36ec1b8624a079f6f7dfba85d7aa21b94a67c8c78bc456008c3",
+      "bytes": 73692
+    },
+    {
+      "name": "StreetRuin",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx",
+      "triangles": 884,
+      "vertices": 590,
+      "source_bounds": [
+        [
+          -4.320156097412109,
+          -5.875,
+          0.0
+        ],
+        [
+          4.300000190734863,
+          5.175000190734863,
+          8.110000610351562
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "25f2d8962e9c8eea61134bd62a61c4a9554364f51a3aea005b36fabc0bc6b689",
+      "bytes": 60428
+    },
+    {
+      "name": "StreetCorner",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx",
+      "triangles": 2986,
+      "vertices": 1979,
+      "source_bounds": [
+        [
+          -4.453101634979248,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          4.465335845947266,
+          5.449999809265137,
+          15.399999618530273
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "725ddb1e845232327524f7e11c023488e87c86afc4379f2a7e9cb88be2f1a14b",
+      "bytes": 141740
+    },
+    {
+      "name": "StreetCorner",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx",
+      "triangles": 2070,
+      "vertices": 1375,
+      "source_bounds": [
+        [
+          -4.453101634979248,
+          -5.974999904632568,
+          0.0
+        ],
+        [
+          4.465335845947266,
+          5.449999809265137,
+          15.399999618530273
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "00bf182a319f5277e5f177ded3a9058bb37d90916b3d48ef394e65b3cd76944b",
+      "bytes": 100956
+    },
+    {
+      "name": "StreetCorner",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx",
+      "triangles": 1462,
+      "vertices": 973,
+      "source_bounds": [
+        [
+          -4.453101634979248,
+          -5.875,
+          0.0
+        ],
+        [
+          4.465335845947266,
+          5.449999809265137,
+          15.399999618530273
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "858eb71144f20cb1ec852c9b596ba567c81d1c3cad79fc3bc445fc520d1a5a37",
+      "bytes": 78972
+    },
+    {
+      "name": "StreetGallery",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx",
+      "triangles": 3792,
+      "vertices": 2530,
+      "source_bounds": [
+        [
+          -5.948733329772949,
+          -7.079999923706055,
+          0.0
+        ],
+        [
+          5.948733329772949,
+          5.449999809265137,
+          12.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "3173177c2ef2f4a128aad42263649854a870ffed4c8e480ae6143e213fe71da8",
+      "bytes": 173244
+    },
+    {
+      "name": "StreetGallery",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx",
+      "triangles": 2628,
+      "vertices": 1754,
+      "source_bounds": [
+        [
+          -5.948733329772949,
+          -7.079999923706055,
+          0.0
+        ],
+        [
+          5.948733329772949,
+          5.449999809265137,
+          12.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "0e680ac3eca7f5badf49c716925ef681a56e3395e9f2a1d87dc10db808068586",
+      "bytes": 122700
+    },
+    {
+      "name": "StreetGallery",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx",
+      "triangles": 1660,
+      "vertices": 1108,
+      "source_bounds": [
+        [
+          -5.948733329772949,
+          -7.079999923706055,
+          0.0
+        ],
+        [
+          5.948733329772949,
+          5.449999809265137,
+          12.734999656677246
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "Masonry",
+        "SlateTimber"
+      ],
+      "sha256": "1d20ba0c22b7e8e259c0a0c1c5cbd980c439a10aa07e442cdfcf5c7abffae1dd",
+      "bytes": 87148
+    },
+    {
+      "name": "CourtMarket",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx",
+      "triangles": 659,
+      "vertices": 395,
+      "source_bounds": [
+        [
+          -3.0506651401519775,
+          -2.25,
+          0.0
+        ],
+        [
+          3.0506649017333984,
+          2.125,
+          4.610000133514404
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "7f5a2231b4978cc839f9b854cb9699e74526f543fde0ca73be6be8bbb604c4c1",
+      "bytes": 55164
+    },
+    {
+      "name": "CourtMarket",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx",
+      "triangles": 363,
+      "vertices": 227,
+      "source_bounds": [
+        [
+          -3.0506651401519775,
+          -2.25,
+          0.0
+        ],
+        [
+          3.0506649017333984,
+          2.125,
+          4.610000133514404
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "d90e0f917b0037a1a24a4cccf55e69ba79644ecec016f2100b837893faa8fd76",
+      "bytes": 43244
+    },
+    {
+      "name": "CourtMarket",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx",
+      "triangles": 219,
+      "vertices": 143,
+      "source_bounds": [
+        [
+          -3.0506651401519775,
+          -2.25,
+          0.0
+        ],
+        [
+          3.0506649017333984,
+          2.125,
+          4.610000133514404
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "f087b10242d030d9109a4d4777db6de97cf3b8f21ca8c1cbe7f5f29544706eac",
+      "bytes": 36380
+    },
+    {
+      "name": "CourtWorkyard",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx",
+      "triangles": 240,
+      "vertices": 144,
+      "source_bounds": [
+        [
+          -1.8049999475479126,
+          -0.699999988079071,
+          0.0
+        ],
+        [
+          1.649999976158142,
+          1.5499999523162842,
+          1.6399999856948853
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "SlateTimber"
+      ],
+      "sha256": "0b246d553ba254e96cf25685894d04180bc359f61acb1027f22ca664dd97926b",
+      "bytes": 30988
+    },
+    {
+      "name": "CourtWorkyard",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx",
+      "triangles": 192,
+      "vertices": 120,
+      "source_bounds": [
+        [
+          -1.8049999475479126,
+          -0.699999988079071,
+          0.0
+        ],
+        [
+          1.649999976158142,
+          1.5499999523162842,
+          1.6399999856948853
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "SlateTimber"
+      ],
+      "sha256": "d8497598d48a0c8cd3f9e09e7461c4608c3dfc6949bd0d26df5376515e943977",
+      "bytes": 29100
+    },
+    {
+      "name": "CourtWorkyard",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx",
+      "triangles": 168,
+      "vertices": 108,
+      "source_bounds": [
+        [
+          -1.8049999475479126,
+          -0.699999988079071,
+          0.0
+        ],
+        [
+          1.649999976158142,
+          1.5499999523162842,
+          1.6399999856948853
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "SlateTimber"
+      ],
+      "sha256": "68e102eddeeb7cb9a5eefb06c6576d61d0ada499727ffe13ef5d6c1bf1dd7982",
+      "bytes": 28188
+    },
+    {
+      "name": "CourtGarden",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx",
+      "triangles": 432,
+      "vertices": 272,
+      "source_bounds": [
+        [
+          -2.0,
+          -1.725000023841858,
+          0.0
+        ],
+        [
+          2.0,
+          1.3250000476837158,
+          1.9656672477722168
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "257e850f255f3499ededbef9e5fc302b23ce129b27d65d97bdaca08c6756a28c",
+      "bytes": 51660
+    },
+    {
+      "name": "CourtGarden",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx",
+      "triangles": 272,
+      "vertices": 172,
+      "source_bounds": [
+        [
+          -2.0,
+          -1.725000023841858,
+          0.0
+        ],
+        [
+          2.0,
+          1.3250000476837158,
+          1.9270700216293335
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "505a5e2213597d731b73ec5f43559167875b252f85bb0469d52e0c8767a1d6a4",
+      "bytes": 43420
+    },
+    {
+      "name": "CourtGarden",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx",
+      "triangles": 176,
+      "vertices": 112,
+      "source_bounds": [
+        [
+          -2.0,
+          -1.725000023841858,
+          0.0
+        ],
+        [
+          2.0,
+          1.3250000476837158,
+          1.9308515787124634
+        ]
+      ],
+      "materials": [
+        "CarvedTrim",
+        "Masonry",
+        "MossRoot",
+        "SlateTimber"
+      ],
+      "sha256": "3b111f97a5589d3a0e3562983ce32f2d38efacbe8aa92f88d565613e53010857",
+      "bytes": 38428
+    },
+    {
+      "name": "CourtLantern",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx",
+      "triangles": 376,
+      "vertices": 230,
+      "source_bounds": [
+        [
+          -0.4406583607196808,
+          -0.5049999952316284,
+          0.0
+        ],
+        [
+          0.4406583607196808,
+          0.42500004172325134,
+          4.160000324249268
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "SlateTimber"
+      ],
+      "sha256": "188571c58baee1758c342518d045755f8eb28f3c6bedac161562318410e94bd8",
+      "bytes": 40684
+    },
+    {
+      "name": "CourtLantern",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx",
+      "triangles": 216,
+      "vertices": 134,
+      "source_bounds": [
+        [
+          -0.4406583607196808,
+          -0.5049999952316284,
+          0.0
+        ],
+        [
+          0.4406583607196808,
+          0.42500004172325134,
+          4.160000324249268
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "SlateTimber"
+      ],
+      "sha256": "0e56e9409a82da15e4f735004066b673afc81429c4b5b02a3eec7ae70a4c919f",
+      "bytes": 35036
+    },
+    {
+      "name": "CourtLantern",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx",
+      "triangles": 136,
+      "vertices": 86,
+      "source_bounds": [
+        [
+          -0.4406583607196808,
+          -0.5049999952316284,
+          0.0
+        ],
+        [
+          0.4406583607196808,
+          0.42500004172325134,
+          4.160000324249268
+        ]
+      ],
+      "materials": [
+        "AmethystBronze",
+        "CarvedTrim",
+        "SlateTimber"
+      ],
+      "sha256": "a80f1c492b37c360555a90fe92b4579068b6f5d994bf751e25e96b038ec4bbd4",
+      "bytes": 32252
+    }
+  ],
+  "textures": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "bytes": 441260,
+      "sha256": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "bytes": 239504,
+      "sha256": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "bytes": 174544,
+      "sha256": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "bytes": 460219,
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "bytes": 183352,
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "bytes": 144397,
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "bytes": 339477,
+      "sha256": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "bytes": 172976,
+      "sha256": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "bytes": 163077,
+      "sha256": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "bytes": 416292,
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "bytes": 274597,
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "bytes": 215909,
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "bytes": 524825,
+      "sha256": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "bytes": 268907,
+      "sha256": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "bytes": 290141,
+      "sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae"
+    }
+  ],
+  "new_textures": 0,
+  "geometry_nodes": "Three retained bounded-garden variation node groups, realized into production meshes before UV unwrap. Architecture authored with reproducible Blender scripts.",
+  "external_inputs": [],
+  "native_unity": "NOT RUN"
+}

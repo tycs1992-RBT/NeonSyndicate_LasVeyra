@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: f13c1b334e425d09ba8f6203874af53f
+TextureImporter:
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+  isReadable: 0
+  textureType: 0
+  textureShape: 1
+  maxTextureSize: 512
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 4
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  alphaSource: 1
+  alphaIsTransparency: 0
+  userData: Original H2 material maps
+  assetBundleName:
+  assetBundleVariant:

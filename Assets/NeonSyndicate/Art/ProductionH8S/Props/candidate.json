@@ -1,0 +1,66 @@
+{
+  "license": "CC0-1.0",
+  "creator": "Quaternius",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "enabled": false,
+  "native_unity": "NOT RUN",
+  "colliders": "Original Forge collider only; gallery pieces are decorative visual previews",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_BaseColor.png",
+      "sha256": "50422bbda9661effc259caf8b386224cac4b5ca811d2c5b3b8b25ae8efc714db",
+      "bytes": 1361221
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_Normal.png",
+      "sha256": "ab7315c864c9a9e6d716c940a599928506e1569d3b0c9085f8f1a64ec520d790",
+      "bytes": 3625541
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_ORM.png",
+      "sha256": "7407bccfc39ca74ecd68a61217395959bf56ac2063e6c93b384b11f07f5687c5",
+      "bytes": 1871475
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_MetallicSmoothness.png",
+      "sha256": "3996e9cfc7b7839b6001f72ce65f02de7b33b339a2a4952c732ca3d9991265f8",
+      "bytes": 1111342
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_BaseColor.png",
+      "sha256": "075fbc9ec2fabc15732bd4025b6f63a0b25762df38440d06bf30437565d39bab",
+      "bytes": 2232961
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_Normal.png",
+      "sha256": "3340c4cc47ff06d5e94a2dbe2a2a12d914d0ef055fcf66f63d876666bd160e42",
+      "bytes": 3485710
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_ORM.png",
+      "sha256": "7bf417e82baf313793c5791bf48cdc8e573f1f7136197785bf0eb235cb0f8153",
+      "bytes": 2064585
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_MetallicSmoothness.png",
+      "sha256": "92f00bc1df1f7f40f30b6fa184f2faf5d2c337e4f5e169f7a16e037b187a5ac7",
+      "bytes": 734380
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Anvil.fbx",
+      "sha256": "104fdb41470cceb8e2cc54a24f9c17f0fb25296c19cd0001ae1591e6c9686a08",
+      "bytes": 40364
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Workbench.fbx",
+      "sha256": "a129791070ae4447ea02d96db85d55e70bd3c28868e643970e6b42e724a17820",
+      "bytes": 58636
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/BookStand.fbx",
+      "sha256": "6aa790ab79ded11e3553fa018f007d6c1241a75981e212409f57bf6833f01c00",
+      "bytes": 61980
+    }
+  ]
+}

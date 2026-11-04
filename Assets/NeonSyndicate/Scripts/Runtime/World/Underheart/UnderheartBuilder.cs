@@ -114,6 +114,7 @@ namespace NeonSyndicate
 
         public IEnumerator Build(Action<string> progress)
         {
+            PrepareUnderheartRewrite();
             foreach (UhCell c in L.Cells) Group(GroupOf(c));
             Step("vista window", PlanVistaWindow);
             for (int i = 0; i < L.Cells.Count; i++)
@@ -122,14 +123,17 @@ namespace NeonSyndicate
                 _group = GroupOf(c);
                 try
                 {
+                    BeginUnderheartRewriteCell(c);
                     BuildShell(c);
                     CellsBuilt++;
                 }
                 catch (Exception e)
                 {
+                    FailUnderheartRewriteCell(c);
                     Problems.Add("shell " + c.Id + ": " + e.Message);
                     Log.Exception("Underheart shell " + c.Id, e);
                 }
+                finally { EndUnderheartRewriteCell(); }
                 if (i % 6 == 5)
                 {
                     if (progress != null) progress("Carving the Underheart (" + (i + 1) + "/" + L.Cells.Count + ")");
@@ -145,18 +149,21 @@ namespace NeonSyndicate
             {
                 UhCell c = L.Cells[i];
                 _group = GroupOf(c);
-                try { Dress(c); GothicCavern04OB(c); }
+                try { BeginUnderheartRewriteCell(c); Dress(c); GothicCavern04OB(c); }
                 catch (Exception e)
                 {
+                    FailUnderheartRewriteCell(c);
                     Problems.Add("dressing " + c.Id + ": " + e.Message);
                     Log.Exception("Underheart dressing " + c.Id, e);
                 }
+                finally { EndUnderheartRewriteCell(); }
                 if (i % 8 == 7) yield return null;
             }
             Step("landmarks", BuildLandmarks);
             Step("lamp shafts", BuildLampShafts);
             yield return null;
             FlushAll();
+            FinishUnderheartRewrite();
         }
 
         private void Step(string what, Action a)
@@ -174,7 +181,7 @@ namespace NeonSyndicate
         /// <summary>The mesh builder for a material in the current render group.</summary>
         public MeshBuilder Get(Material m, float tile)
         {
-            string key = _group + "|" + m.GetInstanceID();
+            string key = _group + "|" + m.GetInstanceID() + UnderheartRewriteBucketSuffix();
             MeshBuilder b;
             if (_buckets.TryGetValue(key, out b) && b.VertexCount > 60000)
             {
@@ -189,6 +196,7 @@ namespace NeonSyndicate
                 _bucketGroups[key] = _group;
             }
             b.Tile = tile;
+            RememberUnderheartRewriteBucket(key);
             return b;
         }
 
@@ -208,6 +216,7 @@ namespace NeonSyndicate
             mr.lightProbeUsage = LightProbeUsage.Off;
             mr.reflectionProbeUsage = ReflectionProbeUsage.Off;
             go.isStatic = true;
+            CaptureUnderheartRewriteBucket(key, m, mesh, go);
             RendererCount++;
             TriangleCount += mesh.triangles.Length / 3;
             _buckets.Remove(key);

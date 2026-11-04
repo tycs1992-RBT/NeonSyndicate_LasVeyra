@@ -1,0 +1,778 @@
+{
+  "schema_version": 1,
+  "license": "CC0-1.0",
+  "creator": "Original fitted civic crowns and skyline reliquaries authored for this project",
+  "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+  "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+  "source_bytes": 3897468,
+  "axis": "Blender Z-up metres; FBX -Z forward Y-up, baked transform",
+  "pivot": "Original venue local origin, not bounding-box centre. Unity x,height,depth maps to Blender x,depth,height.",
+  "scale_policy": "Scale1 only; exact Archive depth48 and Office depth30. No automatic fit distortion.",
+  "secondary_visual_only": true,
+  "collision_policy": "Visual only. Keep existing H5 Plan or original family9 physical surfaces visible as collision witness, plus all original structure/doors/actors. New upper silhouettes are not advertised as walkable. Native contact acceptance NOT RUN.",
+  "modules": [
+    {
+      "name": "WRArchiveCrown",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD0.fbx",
+      "triangles": 15056,
+      "vertices": 9950,
+      "uv_vertices": 45168,
+      "source_bounds": [
+        [
+          -15.020001411437988,
+          -0.7250000238418579,
+          8.329998970031738
+        ],
+        [
+          15.020001411437988,
+          48.47999954223633,
+          35.099998474121094
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.7250000238418579
+        ],
+        [
+          15.020001411437988,
+          35.099998474121094,
+          48.47999954223633
+        ]
+      ],
+      "materials": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "sha256": "1704e147bcfcb39cd2afdec7cef60256c601effb1b3bf02e7748614659ad2d30",
+      "bytes": 564588
+    },
+    {
+      "name": "WRArchiveCrown",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD1.fbx",
+      "triangles": 10128,
+      "vertices": 6670,
+      "uv_vertices": 30384,
+      "source_bounds": [
+        [
+          -15.020001411437988,
+          -0.7250000238418579,
+          8.329998970031738
+        ],
+        [
+          15.020001411437988,
+          48.47999954223633,
+          35.099998474121094
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.7250000238418579
+        ],
+        [
+          15.020001411437988,
+          35.099998474121094,
+          48.47999954223633
+        ]
+      ],
+      "materials": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "sha256": "392510ca3dd725decc358dce28a2f6b4cee2a7929753d55e277dd36f2dd113c0",
+      "bytes": 387916
+    },
+    {
+      "name": "WRArchiveCrown",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD2.fbx",
+      "triangles": 5800,
+      "vertices": 3806,
+      "uv_vertices": 17400,
+      "source_bounds": [
+        [
+          -15.020001411437988,
+          -0.7250000238418579,
+          8.329998970031738
+        ],
+        [
+          15.020001411437988,
+          48.47999954223633,
+          35.099998474121094
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.7250000238418579
+        ],
+        [
+          15.020001411437988,
+          35.099998474121094,
+          48.47999954223633
+        ]
+      ],
+      "materials": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "sha256": "84356943ab0a708c4f9678f0c2741dd2332ea843556c482519055a94ee47f47a",
+      "bytes": 234556
+    },
+    {
+      "name": "WROfficeCrown",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD0.fbx",
+      "triangles": 4908,
+      "vertices": 3234,
+      "uv_vertices": 14724,
+      "source_bounds": [
+        [
+          -15.020001411437988,
+          -0.9500000476837158,
+          8.329998970031738
+        ],
+        [
+          15.020001411437988,
+          30.42999839782715,
+          33.20000076293945
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.9500000476837158
+        ],
+        [
+          15.020001411437988,
+          33.20000076293945,
+          30.42999839782715
+        ]
+      ],
+      "materials": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "sha256": "ebb382edc1fc3c765aae1d89cfc514063d2244477e1f766bca39554ba086e755",
+      "bytes": 217772
+    },
+    {
+      "name": "WROfficeCrown",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD1.fbx",
+      "triangles": 3180,
+      "vertices": 2082,
+      "uv_vertices": 9540,
+      "source_bounds": [
+        [
+          -15.020001411437988,
+          -0.9500000476837158,
+          8.329998970031738
+        ],
+        [
+          15.020001411437988,
+          30.42999839782715,
+          33.20000076293945
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.9500000476837158
+        ],
+        [
+          15.020001411437988,
+          33.20000076293945,
+          30.42999839782715
+        ]
+      ],
+      "materials": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "sha256": "62a65dd5fcf77df4674d87c480e794afb50520d30f09fa6bb7f1d9de8527504b",
+      "bytes": 158108
+    },
+    {
+      "name": "WROfficeCrown",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD2.fbx",
+      "triangles": 1976,
+      "vertices": 1290,
+      "uv_vertices": 5928,
+      "source_bounds": [
+        [
+          -15.020001411437988,
+          -0.9500000476837158,
+          8.329998970031738
+        ],
+        [
+          15.020001411437988,
+          30.42999839782715,
+          33.20000076293945
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.9500000476837158
+        ],
+        [
+          15.020001411437988,
+          33.20000076293945,
+          30.42999839782715
+        ]
+      ],
+      "materials": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "sha256": "89b8aafb3fcf4f5b84cb91c6c7723532bbb74df3aca88ef3328d33a999eba694",
+      "bytes": 114876
+    },
+    {
+      "name": "WRSkyline809556",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD0.fbx",
+      "triangles": 20936,
+      "vertices": 13920,
+      "uv_vertices": 62808,
+      "source_bounds": [
+        [
+          -22.750553131103516,
+          -10.509974479675293,
+          -0.0059967041015625
+        ],
+        [
+          22.750553131103516,
+          10.509974479675293,
+          166.2748260498047
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -22.750553131103516,
+          -0.0059967041015625,
+          -10.509974479675293
+        ],
+        [
+          22.750553131103516,
+          166.2748260498047,
+          10.509974479675293
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "cc1fcea1d9af5ae4e266dbc213685f7b7604296eb05ec9354edafa0d1d0b5720",
+      "bytes": 1010044
+    },
+    {
+      "name": "WRSkyline809556",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD1.fbx",
+      "triangles": 11624,
+      "vertices": 7712,
+      "uv_vertices": 34872,
+      "source_bounds": [
+        [
+          -22.750553131103516,
+          -10.509974479675293,
+          -0.0059967041015625
+        ],
+        [
+          22.750553131103516,
+          10.509974479675293,
+          166.2748260498047
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -22.750553131103516,
+          -0.0059967041015625,
+          -10.509974479675293
+        ],
+        [
+          22.750553131103516,
+          166.2748260498047,
+          10.509974479675293
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "de95826c4dcac41505bd43d08f9a34e72d7e9c002fadf88087d8ba9987920d5a",
+      "bytes": 586204
+    },
+    {
+      "name": "WRSkyline809556",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD2.fbx",
+      "triangles": 6176,
+      "vertices": 4080,
+      "uv_vertices": 18528,
+      "source_bounds": [
+        [
+          -22.750553131103516,
+          -10.509974479675293,
+          -0.0059967041015625
+        ],
+        [
+          22.750553131103516,
+          10.509974479675293,
+          166.2748260498047
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -22.750553131103516,
+          -0.0059967041015625,
+          -10.509974479675293
+        ],
+        [
+          22.750553131103516,
+          166.2748260498047,
+          10.509974479675293
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "c226d6309c0f8f92ede747e22464dcfc4615230b7760b67430da2b5483166694",
+      "bytes": 333756
+    },
+    {
+      "name": "WRSkyline32874",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD0.fbx",
+      "triangles": 22428,
+      "vertices": 14914,
+      "uv_vertices": 67284,
+      "source_bounds": [
+        [
+          -25.623994827270508,
+          -9.947689056396484,
+          -0.006000518798828125
+        ],
+        [
+          25.623994827270508,
+          9.947689056396484,
+          132.56837463378906
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -25.623994827270508,
+          -0.006000518798828125,
+          -9.947689056396484
+        ],
+        [
+          25.623994827270508,
+          132.56837463378906,
+          9.947689056396484
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "fe5d0144c4f3622d080a52a17a9e074d17a018026ecd6260edf254ff53a11eb9",
+      "bytes": 1059340
+    },
+    {
+      "name": "WRSkyline32874",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD1.fbx",
+      "triangles": 12660,
+      "vertices": 8402,
+      "uv_vertices": 37980,
+      "source_bounds": [
+        [
+          -25.623994827270508,
+          -9.947689056396484,
+          -0.006000518798828125
+        ],
+        [
+          25.623994827270508,
+          9.947689056396484,
+          132.56837463378906
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -25.623994827270508,
+          -0.006000518798828125,
+          -9.947689056396484
+        ],
+        [
+          25.623994827270508,
+          132.56837463378906,
+          9.947689056396484
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "20f4d6e2f672555918981af3adfea8b4cb4484289f1f510ff01d18f6f6597704",
+      "bytes": 619852
+    },
+    {
+      "name": "WRSkyline32874",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD2.fbx",
+      "triangles": 6828,
+      "vertices": 4514,
+      "uv_vertices": 20484,
+      "source_bounds": [
+        [
+          -25.623994827270508,
+          -9.947689056396484,
+          -0.006000518798828125
+        ],
+        [
+          25.623994827270508,
+          9.947689056396484,
+          132.56837463378906
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -25.623994827270508,
+          -0.006000518798828125,
+          -9.947689056396484
+        ],
+        [
+          25.623994827270508,
+          132.56837463378906,
+          9.947689056396484
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "1fa42d20cddb1d701736b1273a1550c7fa70db7afa6f884d47359faa2f90b49d",
+      "bytes": 355324
+    },
+    {
+      "name": "WRSkyline53496",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD0.fbx",
+      "triangles": 21980,
+      "vertices": 14618,
+      "uv_vertices": 65940,
+      "source_bounds": [
+        [
+          -20.25,
+          -16.790002822875977,
+          -0.006011962890625
+        ],
+        [
+          20.25,
+          16.790002822875977,
+          166.46670532226562
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -20.25,
+          -0.006011962890625,
+          -16.790002822875977
+        ],
+        [
+          20.25,
+          166.46670532226562,
+          16.790002822875977
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "2f3c8c1e4d539a9b809b177edcd1fd18c4321cfdcd34248f329263688a5d0ff0",
+      "bytes": 1025212
+    },
+    {
+      "name": "WRSkyline53496",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD1.fbx",
+      "triangles": 12164,
+      "vertices": 8074,
+      "uv_vertices": 36492,
+      "source_bounds": [
+        [
+          -20.25,
+          -16.790002822875977,
+          -0.006011962890625
+        ],
+        [
+          20.25,
+          16.790002822875977,
+          166.46670532226562
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -20.25,
+          -0.006011962890625,
+          -16.790002822875977
+        ],
+        [
+          20.25,
+          166.46670532226562,
+          16.790002822875977
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "cbeb4ed6603b4bed09456d18b29ff7c89fa8a5a0a1d4ec183a31fa601ad3c288",
+      "bytes": 594780
+    },
+    {
+      "name": "WRSkyline53496",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD2.fbx",
+      "triangles": 6428,
+      "vertices": 4250,
+      "uv_vertices": 19284,
+      "source_bounds": [
+        [
+          -20.25,
+          -16.790002822875977,
+          -0.006011962890625
+        ],
+        [
+          20.25,
+          16.790002822875977,
+          166.46670532226562
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -20.25,
+          -0.006011962890625,
+          -16.790002822875977
+        ],
+        [
+          20.25,
+          166.46670532226562,
+          16.790002822875977
+        ]
+      ],
+      "materials": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "sha256": "9e2218c1f1a0defab6b7e54148817e1f8f2bcdcebbb2dd68e079f2c9868982c2",
+      "bytes": 340108
+    }
+  ],
+  "textures": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "bytes": 441260,
+      "sha256": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "bytes": 239504,
+      "sha256": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "bytes": 174544,
+      "sha256": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "bytes": 460219,
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "bytes": 183352,
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "bytes": 144397,
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "bytes": 339477,
+      "sha256": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "bytes": 172976,
+      "sha256": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "bytes": 163077,
+      "sha256": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "bytes": 416292,
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "bytes": 274597,
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "bytes": 215909,
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "bytes": 524825,
+      "sha256": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "bytes": 268907,
+      "sha256": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "bytes": 290141,
+      "sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae"
+    }
+  ],
+  "new_textures": 0,
+  "external_inputs": [],
+  "native_unity": "NOT RUN",
+  "contracts": [
+    {
+      "module": "WRArchiveCrown",
+      "service": "archive",
+      "seed": 479130,
+      "width": 30,
+      "depth": 48,
+      "minimum_high_roof": 8.3,
+      "preserved_voids": [
+        "nave ground and door",
+        "side galleries below original roofs",
+        "altar and gallery stair",
+        "all ground service interactions"
+      ],
+      "proposed_suppression_models": [
+        "slate_roof",
+        "mineral_pier"
+      ]
+    },
+    {
+      "module": "WROfficeCrown",
+      "service": "office",
+      "seed": 472154,
+      "width": 30,
+      "depth": 30,
+      "minimum_high_roof": 8.3,
+      "preserved_voids": [
+        "main civic door",
+        "side galleries below original roofs",
+        "rear wall",
+        "all ground service interactions"
+      ],
+      "proposed_suppression_models": [
+        "slate_roof",
+        "mineral_pier"
+      ]
+    },
+    {
+      "module": "WRSkyline809556",
+      "seed": 809556,
+      "width": 45.001105,
+      "depth": 21.18362,
+      "height": 162.37482,
+      "pivot": "Original footprint centre at CurbHeight",
+      "preserved_voids": [
+        "all original ground voids between four original piers",
+        "original top standing plane and receipt positions"
+      ],
+      "source_collision_owner": "CityBuilder.Gothic04OB original compound solid",
+      "native_collision_review": "NOT RUN",
+      "proposed_suppression": "Only exact matching original three visual appends"
+    },
+    {
+      "module": "WRSkyline32874",
+      "seed": 32874,
+      "width": 50.74799,
+      "depth": 20.0361,
+      "height": 128.66837,
+      "pivot": "Original footprint centre at CurbHeight",
+      "preserved_voids": [
+        "all original ground voids between four original piers",
+        "original top standing plane and receipt positions"
+      ],
+      "source_collision_owner": "CityBuilder.Gothic04OB original compound solid",
+      "native_collision_review": "NOT RUN",
+      "proposed_suppression": "Only exact matching original three visual appends"
+    },
+    {
+      "module": "WRSkyline53496",
+      "seed": 53496,
+      "width": 40.0,
+      "depth": 34.000003,
+      "height": 162.56671,
+      "pivot": "Original footprint centre at CurbHeight",
+      "preserved_voids": [
+        "all original ground voids between four original piers",
+        "original top standing plane and receipt positions"
+      ],
+      "source_collision_owner": "CityBuilder.Gothic04OB original compound solid",
+      "native_collision_review": "NOT RUN",
+      "proposed_suppression": "Only exact matching original three visual appends"
+    }
+  ]
+}

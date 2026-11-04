@@ -1,0 +1,26 @@
+{
+  "os": "Ubuntu24.04.3 LTS",
+  "required_unity": "6000.3.16f1",
+  "editor_revision": "a56f230f6470",
+  "executables": {
+    "Unity": null,
+    "unity": null,
+    "UnityHub": null,
+    "unityhub": null,
+    "dotnet": null,
+    "blender": null
+  },
+  "UNITY_EXE_present": false,
+  "display_available": false,
+  "license_environment_present": false,
+  "known_files": {
+    "/opt/Unity/Editor/Unity": false,
+    "/opt/unity/Editor/Unity": false,
+    "/root/Unity/Hub/Editor/6000.3.16f1/Editor/Unity": false,
+    "/root/.local/share/unity3d/Unity/Unity_lic.ulf": false,
+    "/root/.config/unity3d/Unity/Unity_lic.ulf": false
+  },
+  "new_native_launches": 0,
+  "native_unity": "NOT RUN",
+  "reason": "No installed executable, local license, display or Unity-specific remote-control tool found. Exact official archive being used only to restore managed metadata, not represented as an installed or tested native Editor."
+}

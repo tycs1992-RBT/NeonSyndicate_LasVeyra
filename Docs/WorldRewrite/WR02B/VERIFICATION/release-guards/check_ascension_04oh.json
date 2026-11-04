@@ -1,0 +1,235 @@
+{
+  "scope": "04OH owner, source-baseline and diagnostic-asset preservation. NOT native acceptance.",
+  "base": "721c1238a070e8dea08118314511c17023528feb",
+  "review_anchor": "6d5ca2cafa7dbff4f482aea3a0b57915df798a17",
+  "unexpected_existing_paths": [
+    "Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/Appearance.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/WeaponGrip.Table.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/MeshKit.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/WorldBounds.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.Fractured04OC.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/InnerWorld.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/Underheart/UnderheartBuilder.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/SaveDataTests.cs"
+  ],
+  "reviewed_lineage": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "dd05470ad9bbb2435bcfef9aadb0996477f91d07",
+      "expected_sha256": "4d1d8303816f4e19e9994d876514e3274c18bc45f9e87a9e035a6488ac4cb9d6",
+      "purpose": "Existing family/elder spawning, original NPC owner and child safety.",
+      "actual_sha256": "4d1d8303816f4e19e9994d876514e3274c18bc45f9e87a9e035a6488ac4cb9d6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/Appearance.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "dd05470ad9bbb2435bcfef9aadb0996477f91d07",
+      "expected_sha256": "8abcbe7c538d1a7dbdb07f9e216d7abe0621945b5c2381f346ffc3f11a7a1656",
+      "purpose": "Existing age field, child/elder appearance factories and equality.",
+      "actual_sha256": "8abcbe7c538d1a7dbdb07f9e216d7abe0621945b5c2381f346ffc3f11a7a1656"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "497702a14fb6dae0cc461f8547947f041f7d4ce6",
+      "expected_sha256": "58724e171a2cea6429563e76373c03dade03c2393c70f37fd19f44ed89c9c095",
+      "purpose": "Existing generated-interior camera boom bound.",
+      "actual_sha256": "58724e171a2cea6429563e76373c03dade03c2393c70f37fd19f44ed89c9c095"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/WeaponGrip.Table.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "8fd800ac9897cbe693270fb20b418ec369d40a7d",
+      "expected_sha256": "def06589b34396acb76dfa3d1af1b9725fe8739cd9c9c091d64f2a5c9e066308",
+      "purpose": "Existing melee hand grip; no weapon damage change.",
+      "actual_sha256": "def06589b34396acb76dfa3d1af1b9725fe8739cd9c9c091d64f2a5c9e066308"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/MeshKit.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "89644e85aa9b3270d2755ceab5f12a1ebe88e49c",
+      "expected_sha256": "6b6b66f8d3ee5c17c215d3e04e98f5c0bab379807a3e5a4ac0f0710b5d724306",
+      "purpose": "Existing read-only triangle accessor used by wild geometry.",
+      "actual_sha256": "6b6b66f8d3ee5c17c215d3e04e98f5c0bab379807a3e5a4ac0f0710b5d724306"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/WorldBounds.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "497702a14fb6dae0cc461f8547947f041f7d4ce6",
+      "expected_sha256": "9006533a07a48b7e871e700b4d8665da0e5e53bf84c069bd57e356411f148ccd",
+      "purpose": "Existing generated-interior region classification.",
+      "actual_sha256": "9006533a07a48b7e871e700b4d8665da0e5e53bf84c069bd57e356411f148ccd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.Fractured04OC.cs",
+      "passed": true,
+      "reason": "Existing file changed outside an authorized owner or exact reviewed version.",
+      "purpose": "Exact pinned WR02 visual interception; every other source byte frozen."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "b47f7b33466251fd183f455cc7cc57a5d57a7e2c",
+      "expected_sha256": "609cc24008d7e9a4d8140087607d673cd56039f4a7c4743c3ed32e641cfae462",
+      "purpose": "Existing rugged mountain silhouettes at the original mountain specs.",
+      "actual_sha256": "609cc24008d7e9a4d8140087607d673cd56039f4a7c4743c3ed32e641cfae462"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/InnerWorld.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "497702a14fb6dae0cc461f8547947f041f7d4ce6",
+      "expected_sha256": "fb92d15a3131959e127ee2dc8274760b9a7d4d679a389ce6d2de2886759593f9",
+      "purpose": "Existing refusal to open the Veil inside generated interiors.",
+      "actual_sha256": "fb92d15a3131959e127ee2dc8274760b9a7d4d679a389ce6d2de2886759593f9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/Underheart/UnderheartBuilder.cs",
+      "source_commit": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+      "passed": true,
+      "purpose": "Exact WR01 render hooks only; every other inherited source byte is frozen.",
+      "baseline_sha256": "b7ebf86bfead638dc0c31775755f7f8cdd60cc245d7652d8ff2a1bbcfea31d91",
+      "expected_sha256": "2dedc443551bd61ec375bec00b1b11964db016ba162b97e5691df0f36a911e54",
+      "actual_sha256": "2dedc443551bd61ec375bec00b1b11964db016ba162b97e5691df0f36a911e54",
+      "unchanged": false,
+      "reason": "Only the complete exact reviewed render-hook transformation."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/SaveDataTests.cs",
+      "passed": true,
+      "reason": "Exact reviewed inherited version.",
+      "source_commit": "89644e85aa9b3270d2755ceab5f12a1ebe88e49c",
+      "expected_sha256": "545816b39d74ce31d45fd4aaa7673280ca501644264aa120ecfc2e8000ba117d",
+      "purpose": "Existing freeze list appends Interiors and Wilds; no previous field removed.",
+      "actual_sha256": "545816b39d74ce31d45fd4aaa7673280ca501644264aa120ecfc2e8000ba117d"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/Characters/Appearance.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/Characters/WeaponGrip.Table.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/Core/MeshKit.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/Core/WorldBounds.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.Fractured04OC.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/World/InnerWorld.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Scripts/Runtime/World/Underheart/UnderheartBuilder.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact inherited owner proof / Assets/NeonSyndicate/Tests/EditMode/SaveDataTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Renderer and package assignments remain identical to baseline",
+      "passed": true
+    },
+    {
+      "name": "Prefab components are inspected before any Awake/OnEnable can run",
+      "passed": true
+    },
+    {
+      "name": "Existing procedural pose is the only implemented imported animation authority",
+      "passed": true
+    },
+    {
+      "name": "Provenance and fingerprint policy are integrated with original registry and wizard",
+      "passed": true
+    },
+    {
+      "name": "Diagnostic is not a runtime actor grant",
+      "passed": true
+    },
+    {
+      "name": "No runtime registry or unrelated scene was introduced",
+      "passed": true
+    },
+    {
+      "name": "Actual skinned fixture bytes match their manifest",
+      "passed": true
+    },
+    {
+      "name": "New runtime policy resets through existing hub",
+      "passed": true
+    },
+    {
+      "name": "Original evidence tool retains callbacks and adds hardware/proof context",
+      "passed": true
+    },
+    {
+      "name": "Owner-reported Unity NUnit compile fix preserves the exact three allowed IDs",
+      "passed": true
+    },
+    {
+      "name": "H2 only replaces the obsolete unknown-8 sentinel in H1 tests",
+      "passed": true
+    },
+    {
+      "name": "Only obsolete unknown-revision sentinel changes in GothicRealm04OBTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Only obsolete unknown-revision sentinel changes in FracturedWilds04OCTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Only obsolete unknown-revision sentinel changes in CrystalRealms04ODTests.cs",
+      "passed": true
+    },
+    {
+      "name": "H1 world has an explicit isolated bank and no default boot change",
+      "passed": true
+    },
+    {
+      "name": "H1 effects are bounded and own no damage, input, camera, time or displacement",
+      "passed": true
+    }
+  ],
+  "passed": 28,
+  "total": 28,
+  "native_unity": "NOT RUN"
+}

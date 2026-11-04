@@ -1,0 +1,466 @@
+{
+  "baseline": "ed483fc720ee1493ab0e2f783c643ea0e9ae6397",
+  "head": "ed483fc720ee1493ab0e2f783c643ea0e9ae6397",
+  "worktreeDirty": true,
+  "passed": 69,
+  "total": 69,
+  "checks": [
+    {
+      "name": "All inherited C# bytes except complete exact pinned foundry hooks",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Only three explicit new C# files",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Inherited payload, GUID and hydration Assets",
+      "passed": true,
+      "detail": {
+        "tree": "Assets",
+        "preserved": 3992,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "Assets/NeonSyndicate/Art/FoundryWR02A.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CREDITS.txt",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CREDITS.txt.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json.meta",
+          "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs.meta",
+          "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs.meta"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload, GUID and hydration ArtSource",
+      "passed": true,
+      "detail": {
+        "tree": "ArtSource",
+        "preserved": 45,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "ArtSource/FoundryWR02A/.gitattributes",
+          "ArtSource/FoundryWR02A/CATALOG_QUEUE.json",
+          "ArtSource/FoundryWR02A/CrystalBasilisk.original-contract.json",
+          "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author-receipt.json",
+          "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author.blend",
+          "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.brief.json",
+          "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.processed.blend",
+          "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.raw.glb",
+          "ArtSource/FoundryWR02A/LICENSE.md",
+          "ArtSource/FoundryWR02A/SanctuaryArchive.author-receipt.json",
+          "ArtSource/FoundryWR02A/SanctuaryArchive.author.blend",
+          "ArtSource/FoundryWR02A/SanctuaryArchive.brief.json",
+          "ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+          "ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload, GUID and hydration Packages",
+      "passed": true,
+      "detail": {
+        "tree": "Packages",
+        "preserved": 2,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload, GUID and hydration ProjectSettings",
+      "passed": true,
+      "detail": {
+        "tree": "ProjectSettings",
+        "preserved": 22,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload, GUID and hydration Assets/NeonSyndicate/Tests",
+      "passed": true,
+      "detail": {
+        "tree": "Assets/NeonSyndicate/Tests",
+        "preserved": 393,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs",
+          "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs.meta"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Exactly two demonstrations and six LODs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/SanctuaryArchive.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/SanctuaryArchive.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/CrystalBasiliskCandidate.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/CrystalBasiliskCandidate.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/CrystalBasiliskCandidate.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/CrystalBasilisk.original-contract.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual current input and processing recipe SanctuaryArchive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual successful independent LOD parse SanctuaryArchive0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual successful independent LOD parse SanctuaryArchive1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual successful independent LOD parse SanctuaryArchive2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original collision retained SanctuaryArchive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual current input and processing recipe CrystalBasiliskCandidate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual successful independent LOD parse CrystalBasiliskCandidate0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual successful independent LOD parse CrystalBasiliskCandidate1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual successful independent LOD parse CrystalBasiliskCandidate2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original collision retained CrystalBasiliskCandidate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No paid provider task or false native claim",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner AddComponent<PlayerController>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner AddComponent<NpcController>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner AddComponent<Collider>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner AddComponent<MeshCollider>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner SaveSystem.Save(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner PlayerPrefs.Set",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner TakeDamage(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner TRIPO_API_KEY",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner openapi.tripo3d",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay, credential or per-object owner void Update(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Private or generated output ignored Assets/NeonSyndicate/Resources/HeartPreparedWR02A/generated.asset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Private or generated output ignored .foundry-local/keys.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Private or generated output ignored ArtSource/FoundryWR02A/example.blend1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All metadata GUIDs unique",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

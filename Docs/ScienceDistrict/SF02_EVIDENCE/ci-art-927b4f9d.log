@@ -1,0 +1,22 @@
+2026-11-01T04:37:07.1483630Z Science selection and clearance: 21 checks passed. Math stubs, not Unity or physical gameplay.
+2026-11-01T04:37:08.7713369Z {"passed": 51, "total": 51, "failed": []}
+2026-11-01T04:37:09.8018324Z {"passed": 65, "total": 65, "failed": []}
+2026-11-01T04:37:14.2864852Z {"passed": 63, "total": 63, "failed": []}
+2026-11-01T04:37:14.8327870Z {"passed": 144, "total": 144, "failed": []}
+2026-11-01T04:37:32.5202809Z {"passed": 185, "total": 185, "native_unity": "NOT RUN", "failed": []}
+2026-11-01T04:37:39.7354616Z {"passed": 33, "total": 33, "failed": []}
+2026-11-01T04:37:42.3501236Z {"passed": 59, "total": 59, "failed": []}
+2026-11-01T04:37:55.3190495Z {"passed": 57, "total": 57, "failed": []}
+2026-11-01T04:38:05.8062707Z {"passed": 69, "total": 69, "failed": []}
+2026-11-01T04:38:13.2091939Z {"passed": 15, "total": 15, "maxError": 9.543618995078162e-07}
+2026-11-01T04:38:18.1666118Z {"passed": 162, "total": 162, "failed": []}
+2026-11-01T04:38:23.8935229Z {"passed": 28, "total": 28, "failed": []}
+2026-11-01T04:38:27.7986125Z {"passed": 15, "total": 15, "failed": []}
+2026-11-01T04:38:28.1024988Z {"passed": 110, "total": 110, "failed": []}
+2026-11-01T04:38:28.2009632Z {"passed": 78, "total": 78, "failed": []}
+2026-11-01T04:38:30.2410221Z {"passed": 48, "total": 48, "failed": []}
+2026-11-01T04:38:30.4011145Z {"passed": 52, "total": 52}
+2026-11-01T04:38:30.8864931Z {"passed": 58, "total": 58, "failed": []}
+2026-11-01T04:38:31.6070777Z {"passed": 26, "total": 26, "failed": []}
+2026-11-01T04:38:51.6122614Z   "syntaxErrors": 0,
+2026-11-01T04:38:53.0773605Z Git LFS fsck OK

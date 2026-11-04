@@ -11,7 +11,8 @@ namespace NeonSyndicate
     /// </summary>
     public sealed partial class HumanoidPose
     {
-        private readonly float[] _travelW = new float[8];
+        // One weight per TravelPose value (the free-running and hero poses, 8 and up, live in HumanoidPose.FreeRun.cs).
+        private readonly float[] _travelW = new float[24];
 
         /// <summary>Eases each travel pose's weight toward the request (before the gait, which reads the Surge weight).</summary>
         private void TravelWeights(ref PoseInput p, float dt)
@@ -40,7 +41,11 @@ namespace NeonSyndicate
                     case TravelPose.Fly: FlyPose(ref p, ref t, false); break;
                     case TravelPose.FlyFast: FlyPose(ref p, ref t, true); break;
                     case TravelPose.Hover: HoverPose(ref p, ref t); break;
-                    default: LandPose(ref t); break;
+                    case TravelPose.Land: LandPose(ref t); break;
+                    default:
+                        // Free-running and hero poses (HumanoidPose.FreeRun.cs); an unknown value keeps the landing pose.
+                        if (!FreeRunPose((TravelPose)k, ref p, ref t)) LandPose(ref t);
+                        break;
                 }
                 Blend(ref b, ref t, E3(w));
             }

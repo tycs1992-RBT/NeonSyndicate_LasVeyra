@@ -1,0 +1,1508 @@
+{
+  "scope": "147-file audit of newest additions. No FBX, PNG, JSON configuration, receipt, rig, source or owner art payload was changed by that commit.",
+  "audited_commit": "d48ed5bae9aada44b506648301df1c835ac4f204",
+  "external_references_to_added_material_guids": [],
+  "reference_scan": "All other tracked .meta/.mat/.asset/.prefab/.unity/.json/.cs/.txt files; zero references to any of the 40 added folder/material GUIDs.",
+  "intent": "Importer state includes necessary configuration already enforced by HumanoidPrepH9.ConfigureModel/ConfigureTexture and LiveCastSetup.ConfigureDropIn. These methods are unchanged. Serialized state is generated; not a new character art deliverable. Normal maps need Texture2D at native preparation even where protected metadata retains older shape.",
+  "totals": {
+    "restored_protected_metadata": 51,
+    "removed_generated_files": 75,
+    "retained_other_owner_metadata": 21
+  },
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Browline_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "6e43f0cdb885a0f79d79c6189584c5cd1df9daae738c8eddeda94b8b98057abb",
+      "guid": "3c28172af0815d5abb9172f7d86a14c5",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "ae8ef140ac07bd7f89ab802c044de8a4c966eeecb92a8df2b19e560cebb8d69e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Complexion_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "38950eac769ef03cad9fa90b1a96e6fd43a489def5bd8eaf1a20548d8ee85db1",
+      "guid": "407e3bb8494954aba68bce8668706455",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "bfe96d0ee0139041fd909e22acb73d770965c62bfd816b0246379e3f504ba565"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Eyes_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "fd203ba2891361ff6d5e6c53a99877bab107d717b96449b979314bde8c00927d",
+      "guid": "45967601628350a2a7dcd2cd16f935fc",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "715dd23545dc0218a82b00d52fdcfd4c388a9b38ff8565060004e8f67d4d4cfb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Hairpiece_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "f46c26d52a4092d66e57b3d0380824e5c85899eacdb5ce1cad859d620fc23ce2",
+      "guid": "e38e6b581ff359b38040b470fcb29cdf",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "69c8e193b0ce238fc1a8371bb665d840d823fae14a1cf16b5b176615e48784d7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Mask_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "276cb4f60ae5904fd5d3af71bc4dc2e788711f6a39973dd521d40559fa9e9a9d",
+      "guid": "f5bd4a470907578a9d66f81718af7a26",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "534e61a7508a99cf0c66ae5f179ae12921ebde03890254cd89cf604cb6386e6a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials.meta",
+      "change": "A",
+      "newest_sha256": "caf6b7bfd8d37a80d6dda7c5b843bd20eb8c299f2358a0ccb004c35ef3d0af99",
+      "guid": "83cc560348d578a4883c9b408a4816a1",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Browline.mat",
+      "change": "A",
+      "newest_sha256": "ffea599a16e58b01b632338c1cdf1c5aad5ebd35e63cfd060966506697a72468",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Browline.mat.meta",
+      "change": "A",
+      "newest_sha256": "e1611ed6127650e6887c75cfcf2fe2063f902ccbb937edde03149c15a25fef4c",
+      "guid": "71431fca019bd0444b2fe7e04b2ae756",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Complexion.mat",
+      "change": "A",
+      "newest_sha256": "0775ec6476aa4c2ec1a57f2e1ef6ee3862586481bdcce47fc9999f0a5bb7a395",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Complexion.mat.meta",
+      "change": "A",
+      "newest_sha256": "db95998d1d8ef5eca631aad7facddd5d66cf3bdbae7b21edc4c1d54ab9fdd54a",
+      "guid": "e3f07a70eb11b4445b397c9f85af8f8f",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Eyes.mat",
+      "change": "A",
+      "newest_sha256": "f2862b21ef783b48e199aa84c0abc5412fa31455ee54fc56d8522e4355ae8dd0",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Eyes.mat.meta",
+      "change": "A",
+      "newest_sha256": "817cdc4ae0ffe9e9ad13882868ed1076e05a14606aa0f3ef447a490bf1675eb6",
+      "guid": "a19d47920611dbe449dfed6a5e379935",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Hairpiece.mat",
+      "change": "A",
+      "newest_sha256": "93e42789736ffc7d3fbe945afcb0f52bcad88f4f090f6b8bbca2be483e32d890",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Hairpiece.mat.meta",
+      "change": "A",
+      "newest_sha256": "028c19817f365f025c186124684dd35d88ca3e5c84af9b46e6d7eb249fb05d47",
+      "guid": "9b316b5573c8f854aa62036c028245a2",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Mask.mat",
+      "change": "A",
+      "newest_sha256": "59ef7b210e1463fd76ecc9f6e62c98e7e2c427fab2671d2eeab00942badac524",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Mask.mat.meta",
+      "change": "A",
+      "newest_sha256": "22ddae111546c869317271fbf483a9f262b38e9d99cd6ff7e14e9b392eb1d432",
+      "guid": "6713c074dd0d28241abfc396a248f530",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Teeth.mat",
+      "change": "A",
+      "newest_sha256": "98ede3cbcf9832e44cb83a74bb5afe059c2fc915c6367ed579e34ad55bec83a4",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Teeth.mat.meta",
+      "change": "A",
+      "newest_sha256": "22b4032d351ada307afb37d9db4b108ad178e7b72a876f15c0f6ed3fbcfbcc80",
+      "guid": "4a17072ac46dbc544904fa47e745c80b",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Tongue.mat",
+      "change": "A",
+      "newest_sha256": "0ad075ff561b4747b24ca3b36fd5f06d23df9422757af2296279c0f158a76fb2",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Tongue.mat.meta",
+      "change": "A",
+      "newest_sha256": "f851b62b557eb4d2c15976aacb53430a14760e12feb7f66b766b374ae3e3a80c",
+      "guid": "ca2da571db36cec42a4ff6efb1ebd096",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Teeth_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "21762ec514feaaddbe4bd744f109ed810a5c4a43a6acf3ee19e94bea146fb300",
+      "guid": "06ff5d9658d35bff845c4ccee8325149",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "bf2a0cdd50bc0136def9ffc57350f004a990c5c63e5e6ff02725ea378ecfee99"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Tongue_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "aa89255ed37cedaae9d801b420896ca15cd230c40b4eb39566187b45ec0bc576",
+      "guid": "77bf420a1bd559878a8695e2e9ea9272",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "b63752a24b2f9b256b8d8fb2f8ca3351d6f4e4dc11327bb1afdd44070ff1092d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/VeyranBoy.fbx.meta",
+      "change": "M",
+      "newest_sha256": "4e70f5eb4d50396a11ee1400bf86ef13c3e9ccb540326b13b0d4a178a4bc16a5",
+      "guid": "21b449ffba1d5f9cbe00616408d842e3",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "0183e80e84bc357c3a8dd5a5241ceb6cf47ef0bda2c7bb70228d0b3dcc4dbf4b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Complexion_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "9394e85bf5ed2ac40865b83ce6938e4417490157a3ecea2f66714f32f5192a91",
+      "guid": "c583aee603475eef83fbf2cde35063cf",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "7011b75b6d1f4ec1d32e90bccc60891701a8b6c554fcc91b9e412949912d5346"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Eyes_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "c7a1704e25e4ece2711020f76c0d86cc8bb7ca2c42f7e87756acbfc9c4020d64",
+      "guid": "3c77352824d05595975a18442a0e9b6d",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "eca53c9d96091496cc5efd041838bd23e83dcdcb45f46a4d833be7e38361d23c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Hairpiece_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "157b51becdb9c26778eb735b4a90ac1c480380d578eef01b2374639613bf4deb",
+      "guid": "b0f9b299613c59b29f7f0b3c06b56f7c",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "18f78242d18a3e9200569e23e11195f88c6b3dc367f0563fbe8bfd25ef441547"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Hoodie_Dress_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "9f2e6dc3c19c9b7b7172df50cd619095aa144e63ce9eb8b1bdeef322999cd2cf",
+      "guid": "946bc33067355a128f7fac51a18233b2",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "33cb06425dcc6f5b8df706a3d68a79dcb3beeddb216cdfbf7b1baefef8c62d0a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials.meta",
+      "change": "A",
+      "newest_sha256": "21cd78c63f8c62fc4e5ff724dd9f44934f06e99cb1c1dd36c6df0df9fc70c81c",
+      "guid": "582751923289f01489872c1f07c4c20b",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Complexion.mat",
+      "change": "A",
+      "newest_sha256": "f7fafe3732bcec27150de593c0cf3defcdfc7611abb61a0776a5c570f5ded2c5",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Complexion.mat.meta",
+      "change": "A",
+      "newest_sha256": "5d65aa2f64ccc9b3140652e121a064454257f09a53f91fe8a8bc35616a882f0e",
+      "guid": "d928ba4ba0540c742b85b2921e75194f",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Eyes.mat",
+      "change": "A",
+      "newest_sha256": "d29337574d93bd0f5de31316fc8ea40a36f075cdaa9776a24b562cdf5ddd5869",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Eyes.mat.meta",
+      "change": "A",
+      "newest_sha256": "5942adc7d267448050819da36f5fb3da5ff67a5e163ae08b892b3086817007e3",
+      "guid": "473ea92a46cae0b4195bd2a9b12c9252",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Hairpiece.mat",
+      "change": "A",
+      "newest_sha256": "b16fe9a56c181422dc4188e2d538b28308a574e744d335527acaff1fc7da476d",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Hairpiece.mat.meta",
+      "change": "A",
+      "newest_sha256": "278b27490069368656dd8117cd2c0dfde860a4f48e59a239c064f70c2fe37859",
+      "guid": "47cc28461fc9f8e4b9f0d65ddf944a68",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Hoodie Dress.mat",
+      "change": "A",
+      "newest_sha256": "a4a10f1dc4707467f2a4b5a39a6517236c244fee55a627f4bf601084327e3b51",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Hoodie Dress.mat.meta",
+      "change": "A",
+      "newest_sha256": "5af82425c00272f46a749194492c966c5b1fc24815dd50a6ac594b0e93074675",
+      "guid": "642f3dd0acb693f4da410736f424dd3a",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Shoes.mat",
+      "change": "A",
+      "newest_sha256": "4f6e5beb8d16a0626c821721ccf88730e5ffdc9ffd489bbc73e3f1da89cca7a1",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Shoes.mat.meta",
+      "change": "A",
+      "newest_sha256": "a31cfd11af8d57ab5891c210a4319b7c1faff32fb9bc03e1b6bcb307be3c59c5",
+      "guid": "d42606dbe6937ff44990d29ddc23fd88",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Teeth.mat",
+      "change": "A",
+      "newest_sha256": "6fd3d674e7cbb4c737bbb93ed8ba89557861aa4cb7b4a2f542a945650a942c0a",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Teeth.mat.meta",
+      "change": "A",
+      "newest_sha256": "d9fe7791c5cfb9ffdc76c59d4b3ff40f1092f4ad53662d432f08712642c9cf08",
+      "guid": "26e2315b07e06bd459f05faa3245160d",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Tongue.mat",
+      "change": "A",
+      "newest_sha256": "1bf46deecab27a16806c2b5ec3d1cbf912ce55e67cee8206d6c662459ada6c92",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Tongue.mat.meta",
+      "change": "A",
+      "newest_sha256": "591da0902ff822be5fa04e2e21661d936f26ee019a98ecfd2a82751d43887429",
+      "guid": "267485ca885d79c4686c49c681e6ff2a",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Shoes_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "8a56f50ebfbc489ba339361e79722c6cf23b07f14394500f36eac979d3835849",
+      "guid": "dbc3e5f00a4351d7aacf5b9441e8281d",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "6b49ace732a813cbaa0fe4637670a5c5d74bddd8c4e7f695f98136edcde413ac"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Shoes_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "fdd7bd591fc55f2c7780e2ae18fed60ae2bd057d346fde1949c9496b218ef2ad",
+      "guid": "320177bd60915555914ee7e404376833",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "a1fb44b1a453dad17f3b4f64fb7d8423ce8e931ffba20c541cfc0983176a079f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Teeth_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "56e747b7f905b9b7e3126213c0d3342aa86fd0c31fd60a00185a85f8adfe2318",
+      "guid": "9a4ee74e402e5650ab2555afc4afa70b",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "4405722073578630df8409e355011fc733cf833583f5d720f825ffa469d2e651"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Tongue_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "260b9ccaa9b82ea22e93d6393e86fbbb54a3496d2fc3de604a5db8788ef66df2",
+      "guid": "cf61a173d5f4509fb124b02b1d48eb89",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "6cc4dbf0b04e7068347fd9f3cd98bc29c3bbe2e3595366e42c6285bea88fe3f5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/VeyranElderWoman.fbx.meta",
+      "change": "M",
+      "newest_sha256": "b40fd350cbd9afbc1e7a68bcc20bcf23fe9d549574b471061f4c7e90b27746b1",
+      "guid": "261ad546be435bc09c436b081ca603b2",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "b98e268ca928df226141bae43469b54e787365eecf5fd446777f484cb95c1ba9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Complexion_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "85c0a4474f52e06794c23c33a4f0d67dbc2451da8166c6a5a52539a22d9c2ab8",
+      "guid": "7f1966704eb05f27adeb5ef3a752e806",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "65215191ecfa29c9f34e62ecbbd10abd1223313fde4694bbb698c4a6128e6686"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Eyes_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "f01170a8bf78bd94f9d8b722d5067a7216b81700975fd7f84b0d8c1513cd6d5c",
+      "guid": "76b1c2259fed55df975d8fc6186a2aa5",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "d4724cc06d7131f774524f29dbf047cc69175364251895ab829b3be084a7cc9d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "b6b78cf7f5dffa800d9193c3cb9b725369d773988add7b2ffba86d9e43ec711c",
+      "guid": "c296fe5c3e1054048cf4053f1a9a3189",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "c58db47dbe4d469cac7faed1812595f3a0c181246e8d780fc0d78305860fdafc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Bob_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "ff27b4243a0bebc23cc317c74c3ec2761afd3d454d7e2e0f597280fcc938d584",
+      "guid": "56c994f757a2555485406f73f04c4ef8",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "4b82b66411a4f841c024ce9fe45afd8b78d7a178cac315ce1f5197c049396270"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Bob_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "4309be38b8be445e0c54e289bb63c28dc69fac222816e8cef559cc13b8da7c51",
+      "guid": "dafe2b859067554e81a5fab3200e43fb",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "f4d1eba0b903b71185c71ea61ba77e7569771bf33aea714743240c24730dbd82"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials.meta",
+      "change": "A",
+      "newest_sha256": "0f74779cf03d4e9c05cedf95a11d14e5f259cc6609093d1dc1c018fb2cfb9106",
+      "guid": "06f896451e61b4841855689c71a9185c",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Complexion.mat",
+      "change": "A",
+      "newest_sha256": "98c467dd0f5e7d435039e9ab4649287ae18eade8df3197d88e8134d2f2f791cd",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Complexion.mat.meta",
+      "change": "A",
+      "newest_sha256": "f8ebe1b709717776725029148b4d4b5e59f8498b87926a9339109b7069daa8c7",
+      "guid": "0766e624dbdc9de4d95901f54b06b853",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Eyes.mat",
+      "change": "A",
+      "newest_sha256": "bd471692cd660a9abacf4d88146c98b08cfb4c73ea2839af9b5178be6b4b4e27",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Eyes.mat.meta",
+      "change": "A",
+      "newest_sha256": "078450818daf1f45dd8378fd56abbb5f8b33ac504fab097c4ae0350bd074f36e",
+      "guid": "4f13fa5bf88519f4ba3de3daf4f0093a",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Hairpiece Bob.mat",
+      "change": "A",
+      "newest_sha256": "400c53c8f054b5b5674135daff700733341918ead613d52b1328769242db34f2",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Hairpiece Bob.mat.meta",
+      "change": "A",
+      "newest_sha256": "f80c8f0f436fef476c012edd65571662a4aa6d447125799706b909ea0becc2fc",
+      "guid": "5e8de8bd15c29c6488801d8947ff6041",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Hairpiece.mat",
+      "change": "A",
+      "newest_sha256": "8e9c0e62818613c8e3388f9d2b426c3c5714830944f7c31854c4c8dfbbfa7587",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Hairpiece.mat.meta",
+      "change": "A",
+      "newest_sha256": "2a510da053006f9f16b2c4b820df97ed66d0e058bfa1f0f5cbb337d77707cea6",
+      "guid": "6fa89bded603d1b4682832d883e2cdb3",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Suit.mat",
+      "change": "A",
+      "newest_sha256": "137e1b8df7e803e48e902734ff47695c3f5733e67ec25b9164d87faca852bc05",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Suit.mat.meta",
+      "change": "A",
+      "newest_sha256": "8a99d8020582dbb23d27984c5ff93b9dfbf5de5be404b44b8212f9f7c1acaf5f",
+      "guid": "670d010c72a20a648b8a76e43c9f4a2b",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Teeth.mat",
+      "change": "A",
+      "newest_sha256": "3398e4202ee9d1dc815bfe36064335f1829bb0220c9a94e19cda029e20d4e6da",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Teeth.mat.meta",
+      "change": "A",
+      "newest_sha256": "dd367839ea98844b179fc39e506dc9825d24961006950b3b41926d6ae9e2537e",
+      "guid": "3b468926ee6eb7248bd8b4373db2efab",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Tongue.mat",
+      "change": "A",
+      "newest_sha256": "fd9254dad1a597e304a9a94738145f9e532f5f939e35b45df4e46ec92acd1299",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Tongue.mat.meta",
+      "change": "A",
+      "newest_sha256": "561af3676f125fba7126ed26e590caa69f736c56e86a54e1025cda93248d22d4",
+      "guid": "c33ccba9761246b42bc43a2177128c8c",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Suit_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "b053ab1bb6f7916e90b230298cc0b34ff6233a106a741495dfd5f7829e7660a8",
+      "guid": "a377da69831b513cba5f3421bd53cdc0",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "822d145942ebe9328ab9a64be4053be79238b6a17e1152a1f851ef38dceebbb3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Teeth_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "23eba37add7b650140518e586b12336df2f9854425a4ba9ab122c8212f131dd4",
+      "guid": "5694793a741758b88f11d70c86a1d441",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "9d1ae2432daf9f6aea51e3f8f02e57e191012f49265f06f3c0af8001d1db27d2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Tongue_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "8ee9cfea8cb26b918734d2b50eabdb3add91e22811677d17a0b4cdb7a444be9f",
+      "guid": "46643290573f54c5841edacd9264e96f",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "b043df361acf6d98a0e96116292d9f49dc31dd051828125ff1e9a4ade0b010ea"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/VeyranGirl.fbx.meta",
+      "change": "M",
+      "newest_sha256": "eee9397df5100d834c0e64fe620f3c0bc97412988ca48732db64047ad186f01b",
+      "guid": "13f65f5e701151bcb97b6029ce7abf20",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "055f3ccffe36e9e1fd07342f94b5f8adac6f45d1c73fb47b8b1c0096041ca062"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Beard_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "7498623f8c4f55912a3e5624a36899b3678b2a941b8c600d13b85e988052825f",
+      "guid": "8b5f967858245255a4c66184e133f370",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "f8413a83213f5d045550dd690b4feeb6abed5cc50252f1a19bd57344c95dd21e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Eyes_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "915f0a8001c6333d5a92c1722727dbe4077898221b9269133075abe396074ff6",
+      "guid": "97e742047de253e198008500dc554770",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "ee4c8fa801647d02a227d5bd9ecc85516989715df602b2dc97174a263df0f3b2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Hair_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "ffa8a515e07be1ba8999f07e1f47e8958c40b31d3434646f16b7562f0332a640",
+      "guid": "6ee7aad7684f5d3789d368c1e143fc8a",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "6e8d36d23445750b17cb4d5892a6cfb491d7e841d924aa598bac73814b1e8ce3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/MalikVeyrBase.fbx.meta",
+      "change": "M",
+      "newest_sha256": "66e2f1f3591558c8dca56d263f38b0b56a864472dc652206d6299c0ab1eb728e",
+      "guid": "76144581f7c857459047635991016877",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "de646ba4f37179a8bc979521a722cfef29a50174cc0700ef0e37ce480e13b645"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Mask_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "b5210210c3cf0f4788544d1e313ebc3cbbd46eb20084fd87fad2726c402f7e8a",
+      "guid": "10bf001c6b7e552894f77c717eeb4aed",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "5490a4d2a8f8462d317377d39a6782d4a4d79dfa2f915870d81ff50c95bbe4ee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials.meta",
+      "change": "A",
+      "newest_sha256": "1589e226c280dbcb03e2ca7250823a05c38a6c2c9cb8ae2cef63baa13821ec5b",
+      "guid": "3a0a6ba5b44b32945a95da5fe139546f",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Beard_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "280cd191dc2de68065a4396b5ebb98e9c200b1303715a1ad3670d26241652297",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Beard_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "0fa24bafd3c75862940bb765391bf75530f06fd269f00734780bc9400e96da1d",
+      "guid": "90947f354b240d848874b08d780c9932",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Eyes_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "f5f979b2d08f4e1a8fbfac2ca98dfa03235dc44d085b13b39eccbc07306c57ba",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Eyes_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "1af53d00e222b040863035f8fa5632cf2f580ca9e87972aab6809256821a73f2",
+      "guid": "55a507ecac3c1b94c8c8a32e0674af1d",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Hair_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "5ada8b2c62f16cb0b46d5d5eff27433f72444d2857ac8b189b4582889da6ec2f",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Hair_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "0098addd6ca7eeac68eadd36d401ece9f788a0cd3c07f2819331283ea8463b6f",
+      "guid": "3c9cb93430567dd48bbf502de106f139",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Mask_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "94df0b5e599867f2b48f6d8981cbb656209498661839e3c2a38b60899d4db5b5",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Mask_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "653e1693833e40e3d8cb9b8d674ca4825d2fa1f86c279f0bb6cd0fcd9df62f6c",
+      "guid": "d626a18117104604db8418292f1ae9e4",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Skin_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "3cc112082b53efc9341143f81089ad0ed78715dc5cb57329deed77a7786d197d",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Skin_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "355018ede3494505eb10673ea8ba3a77e385fd5c31e97ed3995b92595b83432f",
+      "guid": "4660336d778998043a66f3daca606ece",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Suit_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "6a197d70e4a133418c7f3ea393ebe261c715e68c2591712e3120361cb71cc1bf",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Suit_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "2fbe81eda188ee40bba0e76ba7223d8109016f4d142cc22d8dba7400bb5480ae",
+      "guid": "4a2b4ddb11faaac4581d978d9f319bf2",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Teeth_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "287aa0a2ec0bd38f23d7864778c7a876a5923760bbb113b5c1c14711796aad13",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Teeth_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "fa3b59012b721d6267d546e61738681c32678137f62ecba69c79c58dace1e775",
+      "guid": "a0a6cf2404a07db4985fd256db170ac9",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Tongue_Albedo.mat",
+      "change": "A",
+      "newest_sha256": "642903be4d7c56eb82fe49fe98538f7222fb17b476379d06bed1fb2ab85a9ea1",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Tongue_Albedo.mat.meta",
+      "change": "A",
+      "newest_sha256": "ffad9d1ec36d2e3c6abb5213ca2c099d0d9c54a8c8cd75a02d7de34349768cfb",
+      "guid": "d17207201f5e27a44bc24a792e4492d6",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Skin_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "36290aca8c911597afb6e8d57473041386ad64d8add7d275d18dc064189c1675",
+      "guid": "e4487de003225e3a8ec6182ddfb3abf6",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "76a1ecccf71192fe457dc5e1b4df8028efd13ccb555ccc11f892a2b0ff79f93d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Skin_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "4d0a8d613a8d0dd111ad9f7c68ccfc6ddffaba5c3f64d8b3f72d243d17a5f199",
+      "guid": "993ac01c3b745d7ca38d88f2794a7f3a",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "8dcfed8da803a77f4b894e5f95da13246d760c0b7ad7c66d4e952ae8712274fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "c5ea6eb65b7567a1877d142b04912515340bd138feea38506205a4f2eb13e634",
+      "guid": "80a5865bfb94574aae0f1927e6d90dcd",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "7116f06d1ac2183abea52ef3e1f0ab0f0e53b5b3c595a7209c6870880f4a9808"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Metallic.png.meta",
+      "change": "M",
+      "newest_sha256": "cf87e14ee87c3d60abc96215ef0ac809d5f79bdc786a20014292b73756a5d426",
+      "guid": "d8930c79e5b056aea844e620b4fc9d1b",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "4eb240b213cc0d5e82d841d874f40991a93c9594a47f7f71f01c21c82b518757"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "b06a23481f9c588c620902e149dc549ef217d314d0995a06c99b4d245d4a480f",
+      "guid": "8237d9e22ae9515a964056795d2ccfea",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "bfd03ec70f32608a6a6cf0fafc2fd12146e5b2f412d01de82b6d57f7da5c1e79"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Teeth_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "388b90565d894273b3f5db2e22597c655d65ec969ec820c93865806cff861dc7",
+      "guid": "a73bf26bbe0550d590e6f524d7f13fcd",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "ecca7b9357ff788ffd8824e4260da5f62fcff7cd1e18b5151b1d3057754c036d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Tongue_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "cec4b74ac4813c23db6ea86752de2d22c6c03cf8efd348c598f5e6d6ef41c803",
+      "guid": "d39c1c4aee2153bf9665793466432767",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "df659f644f29c4bce1a1c7d72d83c08d324f227b273bc3680339efc63aca75eb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Boots_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "95f5c2193afe70919bc291586e1dae3ad9e2886297bdd59ae264b53c7de01f28",
+      "guid": "0138fa1e4c315b2b8b485fd2f231efe5",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "6043384108f98635c0dc6245e102925e6e3b4db7da1a7f1256a55859856a205e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Eyes_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "35cad905bb730d3b9b37fbad4a6dfb117158b46367c6496df5fb03ce7624b2bf",
+      "guid": "6655729fa37b57e0b51c1cfd3888def4",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "e9c2f6cc9c6c52888bdf405ede7d3ac0040339fcb366e834a142d33172c555e0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Jacket_Coat_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "01a6ae7afc7a60daa9995c588d256104bc7b242fb1be5263935f1d0c20f57b12",
+      "guid": "d8e75b3218685882962ccf8b968a907b",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "99e346cfeef9c13e0570a7f5c3f2290519cb7ff951ac5449ee6100098c9f3010"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials.meta",
+      "change": "A",
+      "newest_sha256": "69f46bf3521fe6f5d08cdf8fad01fd80cf20e5375574a7de2e96e445c2f23790",
+      "guid": "9c0ac2e242764064eb12ae6953e5ae15",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Boots.mat",
+      "change": "A",
+      "newest_sha256": "f9ff175288ac5711fcb5b3a21e923d4e8dcdbfaac91a8640eaf0dbc4e30ef403",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Boots.mat.meta",
+      "change": "A",
+      "newest_sha256": "17c6d59699a718755b6dc9e86670d4cc7c4bc1cf6270aa98cf96b132edf502c6",
+      "guid": "7411599a04bc06543887ce82f87fbc59",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Eyes.mat",
+      "change": "A",
+      "newest_sha256": "ee5dcdb0c5de8454870fe832a7a11757673f3e1818c997e84a3b77e9ccd71a99",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Eyes.mat.meta",
+      "change": "A",
+      "newest_sha256": "90fed1e123947f176cbbc6f3cba6c03f5c08dc940626efa466a217325806bc7b",
+      "guid": "5fcf11396d338e6448c8bd4d5d11f167",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Jacket Coat.mat",
+      "change": "A",
+      "newest_sha256": "504445e5f352ceb40b28d09ec3e37dbb64006d3e67b29459ec97cdb3a485956f",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Jacket Coat.mat.meta",
+      "change": "A",
+      "newest_sha256": "e91e01152c2fa4f6889d8be386afc8dda623c97883e0e5e9bf6b0437c0a2fe08",
+      "guid": "26b8215352503b64cb5fbdc5c793af1a",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Skin.mat",
+      "change": "A",
+      "newest_sha256": "7de3971db54ea8ab8cb6a2457c9cd118e510a1c3e8dbd3a915e56a3b639c470d",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Skin.mat.meta",
+      "change": "A",
+      "newest_sha256": "d832326d30b09910bad532e74b1ff984cbf2b51bd80651e1eb11db046292dc4a",
+      "guid": "780406fe3173528448885c638f1131b4",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Trouser Leather.mat",
+      "change": "A",
+      "newest_sha256": "4a85edfe3cfd764456c74a460973af5bf000eacfc65a2925732787ef02c64593",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Trouser Leather.mat.meta",
+      "change": "A",
+      "newest_sha256": "a8f80c14a1a028e4fab17b2d604412b9ac44cf6a8b3cdbea054662ac406eaab4",
+      "guid": "15bbe7b54953bbd4a949d6471803c534",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Vest Armor.mat",
+      "change": "A",
+      "newest_sha256": "c84b356e15ab945eeffbbdcd61894c35301a23fc8a7ceb49ce2ded087b2a7ed6",
+      "guid": null,
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Vest Armor.mat.meta",
+      "change": "A",
+      "newest_sha256": "af8225520c80467d9011b74361b8e9532769ac4c267ed723d609944f626104ef",
+      "guid": "a3972f88c6a536740abb18da2222f6c9",
+      "classification": "Unreferenced Unity external material import copy or its metadata",
+      "action": "Remove generated copy; exact bytes recoverable at d48ed5bae9aada44b506648301df1c835ac4f204"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Skin_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "c35916ac206f7215f807d6d521e184160d397892facb2c7771c939b8e68e2b53",
+      "guid": "d361fd2e548c51799615e5e4cac32719",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "3d52ae71af5dc03c106029ea099429fa6d9201063f5f379ad06eea45e95ce28d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/SyndicateHeavy.fbx.meta",
+      "change": "M",
+      "newest_sha256": "bb939f2f2300b38e2420cdfdfccabd000c84906c64c26c1a2639a88cc99d3ce7",
+      "guid": "6fa15fdfbbcc5e039fa098a356f71315",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "7e1a466d21e91e55f6fac3ec6a484d473aa849a7015e06afab8e755688ed2781"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Trouser_Leather_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "90e4b947d49aed54d0b63a54818eaefbc7fa3f517c66f7656bd4021bdff8ae37",
+      "guid": "dd8a5d3250d058b98d438027d014d4f0",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "2d1138d36efe8b02cc1d4188500f2167cc74e27c6473e95d0820118979f05334"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Vest_Armor_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "591297871a422a421070ec2277162a8d45bed7f494346da8aba0e4cad338f051",
+      "guid": "cc1bb02ffba2530eb5b141f429a6bda3",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "4c850ba395f0f953c9ec32f9a56207d3d7f257945a836c07077fa1bc9fab2688"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/NPC/CourtDefender_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "05bbc0daed8b1535967967f2de8b7afb441232f71e061dd0e46bcaf71866a75b",
+      "guid": "37cb09c450395ca59dfd77e5a4ce0c0f",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/NPC/GuildArtisan_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "671a947b60621e19f92038684e859e5dd7d886434ec9669e1ba2a0c87aa9145a",
+      "guid": "f18656f927a455f6afeb736df49c427c",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Anvil.fbx.meta",
+      "change": "M",
+      "newest_sha256": "6f63862d841b124c14497bceb4fba13caf503d8c0d004379324e2ec822713899",
+      "guid": "dea519154c995cb39d852094d734bed7",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/BookStand.fbx.meta",
+      "change": "M",
+      "newest_sha256": "ab8df760cf3e990a2de59f2c1e27a2ad208f262322c960f4d865692a8a132096",
+      "guid": "e954c651e4f25aebb0314a50ad7dcebb",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_BaseColor.png.meta",
+      "change": "M",
+      "newest_sha256": "842936146eb47bd08b551cbc2a2590328a23733ab0e55ff562a886d75eb85775",
+      "guid": "85f81598e1625c80aff09ee91349f0ae",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_MetallicSmoothness.png.meta",
+      "change": "M",
+      "newest_sha256": "eef0fd360213b18c766efe4fb88b91273ba806adf8924f096e01d0ef312e9256",
+      "guid": "b4adad2f9c7b5927aada9234f31423bd",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "44e14cb29ae5b838fd1d7099746a121268b0cde21aa42b386080c6c8ace6baea",
+      "guid": "3d7a4abb6d4f5fc8ae6a63b6b957f7ee",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_BaseColor.png.meta",
+      "change": "M",
+      "newest_sha256": "455afa3f5e1d104b198a318f4074dd35671a295e540315db36dae9c0ef231ef4",
+      "guid": "ce169ddd539f566db860f231e365ef28",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_MetallicSmoothness.png.meta",
+      "change": "M",
+      "newest_sha256": "24a9d082008a8efb5dcdb1d64a88720636ec04a01882be208d97ea3f3d7e9da9",
+      "guid": "8cf75a5c51e358b280d50017e9038704",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "591ba9fa97cf3fa7e9f37d760e3f6ded886b6d6dfcbb3611c183f0b8b0d11eaa",
+      "guid": "a3c27ef42af0528999f3eaa701b8ba96",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Workbench.fbx.meta",
+      "change": "M",
+      "newest_sha256": "f1591d1de0be51e3cfe1f0b3e400f4bbf8d825f82cbcca0bec754672c9c78adf",
+      "guid": "805d964a6ec151389f02b8a752d01af6",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "5c29714200c3b65009c58358bd6f5d22d06d0b92914cfa0429f81c5ef49307a7",
+      "guid": "3cdaaf11e7785864a9729eb657c3bf7a",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "d8f80359520c73144f88cbb6e432e366156f0de0125fe86c2f85cb79d23c1914",
+      "guid": "0f8448ff546b5f2281bca67fa4da8903",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Leather_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "468cd7deaf73383ac9573bc34abe7fb8d820f63305c4f096dccb8802785324c1",
+      "guid": "a19c1cdca60352efa19202c134b71574",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Leather_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "a61b428205033ba68aa5f8bd9687bfb2850aadcb1ba550975b568dbe8e378f01",
+      "guid": "295719e440925e9ab288b3ef87f64c63",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteAlbedo.png.meta",
+      "change": "M",
+      "newest_sha256": "2be6ff77f6f9f9aedf8bcccd487aa5fea513c7923c3e73d63c9c3135644af18a",
+      "guid": "63583ea95c214ffba0240a56afa4de4d",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "134cfb9d5fcf8849dc03d533e698bbda0a5a426976627f13ba31fbc6d6257a83"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Albedo.png.meta",
+      "change": "M",
+      "newest_sha256": "f53d002e90405ca3ab4cd56ce028a6da50d146eed95010f5679f8e70ebefabe4",
+      "guid": "8593dac1f7fc4179bd269a0e5ddd68ac",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "db883515c5bf37bb3b7cc76f9c09ae591a227825a2cc13076006eb9fcefee488"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "04f0aee061c10156cd26e63059853f05e2408a6aacae09f2ce5585c2cb952d58",
+      "guid": "6d4325a924cd43febf2314b2fd134ecd",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "48c534c0833fa868a6e3c1d64c6d5df91f1c0c0c655aa472375dd46a73f28a45"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Brown.png.meta",
+      "change": "M",
+      "newest_sha256": "985a70a63d2653fb6ccd9907df6677af9e7e10eb15b89cf536b00ad62b1beaa6",
+      "guid": "b24387be67e94d609745102e87d5f0cd",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "655a5284af5889367c5a03f1f14271b27071dede74346317d88bc782b7cc0abb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "d8b964963c1e0776d0cb6db83ce63dfbfb96e60842c11139ca96d89e56a64233",
+      "guid": "6e3e2cfaeaf14595b286b02f610b05a4",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "9d53dd7c51f10f7f6f106943589d8c5d5865508859cbb784b8941f189429f5fc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Superhero_Male_Normal.png.meta",
+      "change": "M",
+      "newest_sha256": "5c115feea65e78fa453e05b5f7cb7e403bcd79da2a7f70c57b8e34027bb966b8",
+      "guid": "6820de8004e34ba9b0c7c9784ab9274b",
+      "classification": "Serialized Unity importer state, existing preparation code owns the required model and 2D texture settings",
+      "action": "Restore protected pre-L3 metadata; preparation reapplies required import settings locally",
+      "restored_sha256": "710454948c6215c7257762df5c1eac9dd58a5cd846791ba40e7a9ceff3fe431d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/ProcessionalVault.fbx.meta",
+      "change": "M",
+      "newest_sha256": "49f8a95a6e95c9106341a4217cb30881dd7de4873575ae2bc6f944faeb171c98",
+      "guid": "e8866eadd041507594d03a1d5a989e93",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/RootMineralBank.fbx.meta",
+      "change": "M",
+      "newest_sha256": "8090c9b3dfef4bfbd41795a6739da8d69063ceb8eb5f71d1363a3c207d1bf302",
+      "guid": "9c861a59de535c67b06ec198e4028945",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/RootSpringArch.fbx.meta",
+      "change": "M",
+      "newest_sha256": "5a3dd71fda4b6ba76936130be3466c7a40f67c126dff1817e44759bd5e25f947",
+      "guid": "2b72067c50cd59cf80b0c25a3d0b6dbf",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryPortal.fbx.meta",
+      "change": "M",
+      "newest_sha256": "0badb5cdd4fd54be3286b04da989f99be2580be00b17b38765d1b73fc37d172f",
+      "guid": "a582fb75dca4562d9b6a2c80e852bdc9",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryStair.fbx.meta",
+      "change": "M",
+      "newest_sha256": "3562e56e5dbefc7fdf16adaee106121dfa045c97f898e42d3622d600b2a9e391",
+      "guid": "bbf600a1a653583e974b59141302a7a7",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx.meta",
+      "change": "M",
+      "newest_sha256": "7d4c06a1da3f8dac9ba1ca88eca300863ae1edaf68521ac0b223ddb9709ad992",
+      "guid": "b21d98a62f895ff6a5f05fa4aaf5ed1f",
+      "classification": "Newer owner metadata outside the two failing protected character trees",
+      "action": "Retain byte-for-byte"
+    }
+  ],
+  "generated_material_inspection": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Browline.mat",
+      "name": "VeyranBoy-Browline",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Complexion.mat",
+      "name": "VeyranBoy-Complexion",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Eyes.mat",
+      "name": "VeyranBoy-Eyes",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Hairpiece.mat",
+      "name": "VeyranBoy-Hairpiece",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Mask.mat",
+      "name": "VeyranBoy-Mask",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Teeth.mat",
+      "name": "VeyranBoy-Teeth",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/VeyranBoy-Tongue.mat",
+      "name": "VeyranBoy-Tongue",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Complexion.mat",
+      "name": "VeyranElderWoman-Complexion",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Eyes.mat",
+      "name": "VeyranElderWoman-Eyes",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Hairpiece.mat",
+      "name": "VeyranElderWoman-Hairpiece",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Hoodie Dress.mat",
+      "name": "VeyranElderWoman-Hoodie Dress",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Shoes.mat",
+      "name": "VeyranElderWoman-Shoes",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Teeth.mat",
+      "name": "VeyranElderWoman-Teeth",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/VeyranElderWoman-Tongue.mat",
+      "name": "VeyranElderWoman-Tongue",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Complexion.mat",
+      "name": "VeyranGirl-Complexion",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Eyes.mat",
+      "name": "VeyranGirl-Eyes",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Hairpiece Bob.mat",
+      "name": "VeyranGirl-Hairpiece Bob",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Hairpiece.mat",
+      "name": "VeyranGirl-Hairpiece",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Suit.mat",
+      "name": "VeyranGirl-Suit",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Teeth.mat",
+      "name": "VeyranGirl-Teeth",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/VeyranGirl-Tongue.mat",
+      "name": "VeyranGirl-Tongue",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Beard_Albedo.mat",
+      "name": "Beard_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "8b5f967858245255a4c66184e133f370"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Eyes_Albedo.mat",
+      "name": "Eyes_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "97e742047de253e198008500dc554770"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Hair_Albedo.mat",
+      "name": "Hair_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "6ee7aad7684f5d3789d368c1e143fc8a"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Mask_Albedo.mat",
+      "name": "Mask_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "10bf001c6b7e552894f77c717eeb4aed"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Skin_Albedo.mat",
+      "name": "Skin_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "993ac01c3b745d7ca38d88f2794a7f3a",
+        "e4487de003225e3a8ec6182ddfb3abf6"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Suit_Albedo.mat",
+      "name": "Suit_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "8237d9e22ae9515a964056795d2ccfea",
+        "80a5865bfb94574aae0f1927e6d90dcd"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Teeth_Albedo.mat",
+      "name": "Teeth_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "a73bf26bbe0550d590e6f524d7f13fcd"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Materials/Tongue_Albedo.mat",
+      "name": "Tongue_Albedo",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": [
+        "d39c1c4aee2153bf9665793466432767"
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Boots.mat",
+      "name": "SyndicateHeavy-Boots",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Eyes.mat",
+      "name": "SyndicateHeavy-Eyes",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Jacket Coat.mat",
+      "name": "SyndicateHeavy-Jacket Coat",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Skin.mat",
+      "name": "SyndicateHeavy-Skin",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Trouser Leather.mat",
+      "name": "SyndicateHeavy-Trouser Leather",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/SyndicateHeavy-Vest Armor.mat",
+      "name": "SyndicateHeavy-Vest Armor",
+      "standard_builtin_shader": true,
+      "base_color": "{r: 0.8, g: 0.8, b: 0.8, a: 1}",
+      "referencing_existing_texture_guids": []
+    }
+  ],
+  "generated_material_count": 35,
+  "native_importer_evidence": "Serialized importer fields and existing preparation source were inspected. No native Unity import was executed in this repair."
+}

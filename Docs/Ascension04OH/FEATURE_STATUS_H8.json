@@ -1,0 +1,320 @@
+{
+  "tested_source_commit": "36d843a5273d0decbec98c5c46ca1470d54ca3b5",
+  "tested_csharp_sha256": "5b7b32da37b6d924d7f275ea9513e04b540833799f04347dcf5c4631063534ac",
+  "native_import": "NOT RUN",
+  "native_playtest": "NOT RUN",
+  "visual_approval": "NOT GIVEN",
+  "performance_acceptance": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "production_complete": false,
+  "modules": [
+    {
+      "module": 1,
+      "title": "Facial finishing",
+      "source_disposition": "Inherited H7, unfinished",
+      "scope_and_remaining": "No new H8 facial sculpt. Existing H7 face, eyes and anatomy retained; premium finishing and owner review remain.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 2,
+      "title": "Hair and beard",
+      "source_disposition": "Inherited H7, unfinished",
+      "scope_and_remaining": "Existing weighted groom and LODs retained. New professional groom or sorting approval not claimed.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 3,
+      "title": "Clothing and armor",
+      "source_disposition": "Inherited H7, unfinished",
+      "scope_and_remaining": "Original H7 coat and armor exercised by authored actions. Deep-pose intersections and tailoring still need art/native work.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 4,
+      "title": "Technical integrity",
+      "source_disposition": "Source preserved / managed and DCC checked",
+      "scope_and_remaining": "Same 53 source bones, 47 semantics, three geometry LODs, sockets and complete influences. Four-weight rejection retained.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 5,
+      "title": "Animation authority",
+      "source_disposition": "Implemented / managed tested",
+      "scope_and_remaining": "Actual H7 body samples enter original HumanoidPose before Feet, smoothing and weapon/support IK. No second Animator or root motor.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 6,
+      "title": "Locomotion",
+      "source_disposition": "Partial / managed tested",
+      "scope_and_remaining": "Authored idle and forward walk/run at original distance gait phase. Run blending added. Reverse/strafe retain original posing; native plants and turns unverified.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 7,
+      "title": "Sword-ready",
+      "source_disposition": "Implemented / managed tested",
+      "scope_and_remaining": "Actual H7 SwordReady from existing Blade and Ready state, reversible review only.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 8,
+      "title": "Sword attack",
+      "source_disposition": "Partial / managed tested",
+      "scope_and_remaining": "Real OathCut for one unmirrored single-blade SlashRight. Original windup/active/recovery maps to authored 0/.36/.55/1. Other moves retain original poses.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 9,
+      "title": "Additional actions",
+      "source_disposition": "Partial / managed tested",
+      "scope_and_remaining": "Nine new real keyed actions. Dodge integrated; cast and aim partial-body integration. FireRecoil, jump/land, Surge rise and flight clips remain authored assets only.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 10,
+      "title": "Interruption",
+      "source_disposition": "Source implemented / managed tested",
+      "scope_and_remaining": "Original unsupported action priority, pose reset, fallback restore and prior animation cadence retained. Native death/travel/window/domain lifecycle NOT RUN.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 11,
+      "title": "Weapon alignment",
+      "source_disposition": "Integrated / native pending",
+      "scope_and_remaining": "Same original hands, sockets, support IK and contact owner. Actual palm grip, cloth and blade contact require native review.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 12,
+      "title": "Melee responsiveness",
+      "source_disposition": "Integrated / managed tested",
+      "scope_and_remaining": "Original input buffers, cancels and hit windows unchanged. Visible body samples follow existing action progress.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 13,
+      "title": "Crystal casting",
+      "source_disposition": "Partial / managed tested",
+      "scope_and_remaining": "Authored support-arm/torso cast pose weighted by original pulse. Original focus entitlements, effects and costs preserved. Six separate authored sequences unfinished.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 14,
+      "title": "Firearms",
+      "source_disposition": "Partial / managed tested",
+      "scope_and_remaining": "Authored FireAim upper body with original hand aiming/support and recoil. Separate authored FireRecoil not played yet.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 15,
+      "title": "Camera",
+      "source_disposition": "Inherited / preserved",
+      "scope_and_remaining": "Original normal camera and accessibility authority unchanged. No new camera takeover, shake or lock.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 16,
+      "title": "Companion eligibility",
+      "source_disposition": "Inherited / source protected",
+      "scope_and_remaining": "Legitimately earned ash_warden, appropriate focus, regional quest and weapon requirements remain. No new ally grant.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 17,
+      "title": "Paired motion",
+      "source_disposition": "Partial / managed tested",
+      "scope_and_remaining": "Authored AegisLink supporting arm/torso on original two-second regional clock. Original companion Charge tell .72 / impact .85 retained.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 18,
+      "title": "Atomic execution",
+      "source_disposition": "Inherited / regression checked",
+      "scope_and_remaining": "Original SynergyWindow, resource spend and terminal callback unchanged. New visual code has no damage or spend path.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 19,
+      "title": "Cancellation",
+      "source_disposition": "Source integrated / native pending",
+      "scope_and_remaining": "Original target, partner, range, line and fizzle checks retained. Unsupported visual states return to original pose.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 20,
+      "title": "Feedback",
+      "source_disposition": "Inherited / preserved",
+      "scope_and_remaining": "Original prompt, bounded effects, reduced effects, audio and one authorized impact remain. No separate feedback/damage owner added.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 21,
+      "title": "Real world route",
+      "source_disposition": "Inherited / native NOT RUN",
+      "scope_and_remaining": "Title > Gothic Civic H5, revision 10. Reversible review occurs in the real game; no separate scene.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 22,
+      "title": "Investigation",
+      "source_disposition": "Inherited / native NOT RUN",
+      "scope_and_remaining": "The Hearth Witness: Forge briefing, home porch, Oath witness and finite mites, Azure shrine/root cave and return. Existing quest receipt retained.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 23,
+      "title": "Creature encounter",
+      "source_disposition": "Inherited / native NOT RUN",
+      "scope_and_remaining": "Use original finite witness mites and shrine jackal, then legitimate regional encounters. No debug-only replacement.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 24,
+      "title": "Equipment progression",
+      "source_disposition": "Inherited / regression checked",
+      "scope_and_remaining": "Existing owned permanent regional weapons, physical claims, Forge costs, item IDs and saved ownership unchanged.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 25,
+      "title": "Companion participation",
+      "source_disposition": "Source integrated / native NOT RUN",
+      "scope_and_remaining": "Earned Ash Warden and eligible Veilglass Intercession use new player motion. Companion identity and milestones unchanged.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 26,
+      "title": "Traversal",
+      "source_disposition": "Inherited fallback / source assets partial",
+      "scope_and_remaining": "Original Surge, leap, glide, flight and vehicle pose stacks remain. New travel source clips not runtime-integrated.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 27,
+      "title": "Native import",
+      "source_disposition": "NOT RUN",
+      "scope_and_remaining": "Host has DCC and managed references, no executable licensed Unity. Owner preparation checks fourteen imported clips when actually run.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 28,
+      "title": "Reversible review",
+      "source_disposition": "Source implemented / native NOT RUN",
+      "scope_and_remaining": "Existing QA panel gains H8 entry, full-body opt-in and sampled-action context. No registry or permanent activation.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 29,
+      "title": "Visual comparison",
+      "source_disposition": "Incomplete / Unity NOT RUN",
+      "scope_and_remaining": "H7 art views remain in GitHub. Some unpublished H8 DCC views were lost during workspace maintenance; none are claimed delivered or Unity-rendered.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 30,
+      "title": "Native behavior and saves",
+      "source_disposition": "NOT RUN",
+      "scope_and_remaining": "Keyboard/controller, Pause, death, travel, reload, actual save/load and fallback restoration require native session.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 31,
+      "title": "Performance",
+      "source_disposition": "NOT RUN",
+      "scope_and_remaining": "No Profiler, FPS or memory acceptance claimed. Reused pose buffers and review-only data need actual hardware measurement.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 32,
+      "title": "Windows build",
+      "source_disposition": "NOT RUN",
+      "scope_and_remaining": "No native build/launch host. Normal player builds retain the original fallback until approval and deployment work.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 33,
+      "title": "Compilation",
+      "source_disposition": "Executed before maintenance",
+      "scope_and_remaining": "Both genuine 12-mode matrices passed. Recovered C# bytes exactly match the tested source SHA256. Raw final logs were pruned.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 34,
+      "title": "Assembly and syntax",
+      "source_disposition": "Executed before maintenance",
+      "scope_and_remaining": "3/3 managed boundaries and 12/12 syntax configurations passed. New remote CI is checked separately.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 35,
+      "title": "Regression",
+      "source_disposition": "Executed before maintenance",
+      "scope_and_remaining": "1,853 passed, 46 exact unchanged engine failures, 58 exclusions. No new names/reasons. Raw outcome Failed/exit46; raw unpublished XML pruned.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 36,
+      "title": "Character safety",
+      "source_disposition": "Managed and DCC checked",
+      "scope_and_remaining": "34 new H8 cases passed; fixed identities, no-event/root contract, segment lengths, interruption and source skeleton preserved.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 37,
+      "title": "Gameplay regression",
+      "source_disposition": "Source/managed checked / native pending",
+      "scope_and_remaining": "Original campaign, weapons, quests, Forge, BONDS and progression owners preserved. Two exact original pose hooks remain byte-audited.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 38,
+      "title": "Save protection",
+      "source_disposition": "Source protected / native pending",
+      "scope_and_remaining": "World revisions/banks 0-10, SaveSystem and defaults unchanged. Actual player saves and JsonUtility NOT RUN.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 39,
+      "title": "Checkpoints",
+      "source_disposition": "Published",
+      "scope_and_remaining": "445f5bc initial source, b281ef8 art recovery, 9b60cd2 LFS, 36d843a recovered tested integration. No history rewrite.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 40,
+      "title": "Art evidence",
+      "source_disposition": "Actual source and FBX delivered",
+      "scope_and_remaining": "Recovered exact artist .blend and fourteen-action rig FBX; original H7 anatomical model retained. Nine new actions, no new premium model claim.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 41,
+      "title": "Feature ledger",
+      "source_disposition": "Delivered",
+      "scope_and_remaining": "All 44 modules have source and remaining-work dispositions. Native, appearance, performance and build acceptance stay separate.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 42,
+      "title": "Owner guide",
+      "source_disposition": "Delivered",
+      "scope_and_remaining": "OWNER_GUIDE_H8.md and NATIVE_ACCEPTANCE_H8.md provide no-code review steps and no personal-save upload.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 43,
+      "title": "PR",
+      "source_disposition": "Draft PR12 updated",
+      "scope_and_remaining": "Same branch and gameplay base. No merge, force push, gameplay PR11 edit or parent merge.",
+      "native": "NOT RUN"
+    },
+    {
+      "module": 44,
+      "title": "Final acceptance",
+      "source_disposition": "Production unfinished",
+      "scope_and_remaining": "Source integration delivered, with inherited art and five unintegrated action assets. Native validation and owner appearance decision remain open.",
+      "native": "NOT RUN"
+    }
+  ]
+}

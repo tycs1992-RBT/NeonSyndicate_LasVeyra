@@ -51,7 +51,7 @@ namespace NeonSyndicate
         public static bool WorldMatches(QuestRequirements requirements, int revision)
         {
             return requirements == null || ((requirements.WorldRevision == 0 || requirements.WorldRevision == revision) &&
-                (requirements.WorldRevisions == null || requirements.WorldRevisions.Count == 0 || requirements.WorldRevisions.Contains(revision)));
+                (requirements.WorldRevisions == null || requirements.WorldRevisions.Count == 0 || requirements.WorldRevisions.Contains(revision) || ((revision==7 || revision==8 || revision==9 || revision==10) && requirements.WorldRevisions.Contains(6)) || ((revision==9 || revision==10) && requirements.WorldRevisions.Contains(8)) || (revision==10 && requirements.WorldRevisions.Contains(9))));
         }
 
         public static string MissingRequirement(QuestDef q, QuestProgress p, Func<string, string> questTitle)

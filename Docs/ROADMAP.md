@@ -1,4 +1,78 @@
+# Current WR02-C route repair checkpoint
+
+Source commit `9a499b74bcac6e7d67ed90d695a0535ff50ec073` repairs the existing Woodland causeway waypoint and adds existing threshold and grotto stops in EXPLORE. It is a partial route checkpoint, not completion of the WR02-C living fantasy world. Existing layout, GPS, quests, rewards, saves, physics, assets and defaults remain authoritative. Native route play, art appearance, character and creature review, controller, saves and performance are NOT RUN. The larger visual and gameplay program remains unfinished. Read `Docs/WorldRewrite/WR02C/FINAL_STATUS.md`, `TEST_LEDGER.md` and `OWNER_WALKTHROUGH.md`; keep PR12 draft and unmerged. Earlier receipts below remain historical.
+
+# Current WR02-B source/art and protected-review checkpoint
+
+Source tested `20d8ddcaae3e7025f24bcf899ff6608deadb0738`, final C# `a86687b5009f98313c24d599dc0856278b6b43ad1849e4d0237478e7f300a0f0`. Read Docs/WorldRewrite/WR02B/FINAL_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.json and OWNER_WALKTHROUGH.md. This owner-authorized WR02-B extends the existing Heart/WR02 surface lifetime and WR02-A foundry: regional original-tree crowns, source-specific cliff faces, bounded soft understory, existing GPS circuit and an Editor-only disabled basilisk native-review path. No production creature/physical arch activation, save/quest/physics/default promotion or new gameplay authority. Original WR01/WR02/WR02-A deliveries remain. Native Unity import, admitted/active counts, visible difference, Malik, rig/motion/contact/gameplay, controller/saves/build/performance and owner acceptance are NOT RUN. Wider skyline/terrain/composition remains unfinished. Keep PR12 draft/unmerged; do not begin WR03. Historical receipts below remain exact.
+
+# Current WR02-A asset foundry checkpoint
+
+Source/art checkpoint: fafe816fc6dbcd6086941f31af7c2386c8253dda, preserving starting HEAD ed483fc720ee1493ab0e2f783c643ea0e9ae6397. Read Docs/WorldRewrite/WR02A/FINAL_STATUS.md, TEST_LEDGER.md and OWNER_WALKTHROUGH.md. The existing Archive crown transaction can select an original sanctuary with curved ogival openings, asymmetric belfries and supported buttresses. The original lower shell, entrance, service and physical owners remain. A 32-bone crystal basilisk with five source-pose clips is a prepared candidate only; no live creature swap is installed. The reusable GLB/FBX Blender intake stages and independently validates exports before promotion. Tripo is optional, NOT CONNECTED, with no paid task or credits spent. Native Unity import, character appearance, contact, motion, gameplay, matched screenshots, controller, saves, performance and owner acceptance remain NOT RUN. Existing temporary PLAY FANTASY WORLD and GPS are reused; defaults and saves do not change. PR12 stays draft/unmerged; do not begin WR03. Earlier receipts remain historical.
+
+# Current WR02 reversible outdoor checkpoint
+
+WR02 source/art checkpoint: 251a3d8f10fd84bae27b338391574cfdaa3ac8af, from preserved starting HEAD 99072f180f11da7edf168602b6fc603d5eb71daf. Read Docs/WorldRewrite/WR02/FINAL_STATUS.md, OWNER_WALKTHROUGH.md, TEST_LEDGER.md and REMAINING_WORK.md for final evidence and limitations. The existing temporary PLAY FANTASY WORLD session now includes eligible stone roads/curbs, woodland/rock/timber surfaces, three source-specific cliff surfaces and ten original Azure tree crowns in fifteen existing chunks. Original geometry is retained transactionally before any matching visual hides. No gameplay, physical world, save, quest, character asset, renderer or permanent default changes. Native Unity import, appearance, visible difference, collision, gameplay, saves, controller, performance and owner acceptance remain NOT RUN. The premium-kingdom artistic gate is open; do not infer it from asset or source counts. Do not begin WR03. Older receipts below remain historical.
+
+# Current WR01 structural presentation checkpoint
+
+Source/art checkpoint7b7716f16417607391b3b3c097b8c6c95fb2cc92 preserves the newer WRR1 blueprint and original gameplay/physics owners. Read Docs/WorldRewrite/WR01/FINAL_STATUS.md, OWNER_WALKTHROUGH.md and COLLIDER_REVIEW.md. Three exact skyline emitters, Archive/Office crown groups and upper Underheart visual buckets now use the existing reversible Heart lifetime. Native collision, appearance, visible dominance, gameplay and owner acceptance remain BLOCKED or NOT RUN. Defaults, renderer, revisions and saves are unchanged. Earlier receipts remain historical.
+
+# NEXT SPRINT: WR-R1 GOTHIC KINGDOM STRUCTURAL REBUILD
+
+Edition: 2026-10-27. This is a design and next-sprint directive, not proof of implemented gameplay.
+
+The owner has chosen to continue the EXISTING Crystal Manor Saga game. Do not restart in a separate project. The research-supported solution is to replace the original modern visual emitters inside CityBuilder and Heart presentation, not keep adding gothic props around an unchanged city.
+
+Read Docs/WorldRewrite/WRR1_BLUEPRINT.md and Docs/WorldRewrite/WRR1_MASTER_BUILD_ORDER.md before the next implementation sprint. The proposed sequence is WR-R1 structural opening district, WR-R2 inhabited streets, WR-R3 Underheart, WR-R4 Amethyst, WR-R5 Azure, WR-R6 regional wilds, WR-R7 characters and creatures, WR-R8 combat and Resonance, WR-R9 traversal, WR-R10 living quests, WR-R11 rendering, WR-R12 integrated slice, WR-R13 production foundation. These are NOT completed sprint records.
+
+At blueprint preparation the connected GitHub branch and PR #12 resolved to b1ecc142b9587093cd57cbdfe1414ba468b5c5ed. The supplied Deep Research claimed a later 81b6635e0c8662c0ee747497ea56452607dea1b8 and WR01 files, but direct GitHub lookup did not find them. Treat those claims as UNVERIFIED; fetch the real HEAD and preserve any actual newer work.
+
+FR-V1 source proof tools exist, but native Unity, owner visual acceptance and Malik material confirmation remain open. Keep PR #12 draft and unmerged. Preserve all existing saves, stable IDs, art GUIDs and gameplay authorities. The historical documents below remain intact.
+
+---
+
+# Current FR02A delivery and remaining visual priority
+
+Source/art checkpoint7c70784f612b89349a49ec3cafcff8c609627da5 adds a bounded residential/market extension through the original Gothic Heart lifetime, plus LiveCast material-cache recovery. See FantasyRenaissance/FR02A/FINAL_STATUS.md and FINAL_SEAL.json. Source14houses/14court pieces, static DCC14/13, native counts NOT RUN. The user reports the earlier world still feels sparse and character materials are missing. Geometry and inhabited street composition take priority over another minor-detail pass. This checkpoint does not certify that the whole city, enemies or lands are built out.
+
+Native and owner acceptance remain open, defaults OFF, PR12 draft/unmerged, no FR02B/FR03/L4. Current managed2399pass/47unchanged failures/64excluded is rawFAILED, while both12-mode matrices and new asset/source checks pass. Use the ordinary Office-to-home-to-Archive-to-Forge walk, test character recovery first and record actual OFF/ON visibility, collision, NPC/service and save outcomes before advancing.
+
+# FR01E current correction and visibility gate
+
+FR01E source/art repairs are delivered in tested source 9f519edbba508470234b8490603b89dd83c398b1. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.json and OWNER_WALKTHROUGH.md. Continuous distance-mesh walls, a compact unstretched gateway with full-height admission and real-route side bays replace the earlier defects. The corrected DCC recipe includes actual retained CMH1 context; the previous FR01 images omitted it and are historical only. Native Unity import, ordinary gameplay, saves, devices, screenshots, performance and Windows are NOT RUN. PR12 stays draft/unmerged, original base unchanged. Do not start FR02 or L4.
+
+Owner requirement: every visual sprint must identify a noticeable change on a normal Free Roam route and provide a matched OFF/ON comparison. Source/DCC delivery is PARTIAL until genuine Unity evidence and the owner confirm the visible difference. A changed menu, test count or pretty isolated render does not satisfy that gate. Keep defaults and save owners protected.
+
+Previous checkpoint records below are retained with their original test identities.
+
+# FR01 delivery update
+
+Gothic Heart Renaissance: SOURCE BUILT and ART DELIVERED; native/owner acceptance PARTIAL and open. Default OFF. Eleven original mesh families, three LODs each and shared 1K maps; bounded original-owner visual substitution and ordinary EXPLORE/GPS. Read FantasyRenaissance/FR01/FINAL_STATUS.md. L1/L2/L3 native gates remain open. FR02 and default promotion are not authorized by offline checks.
+
+# Current fantasy production direction, 2026-10-26
+
+FR-01 Gothic Heart First Impression is the NEXT AUTHORIZED IMPLEMENTATION ORDER, not a completed sprint. Read `Docs/ARCHITECT_MASTER_PROMPT.md`, `Docs/FantasyRenaissance/ENGINEERING_BLUEPRINT.md` and `Docs/FantasyRenaissance/SPRINT_FR01_GOTHIC_HEART_FIRST_IMPRESSION.md`. The older world and sprint tables below remain historical records.
+
+Latest source verification before this planning update: L3 frost and generated-material preservation repair is delivered and source-tested, with the frost owner restored and a CityBuilder scope used instead. CI retains two inherited H5 failures. L1/L2/L3 Unity native gameplay and performance acceptance remain NOT RUN. Do not assume an in-game art pass is accepted because a compiler or Blender test passed. Keep PR 12 draft, leave PR 11 and all saves untouched. Fetch the current branch before executing FR-01.
+
+The artistic direction is a Layered Crystal Civilization: rebuilt gothic cores, crystal wilderness corridors, narrowly contained advanced areas. The first visual milestone is a normal Free Roam path from the home court through a recognizable gothic gate and skyline, inhabited street and the existing Archive and Forge, without displacing the original game systems.
+
+---
+
+L3 continuation, 2026-10-25: original Redspire ground PBR source and a separate default-off EXPLORE ground setting are implemented on the original base floor and wild chunks. Existing L2 art, original collision, 17 discoveries and revision 10 are preserved. L1/L2 native acceptance stays open; L3 native import/play/performance are NOT RUN. See Docs/LIVE_GROUND_L3.md and Docs/LiveGroundL3/VERIFICATION.json. Earlier evidence below keeps its own source version.
+
+L2 update, 2026-10-25: six original Redspire scatter variants now have a reversible default-off ordinary Free Roam lane. Pause > EXPLORE > Redspire kit: ON, then Route: Redspire art walk, after checking L1 Mirrorwell first. Only open-scatter HoodooBadlands boulders, spires and dead trees change. Source collision, 160 m chunks, all 17 discoveries and revision-10 saves retain their owners. Actual Unity import/gameplay/performance are NOT RUN. See `Docs/LiveWildL2/OWNER_GUIDE_L2.md` and `TEST_LEDGER_L2.md`.
+
+L2 continuation, 2026-10-25: existing Redspire boulders, spires and dead trees now have opt-in runtime chunk integration, original collision, a normal GPS route and temporary comparison. Source implemented; native import, gameplay, performance and visual acceptance remain pending. See `LIVE_WILDS_L2.md`. L1 pavilion native acceptance remains open.
+
+Current L1 checkpoint, 2026-10-25: V0 passed Tyler's ordinary Unity play check, with appearance still needing improvement. L1 supplies one original solid gothic pavilion at Mirrorwell Oasis in ordinary Free Roam, plus the reusable Wild resolver/collision/clearing lane. Source checks pass with inherited engine failures retained. L1 native import/play/appearance acceptance remains pending. See `Docs/LIVE_WILD_L1.md`.
+
 # Roadmap
+
+## Current visibility sprint (V0)
+
+Source implemented: Play-time cast preparation, static-art import repair, gameplay-only placement waits, Pause > EXPLORE routes, actual-placement map cue, retained F2 reasons and temporary legacy comparison. Native/owner acceptance pending. See `Docs/VISIBLE_REALITY_V0.md` and `Docs/VisibleRealityV0/VERIFICATION.json`. The older phase tables below are historical and do not override current live-cast or wilds code.
 
 This page compares the game as it is today with the master blueprint, the long-term plan for a full-length game.
 Every phase and major system of the blueprint gets a status, checked against the code. The blueprint itself is not
@@ -44,7 +118,7 @@ Phase N" always means the blueprint's numbering.
 | 4. Vertical slice: one district at full fidelity | Not started | It needs purchased art. Pieces already in code: creatures and bosses, races, contracts and creature hunts, weapons and vehicles. Missing: the full-fidelity district, audio middleware, the new UI framework and the three-person playtest. |
 | 5. Creatures, mounts, taming | Partly done | Done (Phase 3): the creature framework, the ecology spawner, loot tables and the bestiary, with 19 species in game (the done line asks for 12). Not started: taming, the two flying mounts (Rime Griffin, Quartz Drake) and any purchased animal controller. |
 | 6. Content engine | Partly done | Done (Phase 3): quests, contracts and world events as data with a validator, the event director, faction reputation, crafting. Partly: dialogue lines and choices live inside quest data; cinematics are scripted camera shots. Not started: story missions as data, a dialogue language, Timeline cinematics, the economy ledger, an automated playthrough bot. |
-| 7. Scale out the world | Partly done | Done: the nine city districts and the Quartz Badlands (earlier), the Inner World and the Frostline (Phase 3). Not started: full-fidelity art, enterable interiors, air traffic lanes, the 40 story missions. |
+| 7. Scale out the world | Partly done | Done: the nine city districts and the Quartz Badlands (earlier), the Inner World and the Frostline (Phase 3), and the wilds (2026-10-24: five lands, rolling ground, landforms and 17 places to find around the city, Docs/WILDS.md). Not started: full-fidelity art, enterable interiors, air traffic lanes, the 40 story missions. |
 | 8. Breadth content | Partly done | 19 of 60 side quests, 90 of 300 collectibles, 46 world events; more under Content targets below. |
 | 9. Performance and QA gates | Partly done | Done (Phase 3): golden screenshots with a compare report, a perf flythrough that records frame times, EditMode tests including save round trips. Not started: nightly automatic runs, PlayMode tests, a flythrough per district, and pass or fail gates (frame time, garbage collection spikes, memory). |
 | 10. Co-op | Not started | Nothing is networked. See Multiplayer readiness below. |
@@ -141,7 +215,7 @@ folders do not exist yet, except `Resources/Quests` and `Resources/Events` for q
 | 18 repeatable activity types | The older activities plus contracts, world events and boss arenas (see Activities below) | Partly done |
 | 250 activity instances | Contract boards post jobs from 19 templates (three per board, new ones every in-game day), 46 world event templates, plus races, rampages and payphone contracts | Partly done |
 | 12 districts and zones | 9 city districts, the Quartz Badlands, the Frostline and the Inner World | Done (Phase 3 added the last two) |
-| 40 enterable interiors | None | Not started |
+| 40 enterable interiors | 12 inhabited city venues plus 28 generated interiors (noodle bars, tea houses, gyms, boutiques, pawnshops, bookshops, chapels, arcades; `Docs/INTERIORS.md`) | Done (not yet run in Unity) |
 | 24 creature species (16 regular, 6 elite, 2 apex) | 19: 15 regular plus 4 bosses; any species can spawn as an elite | Partly done |
 | 12 bosses | 4 creature bosses with three phases, plus the Shard Warden who ends the story | Partly done |
 | 14 weapon archetypes | 20 weapons plus fists in the game's own styles; the blueprint's crystal archetypes (a rune bow, a summoning totem, a drone swarm and the rest) do not exist | Partly done |

@@ -1,0 +1,416 @@
+[
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 10830,
+      "triangles": 14440,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 4788,
+      "triangles": 6384,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 1368,
+      "triangles": 1824,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 17100,
+      "triangles": 22800,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 7560,
+      "triangles": 10080,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 2160,
+      "triangles": 2880,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 9690,
+      "triangles": 12920,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 4284,
+      "triangles": 5712,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 1224,
+      "triangles": 1632,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 0,
+      "maximumSourceSurfaceErrorMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 684,
+      "triangles": 864,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 2.81005577452e-06,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113457
+      ],
+      "maximum": [
+        6,
+        24,
+        18.8984604
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 252,
+      "triangles": 216,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 1.80167442392e-06,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113457
+      ],
+      "maximum": [
+        6,
+        24,
+        18.8984604
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 108,
+      "triangles": 36,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 4.97987140405e-07,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113457
+      ],
+      "maximum": [
+        6,
+        24,
+        18.8984604
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 679,
+      "triangles": 864,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 5.41942341507e-06,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        7.29000092,
+        34,
+        18.7113495
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 249,
+      "triangles": 216,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 2.57789034473e-06,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        7.29000092,
+        34,
+        18.7113495
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 106,
+      "triangles": 36,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 2.72962125704e-07,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        7.29000092,
+        34,
+        18.7113495
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 679,
+      "triangles": 864,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 4.57309873474e-06,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        6.83999634,
+        34,
+        18.7113495
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 249,
+      "triangles": 216,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 2.07328404289e-06,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        6.83999634,
+        34,
+        18.7113495
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  },
+  {
+    "file": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx",
+    "exit": 0,
+    "report": {
+      "vertices": 106,
+      "triangles": 36,
+      "uvDegenerate": 0,
+      "sourceTrianglePlanes": 36,
+      "maximumSourceSurfaceErrorMetres": 3.12459363211e-07,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        6.83999634,
+        34,
+        18.7113495
+      ],
+      "axes": "left_handed_y_up",
+      "passed": true
+    }
+  }
+]

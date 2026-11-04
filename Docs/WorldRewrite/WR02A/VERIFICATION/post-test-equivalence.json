@@ -1,0 +1,23 @@
+{
+  "testedSource": "fafe816fc6dbcd6086941f31af7c2386c8253dda",
+  "currentCSharpSha256": "64457a34677fbec67ffbc495a3d802a7bb9726d3e0952adac8b3b323291864f6",
+  "newMetadataWhitespaceOnly": [
+    "Assets/NeonSyndicate/Art/FoundryWR02A.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/CREDITS.txt.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/colliders.json.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/processed.json.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/colliders.json.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/processed.json.meta",
+    "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json.meta",
+    "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs.meta",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs.meta",
+    "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs.meta"
+  ],
+  "otherSourcePathsByteIdentical": 109,
+  "originalGuidsUnchanged": true,
+  "modelTexturePayloadsUnchanged": true,
+  "externalSealerChange": "Trim trailing whitespace when creating new metadata; existing metadata is never regenerated.",
+  "finalSourceEquivalence": "PASS"
+}

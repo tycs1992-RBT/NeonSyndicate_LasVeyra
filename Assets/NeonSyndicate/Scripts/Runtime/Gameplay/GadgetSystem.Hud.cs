@@ -260,7 +260,10 @@ namespace NeonSyndicate
                 Color tc = TierColor(tier);
                 _scoreLine = "GEAR SCORE " + score + "   <color=#" + ColorUtility.ToHtmlStringRGB(tc) + "><size=15>" + GearScoreRules.TierLabel(tier) + (forced > 0 ? " (forced)" : "") + "</size></color>";
             }
-            UIKit.Text(HudLayout04E.GearScoreLine(w, h), _scoreLine, 18, UIKit.Gold, TextAnchor.MiddleLeft, FontStyle.Bold);
+            Rect line = HudLayout04E.GearScoreLine(w, h);
+            UIKit.Text(line, _scoreLine, 18, UIKit.Gold, TextAnchor.MiddleLeft, FontStyle.Bold);
+            // H8S: a thin bar along the bottom of the same rectangle fills toward the next city tier.
+            ProgressionReadoutUiH8S.DrawTierBar(new Rect(line.x, line.yMax - 3f, line.width, 3f), score);
         }
 
         public static Color TierColor(int tier)

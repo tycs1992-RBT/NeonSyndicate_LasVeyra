@@ -836,8 +836,24 @@ namespace NeonSyndicate
             {
                 MountainSpec mt = L.Mountains[i];
                 Quaternion rot = Quaternion.Euler(0f, mt.Yaw, 0f);
-                Get(mt.Position, Mats.Rock, 30f).Sphere(0, mt.Position, mt.Radii, 6, 10, rot);
-                if (mt.Snow > 0f) MountainSnowCap(mt, rot, i);
+                // Rugged faceted ridges (owner direction 2026-10-24: a visible upgrade): a main peak and two lower
+                // shoulders from the wilds' noise rock, instead of one smooth half sphere. Same specs and positions.
+                GRand gr = new GRand(i * 7919 + 17);
+                float rx = mt.Radii.x, ry = mt.Radii.y, rz = mt.Radii.z;
+                MeshBuilder rock = Get(mt.Position, Mats.Rock, 30f);
+                WildsShapes.RockInto(rock, 0, null, mt.Position, new Vector3(2f * rx, ry * 1.38f, 2f * rz), rot, gr, 2, 0.17f);
+                for (int k = -1; k <= 1; k += 2)
+                {
+                    Vector3 shoulder = mt.Position + rot * new Vector3(k * rx * gr.Range(0.45f, 0.65f), 0f, gr.Range(-0.25f, 0.25f) * rz);
+                    float f = gr.Range(0.45f, 0.7f);
+                    WildsShapes.RockInto(rock, 0, null, shoulder, new Vector3(2f * rx * f, ry * 1.38f * f * gr.Range(0.8f, 1.05f), 2f * rz * f), rot * QMath.AY(gr.Range(-30f, 30f)), gr, 2, 0.2f);
+                }
+                if (mt.Snow > 0f)
+                {
+                    // A ragged snow cap: a smaller noise rock whose top breaks out just above the summit.
+                    float w = 0.35f + 0.4f * Mathf.Clamp01(mt.Snow);
+                    WildsShapes.RockInto(Get(mt.Position, Mats.SnowPeak, 1f), 0, null, mt.Position + Vector3.up * (ry * 0.67f), new Vector3(2f * rx * w, ry * 0.5f, 2f * rz * w), rot, gr, 2, 0.14f);
+                }
             }
             // A few desert mesas inside the walls for silhouettes.
             foreach (MesaSpec ms in L.Mesas)

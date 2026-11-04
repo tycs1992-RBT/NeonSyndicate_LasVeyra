@@ -1,0 +1,57 @@
+{
+  "tested_source": "9f519edbba508470234b8490603b89dd83c398b1",
+  "normalized_source": "f8f41b77a66e3e23fcbd9ce11abaafa55161ad68",
+  "production_payloads_equal": true,
+  "lfs_representation_only": [
+    {
+      "path": "ArtSource/HeartFR01/GothicHeartFR01.blend",
+      "payload_sha256": "b026414e9452d798e6a1dbb2ee5503d724d2cd8f921406df9e5d2167c0ec78d4",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD0.fbx",
+      "payload_sha256": "60affe0e681a9a883e7b03af4dffe1dc94bf47ed97b83a5adb55db3aa128978a",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD1.fbx",
+      "payload_sha256": "a24996f78426d2bc2e1a753f095a79f9b829c18d5fe6f603a8aa226fffa61680",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD2.fbx",
+      "payload_sha256": "6e2396fca8f979fd3c6e5351e34f3ab4092182de22cf7ec8a9f793da4fae3091",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD0.fbx",
+      "payload_sha256": "4c66dd0f17c662912ccf706d9a7e71a03862a29b9283934c7865eabf9906fd05",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD1.fbx",
+      "payload_sha256": "fad21410e5d67bb1da48d89b3c395f9d358a02ee1a5ffcd2dbceaa01865485a8",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD2.fbx",
+      "payload_sha256": "98cc49b76622a2d2f65fc30b415e7e280ada5e7df957f4f65e464c29fa3f7619",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD0.fbx",
+      "payload_sha256": "ebe6aaca8195a51b875c72d7a4af4921ccd5e1daa8aee7aa475fe5d7569461cd",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD1.fbx",
+      "payload_sha256": "d8bec933209da381710d6f825cfbada1555a0295b7ee28487e95ebd90cf6d45c",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD2.fbx",
+      "payload_sha256": "8ede819f09c6c6db27a4f2b583155355486a987cc5745b3b91be00fec79da930",
+      "change": "Raw tested blob normalized to matching LFS pointer only"
+    }
+  ]
+}

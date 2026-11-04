@@ -1,0 +1,99 @@
+{
+  "scope": "Actual Blender 4.5.3 reopen of editable source and delivered map bytes; not Unity",
+  "source_sha256": "da9cf0ed4f9fadc90970d16ba2de9ad1e992760827969c9fc39076392c286cd0",
+  "images": [
+    {
+      "image": "Bark_BaseColor.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_BaseColor.png",
+      "sha256": "a9211dcc629c21a5225a8e55355ebfbce197ded664f9d5dd1bc5a913d33d4206",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "Bark_Normal.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_Normal.png",
+      "sha256": "8e1828ae855fbc87193c7c2a8a2057c12bb4e281122db3913a242d77c518d554",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "RedspireStonySand_BaseColor.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireStonySand_BaseColor.png",
+      "sha256": "94c344617eb38a689c7b10ae665fb82c3d8cbd87cc4274fc8031c29b1968facb",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "RedspireStonySand_MetallicSmoothness.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireStonySand_MetallicSmoothness.png",
+      "sha256": "7960858fa97c2dd9fbc854c4da24913304815330aa238b8057e5f5e9e5501dcd",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "RedspireStonySand_Normal.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireStonySand_Normal.png",
+      "sha256": "e9dfaa67975f330cdf07b269144cfd04e82fae8747274125314c4c50af44bd03",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "RedspireWeatheredEarth_BaseColor.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireWeatheredEarth_BaseColor.png",
+      "sha256": "d79f47fb4f0f9fd020b296ba6e5cd790081e9d98d993514eee63c9631ab58ca6",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "RedspireWeatheredEarth_MetallicSmoothness.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireWeatheredEarth_MetallicSmoothness.png",
+      "sha256": "4cb1566775907a4d3e0c3086091a8bf090a481f70feee6e49dab44d05d8915cd",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "RedspireWeatheredEarth_Normal.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveGround/Redspire/RedspireWeatheredEarth_Normal.png",
+      "sha256": "a9fa1e417c3720bddcfd474eb2fca5269fc80f4e9a4990ac81fae59e3a297a0e",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "Sandstone_BaseColor.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_BaseColor.png",
+      "sha256": "b5ebecb325586d6852c8f47a9fd37d24f2a9cd15ccaddda4cd81da53bb0fe00e",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "image": "Sandstone_Normal.png",
+      "path": "ArtSource/RedspireL3/../../Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_Normal.png",
+      "sha256": "96207eebb084f8a07271b4c0ed65a17e307b269344951720d869e919be27e61a",
+      "size": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "ground_families": 2,
+  "original_l2_objects_present": 3,
+  "native_unity": "NOT RUN"
+}

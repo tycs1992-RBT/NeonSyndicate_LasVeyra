@@ -1,0 +1,20 @@
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(15,33): warning CS0649: Field 'VisualRebirth04AAssets.Surface.family' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(17,26): warning CS0649: Field 'VisualRebirth04AAssets.Surface.metallic' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs(12,35): warning CS0649: Field 'ImportedVisual04OD._basiliskModelWR02B' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(17,48): warning CS0649: Field 'VisualRebirth04AAssets.Surface.normalStrength' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(16,28): warning CS0649: Field 'VisualRebirth04AAssets.Surface.tint' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(16,34): warning CS0649: Field 'VisualRebirth04AAssets.Surface.emission' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Combat/ResonanceSystem.Hud.cs(22,24): warning CS0649: Field 'ResonanceSystem.MarkVisual.Id' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(11,79): warning CS0649: Field 'VisualRebirth04AAssets.SurfaceCatalog.surfaces' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(17,36): warning CS0649: Field 'VisualRebirth04AAssets.Surface.smoothness' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(14,24): warning CS0649: Field 'VisualRebirth04AAssets.Surface.style' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/Core/Pad.cs(48,30): warning CS0169: The field 'Pad._lightSentTime' is never used
+Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs(14,22): warning CS0649: Field 'ImportedVisual04OD._basiliskNativeReviewWR02B' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Runtime/UI/Phone.cs(19,24): warning CS0169: The field 'Phone._message' is never used
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(15,27): warning CS0649: Field 'VisualRebirth04AAssets.Surface.role' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Creatures/UnderBosses/KilnRegentFight.cs(37,26): warning CS0649: Field 'KilnRegentFight.Furnace.Ignite' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/UI/Hud.cs(81,22): warning CS0169: The field 'Hud._wheelReleaseSelect' is never used
+Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs(43,22): warning CS0169: The field 'PlayerController._winded' is never used
+Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs(174,29): warning CS0169: The field 'HumanoidPose._hasPrevYaw' is never used
+Assets/NeonSyndicate/Scripts/Runtime/Gameplay/WorldServices.cs(24,23): warning CS0169: The field 'WorldServices._respraySeenCheck' is never used
+Assets/NeonSyndicate/Scripts/Runtime/Core/Pad.cs(44,91): warning CS0414: The field 'Pad._rumbleSentHigh' is assigned but its value is never used

@@ -1,0 +1,16 @@
+{
+  "branch": "feature/04oh-ascension-art-foundation",
+  "tested_source_commit": "36d843a5273d0decbec98c5c46ca1470d54ca3b5",
+  "tested_csharp_sha256": "5b7b32da37b6d924d7f275ea9513e04b540833799f04347dcf5c4631063534ac",
+  "native_import": "NOT RUN",
+  "native_playtest": "NOT RUN",
+  "visual_approval": "NOT GIVEN",
+  "performance_acceptance": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "production_complete": false,
+  "source_blend_sha256": "35acdc10118eea325b8983a1f8e0cae621ca999f684caaee34e2a1d5344aeac0",
+  "source_fbx_sha256": "2e57f01d52189dd276c12244277a1accaa1d5bc3cf28cb1ad5e38edbd88fe951",
+  "delivery_commit": "Documentation-only descendant pinned in PR12 and final response",
+  "pr": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12",
+  "raw_final_logs": "Pruned during interrupted publication, execution receipt retained; not fabricated"
+}

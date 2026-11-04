@@ -1,0 +1,482 @@
+[
+  {
+    "file": "CrowdBoy/VeyranBoy.fbx",
+    "meshes": [
+      {
+        "name": "Body",
+        "vertices": 13380,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Complexion",
+            "faces": 13378
+          }
+        ]
+      },
+      {
+        "name": "Brows",
+        "vertices": 124,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Browline",
+            "faces": 96
+          }
+        ]
+      },
+      {
+        "name": "Eyes",
+        "vertices": 1064,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Eyes",
+            "faces": 1020
+          }
+        ]
+      },
+      {
+        "name": "Hair",
+        "vertices": 5014,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Hairpiece",
+            "faces": 9970
+          }
+        ]
+      },
+      {
+        "name": "Mask",
+        "vertices": 1034,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Mask",
+            "faces": 1036
+          }
+        ]
+      },
+      {
+        "name": "Teeth",
+        "vertices": 1346,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Teeth",
+            "faces": 1735
+          }
+        ]
+      },
+      {
+        "name": "Tongue",
+        "vertices": 226,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Tongue",
+            "faces": 224
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "CrowdElderWoman/VeyranElderWoman.fbx",
+    "meshes": [
+      {
+        "name": "Body",
+        "vertices": 8329,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Complexion.001",
+            "faces": 8224
+          }
+        ]
+      },
+      {
+        "name": "Eyes",
+        "vertices": 1064,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Eyes.001",
+            "faces": 1020
+          }
+        ]
+      },
+      {
+        "name": "Hair",
+        "vertices": 3573,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Hairpiece.001",
+            "faces": 2686
+          }
+        ]
+      },
+      {
+        "name": "Hoodie Dress",
+        "vertices": 5551,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Hoodie Dress",
+            "faces": 10784
+          }
+        ]
+      },
+      {
+        "name": "Shoes",
+        "vertices": 1722,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Shoes",
+            "faces": 1660
+          }
+        ]
+      },
+      {
+        "name": "Teeth",
+        "vertices": 1347,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Teeth.001",
+            "faces": 1746
+          }
+        ]
+      },
+      {
+        "name": "Tongue",
+        "vertices": 226,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Tongue.001",
+            "faces": 224
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "CrowdGirl/VeyranGirl.fbx",
+    "meshes": [
+      {
+        "name": "Body",
+        "vertices": 9952,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Complexion.002",
+            "faces": 9886
+          }
+        ]
+      },
+      {
+        "name": "Eyes",
+        "vertices": 96,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Eyes.002",
+            "faces": 86
+          }
+        ]
+      },
+      {
+        "name": "Hair",
+        "vertices": 5002,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Hairpiece.002",
+            "faces": 9997
+          }
+        ]
+      },
+      {
+        "name": "Hair Bob",
+        "vertices": 6735,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Hairpiece Bob",
+            "faces": 2389
+          }
+        ]
+      },
+      {
+        "name": "Suit",
+        "vertices": 6998,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Suit",
+            "faces": 11692
+          }
+        ]
+      },
+      {
+        "name": "Teeth",
+        "vertices": 1349,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Teeth.002",
+            "faces": 1738
+          }
+        ]
+      },
+      {
+        "name": "Tongue",
+        "vertices": 226,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Tongue.002",
+            "faces": 224
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "Malik/MalikVeyrBase.fbx",
+    "meshes": [
+      {
+        "name": "Beard",
+        "vertices": 503,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Beard",
+            "faces": 878
+          }
+        ]
+      },
+      {
+        "name": "Eyes",
+        "vertices": 96,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Eyes.003",
+            "faces": 172
+          }
+        ]
+      },
+      {
+        "name": "Hair",
+        "vertices": 6764,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Hair",
+            "faces": 13392
+          }
+        ]
+      },
+      {
+        "name": "Mask",
+        "vertices": 4495,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Mask.001",
+            "faces": 8998
+          }
+        ]
+      },
+      {
+        "name": "Skin",
+        "vertices": 4326,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Skin",
+            "faces": 8608
+          }
+        ]
+      },
+      {
+        "name": "Suit",
+        "vertices": 8081,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Suit.001",
+            "faces": 16128
+          }
+        ]
+      },
+      {
+        "name": "Teeth",
+        "vertices": 1942,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Teeth.003",
+            "faces": 3312
+          }
+        ]
+      },
+      {
+        "name": "Tongue",
+        "vertices": 226,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Tongue.003",
+            "faces": 448
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "SyndicateHeavy/SyndicateHeavy.fbx",
+    "meshes": [
+      {
+        "name": "Body",
+        "vertices": 7734,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Skin.001",
+            "faces": 7678
+          }
+        ]
+      },
+      {
+        "name": "Boots",
+        "vertices": 2334,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Boots",
+            "faces": 2310
+          }
+        ]
+      },
+      {
+        "name": "Eyes",
+        "vertices": 1064,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Eyes.004",
+            "faces": 1020
+          }
+        ]
+      },
+      {
+        "name": "Jacket",
+        "vertices": 2435,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Jacket Coat",
+            "faces": 2362
+          }
+        ]
+      },
+      {
+        "name": "Trousers",
+        "vertices": 1241,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Trouser Leather",
+            "faces": 1200
+          }
+        ]
+      },
+      {
+        "name": "Vest Armor",
+        "vertices": 977,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "materials": [
+          {
+            "name": "Vest Armor",
+            "faces": 926
+          }
+        ]
+      }
+    ]
+  }
+]

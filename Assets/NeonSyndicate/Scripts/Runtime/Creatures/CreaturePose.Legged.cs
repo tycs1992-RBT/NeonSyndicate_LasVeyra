@@ -213,6 +213,7 @@ namespace NeonSyndicate
             Attention04L(ref p, ref o);
             StormProwlerPose04OF(ref p,ref o);
             RegionalArt04OG(ref p,ref o);
+            GothicReadabilityH3(ref p,ref o);
             if (_alert > 0.001f) AlertPose(ref o, _alert);
             if (_hurt > 0.001f) HurtPose(ref o, _hurt);
             bool airborne = !p.Grounded;

@@ -1,0 +1,844 @@
+{
+  "schema_version": 1,
+  "license": "CC0-1.0",
+  "creator": "Original project-authored WR02 foliage and tileable surface study",
+  "source": "ArtSource/HeartWR02/LivingCanopiesWR02.blend",
+  "source_bytes": 2193466,
+  "source_sha256": "d9ab60d8d056261391fd1314bd90f6f5d7a5c06675413695c043e3ecbc055f91",
+  "axis": "Blender Z-up, FBX -Z forward Y-up, metres",
+  "pivot": "Normalized natural canopy envelope at base center; original source trunk and physical tree remain",
+  "modules": [
+    {
+      "name": "CanopySpreading",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx",
+      "bytes": 951548,
+      "sha256": "ace88186944838078dde9101053c5236f8ec5b6388d0e2757441402748187b76",
+      "vertices": 9690,
+      "triangles": 12920,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopySpreading",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx",
+      "bytes": 429884,
+      "sha256": "191825a884b78fbf29d190899adaffa0da783372b21f5c6eeb6680fcc6a28045",
+      "vertices": 4284,
+      "triangles": 5712,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopySpreading",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx",
+      "bytes": 135772,
+      "sha256": "7378a6359e46cbab91a48cba2d9ed8a72cec7b9a93f517908d9588251d0dba35",
+      "vertices": 1224,
+      "triangles": 1632,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopyPyramidal",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx",
+      "bytes": 1667516,
+      "sha256": "d2116168e2a7896bdb2543ad70fcc2ddf6fc74507664b6449fa37b31ea30a949",
+      "vertices": 17100,
+      "triangles": 22800,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopyPyramidal",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx",
+      "bytes": 741836,
+      "sha256": "4be2e5c0796e13837120b420b888447be17b283fc6f4d7dbfb4c7da696a68176",
+      "vertices": 7560,
+      "triangles": 10080,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopyPyramidal",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx",
+      "bytes": 224268,
+      "sha256": "e36525544cd0b91380a2f624cf06e708a455a4a2ad3e625084462d9d2d791299",
+      "vertices": 2160,
+      "triangles": 2880,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopyBent",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx",
+      "bytes": 1060684,
+      "sha256": "6e3ead2eba298bee494307ee17340100746b8fd14369e7bf48e7da518e448094",
+      "vertices": 10830,
+      "triangles": 14440,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopyBent",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx",
+      "bytes": 478268,
+      "sha256": "737b6f727f2c205e11c31563d2aa3b08f4db663a30d1cddcee3166da0349140e",
+      "vertices": 4788,
+      "triangles": 6384,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "CanopyBent",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx",
+      "bytes": 149772,
+      "sha256": "c2f1f00388d07345b107c1f9b1282f73b63c686b816817ea4d4f8b3248a20623",
+      "vertices": 1368,
+      "triangles": 1824,
+      "source_bounds": [
+        [
+          -0.5,
+          -0.5,
+          0
+        ],
+        [
+          0.5,
+          0.5,
+          1
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -0.5,
+          0,
+          -0.5
+        ],
+        [
+          0.5,
+          1,
+          0.5
+        ]
+      ],
+      "material_slots": [
+        "CanopyLeaf"
+      ]
+    },
+    {
+      "name": "Cliff61724",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx",
+      "bytes": 68956,
+      "sha256": "c123403b85ba4563111994b21491a72fee354bc24f81283c5bba65b2f054d07e",
+      "vertices": 684,
+      "triangles": 864,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          0.0
+        ],
+        [
+          6.0,
+          18.898460388183594,
+          24.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711345672607422
+        ],
+        [
+          6.0,
+          24.0,
+          18.898460388183594
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff61724.source.obj",
+        "sha256": "fb32e62e4dc01734e609771e109ea0684998882626a8ccabdbcc21a42f3a8947",
+        "bytes": 2831,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff61724",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx",
+      "bytes": 32636,
+      "sha256": "9ed1a1f968cf3d268193c1a91f243b18b30bfe98b5042a8ac149670409c92e69",
+      "vertices": 252,
+      "triangles": 216,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          0.0
+        ],
+        [
+          6.0,
+          18.898460388183594,
+          24.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711345672607422
+        ],
+        [
+          6.0,
+          24.0,
+          18.898460388183594
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff61724.source.obj",
+        "sha256": "fb32e62e4dc01734e609771e109ea0684998882626a8ccabdbcc21a42f3a8947",
+        "bytes": 2831,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff61724",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx",
+      "bytes": 22236,
+      "sha256": "4c2cd11193796b63cde3d5d6e97197ade9e46d3994489954ab4e5f118f7ac645",
+      "vertices": 108,
+      "triangles": 36,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711345672607422,
+          0.0
+        ],
+        [
+          6.0,
+          18.898460388183594,
+          24.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711345672607422
+        ],
+        [
+          6.0,
+          24.0,
+          18.898460388183594
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff61724.source.obj",
+        "sha256": "fb32e62e4dc01734e609771e109ea0684998882626a8ccabdbcc21a42f3a8947",
+        "bytes": 2831,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff62346",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx",
+      "bytes": 68876,
+      "sha256": "7eeee93d6826a7a3bfe1426c6cc4c5b9399a3416150cdfab31c175a6c21da017",
+      "vertices": 679,
+      "triangles": 864,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          0.0
+        ],
+        [
+          7.290000915527344,
+          18.711349487304688,
+          34.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711349487304688
+        ],
+        [
+          7.290000915527344,
+          34.0,
+          18.711349487304688
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff62346.source.obj",
+        "sha256": "7961a3781179b3856abd2716777156fe796b2387e330f35b73e20b849fdf9470",
+        "bytes": 2811,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff62346",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx",
+      "bytes": 32700,
+      "sha256": "d3698c348b6fd256467f0d7334216afdf13e3c9d6da408dac49caa35c5abe7d3",
+      "vertices": 249,
+      "triangles": 216,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          0.0
+        ],
+        [
+          7.290000915527344,
+          18.711349487304688,
+          34.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711349487304688
+        ],
+        [
+          7.290000915527344,
+          34.0,
+          18.711349487304688
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff62346.source.obj",
+        "sha256": "7961a3781179b3856abd2716777156fe796b2387e330f35b73e20b849fdf9470",
+        "bytes": 2811,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff62346",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx",
+      "bytes": 22268,
+      "sha256": "74eb4a0ff5e4d68647d7d1e4686fb6e97d1db39e11b22a3ee3c2c29d4e8ef3b5",
+      "vertices": 106,
+      "triangles": 36,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          0.0
+        ],
+        [
+          7.290000915527344,
+          18.711349487304688,
+          34.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711349487304688
+        ],
+        [
+          7.290000915527344,
+          34.0,
+          18.711349487304688
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff62346.source.obj",
+        "sha256": "7961a3781179b3856abd2716777156fe796b2387e330f35b73e20b849fdf9470",
+        "bytes": 2811,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff63279",
+      "lod": 0,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx",
+      "bytes": 69020,
+      "sha256": "d21e3fce199ab60c67d01f541a3f1f0cd3d3daae26afab22c689bcc8367538a4",
+      "vertices": 679,
+      "triangles": 864,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          0.0
+        ],
+        [
+          6.839996337890625,
+          18.711349487304688,
+          34.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711349487304688
+        ],
+        [
+          6.839996337890625,
+          34.0,
+          18.711349487304688
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff63279.source.obj",
+        "sha256": "88613223153fec04413875e2c2ce6842a28071f6850da4f3583ba31fc1719af0",
+        "bytes": 2794,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff63279",
+      "lod": 1,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx",
+      "bytes": 32700,
+      "sha256": "0b6e9c0712d2b16130044299499516247f62cf08ca87379f1d538a4de231c27b",
+      "vertices": 249,
+      "triangles": 216,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          0.0
+        ],
+        [
+          6.839996337890625,
+          18.711349487304688,
+          34.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711349487304688
+        ],
+        [
+          6.839996337890625,
+          34.0,
+          18.711349487304688
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff63279.source.obj",
+        "sha256": "88613223153fec04413875e2c2ce6842a28071f6850da4f3583ba31fc1719af0",
+        "bytes": 2794,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    },
+    {
+      "name": "Cliff63279",
+      "lod": 2,
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx",
+      "bytes": 22252,
+      "sha256": "70f14cd6e841fb20f1033e951be2ab5690c2b67b3b5eeb108c97ebd1a8525dfe",
+      "vertices": 106,
+      "triangles": 36,
+      "source_bounds": [
+        [
+          -5.638153076171875,
+          -18.711349487304688,
+          0.0
+        ],
+        [
+          6.839996337890625,
+          18.711349487304688,
+          34.0
+        ]
+      ],
+      "unity_bounds": [
+        [
+          -5.638153076171875,
+          0.0,
+          -18.711349487304688
+        ],
+        [
+          6.839996337890625,
+          34.0,
+          18.711349487304688
+        ]
+      ],
+      "material_slots": [
+        "WeatheredStrata"
+      ],
+      "source_surface": {
+        "path": "ArtSource/HeartWR02/Cliff63279.source.obj",
+        "sha256": "88613223153fec04413875e2c2ce6842a28071f6850da4f3583ba31fc1719af0",
+        "bytes": 2794,
+        "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+      },
+      "fit_policy": "Original local metres and origin, scale 1. Simple subdivisions remain on original triangle planes. No displaced or new traversable volume."
+    }
+  ],
+  "textures": [
+    {
+      "name": "AncientBark_BaseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "bytes": 658405,
+      "sha256": "59fb6c0bf991b56bbed5c980c6bfbe8261073d4ee2791e5ae7b5bf844fbe94b7"
+    },
+    {
+      "name": "AncientBark_MetallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "bytes": 298726,
+      "sha256": "b7e4f76d795fba8576349df6d1746e8b0c395d7e03da8205ccbf3b8c8549c25e"
+    },
+    {
+      "name": "AncientBark_Normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "bytes": 2123675,
+      "sha256": "3d98705a9293d03bdb0765a9170c24dd82d6da50dcdd88515da6acac3bb28a28"
+    },
+    {
+      "name": "CanopyLeaf_BaseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "bytes": 682146,
+      "sha256": "8a626344cbf7a71532704057a0e134b4d9cab027ca92347a6a9cb87fdb04980d"
+    },
+    {
+      "name": "CanopyLeaf_MetallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "bytes": 359323,
+      "sha256": "1d1997a149e846f60cd8231b0e6ddcfcc4bb7ad52565194a854ad78845d754cd"
+    },
+    {
+      "name": "CanopyLeaf_Normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "bytes": 1351980,
+      "sha256": "fa447f270d976ae80844ddb0a112e5c14408bd326778bb87521801e6a564a564"
+    },
+    {
+      "name": "CausewayStone_BaseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png",
+      "bytes": 789676,
+      "sha256": "8f35c1d69b40fdd1c3962c0bd4b50f422d0adce304969093e115fbc988a2af12"
+    },
+    {
+      "name": "CausewayStone_MetallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png",
+      "bytes": 281433,
+      "sha256": "d49104281c4e27135af35177f19b556c07d38f896980612974ac716f0dc98715"
+    },
+    {
+      "name": "CausewayStone_Normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png",
+      "bytes": 1505677,
+      "sha256": "126211736f47d7a28ae4de1d2bd6cf0913c07489bd02a1fa338f3a4612555e5e"
+    },
+    {
+      "name": "WeatheredStrata_BaseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "bytes": 1090136,
+      "sha256": "ef4a5416e3f9edc5a2d40ffe05dc98331d7327cbb4d1ee660102a645b87330d1"
+    },
+    {
+      "name": "WeatheredStrata_MetallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "bytes": 202497,
+      "sha256": "f37d89cfbdece3ae65ad181df4dcd6d506c47b744966bff1b80d8645100b47e8"
+    },
+    {
+      "name": "WeatheredStrata_Normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "bytes": 1924627,
+      "sha256": "bc5ca143b6a502329ac50836a3b57fd75068881d482701c43f7fec90964627ed"
+    },
+    {
+      "name": "WoodlandFloor_BaseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png",
+      "bytes": 935541,
+      "sha256": "d0c479d226d955678e269aa9a3b3865f78d34249d2ee467f862f10839ed75113"
+    },
+    {
+      "name": "WoodlandFloor_MetallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png",
+      "bytes": 330397,
+      "sha256": "f4d47e34bed21c9d0b674ac2c75e640e6f1e4dc6ee8834135fff8c066efc27b0"
+    },
+    {
+      "name": "WoodlandFloor_Normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png",
+      "bytes": 1688910,
+      "sha256": "c4c7e81272081b593848a53c7ddda57bf5720bdc3e5765f5cee454b3ee909cbb"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "collision_policy": "No new collider. Natural foliage only fits exact original crown bounds. Physical terrain, roots, trunks, roads, apertures and saved actors stay under existing owners.",
+  "additional_sources": [
+    {
+      "path": "ArtSource/HeartWR02/ExistingEscarpmentsWR02.blend",
+      "bytes": 1259047,
+      "sha256": "487a3d7d2a37c8d7ac0a37281e6fe8d87b5eea97920394a240c5ee846488e870",
+      "kind": "Editable source-specific original cliff surface production"
+    },
+    {
+      "path": "ArtSource/HeartWR02/Cliff61724.source.obj",
+      "sha256": "fb32e62e4dc01734e609771e109ea0684998882626a8ccabdbcc21a42f3a8947",
+      "bytes": 2831,
+      "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+    },
+    {
+      "path": "ArtSource/HeartWR02/Cliff62346.source.obj",
+      "sha256": "7961a3781179b3856abd2716777156fe796b2387e330f35b73e20b849fdf9470",
+      "bytes": 2811,
+      "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+    },
+    {
+      "path": "ArtSource/HeartWR02/Cliff63279.source.obj",
+      "sha256": "88613223153fec04413875e2c2ce6842a28071f6850da4f3583ba31fc1719af0",
+      "bytes": 2794,
+      "basis": "Exact compiled original C# vertices and triangles, local to original rock position. Reversed winding accounts for the Y/Z handedness change."
+    }
+  ],
+  "geometry_contract": "Three normalized noncolliding crowns and three source-specific cliffs. Original source cliff planes and every physical owner stay fixed. Native import/contact/visual acceptance NOT RUN."
+}

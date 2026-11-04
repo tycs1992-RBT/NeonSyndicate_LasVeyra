@@ -1,0 +1,15 @@
+# Owner walkthrough
+
+No provider account or purchase is required to see the locally authored sanctuary. Native execution here is NOT RUN.
+
+1. In GitHub Desktop, Fetch origin and Pull origin on feature/04oh-ascension-art-foundation. No new commit message is needed to download the delivered work. Preserve your own local changes if Desktop reports a conflict.
+2. Open the actual project in Unity 6000.3.16f1 and wait for import. Stop Play. Use Neon Syndicate > Live World > Prepare World Rewrite. The current command prepares FR01, WR01, WR02 and WR02-A through the same lifecycle. New source importer metadata is configured in place with its existing GUID; generated catalogs/materials stay ignored. Do not commit generated Materials folders to make a preview appear.
+3. Run Neon Syndicate > Acceptance > Verify Fantasy World. Check the actual checkout SHA, required source hydration and catalog status, then use the existing PLAY FANTASY WORLD temporary session. Permanent defaults are unchanged.
+4. In ordinary Free Roam, use Pause > EXPLORE > Route: Archive sanctuary and follow existing GPS. The tracked JOURNAL mission retains priority. No debug teleport or manual prefab placement is needed.
+5. Inspect the new upper sanctuary, curved openings, asymmetric towers, buttress supports, slate roof and rose tracery. The original entrance, service and lower shell remain. Capture matched ARCHIVE_PLAYER_SCALE and ARCHIVE_CLOSEUP OFF/ON frames using the existing acceptance tool. Its foundry fields must identify the new variant as prepared, admitted, active and a camera candidate. An old WR01 fallback must not count as the new landmark.
+6. Walk through the original Archive entrance and use its existing interaction. Check camera, stairs, walls and permitted flight/roof contact. Stop acceptance on invisible-wall contradictions, clipping, floating structures, missing maps or broken services. End fantasy review and verify original choices recover.
+7. The new basilisk is deliberately not a live replacement. In the Project window, inspect Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate and its five imported motion clips. The prepared candidate must report its original 32-bone contract. Do not drag a decorative duplicate into the world or call an unchanged live creature a new-asset screenshot.
+8. Native creature review must separately prove idle, walking, attack, impact and death, ground contact, full skin deformation, original hit/telegraph alignment and lawful AI/combat behavior before a runtime adapter is authorized. That gate is unfinished. Original functioning creatures remain.
+9. Test keyboard and controller through the same existing UI, save/load the existing save and export Fantasy Proof. Native screenshots, performance and Windows build results remain separate fields. Only you can set OWNER ACCEPTED after real review.
+
+The seven supplied asset images are labelled DCC ASSET REVIEW / NOT UNITY. They are Blender source reviews, not before/after Game View evidence. Native failure leaves the module unaccepted; it does not justify save migration, renderer changes, PR merging or paid generation.

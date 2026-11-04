@@ -1,0 +1,71 @@
+{
+  "assetId": "MALIK-H8R-REVIEW-01",
+  "creator": "Owner selected CC0 human and skin; project fitted original wardrobe and binding",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "preserveInfluences": true,
+  "sourceFbx": "Assets/NeonSyndicate/Art/ProductionH8S/Models/MalikVeyrH8S.fbx",
+  "authoringSource": "ArtSource/AscensionH8S/MalikVeyrH8S.blend",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Models/MalikVeyrH8S.fbx",
+      "sha256": "29340a3e24a6374c37858e30eb4b41444c1cf1de0c5aaa6df222aaaef04bb8ad",
+      "bytes": 10942220
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Models/MalikVeyrH8S_LOD1.fbx",
+      "sha256": "a19587aed6c2aa5bf64bdd0f77b009ab805350e9e20448feaf0f97819d953f8d",
+      "bytes": 6252604
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Models/MalikVeyrH8S_LOD2.fbx",
+      "sha256": "778cfd2fef580b3eaece6ea5f2a7c2c96d8f0dd82f1c918f740203f09359a76c",
+      "bytes": 3462700
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Brows_Albedo.png",
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "bytes": 89619
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Albedo.png",
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "bytes": 841803
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Normal.png",
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "bytes": 548880
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Eyes_Albedo.png",
+      "sha256": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+      "bytes": 249197
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Leather_Albedo.png",
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "bytes": 1210160
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Leather_Normal.png",
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "bytes": 575648
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Skin_Albedo.png",
+      "sha256": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c",
+      "bytes": 4706203
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Skin_Normal.png",
+      "sha256": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5",
+      "bytes": 4810829
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "tested_source_commit": "d25981cab6d908e58e6a1d4f348dae61e9454943",
+  "csharp_sha256": "8814bcaff5609e0ab8ef7fc8defe90a47f33509326872512cee91d82a5b6d284",
+  "source_asset_tree_objects": {
+    "Assets": "f0030ca00e6142ac1e8d5a6f99e050364e070367",
+    "ArtSource": "185b484e514840f3f06a2379a105631a1bcb558d",
+    "Packages": "3b3aa2d1180e7aacadbfc345a97378f3b9ba3b0d",
+    "ProjectSettings": "cc091968b7f61c5310ec3b66bf2f0c1f6999add7",
+    "tools": "e37bd3a4f7b426631be96f98482ecbf563d1491b",
+    ".github": "914992969d61b0cfc9c6ad147b4d8d9a428242fb",
+    ".gitattributes": "de50db1ae581923342761f34fe439ec14c183b99"
+  },
+  "allowed_delivery_changes": [
+    "START_HERE_04OH.md",
+    "RESUME_NEXT.md",
+    "Docs/Ascension04OH/"
+  ],
+  "native_unity": "NOT RUN"
+}

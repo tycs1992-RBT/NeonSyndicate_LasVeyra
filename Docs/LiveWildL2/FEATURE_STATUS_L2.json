@@ -1,0 +1,42 @@
+{
+  "sprint": "L2",
+  "source_implemented": true,
+  "art_produced": true,
+  "import_verified": "NOT RUN",
+  "player_seen": "NOT RUN",
+  "playtest_accepted": "NOT RUN",
+  "performance_verified": "NOT RUN",
+  "release_verified": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "default_activation": false,
+  "families": {
+    "Boulder": {
+      "variants": 2,
+      "triangles": [
+        1600,
+        768,
+        320
+      ]
+    },
+    "RockSpire": {
+      "variants": 2,
+      "triangles": [
+        2160,
+        1036,
+        432
+      ]
+    },
+    "DeadTree": {
+      "variants": 2,
+      "triangles": [
+        2172,
+        1042,
+        434
+      ]
+    }
+  },
+  "external_art_inputs": [],
+  "world_revision": 10,
+  "save_fields_changed": false,
+  "l1_native_acceptance": "PENDING"
+}

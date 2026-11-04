@@ -1,0 +1,12 @@
+{
+  "asset": "SanctuaryArchive",
+  "method": "Original AI-assisted Blender Python authorship, no remote 3D provider task",
+  "authoringSource": "ArtSource/FoundryWR02A/SanctuaryArchive.author.blend",
+  "source_sha256": "7434dbc72109fc315f1b517ea08e16b31f23f1486ef224cfd29fab5d5bd54227",
+  "input": "ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb",
+  "input_sha256": "c86cd699caf405c8e65db10a8dcced0dbac2582e7775bb5d157bc130d6ecc547",
+  "provider": "LOCAL_AUTHORING",
+  "creditsSpent": "0",
+  "license": "CC0-1.0",
+  "nativeUnity": "NOT RUN"
+}

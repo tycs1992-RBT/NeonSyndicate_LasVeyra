@@ -152,8 +152,24 @@ namespace NeonSyndicate
         /// <summary>Quartz Drake visual refinement. Adds mesh decoration and quiet secondary motion without changing its rig or combat.</summary>
         public bool CrystalRegalia;
         public bool StormProwler04OF;
+        /// <summary>Visual-only juvenile Quartz companion skin; never an ownership or summon entitlement.</summary>
+        public bool AscensionGuide04OH;
         /// <summary>A crest of feathers (or crystal fins) on the head.</summary>
         public bool Crest;
+        /// <summary>H8S creature look: the obsidian body and regional crystal cluster pass (CreatureBuilder.ObsidianH8S) runs for this body.</summary>
+        public bool ObsidianH8S;
+        /// <summary>Crystal family of the clusters, eyes and seams when ObsidianH8S is set (ObsidianLookH8S chooses it per species).</summary>
+        public CrystalFamilyH8S FamilyH8S;
+        /// <summary>Surface relief family of the creature material (CreatureHideH8S): 0 keeps the shared character material.</summary>
+        public int SurfaceH8S;
+        /// <summary>How rich the shard clusters are, 0 to 1 (how many clusters and how many shards each); elites raise it.</summary>
+        public float ClusterH8S = 0.6f;
+        /// <summary>Runtime pieces sit on this body's back (the furnace crucible, the coolant dome), so no shards grow along the spine.</summary>
+        public bool BackFreeH8S;
+        /// <summary>A guardian: plated armour with carved ward lines along the neck and flanks.</summary>
+        public bool WardLinesH8S;
+        /// <summary>Shoulder heavy: big raked shoulder clusters and only a short run of shards down the spine (the stalker, the scavenger).</summary>
+        public bool ShoulderHeavyH8S;
         /// <summary>0 legs straight under the body (mammals), 1 lizard sprawl (elbows and knees out to the sides).</summary>
         public float Sprawl;
         /// <summary>Secondary coat cell: markings, the griffin's lion body, the flesh between the wyrm's armour rings.</summary>

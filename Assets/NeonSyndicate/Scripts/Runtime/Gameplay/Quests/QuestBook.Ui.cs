@@ -155,23 +155,34 @@ namespace NeonSyndicate
         {
             QuestRun r = _run;
             if (r == null || Game.Missions == null || Game.Missions.Active == null || Game.Missions.Active != r.C) return;
-            // The line is rebuilt only when the run or its progress text changes (ProgressText itself is cached).
+            // The line is rebuilt only when the run, its progress text or the H8S distance words change (all cached).
             string progress = r.ProgressText();
-            if (r != _trackerRun || !ReferenceEquals(progress, _trackerProgress))
+            string where = TrackerWhereH8S();
+            PhaseHintToastH8S(r);
+            bool runChanged = r != _trackerRun || !ReferenceEquals(progress, _trackerProgress);
+            if (runChanged || !ReferenceEquals(where, _trackerWhereH8S))
             {
                 _trackerRun = r;
                 _trackerProgress = progress;
+                _trackerWhereH8S = where;
                 Color c = ArcColor(r.Quest);
                 string kind = r.Contract ? " CONTRACT" : "";
-                _trackerLine = "<color=" + Hex(c) + "><b>" + ArcName(r.Quest).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "");
-                _trackerWidth = UIKit.Measure(_trackerLine, 19).x;
-                _trackerFitFor = -1f;
+                string head = "<color=" + Hex(c) + "><b>" + ArcName(r.Quest).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "");
+                _trackerLine = head + (where.Length > 0 ? "   <color=#ffd24d>" + where + "</color>" : "");
+                if (runChanged)
+                {
+                    // Measured and fitted once per step on the longest distance wording, so changing words never re-measure.
+                    _trackerWidth = UIKit.Measure(head + TrackerWhereLongestH8S, 19).x;
+                    _trackerFitFor = -1f;
+                }
             }
             Rect strip = HudLayout04E.BottomStrip(W, H);
-            if (_trackerFitFor != strip.width)
+            int maxFont = AccessibilityRulesH8S.Font(19, Settings.GuideTextScaleH8S, 22);
+            if (_trackerFitFor != strip.width || _trackerMaxFontH8S != maxFont)
             {
                 _trackerFitFor = strip.width;
-                _trackerSize = HudLayout04E.FitFontSize(_trackerWidth, strip.width, 19, 14);
+                _trackerMaxFontH8S = maxFont;
+                _trackerSize = HudLayout04E.FitFontSize(_trackerWidth * maxFont / 19f, strip.width, maxFont, 14);
             }
             UIKit.Text(strip, _trackerLine, _trackerSize, new Color(1f, 1f, 1f, 0.92f), TextAnchor.MiddleCenter);
         }
@@ -230,6 +241,7 @@ namespace NeonSyndicate
                 y += 40f;
                 UIKit.Text(new Rect(r.x, y, r.width, 90f), "<b>Now:</b> " + (string.IsNullOrEmpty(run.C.ObjectiveText) ? "..." : run.C.ObjectiveText), 24, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
                 y += 96f;
+                y = DrawJournalGuideH8S(r, y, run);
                 UIKit.Text(new Rect(r.x, y, r.width * 0.7f, 120f), q.Summary, 20, new Color(0.8f, 0.8f, 0.8f), TextAnchor.UpperLeft, FontStyle.Normal, false, true);
                 y += 128f;
                 UIKit.Text(new Rect(r.x, y, r.width, 26f), "Reward: " + QuestLogic.RewardText(q.Reward), 20, UIKit.Gold, TextAnchor.UpperLeft);

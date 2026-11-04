@@ -1,0 +1,190 @@
+{
+  "scope": "Re-import the delivered FBX in Blender and test its actual structural proxy. Not Unity physics.",
+  "checks": [
+    {
+      "name": "Exactly three real LOD meshes and one collision mesh",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_Collision finite geometry",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_Collision base origin and unit scale",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD0 finite geometry",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD0 base origin and unit scale",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD0 UVs",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD0 four named materials",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD1 finite geometry",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD1 base origin and unit scale",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD1 UVs",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD1 four named materials",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD2 finite geometry",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD2 base origin and unit scale",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD2 UVs",
+      "passed": true
+    },
+    {
+      "name": "OasisPavilion_LOD2 four named materials",
+      "passed": true
+    },
+    {
+      "name": "LOD0 within 10000 to 40000 landmark budget",
+      "passed": true
+    },
+    {
+      "name": "Strictly cheaper distance meshes",
+      "passed": true
+    },
+    {
+      "name": "Proxy below runtime 12000 triangle cap",
+      "passed": true
+    },
+    {
+      "name": "Open front entrance at player chest height",
+      "passed": true
+    },
+    {
+      "name": "Open exit at rear, offset from the basin",
+      "passed": true
+    },
+    {
+      "name": "Front right column is solid",
+      "passed": true
+    },
+    {
+      "name": "Front left column is solid",
+      "passed": true
+    },
+    {
+      "name": "Stair reaches the structural floor",
+      "passed": true
+    },
+    {
+      "name": "Every front riser is 18 cm or less",
+      "passed": true
+    },
+    {
+      "name": "Delivered bounds enclosed by the conservative C# placement tests",
+      "passed": true
+    },
+    {
+      "name": "OasisCarved_BaseColor.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisCarved_MetallicSmoothness.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisCarved_Normal.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisCrystal_BaseColor.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisCrystal_Emission.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisCrystal_MetallicSmoothness.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisCrystal_Normal.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisMineral_BaseColor.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisMineral_MetallicSmoothness.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisMineral_Normal.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisStone_BaseColor.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisStone_MetallicSmoothness.png is 1024 square",
+      "passed": true
+    },
+    {
+      "name": "OasisStone_Normal.png is 1024 square",
+      "passed": true
+    }
+  ],
+  "passed": 38,
+  "failed": 0,
+  "reimported_meshes": [
+    {
+      "name": "OasisPavilion_Collision",
+      "triangles": 2216
+    },
+    {
+      "name": "OasisPavilion_LOD0",
+      "triangles": 36974
+    },
+    {
+      "name": "OasisPavilion_LOD1",
+      "triangles": 19212
+    },
+    {
+      "name": "OasisPavilion_LOD2",
+      "triangles": 7222
+    }
+  ],
+  "unity_axis_bounds": {
+    "min": [
+      -6.407472133636475,
+      -5.064529204901191e-07,
+      -6.7081732749938965
+    ],
+    "max": [
+      6.40690279006958,
+      12.625059127807617,
+      6.703908443450928
+    ]
+  },
+  "native_unity": "NOT RUN"
+}

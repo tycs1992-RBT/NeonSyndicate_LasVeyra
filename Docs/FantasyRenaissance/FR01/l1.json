@@ -1,0 +1,213 @@
+{
+  "scope": "L1 preservation and shipped-asset integrity. Does not run Unity or establish visual acceptance.",
+  "baseline": "dde58fa18e4bce0fdd84b65566a7681cc26f9b25",
+  "checks": [
+    {
+      "name": "Original owner byte-identical: Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/CharacterBase.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastRegistry.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastVisual.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCrowd.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CraftingSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsLayout.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsSites.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsShapes.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsTypes.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner byte-identical: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsMap.cs",
+      "passed": true
+    },
+    {
+      "name": "Original content unchanged: Assets/NeonSyndicate/Art/LiveCast",
+      "passed": true
+    },
+    {
+      "name": "Original content unchanged: Assets/NeonSyndicate/Art/ProductionH9",
+      "passed": true
+    },
+    {
+      "name": "Original content unchanged: Assets/NeonSyndicate/Resources/Quests",
+      "passed": true
+    },
+    {
+      "name": "Original content unchanged: Assets/NeonSyndicate/Resources/Events",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCarved_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCarved_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCarved_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_Emission.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisCrystal_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisMineral_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisMineral_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisMineral_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisPavilion.fbx",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisStone_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisStone_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisStone_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: ArtSource/OasisPavilionL1/OasisPavilion.blend",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Docs/LiveWildL1/OasisPavilion_Daylight.png",
+      "passed": true
+    },
+    {
+      "name": "Hydrated original L1 delivery hash: Docs/LiveWildL1/OasisPavilion_Night.png",
+      "passed": true
+    },
+    {
+      "name": "Real assets, source and both source renders delivered",
+      "passed": true
+    },
+    {
+      "name": "Executed Blender re-import and proxy checks retained",
+      "passed": true
+    },
+    {
+      "name": "Strict independent static FBX inspection passed",
+      "passed": true
+    },
+    {
+      "name": "Shipped normal-play site, collision and bounded clearing",
+      "passed": true
+    }
+  ],
+  "passed": 51,
+  "total": 51,
+  "native_unity": "NOT RUN"
+}

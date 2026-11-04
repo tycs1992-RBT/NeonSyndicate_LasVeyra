@@ -93,7 +93,8 @@ namespace NeonSyndicate
                 if (_cover) ExitCover();
                 _dashing = false;
             }
-            if (_travel != TravelMode.None)
+            // Travel powers and free-running moves (climbs, hangs, wall runs, rolls, dives) run instead of cover.
+            if (_travel != TravelMode.None || _fr != FreeRunState.None)
             {
                 if (_cover) ExitCover();
                 _dashing = false;

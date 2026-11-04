@@ -4,6 +4,11 @@ Everything here is generated in code like the rest of the game: bodies (Creature
 (CreaturePose, the people rig), voices (CreatureSounds), effects and UI. Nothing in this file has been run inside
 Unity yet: it compiles in all twelve configurations and the pure maths is tested offline (see the end).
 
+H8S creature look: every wild species, the part shards and the four classic bosses now wear the owner's reference look
+(dark obsidian and chitin bodies, regional crystal shard clusters, glow only in eyes, cores and crystal). What changed
+per creature, where to meet each one and how to compare the old and new looks side by side (F2 Creatures) is in
+[CREATURE_LOOKS.md](CREATURE_LOOKS.md). Rigs, hit volumes, parts, attacks, AI, damage, loot and saves are unchanged.
+
 ## The species
 
 | Species | Body | Where and when | How it fights |
@@ -50,6 +55,15 @@ ledge falls to the real ground, and a flyer killed in the air drops to the groun
   Story, a little shorter on Veteran), an active window and a recovery you can punish. A red "!" shows over a
   creature about to strike you; an orange "!!" means it cannot be blocked (dodge it); an arrow at the screen edge
   warns of a blow from out of view. Area attacks fill a ground ring before they burst.
+- H8S tell language (Combat/CombatTellsH8S.cs, Docs/Ascension04OH/COMBAT_READABILITY_H8S.md): the ground marks use
+  the glyph colours too (red edge: you may guard it, orange edge: dodge or leave), and every ring's edge is drawn
+  where the blow really hits your feet. All-round tail sweeps fill a ring around the body; pounces and ground charges
+  draw a lane along their path that stops following you at 70 percent of the wind-up, and the blow then goes where
+  the lane points, so a sidestep out of the lane works. Wind-ups have class minimums per difficulty (Veteran keeps
+  the floors above) and an area blow always leaves time to react and complete one dodge roll. People and
+  humanoid creatures winding up a melee blow on you show the same "!" or "!!". Blows on you land at least a moment
+  apart (0.55 s Story, 0.35 s Balanced, 0.22 s Veteran): an attacker whose blow would land on top of another waits
+  a beat and keeps circling.
 - No instant deaths: one creature hit takes at most 25 percent of your health on Story, 35 on Balanced, 50 on
   Veteran.
 - Creatures share the NPC melee attack limit (a whole swarm counts as one attacker). A Glass Mite's nibble stings but
@@ -84,6 +98,11 @@ ledge falls to the real ground, and a flyer killed in the air drops to the groun
   shatter, bosses flare and burst). No ragdolls. Loot (materials) and Lumen go straight to you.
 
 ## Bosses
+
+H8S: a phase opening shows a "PHASE 2 / 3" banner with a deep bell for every boss; the Foreman, the Djinn and the
+Queen also hold their own swings for a moment while they roar (like the regional guardians) and drop rings that were
+scheduled but never shown, and support golems and mirror copies wait a moment before their first swing. Boss rings
+keep their elemental fill with an orange edge at the burst's real reach. The Glacier Titan's script is unchanged.
 
 Coming near an arena finds it (a "B" map icon; during a mission it is found without the banner). Walking in once found
 starts the fight, but never during a mission or a world event at the arena, nor for 10 s after one ends or after a

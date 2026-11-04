@@ -1,0 +1,6 @@
+Original Neon Syndicate project environment art.
+License: CC0-1.0. Original geometry and maps dedicated to the public domain for this delivery.
+No third-party models, scans, photos or textures were used.
+Editable source: ArtSource/RedspireL2/RedspireWildernessL2.blend
+Reproduction: tools/author_redspire_l2.py
+Candidate art, native import and appearance acceptance pending.

@@ -1,0 +1,52 @@
+{
+ "passed": true,
+ "H7_IdleBreath_loop_gap": [
+  0.0,
+  0.03
+ ],
+ "H7_Walk_loop_gap": [
+  0.0,
+  0.048
+ ],
+ "H7_Run_loop_gap": [
+  0.0,
+  0.048
+ ],
+ "H7_SwordReady_loop_gap": [
+  0.0,
+  0.03
+ ],
+ "H8_FireAim_loop_gap": [
+  0.0,
+  0.03
+ ],
+ "H8_Listening_Supplied_loop_gap": [
+  0.0,
+  0.059
+ ],
+ "clips": 17,
+ "samples": 701,
+ "durations": {
+  "H7_IdleBreath": 3.0,
+  "H7_Walk": 1.6,
+  "H7_Run": 0.8,
+  "H7_SwordReady": 2.0,
+  "H7_OathCut": 1.2,
+  "H8_AegisLink": 2.0,
+  "H8_CrystalCast": 0.8,
+  "H8_Dodge": 0.7,
+  "H8_FireAim": 2.0,
+  "H8_FireRecoil": 0.4,
+  "H8_FlightLanding": 0.9,
+  "H8_FlightTakeoff": 1.0,
+  "H8_Guard_Brace": 1.2333,
+  "H8_JumpLanding": 0.7,
+  "H8_Landing_Supplied": 1.2667,
+  "H8_Listening_Supplied": 2.5,
+  "H8_SurgeRise": 0.7
+ },
+ "worst_step_m": 0.2926,
+ "worst_step_deg": 92.79,
+ "identical_to_h8s_except_source_hash": true,
+ "errors": []
+}

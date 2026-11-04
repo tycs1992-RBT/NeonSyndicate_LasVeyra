@@ -1,0 +1,628 @@
+﻿2026-10-28T18:03:40.6877495Z Current runner version: '2.338.0'
+2026-10-28T18:03:40.6907449Z ##[group]Runner Image Provisioner
+2026-10-28T18:03:40.6908575Z Hosted Compute Agent
+2026-10-28T18:03:40.6909242Z Version: 20261021.618
+2026-10-28T18:03:40.6909963Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-28T18:03:40.6910809Z Build Date: 2026-10-21T00:45:21Z
+2026-10-28T18:03:40.6911541Z Worker ID: {2d515ccf-93c5-4032-94da-b99b97499da1}
+2026-10-28T18:03:40.6912259Z Region: eastus2
+2026-10-28T18:03:40.6912926Z Cloud: Azure
+2026-10-28T18:03:40.6913545Z ##[endgroup]
+2026-10-28T18:03:40.6914953Z ##[group]Operating System
+2026-10-28T18:03:40.6915653Z Ubuntu
+2026-10-28T18:03:40.6916281Z 24.04.5
+2026-10-28T18:03:40.6917229Z LTS
+2026-10-28T18:03:40.6917907Z ##[endgroup]
+2026-10-28T18:03:40.6918552Z ##[group]Runner Image
+2026-10-28T18:03:40.6919227Z Image: ubuntu-24.04
+2026-10-28T18:03:40.6919856Z Version: 20261025.353.1
+2026-10-28T18:03:40.6921319Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-28T18:03:40.6922923Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-10-28T18:03:40.6923945Z ##[endgroup]
+2026-10-28T18:03:40.6925165Z ##[group]GITHUB_TOKEN Permissions
+2026-10-28T18:03:40.6927770Z Contents: read
+2026-10-28T18:03:40.6928434Z Metadata: read
+2026-10-28T18:03:40.6929148Z ##[endgroup]
+2026-10-28T18:03:40.6931422Z Secret source: Actions
+2026-10-28T18:03:40.6932561Z Cache mode: write
+2026-10-28T18:03:40.6933359Z Prepare workflow directory
+2026-10-28T18:03:40.7291079Z Prepare all required actions
+2026-10-28T18:03:40.7342108Z Getting action download info
+2026-10-28T18:03:40.9951672Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-28T18:03:41.0816920Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-28T18:03:41.1723343Z Download action repository 'actions/setup-dotnet@v4' (SHA:67a3573c9a986a3f9c594539f4ab511d57bb3ce9)
+2026-10-28T18:03:41.4019391Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-28T18:03:41.6233275Z Complete job name: source-and-fixture
+2026-10-28T18:03:41.7620739Z ##[group]Run actions/checkout@v4
+2026-10-28T18:03:41.7621661Z with:
+2026-10-28T18:03:41.7622137Z   fetch-depth: 0
+2026-10-28T18:03:41.7622629Z   lfs: true
+2026-10-28T18:03:41.7623163Z   repository: tycs1992-RBT/NeonSyndicate_LasVeyra
+2026-10-28T18:03:41.7628007Z   token: ***
+2026-10-28T18:03:41.7628505Z   ssh-strict: true
+2026-10-28T18:03:41.7628996Z   ssh-user: git
+2026-10-28T18:03:41.7629483Z   persist-credentials: true
+2026-10-28T18:03:41.7630015Z   clean: true
+2026-10-28T18:03:41.7630504Z   sparse-checkout-cone-mode: true
+2026-10-28T18:03:41.7631087Z   fetch-tags: false
+2026-10-28T18:03:41.7631576Z   show-progress: true
+2026-10-28T18:03:41.7632104Z   submodules: false
+2026-10-28T18:03:41.7632608Z   set-safe-directory: true
+2026-10-28T18:03:41.7633153Z   allow-unsafe-pr-checkout: false
+2026-10-28T18:03:41.7634070Z ##[endgroup]
+2026-10-28T18:03:41.9772222Z Syncing repository: tycs1992-RBT/NeonSyndicate_LasVeyra
+2026-10-28T18:03:41.9775987Z ##[group]Getting Git version info
+2026-10-28T18:03:41.9778191Z Working directory is '/home/runner/work/NeonSyndicate_LasVeyra/NeonSyndicate_LasVeyra'
+2026-10-28T18:03:41.9781081Z [command]/usr/bin/git version
+2026-10-28T18:03:41.9803735Z git version 2.56.0
+2026-10-28T18:03:41.9848601Z [command]/usr/bin/git lfs version
+2026-10-28T18:03:42.0272111Z git-lfs/3.8.1 (GitHub; linux amd64; go 1.27.3)
+2026-10-28T18:03:42.0285184Z ##[endgroup]
+2026-10-28T18:03:42.0312830Z Temporarily overriding HOME='/home/runner/work/_temp/23a57661-36df-4024-9f4d-8513dc1f1655' before making global git config changes
+2026-10-28T18:03:42.0319029Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-28T18:03:42.0322583Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/NeonSyndicate_LasVeyra/NeonSyndicate_LasVeyra
+2026-10-28T18:03:42.0384411Z Deleting the contents of '/home/runner/work/NeonSyndicate_LasVeyra/NeonSyndicate_LasVeyra'
+2026-10-28T18:03:42.0390420Z ##[group]Initializing the repository
+2026-10-28T18:03:42.0397279Z [command]/usr/bin/git init /home/runner/work/NeonSyndicate_LasVeyra/NeonSyndicate_LasVeyra
+2026-10-28T18:03:42.0486616Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-28T18:03:42.0489516Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-28T18:03:42.0491891Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-28T18:03:42.0493836Z hint: call:
+2026-10-28T18:03:42.0494762Z hint:
+2026-10-28T18:03:42.0495941Z hint: 	git config --global init.defaultBranch <name>
+2026-10-28T18:03:42.0497824Z hint:
+2026-10-28T18:03:42.0499558Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-28T18:03:42.0502671Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-28T18:03:42.0505260Z hint:
+2026-10-28T18:03:42.0506717Z hint: 	git branch -m <name>
+2026-10-28T18:03:42.0507909Z hint:
+2026-10-28T18:03:42.0509520Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-28T18:03:42.0513710Z Initialized empty Git repository in /home/runner/work/NeonSyndicate_LasVeyra/NeonSyndicate_LasVeyra/.git/
+2026-10-28T18:03:42.0521630Z [command]/usr/bin/git remote add origin https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra
+2026-10-28T18:03:42.0581889Z ##[endgroup]
+2026-10-28T18:03:42.0583658Z ##[group]Disabling automatic garbage collection
+2026-10-28T18:03:42.0587573Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-28T18:03:42.0654257Z ##[endgroup]
+2026-10-28T18:03:42.0656193Z ##[group]Setting up auth
+2026-10-28T18:03:42.0658372Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-28T18:03:42.0716670Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-28T18:03:42.1026667Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-28T18:03:42.1082617Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-28T18:03:42.1359304Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-28T18:03:42.1410891Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-28T18:03:42.1688546Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-28T18:03:42.1754511Z ##[endgroup]
+2026-10-28T18:03:42.1758916Z [command]/usr/bin/git lfs install --local
+2026-10-28T18:03:42.2222787Z Updated Git hooks.
+2026-10-28T18:03:42.2224010Z Git LFS initialized.
+2026-10-28T18:03:42.2242044Z ##[group]Fetching the repository
+2026-10-28T18:03:42.2258108Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +85703faa55e87b0defe607d8149721b10fee7750:refs/remotes/pull/12/merge
+2026-10-28T18:06:38.4262870Z From https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra
+2026-10-28T18:06:38.4263813Z  * [new branch]      art/crystal-fantasy-block-proof          -> origin/art/crystal-fantasy-block-proof
+2026-10-28T18:06:38.4264578Z  * [new branch]      development/visual-renaissance-01c       -> origin/development/visual-renaissance-01c
+2026-10-28T18:06:38.4265346Z  * [new branch]      docs/04n-resonance-bible-blueprint-20261019 -> origin/docs/04n-resonance-bible-blueprint-20261019
+2026-10-28T18:06:38.4266132Z  * [new branch]      feature/04o-shattered-metropolis-reborn  -> origin/feature/04o-shattered-metropolis-reborn
+2026-10-28T18:06:38.4267722Z  * [new branch]      feature/04oh-ascension-art-foundation    -> origin/feature/04oh-ascension-art-foundation
+2026-10-28T18:06:38.4268460Z  * [new branch]      feature/crystal-arsenal-04d              -> origin/feature/crystal-arsenal-04d
+2026-10-28T18:06:38.4269240Z  * [new branch]      feature/crystal-city-ascension-04i       -> origin/feature/crystal-city-ascension-04i
+2026-10-28T18:06:38.4269920Z  * [new branch]      feature/crystal-combat-citylife-04f      -> origin/feature/crystal-combat-citylife-04f
+2026-10-28T18:06:38.4270825Z  * [new branch]      feature/crystal-combat-living-city-04g   -> origin/feature/crystal-combat-living-city-04g
+2026-10-28T18:06:38.4271949Z  * [new branch]      feature/crystal-kingdom-awakens-04n      -> origin/feature/crystal-kingdom-awakens-04n
+2026-10-28T18:06:38.4272962Z  * [new branch]      feature/inhabited-city-04c               -> origin/feature/inhabited-city-04c
+2026-10-28T18:06:38.4273977Z  * [new branch]      feature/living-crystal-world-04m         -> origin/feature/living-crystal-world-04m
+2026-10-28T18:06:38.4275075Z  * [new branch]      feature/living-territories-04b           -> origin/feature/living-territories-04b
+2026-10-28T18:06:38.4275814Z  * [new branch]      feature/living-world-renaissance-04h     -> origin/feature/living-world-renaissance-04h
+2026-10-28T18:06:38.4276761Z  * [new branch]      feature/renaissance-in-motion-04k        -> origin/feature/renaissance-in-motion-04k
+2026-10-28T18:06:38.4277492Z  * [new branch]      feature/shard-war-horde-renaissance-04j  -> origin/feature/shard-war-horde-renaissance-04j
+2026-10-28T18:06:38.4278313Z  * [new branch]      feature/the-veil-remembers-04l           -> origin/feature/the-veil-remembers-04l
+2026-10-28T18:06:38.4279372Z  * [new branch]      feature/underheart-bonds-04e             -> origin/feature/underheart-bonds-04e
+2026-10-28T18:06:38.4279998Z  * [new branch]      feature/visual-rebirth-04a               -> origin/feature/visual-rebirth-04a
+2026-10-28T18:06:38.4280527Z  * [new branch]      main                                     -> origin/main
+2026-10-28T18:06:38.4280991Z  * [new ref]         85703faa55e87b0defe607d8149721b10fee7750 -> pull/12/merge
+2026-10-28T18:06:38.4282649Z ##[endgroup]
+2026-10-28T18:06:38.4283038Z ##[group]Determining the checkout info
+2026-10-28T18:06:38.4283480Z ##[endgroup]
+2026-10-28T18:06:38.4283847Z ##[group]Fetching LFS objects
+2026-10-28T18:06:38.4284201Z [command]/usr/bin/git lfs fetch origin refs/remotes/pull/12/merge
+2026-10-28T18:06:38.4562497Z Fetching reference refs/remotes/pull/12/merge
+2026-10-28T18:07:00.6529292Z ##[endgroup]
+2026-10-28T18:07:00.6542120Z [command]/usr/bin/git sparse-checkout disable
+2026-10-28T18:07:00.6603104Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-28T18:07:00.6647208Z ##[group]Checking out the ref
+2026-10-28T18:07:00.6650883Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/12/merge
+2026-10-28T18:07:01.6932188Z Updating files:  21% (1890/8989)
+2026-10-28T18:07:01.6978766Z Updating files:  22% (1978/8989)
+2026-10-28T18:07:01.7013052Z Updating files:  23% (2068/8989)
+2026-10-28T18:07:01.7067855Z Updating files:  24% (2158/8989)
+2026-10-28T18:07:01.7216104Z Updating files:  25% (2248/8989)
+2026-10-28T18:07:01.7385790Z Updating files:  26% (2338/8989)
+2026-10-28T18:07:01.7691940Z Updating files:  27% (2428/8989)
+2026-10-28T18:07:01.7983766Z Updating files:  28% (2517/8989)
+2026-10-28T18:07:01.8123935Z Updating files:  29% (2607/8989)
+2026-10-28T18:07:01.8179657Z Updating files:  30% (2697/8989)
+2026-10-28T18:07:01.8230333Z Updating files:  31% (2787/8989)
+2026-10-28T18:07:01.8278896Z Updating files:  32% (2877/8989)
+2026-10-28T18:07:01.8325145Z Updating files:  33% (2967/8989)
+2026-10-28T18:07:01.8375404Z Updating files:  34% (3057/8989)
+2026-10-28T18:07:01.8434178Z Updating files:  35% (3147/8989)
+2026-10-28T18:07:01.8489039Z Updating files:  36% (3237/8989)
+2026-10-28T18:07:01.8539952Z Updating files:  37% (3326/8989)
+2026-10-28T18:07:01.8594266Z Updating files:  38% (3416/8989)
+2026-10-28T18:07:01.8646742Z Updating files:  39% (3506/8989)
+2026-10-28T18:07:01.8702402Z Updating files:  40% (3596/8989)
+2026-10-28T18:07:01.8766782Z Updating files:  41% (3686/8989)
+2026-10-28T18:07:01.8822309Z Updating files:  42% (3776/8989)
+2026-10-28T18:07:01.8877177Z Updating files:  43% (3866/8989)
+2026-10-28T18:07:01.8931069Z Updating files:  44% (3956/8989)
+2026-10-28T18:07:01.8984425Z Updating files:  45% (4046/8989)
+2026-10-28T18:07:01.9035141Z Updating files:  46% (4135/8989)
+2026-10-28T18:07:01.9091521Z Updating files:  47% (4225/8989)
+2026-10-28T18:07:01.9154002Z Updating files:  48% (4315/8989)
+2026-10-28T18:07:01.9207672Z Updating files:  49% (4405/8989)
+2026-10-28T18:07:01.9261975Z Updating files:  50% (4495/8989)
+2026-10-28T18:07:01.9317405Z Updating files:  51% (4585/8989)
+2026-10-28T18:07:01.9375039Z Updating files:  52% (4675/8989)
+2026-10-28T18:07:01.9422967Z Updating files:  53% (4765/8989)
+2026-10-28T18:07:01.9478619Z Updating files:  54% (4855/8989)
+2026-10-28T18:07:01.9532325Z Updating files:  55% (4944/8989)
+2026-10-28T18:07:01.9592352Z Updating files:  56% (5034/8989)
+2026-10-28T18:07:01.9648270Z Updating files:  57% (5124/8989)
+2026-10-28T18:07:01.9699262Z Updating files:  58% (5214/8989)
+2026-10-28T18:07:01.9945305Z Updating files:  59% (5304/8989)
+2026-10-28T18:07:02.0135769Z Updating files:  60% (5394/8989)
+2026-10-28T18:07:02.0635608Z Updating files:  61% (5484/8989)
+2026-10-28T18:07:02.0720955Z Updating files:  62% (5574/8989)
+2026-10-28T18:07:02.0761896Z Updating files:  63% (5664/8989)
+2026-10-28T18:07:02.0856754Z Updating files:  64% (5753/8989)
+2026-10-28T18:07:02.1203533Z Updating files:  65% (5843/8989)
+2026-10-28T18:07:02.1468393Z Updating files:  66% (5933/8989)
+2026-10-28T18:07:02.1531825Z Updating files:  67% (6023/8989)
+2026-10-28T18:07:02.1699703Z Updating files:  68% (6113/8989)
+2026-10-28T18:07:02.1760311Z Updating files:  69% (6203/8989)
+2026-10-28T18:07:02.1921567Z Updating files:  70% (6293/8989)
+2026-10-28T18:07:02.2000902Z Updating files:  71% (6383/8989)
+2026-10-28T18:07:02.2257884Z Updating files:  72% (6473/8989)
+2026-10-28T18:07:02.2529568Z Updating files:  73% (6562/8989)
+2026-10-28T18:07:02.2788896Z Updating files:  74% (6652/8989)
+2026-10-28T18:07:02.2962168Z Updating files:  75% (6742/8989)
+2026-10-28T18:07:02.3151823Z Updating files:  76% (6832/8989)
+2026-10-28T18:07:02.3376745Z Updating files:  77% (6922/8989)
+2026-10-28T18:07:02.3653598Z Updating files:  78% (7012/8989)
+2026-10-28T18:07:02.3875982Z Updating files:  79% (7102/8989)
+2026-10-28T18:07:02.4054104Z Updating files:  80% (7192/8989)
+2026-10-28T18:07:02.4228977Z Updating files:  81% (7282/8989)
+2026-10-28T18:07:02.4398176Z Updating files:  82% (7371/8989)
+2026-10-28T18:07:02.4589268Z Updating files:  83% (7461/8989)
+2026-10-28T18:07:02.4719228Z Updating files:  84% (7551/8989)
+2026-10-28T18:07:02.4902669Z Updating files:  85% (7641/8989)
+2026-10-28T18:07:02.5050614Z Updating files:  86% (7731/8989)
+2026-10-28T18:07:02.5230259Z Updating files:  87% (7821/8989)
+2026-10-28T18:07:02.5707629Z Updating files:  88% (7911/8989)
+2026-10-28T18:07:02.5878861Z Updating files:  89% (8001/8989)
+2026-10-28T18:07:02.6066619Z Updating files:  90% (8091/8989)
+2026-10-28T18:07:02.6782894Z Updating files:  91% (8180/8989)
+2026-10-28T18:07:02.6904615Z Updating files:  91% (8244/8989)
+2026-10-28T18:07:02.7062708Z Updating files:  92% (8270/8989)
+2026-10-28T18:07:02.8057015Z Updating files:  93% (8360/8989)
+2026-10-28T18:07:02.8357920Z Updating files:  94% (8450/8989)
+2026-10-28T18:07:02.8948360Z Updating files:  95% (8540/8989)
+2026-10-28T18:07:02.9112823Z Updating files:  96% (8630/8989)
+2026-10-28T18:07:02.9180405Z Updating files:  97% (8720/8989)
+2026-10-28T18:07:02.9244842Z Updating files:  98% (8810/8989)
+2026-10-28T18:07:02.9303593Z Updating files:  99% (8900/8989)
+2026-10-28T18:07:02.9304052Z Updating files: 100% (8989/8989)
+2026-10-28T18:07:02.9689152Z Updating files: 100% (8989/8989), done.
+2026-10-28T18:07:02.9689826Z Note: switching to 'refs/remotes/pull/12/merge'.
+2026-10-28T18:07:02.9690964Z 
+2026-10-28T18:07:02.9691314Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-28T18:07:02.9692086Z changes and commit them, and you can discard any commits you make in this
+2026-10-28T18:07:02.9692826Z state without impacting any branches by switching back to a branch.
+2026-10-28T18:07:02.9693264Z 
+2026-10-28T18:07:02.9693542Z If you want to create a new branch to retain commits you create, you may
+2026-10-28T18:07:02.9694237Z do so (now or later) by using -c with the switch command. Example:
+2026-10-28T18:07:02.9694632Z 
+2026-10-28T18:07:02.9694804Z   git switch -c <new-branch-name>
+2026-10-28T18:07:02.9695071Z 
+2026-10-28T18:07:02.9695238Z Or undo this operation with:
+2026-10-28T18:07:02.9695487Z 
+2026-10-28T18:07:02.9695632Z   git switch -
+2026-10-28T18:07:02.9695828Z 
+2026-10-28T18:07:02.9696158Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-28T18:07:02.9696845Z 
+2026-10-28T18:07:02.9697389Z HEAD is now at 85703fa Merge 251a3d8f10fd84bae27b338391574cfdaa3ac8af into 721c1238a070e8dea08118314511c17023528feb
+2026-10-28T18:07:03.0220073Z Encountered 38 files that should have been pointers, but weren't:
+2026-10-28T18:07:03.0233280Z 	ArtSource/HeartWR02/Cliff61724.source.obj
+2026-10-28T18:07:03.0233982Z 	ArtSource/HeartWR02/Cliff62346.source.obj
+2026-10-28T18:07:03.0234522Z 	ArtSource/HeartWR02/Cliff63279.source.obj
+2026-10-28T18:07:03.0235003Z 	ArtSource/HeartWR02/ExistingEscarpmentsWR02.blend
+2026-10-28T18:07:03.0235371Z 	ArtSource/HeartWR02/LivingCanopiesWR02.blend
+2026-10-28T18:07:03.0235808Z 	Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png
+2026-10-28T18:07:03.0236281Z 	Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png
+2026-10-28T18:07:03.0237035Z 	Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png
+2026-10-28T18:07:03.0237469Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx
+2026-10-28T18:07:03.0237841Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx
+2026-10-28T18:07:03.0238218Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx
+2026-10-28T18:07:03.0238609Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png
+2026-10-28T18:07:03.0239403Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png
+2026-10-28T18:07:03.0239852Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png
+2026-10-28T18:07:03.0240245Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx
+2026-10-28T18:07:03.0240639Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx
+2026-10-28T18:07:03.0241023Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx
+2026-10-28T18:07:03.0241409Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx
+2026-10-28T18:07:03.0241791Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx
+2026-10-28T18:07:03.0242172Z 	Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx
+2026-10-28T18:07:03.0242600Z 	Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png
+2026-10-28T18:07:03.0243075Z 	Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png
+2026-10-28T18:07:03.0243534Z 	Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png
+2026-10-28T18:07:03.0243915Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx
+2026-10-28T18:07:03.0244280Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx
+2026-10-28T18:07:03.0244634Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx
+2026-10-28T18:07:03.0244978Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx
+2026-10-28T18:07:03.0245322Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx
+2026-10-28T18:07:03.0245661Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx
+2026-10-28T18:07:03.0246012Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx
+2026-10-28T18:07:03.0246567Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx
+2026-10-28T18:07:03.0246969Z 	Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx
+2026-10-28T18:07:03.0247368Z 	Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png
+2026-10-28T18:07:03.0248022Z 	Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png
+2026-10-28T18:07:03.0248501Z 	Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png
+2026-10-28T18:07:03.0248935Z 	Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png
+2026-10-28T18:07:03.0249395Z 	Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png
+2026-10-28T18:07:03.0249861Z 	Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png
+2026-10-28T18:07:03.0338233Z ##[endgroup]
+2026-10-28T18:07:03.0400930Z [command]/usr/bin/git log -1 --format=%H
+2026-10-28T18:07:03.0439728Z 85703faa55e87b0defe607d8149721b10fee7750
+2026-10-28T18:07:03.0718518Z ##[group]Run actions/setup-python@v5
+2026-10-28T18:07:03.0718834Z with:
+2026-10-28T18:07:03.0719057Z   python-version: 3.12
+2026-10-28T18:07:03.0719319Z   check-latest: false
+2026-10-28T18:07:03.0721737Z   token: ***
+2026-10-28T18:07:03.0721974Z   update-environment: true
+2026-10-28T18:07:03.0722246Z   allow-prereleases: false
+2026-10-28T18:07:03.0722512Z   freethreaded: false
+2026-10-28T18:07:03.0722745Z ##[endgroup]
+2026-10-28T18:07:03.2087853Z ##[group]Installed versions
+2026-10-28T18:07:03.2164543Z (node:2531) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-28T18:07:03.2165486Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-28T18:07:03.2166148Z Successfully set up CPython (3.12.15)
+2026-10-28T18:07:03.2166978Z ##[endgroup]
+2026-10-28T18:07:03.2405122Z ##[group]Run actions/setup-dotnet@v4
+2026-10-28T18:07:03.2405609Z with:
+2026-10-28T18:07:03.2405935Z   dotnet-version: 8.0.x
+2026-10-28T18:07:03.2406306Z   cache: false
+2026-10-28T18:07:03.2406798Z env:
+2026-10-28T18:07:03.2407205Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:03.2407955Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:03.2408670Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:03.2409305Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:03.2409962Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:03.2410602Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:03.2411159Z ##[endgroup]
+2026-10-28T18:07:03.3935828Z (node:2539) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-28T18:07:03.3937843Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-28T18:07:03.3962246Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --runtime dotnet --channel LTS
+2026-10-28T18:07:03.7390023Z dotnet-install: .NET Core Runtime with version '10.0.14' is already installed.
+2026-10-28T18:07:03.7420192Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --channel 8.0
+2026-10-28T18:07:04.0393061Z dotnet-install: .NET Core SDK with version '8.0.427' is already installed.
+2026-10-28T18:07:04.0567072Z ##[group]Run python3 tools/test_preservation_lineage_04oh.py
+2026-10-28T18:07:04.0567591Z [36;1mpython3 tools/test_preservation_lineage_04oh.py[0m
+2026-10-28T18:07:04.0568005Z [36;1mpython3 tools/test_saved_schema_lineage_l2.py[0m
+2026-10-28T18:07:04.0598325Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:04.0598603Z env:
+2026-10-28T18:07:04.0598903Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:04.0599372Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:04.0599810Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:04.0600195Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:04.0600580Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:04.0600965Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:04.0601310Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:04.0601806Z ##[endgroup]
+2026-10-28T18:07:05.6367504Z ..........
+2026-10-28T18:07:05.6368172Z ----------------------------------------------------------------------
+2026-10-28T18:07:05.6368642Z Ran 10 tests in 1.429s
+2026-10-28T18:07:05.6368805Z 
+2026-10-28T18:07:05.6368895Z OK
+2026-10-28T18:07:05.7119064Z .......
+2026-10-28T18:07:05.7119688Z ----------------------------------------------------------------------
+2026-10-28T18:07:05.7120120Z Ran 7 tests in 0.012s
+2026-10-28T18:07:05.7120274Z 
+2026-10-28T18:07:05.7120368Z OK
+2026-10-28T18:07:05.7239777Z ##[group]Run python3 tools/check_live_wild_l1.py --report Logs/04OH/solid-wild-l1.json
+2026-10-28T18:07:05.7240427Z [36;1mpython3 tools/check_live_wild_l1.py --report Logs/04OH/solid-wild-l1.json[0m
+2026-10-28T18:07:05.7263590Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:05.7263852Z env:
+2026-10-28T18:07:05.7264137Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.7264590Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:05.7265051Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.7265454Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.7265847Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.7266246Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:05.7266923Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:05.7267185Z ##[endgroup]
+2026-10-28T18:07:05.8667919Z {"passed": 51, "total": 51, "failed": []}
+2026-10-28T18:07:05.8779806Z ##[group]Run python3 tools/check_live_wild_l2.py --report Logs/04OH/redspire-l2.json
+2026-10-28T18:07:05.8780415Z [36;1mpython3 tools/check_live_wild_l2.py --report Logs/04OH/redspire-l2.json[0m
+2026-10-28T18:07:05.8803506Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:05.8803773Z env:
+2026-10-28T18:07:05.8804066Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.8804545Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:05.8805013Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.8805410Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.8805787Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:05.8806166Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:05.8806725Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:05.8806986Z ##[endgroup]
+2026-10-28T18:07:06.9697727Z {"passed": 65, "total": 65, "failed": []}
+2026-10-28T18:07:06.9804093Z ##[group]Run python3 -m pip install numpy Pillow
+2026-10-28T18:07:06.9804516Z [36;1mpython3 -m pip install numpy Pillow[0m
+2026-10-28T18:07:06.9804996Z [36;1mpython3 tools/validate_ground_l3.py --report Logs/04OH/redspire-ground-l3.json[0m
+2026-10-28T18:07:06.9827931Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:06.9828202Z env:
+2026-10-28T18:07:06.9828487Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:06.9828981Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:06.9829431Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:06.9829830Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:06.9830211Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:06.9830588Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:06.9830931Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:06.9831189Z ##[endgroup]
+2026-10-28T18:07:07.9426216Z Collecting numpy
+2026-10-28T18:07:08.0522853Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-10-28T18:07:08.2159361Z Collecting Pillow
+2026-10-28T18:07:08.2357865Z   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-28T18:07:08.5451308Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-10-28T18:07:09.3718808Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 21.3 MB/s  0:00:00
+2026-10-28T18:07:09.3940548Z Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+2026-10-28T18:07:09.9210832Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 13.1 MB/s  0:00:00
+2026-10-28T18:07:10.3811319Z Installing collected packages: Pillow, numpy
+2026-10-28T18:07:12.9893654Z 
+2026-10-28T18:07:12.9904198Z Successfully installed Pillow-13.0.0 numpy-2.5.4
+2026-10-28T18:07:13.5732961Z {"passed": 63, "total": 63, "failed": []}
+2026-10-28T18:07:13.5965444Z ##[group]Run python3 tools/validate_heart_fr01.py --report Logs/04OH/heart-fr01.json
+2026-10-28T18:07:13.5966061Z [36;1mpython3 tools/validate_heart_fr01.py --report Logs/04OH/heart-fr01.json[0m
+2026-10-28T18:07:13.5989153Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:13.5989433Z env:
+2026-10-28T18:07:13.5989724Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:13.5990216Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:13.5990657Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:13.5991054Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:13.5991442Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:13.5991826Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:13.5992169Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:13.5992424Z ##[endgroup]
+2026-10-28T18:07:14.1153174Z {"passed": 144, "total": 144, "failed": []}
+2026-10-28T18:07:14.1395528Z ##[group]Run git init /tmp/l2-fbx-parser
+2026-10-28T18:07:14.1396680Z [36;1mgit init /tmp/l2-fbx-parser[0m
+2026-10-28T18:07:14.1397584Z [36;1mgit -C /tmp/l2-fbx-parser remote add origin https://github.com/ufbx/ufbx.git[0m
+2026-10-28T18:07:14.1398834Z [36;1mgit -C /tmp/l2-fbx-parser fetch --depth 1 origin 5955c5c0b042ac2dc6f32955ab206aaec0620cfc[0m
+2026-10-28T18:07:14.1400093Z [36;1mgit -C /tmp/l2-fbx-parser checkout FETCH_HEAD -- ufbx.c ufbx.h[0m
+2026-10-28T18:07:14.1419460Z [36;1mcc -O1 -I/tmp/l2-fbx-parser tools/validate_redspire_fbx_l2.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/l2-validate[0m
+2026-10-28T18:07:14.1420606Z [36;1mfor model in Assets/NeonSyndicate/Art/LiveWilds/*/*.fbx; do[0m
+2026-10-28T18:07:14.1421383Z [36;1m  /tmp/l2-validate "$model" > "Logs/04OH/l2-$(basename "$model").json"[0m
+2026-10-28T18:07:14.1421993Z [36;1mdone[0m
+2026-10-28T18:07:14.1444749Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:14.1445013Z env:
+2026-10-28T18:07:14.1445344Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:14.1445810Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:14.1446276Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:14.1446912Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:14.1447309Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:14.1447708Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:14.1448048Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:14.1448305Z ##[endgroup]
+2026-10-28T18:07:14.1525293Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-28T18:07:14.1526228Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-28T18:07:14.1527301Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-28T18:07:14.1527945Z hint: call:
+2026-10-28T18:07:14.1528233Z hint:
+2026-10-28T18:07:14.1528686Z hint: 	git config --global init.defaultBranch <name>
+2026-10-28T18:07:14.1529173Z hint:
+2026-10-28T18:07:14.1529709Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-28T18:07:14.1530474Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-28T18:07:14.1530855Z hint:
+2026-10-28T18:07:14.1531077Z hint: 	git branch -m <name>
+2026-10-28T18:07:14.1531544Z hint:
+2026-10-28T18:07:14.1531916Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-28T18:07:14.1532476Z Initialized empty Git repository in /tmp/l2-fbx-parser/.git/
+2026-10-28T18:07:17.1457016Z From https://github.com/ufbx/ufbx
+2026-10-28T18:07:17.1457765Z  * branch            5955c5c0b042ac2dc6f32955ab206aaec0620cfc -> FETCH_HEAD
+2026-10-28T18:07:22.4424594Z ##[group]Run cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-validate
+2026-10-28T18:07:22.4426085Z [36;1mcc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-validate[0m
+2026-10-28T18:07:22.4427654Z [36;1mcc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_structure_fr01e.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-support[0m
+2026-10-28T18:07:22.4428687Z [36;1mfor model in Assets/NeonSyndicate/Art/HeartFR01/*.fbx; do[0m
+2026-10-28T18:07:22.4429473Z [36;1m  /tmp/heart-validate "$model" > "Logs/04OH/fr01-$(basename "$model").json"[0m
+2026-10-28T18:07:22.4430150Z [36;1mdone[0m
+2026-10-28T18:07:22.4430980Z [36;1mfor model in Assets/NeonSyndicate/Art/HeartFR01/HeartGate_*.fbx Assets/NeonSyndicate/Art/HeartFR01/HeartHouse*.fbx; do[0m
+2026-10-28T18:07:22.4432128Z [36;1m  /tmp/heart-support "$model" > "Logs/04OH/fr01e-$(basename "$model").json"[0m
+2026-10-28T18:07:22.4432827Z [36;1mdone[0m
+2026-10-28T18:07:22.4463675Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:22.4464083Z env:
+2026-10-28T18:07:22.4464532Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:22.4465275Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:22.4466012Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:22.4466879Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:22.4467488Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:22.4468091Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:22.4468652Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:22.4469052Z ##[endgroup]
+2026-10-28T18:07:32.8843098Z ##[group]Run python3 tools/check_heart_fr02a.py --report Logs/04OH/fr02a-source-assets.json
+2026-10-28T18:07:32.8843761Z [36;1mpython3 tools/check_heart_fr02a.py --report Logs/04OH/fr02a-source-assets.json[0m
+2026-10-28T18:07:32.8844477Z [36;1mcc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr02a.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-fr02a-validate[0m
+2026-10-28T18:07:32.8845109Z [36;1mfor model in Assets/NeonSyndicate/Art/HeartFR02A/*.fbx; do[0m
+2026-10-28T18:07:32.8845617Z [36;1m  /tmp/heart-fr02a-validate "$model" > "Logs/04OH/fr02a-$(basename "$model").json"[0m
+2026-10-28T18:07:32.8846033Z [36;1mdone[0m
+2026-10-28T18:07:32.8868174Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:32.8868437Z env:
+2026-10-28T18:07:32.8868727Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:32.8869205Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:32.8869689Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:32.8870077Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:32.8870465Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:32.8870840Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:32.8871180Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:32.8871434Z ##[endgroup]
+2026-10-28T18:07:33.9694033Z {"passed": 185, "total": 185, "native_unity": "NOT RUN", "failed": []}
+2026-10-28T18:07:39.2560778Z ##[group]Run python3 tools/test_offline04f_result_isolation.py
+2026-10-28T18:07:39.2561298Z [36;1mpython3 tools/test_offline04f_result_isolation.py[0m
+2026-10-28T18:07:39.2561835Z [36;1mpython3 tools/check_fantasy_proof_v1.py --report Logs/04OH/fantasy-proof-v1.json[0m
+2026-10-28T18:07:39.2584368Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:39.2584838Z env:
+2026-10-28T18:07:39.2585139Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:39.2585588Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:39.2586023Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:39.2586617Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:39.2587012Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:39.2587393Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:39.2587741Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:39.2588041Z ##[endgroup]
+2026-10-28T18:07:39.3438360Z ...
+2026-10-28T18:07:39.3438802Z ----------------------------------------------------------------------
+2026-10-28T18:07:39.3439234Z Ran 3 tests in 0.003s
+2026-10-28T18:07:39.3439389Z 
+2026-10-28T18:07:39.3439486Z OK
+2026-10-28T18:07:41.1292104Z {"passed": 33, "total": 33, "failed": []}
+2026-10-28T18:07:41.1418787Z ##[group]Run python3 tools/test_check_world_rewrite_wr01.py
+2026-10-28T18:07:41.1419310Z [36;1mpython3 tools/test_check_world_rewrite_wr01.py[0m
+2026-10-28T18:07:41.1419882Z [36;1mpython3 tools/check_world_rewrite_wr01.py --report Logs/04OH/world-rewrite-preservation.json[0m
+2026-10-28T18:07:41.1420623Z [36;1mpython3 tools/check_unity_metadata_04c.py --report Logs/04OH/world-rewrite-metadata.json[0m
+2026-10-28T18:07:41.1421384Z [36;1mcc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_wr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr01-validate[0m
+2026-10-28T18:07:41.1422008Z [36;1mfor model in Assets/NeonSyndicate/Art/HeartWR01/*.fbx; do[0m
+2026-10-28T18:07:41.1422506Z [36;1m  /tmp/wr01-validate "$model" > "Logs/04OH/wr01-$(basename "$model").json"[0m
+2026-10-28T18:07:41.1422915Z [36;1mdone[0m
+2026-10-28T18:07:41.1444752Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:41.1445023Z env:
+2026-10-28T18:07:41.1445320Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:41.1445839Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:41.1446311Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:41.1446942Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:41.1447377Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:41.1447791Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:41.1448169Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:41.1448438Z ##[endgroup]
+2026-10-28T18:07:41.5592424Z ............................
+2026-10-28T18:07:41.5593013Z ----------------------------------------------------------------------
+2026-10-28T18:07:41.5593428Z Ran 28 tests in 0.211s
+2026-10-28T18:07:41.5593595Z 
+2026-10-28T18:07:41.5593681Z OK
+2026-10-28T18:07:44.4910247Z {"passed": 22, "total": 22, "failed": []}
+2026-10-28T18:07:46.3418185Z {
+2026-10-28T18:07:46.3418564Z   "passed": true,
+2026-10-28T18:07:46.3424404Z   "metadata_count": 2723,
+2026-10-28T18:07:46.3424833Z   "invalid_metadata": 0,
+2026-10-28T18:07:46.3425208Z   "invalid_references": 0,
+2026-10-28T18:07:46.3425585Z   "unresolved_references": 0,
+2026-10-28T18:07:46.3425962Z   "regressions_passed": 13,
+2026-10-28T18:07:46.3426546Z   "native_import": "NOT RUN"
+2026-10-28T18:07:46.3426886Z }
+2026-10-28T18:07:51.6488737Z ##[group]Run python3 tools/test_surface_lineage_wr02.py
+2026-10-28T18:07:51.6489425Z [36;1mpython3 tools/test_surface_lineage_wr02.py[0m
+2026-10-28T18:07:51.6490214Z [36;1mpython3 tools/check_surface_wr02.py --report Logs/04OH/wr02-source-assets.json[0m
+2026-10-28T18:07:51.6491404Z [36;1mcc -O1 -I/tmp/l2-fbx-parser tools/validate_surface_wr02.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr02-validate[0m
+2026-10-28T18:07:51.6492402Z [36;1mfor model in Assets/NeonSyndicate/Art/HeartWR02/*.fbx; do[0m
+2026-10-28T18:07:51.6492977Z [36;1m  name=$(basename "$model")[0m
+2026-10-28T18:07:51.6493397Z [36;1m  case "$name" in[0m
+2026-10-28T18:07:51.6494280Z [36;1m    Cliff*) seed=${name%%_*}; /tmp/wr02-validate "$model" "ArtSource/HeartWR02/${seed}.source.obj" > "Logs/04OH/wr02-$name.json" ;;[0m
+2026-10-28T18:07:51.6495710Z [36;1m    *) /tmp/wr02-validate "$model" > "Logs/04OH/wr02-$name.json" ;;[0m
+2026-10-28T18:07:51.6496295Z [36;1m  esac[0m
+2026-10-28T18:07:51.6496906Z [36;1mdone[0m
+2026-10-28T18:07:51.6527793Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:07:51.6528190Z env:
+2026-10-28T18:07:51.6528625Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:51.6529356Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:07:51.6530078Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:51.6530733Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:51.6531362Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:07:51.6531998Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:07:51.6532558Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:07:51.6532953Z ##[endgroup]
+2026-10-28T18:07:51.7655429Z ...
+2026-10-28T18:07:51.7656046Z ----------------------------------------------------------------------
+2026-10-28T18:07:51.7656690Z Ran 3 tests in 0.051s
+2026-10-28T18:07:51.7656919Z 
+2026-10-28T18:07:51.7657044Z OK
+2026-10-28T18:07:56.4412713Z {"passed": 57, "total": 57, "failed": []}
+2026-10-28T18:08:01.8024719Z ##[group]Run mkdir -p Logs/04OH
+2026-10-28T18:08:01.8025270Z [36;1mmkdir -p Logs/04OH[0m
+2026-10-28T18:08:01.8025932Z [36;1mpython3 tools/check_ascension_04oh.py --report Logs/04OH/preservation.json[0m
+2026-10-28T18:08:01.8027197Z [36;1mpython3 tools/check_living_frontier_04og.py --report Logs/04OH/inherited-preservation.json[0m
+2026-10-28T18:08:01.8028282Z [36;1mpython3 tools/check_art_revolution_h2.py --report Logs/04OH/h2-assets-and-owners.json[0m
+2026-10-28T18:08:01.8029301Z [36;1mpython3 tools/check_gothic_heart_h3.py --report Logs/04OH/h3-assets-and-owners.json[0m
+2026-10-28T18:08:01.8030076Z [36;1mpython3 tools/test_fbx_skin_h5.py[0m
+2026-10-28T18:08:01.8030837Z [36;1mpython3 tools/check_real_malik_h5.py --report Logs/04OH/h5-source-and-assets.json[0m
+2026-10-28T18:08:01.8031815Z [36;1mpython3 tools/check_production_malik_h6.py --report Logs/04OH/h6-source-and-assets.json[0m
+2026-10-28T18:08:01.8032919Z [36;1mpython3 tools/check_living_malik_h7.py --report Logs/04OH/h7-source-and-assets.json[0m
+2026-10-28T18:08:01.8033931Z [36;1mpython3 tools/check_living_hero_h8.py --report Logs/04OH/h8-source-and-owners.json[0m
+2026-10-28T18:08:01.8034653Z [36;1mpython3 tools/test_art_drop_04oh.py[0m
+2026-10-28T18:08:01.8035324Z [36;1mpython3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json[0m
+2026-10-28T18:08:01.8036589Z [36;1mpython3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json[0m
+2026-10-28T18:08:01.8037471Z [36;1mgit diff --check[0m
+2026-10-28T18:08:01.8037854Z [36;1mgit lfs fsck[0m
+2026-10-28T18:08:01.8068849Z shell: /usr/bin/bash -e {0}
+2026-10-28T18:08:01.8069262Z env:
+2026-10-28T18:08:01.8069729Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:01.8070422Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:08:01.8071094Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:01.8071725Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:01.8072364Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:01.8073007Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:08:01.8073570Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:08:01.8073972Z ##[endgroup]
+2026-10-28T18:08:01.9572802Z {"passed": 28, "total": 28, "failed": []}
+2026-10-28T18:08:05.8592914Z {"passed": 15, "total": 15, "failed": []}
+2026-10-28T18:08:06.1612972Z {"passed": 110, "total": 110, "failed": []}
+2026-10-28T18:08:06.2668231Z {"passed": 78, "total": 78, "failed": []}
+2026-10-28T18:08:07.5845571Z .......
+2026-10-28T18:08:07.5846212Z ----------------------------------------------------------------------
+2026-10-28T18:08:07.5847573Z Ran 7 tests in 1.253s
+2026-10-28T18:08:07.5847787Z 
+2026-10-28T18:08:07.5847905Z OK
+2026-10-28T18:08:07.8829423Z {"passed": 46, "total": 48, "failed": ["Original actor/gameplay authority / Characters/HumanoidPose.cs", "All prior tests and exclusions preserved"]}
+2026-10-28T18:08:07.8915551Z ##[error]Process completed with exit code 1.
+2026-10-28T18:08:07.9010293Z ##[group]Run actions/upload-artifact@v4
+2026-10-28T18:08:07.9010594Z with:
+2026-10-28T18:08:07.9010820Z   name: 04oh-source-only-not-native
+2026-10-28T18:08:07.9011093Z   path: Logs/04OH
+2026-10-28T18:08:07.9011341Z   if-no-files-found: warn
+2026-10-28T18:08:07.9011589Z   compression-level: 6
+2026-10-28T18:08:07.9011818Z   overwrite: false
+2026-10-28T18:08:07.9012045Z   include-hidden-files: false
+2026-10-28T18:08:07.9012284Z env:
+2026-10-28T18:08:07.9012550Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:07.9012995Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-28T18:08:07.9013444Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:07.9013829Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:07.9014218Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-28T18:08:07.9014609Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-28T18:08:07.9014999Z   DOTNET_ROOT: /usr/share/dotnet
+2026-10-28T18:08:07.9015260Z ##[endgroup]
+2026-10-28T18:08:08.0732189Z (node:9506) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-28T18:08:08.0733477Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-28T18:08:08.0958297Z With the provided path, there will be 146 files uploaded
+2026-10-28T18:08:08.0964195Z Artifact name is valid!
+2026-10-28T18:08:08.0964743Z Root directory input is valid!
+2026-10-28T18:08:08.3456731Z Beginning upload of artifact content to blob storage
+2026-10-28T18:08:08.4785852Z (node:9506) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-28T18:08:08.5113973Z Uploaded bytes 183742
+2026-10-28T18:08:08.5242715Z Finished uploading artifact content to blob storage!
+2026-10-28T18:08:08.5243835Z SHA256 digest of uploaded artifact zip is 87f1c053e0c335be33ba4120e0bbd58f89eb9125a3421c777e838deb542f216c
+2026-10-28T18:08:08.5244737Z Finalizing artifact upload
+2026-10-28T18:08:09.1495474Z Artifact 04oh-source-only-not-native.zip successfully finalized. Artifact ID 12840815350
+2026-10-28T18:08:09.1496818Z Artifact 04oh-source-only-not-native has been successfully uploaded! Final size is 183742 bytes. Artifact ID is 12840815350
+2026-10-28T18:08:09.1502401Z Artifact download URL: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/40741554929/artifacts/12840815350
+2026-10-28T18:08:09.1752727Z Post job cleanup.
+2026-10-28T18:08:09.2637259Z [command]/usr/bin/git version
+2026-10-28T18:08:09.2704246Z git version 2.56.0
+2026-10-28T18:08:09.2741599Z Temporarily overriding HOME='/home/runner/work/_temp/f7c28089-006b-4906-a3bd-17490c481a17' before making global git config changes
+2026-10-28T18:08:09.2743139Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-28T18:08:09.2747735Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/NeonSyndicate_LasVeyra/NeonSyndicate_LasVeyra
+2026-10-28T18:08:09.2791569Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-28T18:08:09.2832121Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-28T18:08:09.3128090Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-28T18:08:09.3159184Z http.https://github.com/.extraheader
+2026-10-28T18:08:09.3172844Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-28T18:08:09.3232128Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-28T18:08:09.3534997Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-28T18:08:09.3586281Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-28T18:08:09.4087536Z Cleaning up orphan processes
+2026-10-28T18:08:09.4489248Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

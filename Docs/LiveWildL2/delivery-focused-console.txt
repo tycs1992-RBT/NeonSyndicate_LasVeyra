@@ -1,0 +1,25 @@
+{
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/149a3b29f23c/l2-validation/delivery-focused/player-classic-builtin.dll",
+    "testcasecount": "2445",
+    "result": "Failed",
+    "start-time": "2026-10-25T17:38:42.3781159Z",
+    "end-time": "2026-10-25T17:38:46.3476117Z",
+    "duration": "3.969457",
+    "total": "24",
+    "passed": "22",
+    "failed": "2",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "3884",
+    "random-seed": "770547183"
+  },
+  "failed_cases": [
+    "NeonSyndicate.Tests.LiveWildL2Tests.AppearanceAndFallbackKeepTheActualOriginalCollider",
+    "NeonSyndicate.Tests.LiveWildL2Tests.OverlappingL1LeasesSurviveAppearanceRoundTrips"
+  ],
+  "native_unity": "NOT RUN"
+}

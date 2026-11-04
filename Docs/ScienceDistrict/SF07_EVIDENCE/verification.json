@@ -1,0 +1,113 @@
+{
+  "starting_head": "fd05cea4cc4b95dc7d499e970be66f8528eb1f9c",
+  "architecture_checkpoint": "6fcb8156ee6cccc3cbd7cdd430cb1c65f7d27e32",
+  "route": {
+    "canonical_seed": 61724,
+    "edge": 135,
+    "lane": 498,
+    "usable_lane_m": 283.6,
+    "road_width_m": 12.2,
+    "run_m": 130.7559,
+    "loading_prop": [
+      -10.3,
+      0.15,
+      -160.58
+    ],
+    "receiving_prop": [
+      120.3,
+      0.15,
+      -163.13
+    ]
+  },
+  "compiled": {
+    "scope": "Compile classic-input source against installed Unity 6 managed references, without launching Unity.\n\nThe editor row combines runtime, editor and tests into one assembly, so assembly boundaries and\nnative import remain unverified. The player row uses Linux player API references with Windows symbols.\nNeither row executes Unity or tests, validates packages, or represents a Windows build.\n",
+    "rows": [
+      {
+        "row": "player",
+        "exit_code": 0,
+        "sources": 1087,
+        "source_sha256": "c257c130f0068484ed6ce5531204c168dd1360f0fdc8c1eeb3559740637cd93f",
+        "errors": 0,
+        "warnings": 21,
+        "error_messages": []
+      },
+      {
+        "row": "editor",
+        "exit_code": 0,
+        "sources": 1356,
+        "source_sha256": "8b56149baac49c2ff391c33cc6b610ea527f3d2e08295fc89e4c4243181b7c79",
+        "errors": 0,
+        "warnings": 68,
+        "error_messages": []
+      }
+    ]
+  },
+  "source_model": {
+    "parts": 48,
+    "joints": 21,
+    "vertices": 43604,
+    "triangles": 19824,
+    "sha256": "16b3f58279cfbd25cc77a7acf61ea40e8e66ff20e04b57b08843f9ac0d2653f3"
+  },
+  "motion": {
+    "sampled_frames": 240,
+    "fps": 16,
+    "seconds": 15,
+    "simulated_wait_seconds": [
+      4.313,
+      8.625
+    ],
+    "minimum_wait_distance_m": 1.3211,
+    "maximum_wait_distance_m": 1.3211,
+    "poses_sha256": "9bf010d84e8bfb461c277587871b4ea03de28f818be2335268579b1c9911b623"
+  },
+  "freight_tests": [
+    "EndpointsUseTheActualHydrantBenchAndEastboundLane",
+    "EveryArticulatedJointHasFiniteDaylightGeometry",
+    "EachFootStaysPlantedInWorldSpaceThroughThePullout",
+    "HitchedBendsKeepAllFourEnvelopeCornersInsideTheEastboundRoad",
+    "HarnessUnfoldsUnderLoadWithoutLosingEitherAttachment",
+    "WheelsMeasureAxleTravelIncludingDifferentialRoll",
+    "AWholeTeamWaitCannotCreepTowardTheSameCrossing",
+    "LoadingWaitsForObserverAndTheHaulFinishesWithoutAReverse",
+    "RepeatedSelectionKeepsExactlyOneSourceOrTeamIncludingOccupiedExit",
+    "InterruptedSwitchReinstatesThePreviousOwner",
+    "MissingGroundHoldsWheelsAndPreservesTheLastSupportedPose",
+    "ReacquiringAReleasedVanKeepsItsLaneStationAndCoupling"
+  ],
+  "retained_geometry_tests": {
+    "district": 23,
+    "frontier": 8,
+    "grotto": 9,
+    "circuit": 10
+  },
+  "circuit": {
+    "survey_sha256": "3acf5cc1bd586fa4ea738399126b12701c6d9a14c37a355fc045041ef4c63dd5",
+    "matches_previous_district": true,
+    "metres": 706.39,
+    "legs": 16,
+    "clear": true,
+    "station_spur_m": 10.5
+  },
+  "checks": {
+    "syntax_configurations": 12,
+    "syntax_errors": 0,
+    "guid_metadata": true,
+    "foundry": 69,
+    "wr01": 59,
+    "wr02b": 162,
+    "lfs": "Git LFS fsck OK"
+  },
+  "recovery": {
+    "local_delta_files": 181,
+    "snapshot_sha256": "9ec36c5db92eeb99ef737de75d3a7d389875c81f66ba0d5229f6ef43d4b75e42"
+  },
+  "native": {
+    "editor": "No launchable Unity Editor; 6000.3.16f1 managed reference data available",
+    "display": "unset",
+    "af_unix": "EPERM",
+    "blender": "not installed",
+    "native_import_game_view_live_avoidance_audio_cooking_save_reload": "not run",
+    "owner_acceptance": "pending"
+  }
+}

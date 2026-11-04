@@ -1,0 +1,19 @@
+{
+  "selected": "Original strand grooming fitted to selected actual face",
+  "parts": [
+    {
+      "kind": "hair",
+      "vertices": 52932,
+      "strands": 4411
+    },
+    {
+      "kind": "beard",
+      "vertices": 39000,
+      "strands": 6500
+    }
+  ],
+  "rejected_donor_groom": "Technically compatible CC0 parts read as a solid stylized beard in actual DCC review, not retained on Malik",
+  "license": "CC0-1.0",
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN"
+}

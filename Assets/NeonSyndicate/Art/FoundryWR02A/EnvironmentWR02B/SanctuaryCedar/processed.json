@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "assetId": "SanctuaryCedar",
+  "kind": "environment",
+  "method": "Local original Blender source, processed through the same GLB intake used for optional remote output",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.raw.glb",
+  "input_sha256": "067ddd8c304c8f579a94db089df61f9964c627e1c8388ddd1857e5e4c0473672",
+  "brief_sha256": "447d49b42aaebcf0491b344abff8162ddc42c1d699f81d6bda9b8c54eac62123",
+  "processor_sha256": "c8840c0da61ab0f7bce14b1d0571f5225704a90189350571a675d2dae9a13f10",
+  "license": "CC0-1.0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1.0,
+  "beforeBoundsBlender": [
+    [
+      -0.5,
+      -0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.5,
+      1.0
+    ]
+  ],
+  "repairs": [],
+  "outputs": [
+    {
+      "meshes": 4,
+      "vertices": 99000,
+      "triangles": 39000,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 0,
+      "boundsBlender": [
+        [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 4,
+        "vertices": 99000,
+        "triangles": 39000,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "maximum": [
+          0.5,
+          1,
+          0.5
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx",
+      "sha256": "b0b41fbdd7e94081479af7f45508e615ae59e5a479803869a9b7cf02dd273cae",
+      "bytes": 3738124,
+      "lod": 0
+    },
+    {
+      "meshes": 4,
+      "vertices": 87898,
+      "triangles": 27898,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 14915,
+      "boundsBlender": [
+        [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 4,
+        "vertices": 87898,
+        "triangles": 27898,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "maximum": [
+          0.5,
+          1,
+          0.5
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx",
+      "sha256": "96dabf51c4843b70603242b41004bea1345580f123a3e2dd243ddb5fc7a1cba0",
+      "bytes": 3030812,
+      "lod": 1
+    },
+    {
+      "meshes": 4,
+      "vertices": 77491,
+      "triangles": 17491,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 22433,
+      "boundsBlender": [
+        [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 4,
+        "vertices": 77491,
+        "triangles": 17491,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "maximum": [
+          0.5,
+          1,
+          0.5
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx",
+      "sha256": "146c7de35d19a1016b41d241271bb709020537c017039a9bb23418c7bfa09597",
+      "bytes": 2176444,
+      "lod": 2
+    }
+  ],
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.processed.blend",
+  "editable_sha256": "c712b52b78f107c6434ef44e9dc955a910f9d1d7cb01f761ec42de42f93821f4",
+  "textures": [
+    {
+      "material": "AncientBark",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "sha256": "59fb6c0bf991b56bbed5c980c6bfbe8261073d4ee2791e5ae7b5bf844fbe94b7"
+    },
+    {
+      "material": "AncientBark",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "sha256": "3d98705a9293d03bdb0765a9170c24dd82d6da50dcdd88515da6acac3bb28a28"
+    },
+    {
+      "material": "AncientBark",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "sha256": "b7e4f76d795fba8576349df6d1746e8b0c395d7e03da8205ccbf3b8c8549c25e"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "sha256": "8a626344cbf7a71532704057a0e134b4d9cab027ca92347a6a9cb87fdb04980d"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "sha256": "fa447f270d976ae80844ddb0a112e5c14408bd326778bb87521801e6a564a564"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "sha256": "1d1997a149e846f60cd8231b0e6ddcfcc4bb7ad52565194a854ad78845d754cd"
+    }
+  ],
+  "colliderManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/colliders.json",
+  "actions": [],
+  "nativeUnity": "NOT RUN",
+  "candidateOnly": false
+}

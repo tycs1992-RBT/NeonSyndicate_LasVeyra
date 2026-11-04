@@ -1,0 +1,16 @@
+{
+  "source_commit": "9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba",
+  "run_id": 40217096592,
+  "job_id": 121240492199,
+  "status": "failure",
+  "result_lines": [
+    "2026-10-25T17:34:59.6349892Z {\"passed\": 51, \"total\": 51, \"failed\": []}",
+    "2026-10-25T17:35:00.5858603Z {\"passed\": 65, \"total\": 65, \"failed\": []}",
+    "2026-10-25T17:35:09.9113068Z {\"passed\": 26, \"total\": 26, \"failed\": []}",
+    "2026-10-25T17:35:12.5165951Z {\"passed\": 15, \"total\": 15, \"failed\": []}",
+    "2026-10-25T17:35:12.8110302Z {\"passed\": 110, \"total\": 110, \"failed\": []}",
+    "2026-10-25T17:35:12.9059500Z {\"passed\": 78, \"total\": 78, \"failed\": []}",
+    "2026-10-25T17:35:14.4128580Z {\"passed\": 46, \"total\": 48, \"failed\": [\"Original actor/gameplay authority / Characters/HumanoidPose.cs\", \"All prior tests and exclusions preserved\"]}",
+    "2026-10-25T17:35:14.4205868Z ##[error]Process completed with exit code 1."
+  ]
+}

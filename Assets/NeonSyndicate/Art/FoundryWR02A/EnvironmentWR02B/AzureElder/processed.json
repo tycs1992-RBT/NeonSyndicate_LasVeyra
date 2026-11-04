@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "assetId": "AzureElder",
+  "kind": "environment",
+  "method": "Local original Blender source, processed through the same GLB intake used for optional remote output",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.raw.glb",
+  "input_sha256": "4fd758d8c79700ca2ffa5f009098cfe14722906aac03adf44b2f15ad37142198",
+  "brief_sha256": "e7d9af08f669f7a34b5dbdbad7648ae30745a70d83e71734e7f3ae1fc0f6f65a",
+  "processor_sha256": "c8840c0da61ab0f7bce14b1d0571f5225704a90189350571a675d2dae9a13f10",
+  "license": "CC0-1.0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1.0,
+  "beforeBoundsBlender": [
+    [
+      -0.5,
+      -0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.5,
+      1.0
+    ]
+  ],
+  "repairs": [],
+  "outputs": [
+    {
+      "meshes": 4,
+      "vertices": 72776,
+      "triangles": 29368,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 0,
+      "boundsBlender": [
+        [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 4,
+        "vertices": 72776,
+        "triangles": 29368,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "maximum": [
+          0.5,
+          1,
+          0.5
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx",
+      "sha256": "f0524fc8d0c550dbc59429e04579acf023bf42bd0254fd7691e636d47bc64ecf",
+      "bytes": 2880124,
+      "lod": 0
+    },
+    {
+      "meshes": 4,
+      "vertices": 64601,
+      "triangles": 21193,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 12000,
+      "boundsBlender": [
+        [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 4,
+        "vertices": 64601,
+        "triangles": 21193,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "maximum": [
+          0.5,
+          1,
+          0.5
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx",
+      "sha256": "2c9e25174e644c8a9b11845673c72f0b1db633a28fb52b044ad9f95ce006d32b",
+      "bytes": 2375084,
+      "lod": 1
+    },
+    {
+      "meshes": 4,
+      "vertices": 56938,
+      "triangles": 13530,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 17416,
+      "boundsBlender": [
+        [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5,
+          1.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 4,
+        "vertices": 56938,
+        "triangles": 13530,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "maximum": [
+          0.5,
+          1,
+          0.5
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx",
+      "sha256": "dd6bb1b8b590437a4ba0e1dee7c2fbad44688ae51096fdda2afff25ca96dc92d",
+      "bytes": 1749004,
+      "lod": 2
+    }
+  ],
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.processed.blend",
+  "editable_sha256": "adab0951faa45b3a2ffac5866c9e2951673359401c909a008f05d471bb6d3ea3",
+  "textures": [
+    {
+      "material": "AncientBark",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "sha256": "59fb6c0bf991b56bbed5c980c6bfbe8261073d4ee2791e5ae7b5bf844fbe94b7"
+    },
+    {
+      "material": "AncientBark",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "sha256": "3d98705a9293d03bdb0765a9170c24dd82d6da50dcdd88515da6acac3bb28a28"
+    },
+    {
+      "material": "AncientBark",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "sha256": "b7e4f76d795fba8576349df6d1746e8b0c395d7e03da8205ccbf3b8c8549c25e"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "sha256": "8a626344cbf7a71532704057a0e134b4d9cab027ca92347a6a9cb87fdb04980d"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "sha256": "fa447f270d976ae80844ddb0a112e5c14408bd326778bb87521801e6a564a564"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "sha256": "1d1997a149e846f60cd8231b0e6ddcfcc4bb7ad52565194a854ad78845d754cd"
+    }
+  ],
+  "colliderManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/colliders.json",
+  "actions": [],
+  "nativeUnity": "NOT RUN",
+  "candidateOnly": false
+}

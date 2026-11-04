@@ -278,6 +278,9 @@ namespace NeonSyndicate
             p.CoverHigh = CoverHigh;
             p.CoverSide = CoverSide;
             p.CoverBlind = CoverBlind;
+#if UNITY_EDITOR
+            PrepareFullBodyH8();
+#endif
             Pose.Solve(ref p, dt);
 
             // ---- apply the solved pose (blending up from the ground after a ragdoll)

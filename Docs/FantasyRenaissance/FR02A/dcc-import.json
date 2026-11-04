@@ -1,0 +1,569 @@
+{
+  "scope": "Blender 4.5.3 actual FBX reimport, not Unity",
+  "passed": 33,
+  "total": 33,
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD0.fbx",
+      "sha256": "60affe0e681a9a883e7b03af4dffe1dc94bf47ed97b83a5adb55db3aa128978a",
+      "passed": true,
+      "bounds": [
+        [
+          -11.5,
+          -2.5,
+          -2.0384432275477593e-07
+        ],
+        [
+          11.5,
+          2.700000762939453,
+          20.799999237060547
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD1.fbx",
+      "sha256": "a24996f78426d2bc2e1a753f095a79f9b829c18d5fe6f603a8aa226fffa61680",
+      "passed": true,
+      "bounds": [
+        [
+          -11.5,
+          -2.5,
+          -2.0384432275477593e-07
+        ],
+        [
+          11.5,
+          2.700000762939453,
+          20.799999237060547
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD2.fbx",
+      "sha256": "6e2396fca8f979fd3c6e5351e34f3ab4092182de22cf7ec8a9f793da4fae3091",
+      "passed": true,
+      "bounds": [
+        [
+          -11.5,
+          -2.5,
+          -2.0384432275477593e-07
+        ],
+        [
+          11.5,
+          2.700000762939453,
+          20.69999885559082
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD0.fbx",
+      "sha256": "4c66dd0f17c662912ccf706d9a7e71a03862a29b9283934c7865eabf9906fd05",
+      "passed": true,
+      "bounds": [
+        [
+          -6.399999618530273,
+          -7.59999942779541,
+          -5.284852591103117e-07
+        ],
+        [
+          6.399999618530273,
+          7.100000858306885,
+          16.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD1.fbx",
+      "sha256": "fad21410e5d67bb1da48d89b3c395f9d358a02ee1a5ffcd2dbceaa01865485a8",
+      "passed": true,
+      "bounds": [
+        [
+          -6.399999618530273,
+          -7.59999942779541,
+          -5.284852591103117e-07
+        ],
+        [
+          6.399999618530273,
+          7.100000858306885,
+          16.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD2.fbx",
+      "sha256": "98cc49b76622a2d2f65fc30b415e7e280ada5e7df957f4f65e464c29fa3f7619",
+      "passed": true,
+      "bounds": [
+        [
+          -6.399999618530273,
+          -7.59999942779541,
+          -5.284852591103117e-07
+        ],
+        [
+          6.399999618530273,
+          7.100000858306885,
+          16.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD0.fbx",
+      "sha256": "ebe6aaca8195a51b875c72d7a4af4921ccd5e1daa8aee7aa475fe5d7569461cd",
+      "passed": true,
+      "bounds": [
+        [
+          -6.399999618530273,
+          -7.59999942779541,
+          -5.284852591103117e-07
+        ],
+        [
+          6.399999618530273,
+          7.100000858306885,
+          17.100000381469727
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD1.fbx",
+      "sha256": "d8bec933209da381710d6f825cfbada1555a0295b7ee28487e95ebd90cf6d45c",
+      "passed": true,
+      "bounds": [
+        [
+          -6.399999618530273,
+          -7.59999942779541,
+          -5.284852591103117e-07
+        ],
+        [
+          6.399999618530273,
+          7.100000858306885,
+          17.100000381469727
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD2.fbx",
+      "sha256": "8ede819f09c6c6db27a4f2b583155355486a987cc5745b3b91be00fec79da930",
+      "passed": true,
+      "bounds": [
+        [
+          -6.399999618530273,
+          -7.59999942779541,
+          -5.284852591103117e-07
+        ],
+        [
+          6.399999618530273,
+          7.100000858306885,
+          17.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD0.fbx",
+      "sha256": "88241730f3274796cf13cbe9108743432290eb3bfdb8b84e17441c5d155dfcc3",
+      "passed": true,
+      "bounds": [
+        [
+          -2.1500000953674316,
+          -0.8999996185302734,
+          -9.059748151685199e-08
+        ],
+        [
+          2.1500000953674316,
+          1.2000004053115845,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD1.fbx",
+      "sha256": "f4d4df7b6c5131e941b7684ef7674d9c3e0cc596c2605502226fbacec5448854",
+      "passed": true,
+      "bounds": [
+        [
+          -2.1500000953674316,
+          -0.8999996185302734,
+          -9.059748151685199e-08
+        ],
+        [
+          2.1500000953674316,
+          1.2000004053115845,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD2.fbx",
+      "sha256": "75d35fb56a9935436e9db3276278e3d8f4bcc77512f96805b19dfef8d0b7adab",
+      "passed": true,
+      "bounds": [
+        [
+          -2.1500000953674316,
+          -0.8999996185302734,
+          -9.059748151685199e-08
+        ],
+        [
+          2.1500000953674316,
+          1.2000004053115845,
+          7.099999904632568
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD0.fbx",
+      "sha256": "77301fe145beab273be35097d7caf7d4f2590cbd51ee236f6a7c82fe3573f574",
+      "passed": true,
+      "bounds": [
+        [
+          -2.1500000953674316,
+          -0.8999996185302734,
+          -9.059748151685199e-08
+        ],
+        [
+          2.1500000953674316,
+          1.2000004053115845,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD1.fbx",
+      "sha256": "00017e028b329d1cf74b17f3bd1b5edf97509395939e0bcc627e42900f0b09d8",
+      "passed": true,
+      "bounds": [
+        [
+          -2.1500000953674316,
+          -0.8999996185302734,
+          -9.059748151685199e-08
+        ],
+        [
+          2.1500000953674316,
+          1.2000004053115845,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD2.fbx",
+      "sha256": "422f847c14048bce93393db4812b8bf04aec12e4661603a9b2a891df6149f0fa",
+      "passed": true,
+      "bounds": [
+        [
+          -2.1500000953674316,
+          -0.8999996185302734,
+          -9.059748151685199e-08
+        ],
+        [
+          2.1500000953674316,
+          1.2000004053115845,
+          7.099999904632568
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD0.fbx",
+      "sha256": "454786533ce374b2b1d71030e9ac318209e5fa8b6ba78d27696ffcab7463ff2f",
+      "passed": true,
+      "bounds": [
+        [
+          -2.4000000953674316,
+          -2.4000000953674316,
+          -1.8119496303370397e-07
+        ],
+        [
+          2.4000000953674316,
+          2.4000000953674316,
+          8.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD1.fbx",
+      "sha256": "24412fbbf58496f4dc973e0a1c8cd66ae80591f0d2391999dc2736f0af576404",
+      "passed": true,
+      "bounds": [
+        [
+          -2.4000000953674316,
+          -2.2825355529785156,
+          -1.7232663651611801e-07
+        ],
+        [
+          2.4000000953674316,
+          2.2825355529785156,
+          8.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD2.fbx",
+      "sha256": "fcb42227873e74ef38078d9a412787740aa3c8e11c283dad55dff887b0beef46",
+      "passed": true,
+      "bounds": [
+        [
+          -2.4000000953674316,
+          -2.078460931777954,
+          -1.5691944099671673e-07
+        ],
+        [
+          2.4000000953674316,
+          2.078460931777954,
+          8.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD0.fbx",
+      "sha256": "6d2702622c1e85f2735e9904d718f49eaaa3dd7de1e8fbced342972ea291218d",
+      "passed": true,
+      "bounds": [
+        [
+          -3.0,
+          -2.5,
+          -1.887447353965399e-07
+        ],
+        [
+          3.0,
+          2.500000238418579,
+          4.099999904632568
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD1.fbx",
+      "sha256": "c27d8b46516db32f7ebb805d850b234ff3cd9e71f4d60c72eab3f4684e09236d",
+      "passed": true,
+      "bounds": [
+        [
+          -3.0,
+          -2.5,
+          -1.887447353965399e-07
+        ],
+        [
+          3.0,
+          2.500000238418579,
+          4.099999904632568
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD2.fbx",
+      "sha256": "059d34f37b089da37fdb98ece852859ae8b8d65df1bd764d7ae38a6330c71634",
+      "passed": true,
+      "bounds": [
+        [
+          -3.0,
+          -2.5,
+          -1.887447353965399e-07
+        ],
+        [
+          3.0,
+          2.500000238418579,
+          4.0
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD0.fbx",
+      "sha256": "5b4d746f16df8147213f768dc7b0fa448f64388e1d7c36e05002b2bf4ec33aad",
+      "passed": true,
+      "bounds": [
+        [
+          -2.0,
+          -2.0,
+          -0.030000150203704834
+        ],
+        [
+          2.0,
+          2.0,
+          1.5099578831723193e-07
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD1.fbx",
+      "sha256": "26edbf27d4ee0fa03b7f55617eb753cb3d977fb27ccc381ab18e2183d879182a",
+      "passed": true,
+      "bounds": [
+        [
+          -2.0,
+          -2.0,
+          -0.030000150203704834
+        ],
+        [
+          2.0,
+          2.0,
+          1.5099578831723193e-07
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD2.fbx",
+      "sha256": "4b73637ab78adebe883eb1f6231adcc8c94f7e8f493ce39ca3df4502a389a40f",
+      "passed": true,
+      "bounds": [
+        [
+          -2.0,
+          -2.0,
+          -0.030000150203704834
+        ],
+        [
+          2.0,
+          2.0,
+          1.5099578831723193e-07
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD0.fbx",
+      "sha256": "f22d9405d2f50cf88894d4293bf03b24b27e2fc0e4be49d74ed91d929c3456c4",
+      "passed": true,
+      "bounds": [
+        [
+          -3.12473464012146,
+          -3.5919454097747803,
+          -3.472903387091719e-08
+        ],
+        [
+          3.472362518310547,
+          2.65878963470459,
+          6.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD1.fbx",
+      "sha256": "cf626f72c5da726753c49e491c5421ca6514314dbde1e9a17835fe6caff5a7bb",
+      "passed": true,
+      "bounds": [
+        [
+          -3.12473464012146,
+          -3.5919454097747803,
+          -3.472903387091719e-08
+        ],
+        [
+          3.2720930576324463,
+          2.6145145893096924,
+          6.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD2.fbx",
+      "sha256": "b790721c49364772ff14d1c3210dae9f0c97d450fbd58bbac1091dfc5d014b0a",
+      "passed": true,
+      "bounds": [
+        [
+          -2.7166993618011475,
+          -3.5919454097747803,
+          -3.472903387091719e-08
+        ],
+        [
+          2.700000047683716,
+          2.6145145893096924,
+          6.199999809265137
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD0.fbx",
+      "sha256": "3747ea541f147d0cb559e598d49ae958b97c72f0e11e20fd917b9a73b8df12c9",
+      "passed": true,
+      "bounds": [
+        [
+          -1.6799999475479126,
+          -1.5233393907546997,
+          -3.774894707930798e-08
+        ],
+        [
+          1.8600488901138306,
+          1.7525330781936646,
+          3.8947768211364746
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD1.fbx",
+      "sha256": "311df90019f18d8424fd75c702d6a8e7da542851e9ed149fde5de0e9b611ec62",
+      "passed": true,
+      "bounds": [
+        [
+          -1.6799999475479126,
+          -1.1600897312164307,
+          -3.774894707930798e-08
+        ],
+        [
+          1.6799999475479126,
+          1.2637174129486084,
+          3.893950939178467
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD2.fbx",
+      "sha256": "8e02e416ba828952f0b2f53307fae3d3a51e1b7038ef7ce53b7a615b2ad6d088",
+      "passed": true,
+      "bounds": [
+        [
+          -1.6799999475479126,
+          -0.8168928623199463,
+          -3.774894707930798e-08
+        ],
+        [
+          1.6799999475479126,
+          0.7370215654373169,
+          3.8927040100097656
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD0.fbx",
+      "sha256": "981dfe25566d8b11e94f347456cfc63829cb0dec89fd40baa24d8e17273f8876",
+      "passed": true,
+      "bounds": [
+        [
+          -1.0,
+          -1.0,
+          -7.549789415861596e-08
+        ],
+        [
+          1.0,
+          1.0,
+          2.549999952316284
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD1.fbx",
+      "sha256": "1d5590864efaf334b7d8f316594cfd7c64f2e98d55e321ef18f8be2d1e68e72d",
+      "passed": true,
+      "bounds": [
+        [
+          -1.0,
+          -1.0,
+          -7.549789415861596e-08
+        ],
+        [
+          1.0,
+          1.0,
+          2.549999952316284
+        ]
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD2.fbx",
+      "sha256": "4adfc1374ed607ee2361664e433d12bab66dd7a3bfa91a4b0a8f60347f6fe95f",
+      "passed": true,
+      "bounds": [
+        [
+          -1.0,
+          -1.0,
+          -7.549789415861596e-08
+        ],
+        [
+          1.0,
+          1.0,
+          2.549999952316284
+        ]
+      ]
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

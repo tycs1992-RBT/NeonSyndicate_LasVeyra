@@ -1,0 +1,12 @@
+{
+  "source": "ArtSource/HeartFR02A/LivingGothicStreets.blend",
+  "source_sha256": "ce0950101e00d060452714ba9c004980bf5723969f9c56311f2ce6aaec259e9d",
+  "source_bytes": 6044291,
+  "license": "CC0-1.0",
+  "native_unity": "NOT RUN",
+  "tool": "Blender 4.5.3 LTS",
+  "recipe": "tools/author_heart_fr02a.py",
+  "modules": 13,
+  "exports": 39,
+  "new_textures": 0
+}

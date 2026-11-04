@@ -1,0 +1,31 @@
+{
+  "malik_status": "FALLBACK",
+  "active_imported_production_actors": 0,
+  "candidate": "H5 normalized derivative of received H3 CC0 components",
+  "worker_disposition": "Technical reference only; final face/outfit/art inadequate for requested target",
+  "owner_decision": "NOT GIVEN",
+  "allowed_owner_review_choices": [
+    "APPROVED",
+    "REVISE FACE",
+    "REVISE OUTFIT",
+    "ASSET INADEQUATE"
+  ],
+  "source_skin_proof": "PASS, complete influence normalization",
+  "TECHNICALLY_IMPORTABLE": "NOT RUN",
+  "PLAYABLE_VISUAL_CANDIDATE": "NOT RUN / not activated",
+  "OWNER_ART_APPROVED": "NOT GIVEN",
+  "PRODUCTION_REPLACEMENT_ACCEPTED": "NOT ACHIEVED",
+  "face": "received source reference, no new premium authored likeness",
+  "hair_beard_eyes": "received source reference; production realism not accepted",
+  "coat_armor_lods": "ASSET REQUIRED for final Malik",
+  "authored_clips": "ASSET REQUIRED / AuthoredClips SOURCE INCOMPLETE",
+  "offline_views": [
+    "ArtReviewH5/received-reference-orthographic.png",
+    "ArtReviewH5/received-reference-face.png"
+  ],
+  "unity_screenshots": "NOTHING AVAILABLE",
+  "native_import": "NOT RUN",
+  "native_gameplay": "NOT RUN",
+  "performance": "NOT RUN",
+  "windows_build": "NOT RUN"
+}

@@ -1,0 +1,175 @@
+{
+  "tag": "SOURCE 3D RENDER",
+  "source_blend": "MalikVeyrH6.blend",
+  "source_sha256": "d19e814f6586ef87315fa210bad71e6b8fbb24078b2629505cdb64eb0f0420d1",
+  "engine": "DCC Cycles CPU, 24 samples, AgX",
+  "resolution": [
+    768,
+    1024
+  ],
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "views": [
+    {
+      "view": "front",
+      "position": [
+        0,
+        -4,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "front.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false,
+      "bytes": 582004,
+      "sha256": "6f0b3d7875f08c3fc35083803c613eab9710211950efac443d954d21f55525a0"
+    },
+    {
+      "view": "side",
+      "position": [
+        4,
+        0,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "side.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false,
+      "bytes": 555660,
+      "sha256": "bfeec77bc60ee51cf9a896639e26ee27c75dcf8fcc5f275d8dd1c6ab7326b246"
+    },
+    {
+      "view": "rear",
+      "position": [
+        0,
+        4,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "rear.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false,
+      "bytes": 572621,
+      "sha256": "6a71b9f84c72b48c054077f20d0d4fbba6be6cde641f78671af157df2228773f"
+    },
+    {
+      "view": "three-quarter",
+      "position": [
+        2.8,
+        -4,
+        1.1
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "three-quarter.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false,
+      "bytes": 525228,
+      "sha256": "543055ee8e288b0deb9bf9e870aab1e237213cbe9718293c4c6e74e3f36549ad"
+    },
+    {
+      "view": "face",
+      "position": [
+        0,
+        -3,
+        1.74
+      ],
+      "target": [
+        0,
+        -0.01,
+        1.74
+      ],
+      "ortho_scale": 0.46,
+      "file": "face.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false,
+      "bytes": 743321,
+      "sha256": "9d38dc856ac6609a0c44497104521bd1a74910cc9f9e9865136d1c87fa3ab9a5"
+    },
+    {
+      "view": "neutral-three-quarter",
+      "position": [
+        2.8,
+        -4,
+        1.1
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "neutral-three-quarter.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": true,
+      "bytes": 539540,
+      "sha256": "0f05a09cb5958e36e15b929158ac372826664465ad3b827570c4618cff6830f1"
+    },
+    {
+      "view": "neutral-face",
+      "position": [
+        0,
+        -3,
+        1.74
+      ],
+      "target": [
+        0,
+        -0.01,
+        1.74
+      ],
+      "ortho_scale": 0.46,
+      "file": "neutral-face.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": true,
+      "bytes": 674000,
+      "sha256": "f42548b12c53bf7d147bb232366f860a326aeaca6bccd4497dc73230a9a6bdb0"
+    },
+    {
+      "view": "pose-arms",
+      "position": [
+        2.8,
+        -4,
+        1.1
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "pose-arms.png",
+      "synthetic_deformation_pose": true,
+      "neutral_material_without_cornea": false,
+      "bytes": 516301,
+      "sha256": "82aa71f681f54cf4793c93b512ad2f5fc487e05334f29f6c25121f1bb989ab19"
+    }
+  ],
+  "source_file": "ArtSource/AscensionH6/MalikVeyrH6.blend",
+  "render_pixels_before_label": [
+    768,
+    1024
+  ],
+  "delivered_pixels_with_label": [
+    768,
+    1060
+  ]
+}

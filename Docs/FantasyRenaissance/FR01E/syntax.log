@@ -1,0 +1,5 @@
+{
+  "configurations": 12,
+  "syntaxErrors": 0,
+  "scope": "Real Roslyn C# 9 syntax parsing only. No type resolution, Unity import, compilation or execution."
+}

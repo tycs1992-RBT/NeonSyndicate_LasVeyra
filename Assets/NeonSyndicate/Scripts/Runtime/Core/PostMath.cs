@@ -92,20 +92,24 @@ namespace NeonSyndicate
             return sum;
         }
 
-        /// <summary>Ambient occlusion reach in world metres, the strength exponent and the sample budget per preset.</summary>
+        /// <summary>
+        /// Ambient occlusion reach in world metres, the strength exponent and the sample budget per preset. H8S realism
+        /// widened the reach and deepened the falloff (High 1.0 m and 1.45, Ultra 1.25 m and 1.75; before 0.6 m and 1.05,
+        /// 0.8 m and 1.3), so wall bases, door reveals, steps and the ground under people read as grounded contact.
+        /// </summary>
         public static void AmbientOcclusionSettings(GraphicsPreset q, out float radiusMetres, out float strength, out int slices, out int steps)
         {
             if (q >= GraphicsPreset.Ultra)
             {
-                radiusMetres = 0.8f;
-                strength = 1.3f;
+                radiusMetres = 1.25f;
+                strength = 1.75f;
                 slices = 3;
                 steps = 8;
             }
             else
             {
-                radiusMetres = 0.6f;
-                strength = 1.05f;
+                radiusMetres = 1.0f;
+                strength = 1.45f;
                 slices = 2;
                 steps = 6;
             }

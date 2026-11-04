@@ -1,0 +1,49 @@
+{
+  "scope": "Labelled DCC source review using actual processed assets, actual retained H5 source geometry, original skeleton and procedural pose replay. No Unity lighting, camera, NPC, collision, service interaction or ordinary-play screenshot is claimed.",
+  "archiveContextSource": "ed483fc720ee1493ab0e2f783c643ea0e9ae6397",
+  "images": [
+    {
+      "file": "Sanctuary_Archive_DCC.png",
+      "bytes": 1326220,
+      "sha256": "afa3e55c2f0cb5226653931fb8e01a18914a8b3fdb50603622c1d126c84be9a9",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "file": "Sanctuary_Detail_DCC.png",
+      "bytes": 1499983,
+      "sha256": "74b8bda286a6e1b491409ac01f6c39767bc0e927657066d143c24233d57e08f6",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "file": "Basilisk_Idle_DCC.png",
+      "bytes": 1145398,
+      "sha256": "16d3350ba376cc4dff743066ce7be0f5790fe6efe75e814ea1470b100baa288a",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "file": "Basilisk_Walk_DCC.png",
+      "bytes": 1147849,
+      "sha256": "73077120e2cd3c269e6928161dfefaa805084e7efec641e620c04103aa72fe98",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "file": "Basilisk_Attack_DCC.png",
+      "bytes": 1148999,
+      "sha256": "70503a2341445a401f40fe0d3622b6e04583936f23625c496002f294f550d126",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "file": "Basilisk_Impact_DCC.png",
+      "bytes": 1145048,
+      "sha256": "b01d2d7a83f793abc12a8c4be97f08ff744f0f63a2e46fc42f33a5e58c6a2a1e",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "file": "Basilisk_Death_DCC.png",
+      "bytes": 1159835,
+      "sha256": "a34850efc04e4293033b0091a10ebdca407595c4921bd816ad67076c56e4c7d6",
+      "nativeUnity": "NOT RUN"
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

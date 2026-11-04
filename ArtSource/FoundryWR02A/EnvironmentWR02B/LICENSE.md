@@ -1,0 +1,1 @@
+Original WR02-B geometry is dedicated to the public domain under CC0-1.0. Authored locally with the checked-in Blender Python source. No external generated or purchased asset was used. Shared existing project PBR maps retain their existing provenance. No Tripo connection established or credits spent.

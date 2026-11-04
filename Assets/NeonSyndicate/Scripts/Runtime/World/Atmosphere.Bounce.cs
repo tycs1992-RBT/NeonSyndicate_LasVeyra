@@ -80,7 +80,9 @@ namespace NeonSyndicate
             float sinElev = Mathf.Sin(SunElevation * Mathf.Deg2Rad);
             Color sunCol = Sun != null ? Sun.color : Color.white;
             float sunClear = Settings.PhysicalSun ? SkyMath.SunIntensity(SunElevation, 0f, Haze) : SunStrength / Mathf.Max(0.45f, 1f - cloud * 0.55f);
-            Color upper = _skyUpper * SkyMath.UrbanBounceGain, horizon = _skyHorizon * SkyMath.UrbanBounceGain, mean = _skyMean * SkyMath.UrbanBounceGain;
+            // H8S realism: dark gothic stone bounces less light than the old pale streets (RealismRulesH8S.FillGain).
+            float fillGain = RealismRulesH8S.FillGain(night);
+            Color upper = _skyUpper * fillGain, horizon = _skyHorizon * fillGain, mean = _skyMean * fillGain;
             if (cloud > 0f)
             {
                 Color cloudCol = SkyMath.CloudRadiance(sunCol, sunClear, sinElev, mean);
@@ -138,7 +140,8 @@ namespace NeonSyndicate
             }
             SkyAmbientActive = wantSky;
             // In Skybox mode the dome stays physical and the urban bounce gain rides on the ambient intensity.
-            if (wantSky) RenderSettings.ambientIntensity = SkyMath.UrbanBounceGain + _lightning * 1.5f;
+            // H8S realism: the dome is gamma correct now, so its intensity matches the Trilight sky level (RealismSkyAmbientIntensity).
+            if (wantSky) RenderSettings.ambientIntensity = RealismSkyAmbientIntensity(night) + _lightning * 1.5f;
             else if (RenderSettings.ambientIntensity != 1f) RenderSettings.ambientIntensity = 1f;
 
             // A stamp of everything the dome depends on, quantised so small drifts do not trigger a render.

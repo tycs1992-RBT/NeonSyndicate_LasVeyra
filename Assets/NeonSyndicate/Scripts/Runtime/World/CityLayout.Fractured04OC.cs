@@ -27,6 +27,7 @@ namespace NeonSyndicate
         public bool ResolveRealmAnchor04OC(string token, out Vector3 point)
         {
             point=Vector3.zero;if(!Gothic04OB)return false;
+            if(GothicHeartH3 && token=="Realm:hearth-lens"){point=HearthLensH3;return true;}
             if (Frontier04OG && ResolveFrontierAnchor04OG(token,out point)) return true;
             if (Unbound04OE && ResolveUnboundAnchor04OE(token,out point)) return true;
             switch(token)

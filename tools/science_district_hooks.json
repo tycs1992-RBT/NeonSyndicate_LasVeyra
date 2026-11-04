@@ -1,0 +1,93 @@
+{
+  "base": "2c1169f22cc3a6352a03a83815601911b18282d8",
+  "scope": "Exact reviewed science preview hooks only. Historical owners remain checked after removing these literal hooks. Live behavior is checked separately by test_science_district_contracts.py.",
+  "paths": {
+    ".gitattributes": {
+      "before_sha256": "b29309c74ea61d5df0ab5427007fccc9dcd9d0e667e7499998e120e6a2b71d0d",
+      "edits": [
+        {
+          "before": "Docs/Ascension04OH/ArtReviewH6/*.png -filter -diff -merge -text\nDocs/Ascension04OH/EvidenceH6/*.gz -filter -diff -merge -text\n",
+          "after": "Docs/Ascension04OH/ArtReviewH6/*.png -filter -diff -merge -text\nDocs/Ascension04OH/EvidenceH6/*.gz -filter -diff -merge -text\n\n# Small reproducible science district mesh reviews, not game textures.\nDocs/ScienceDistrict/*.png -filter -diff -merge -text\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.GothicHeartH3.cs": {
+      "before_sha256": "bd18d33c872212abfc33e5639624e1c1513827297fd1c2ea1cd1b48dd4657f62",
+      "edits": [
+        {
+          "before": "        {\n            if(Game.Layout==null || !Game.Layout.GothicHeartH3 || !(GothicHeartH3.Replaces(binding.Definition.Id) || Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id)) || !AscensionArtH2.Ready())return false;\n            Dictionary<string,MeshBuilder> high=new Dictionary<string,MeshBuilder>(),low=new Dictionary<string,MeshBuilder>();\n            MeshBuilder collision=new MeshBuilder(1),structure=new MeshBuilder(1);bool civic=Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id);\n",
+          "after": "        {\n            if(Game.Layout==null || !Game.Layout.GothicHeartH3 || !(GothicHeartH3.Replaces(binding.Definition.Id) || Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id)) || !AscensionArtH2.Ready())return false;\n            if(StageScienceService(binding))return true;\n            Dictionary<string,MeshBuilder> high=new Dictionary<string,MeshBuilder>(),low=new Dictionary<string,MeshBuilder>();\n            MeshBuilder collision=new MeshBuilder(1),structure=new MeshBuilder(1);bool civic=Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id);\n"
+        },
+        {
+          "before": "        {\n            if(!L.GothicHeartH3 || !AscensionArtH2.Ready())return;\n            List<ArtPlacementH2> plan=GothicHeartH3.CourtPlan(L);plan.AddRange(GothicHeartH3.RegionalPlan(L));\n            foreach(ArtPlacementH2 part in plan)\n            {\n",
+          "after": "        {\n            if(!L.GothicHeartH3 || !AscensionArtH2.Ready())return;\n            List<ArtPlacementH2> plan=StageScienceCourt()?new List<ArtPlacementH2>():GothicHeartH3.CourtPlan(L);plan.AddRange(GothicHeartH3.RegionalPlan(L));\n            foreach(ArtPlacementH2 part in plan)\n            {\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.WorldRewrite.cs": {
+      "before_sha256": "4c74c97da91cea1a95d238f56c1e30555710777142141db1bfd7e1e862cc182f",
+      "edits": [
+        {
+          "before": "                return \"WR01 \" + (WorldRewriteSelectedWR01 ? \"selected\" : \"OFF\") + \"; planned \" + _rewriteRecordsWR01.Count +\n                    \", admitted \" + admitted + \", active \" + active + \", refused \" + refused +\n                    \". Original physical, service and saved identities retained. Native acceptance requires separate review.\";\n            }\n        }\n",
+          "after": "                return \"WR01 \" + (WorldRewriteSelectedWR01 ? \"selected\" : \"OFF\") + \"; planned \" + _rewriteRecordsWR01.Count +\n                    \", admitted \" + admitted + \", active \" + active + \", refused \" + refused +\n                    \". Service and saved identities retained. Science district physical previews switch paired owners. Native acceptance requires separate review.\";\n            }\n        }\n"
+        },
+        {
+          "before": "            foreach (RewritePairWR01 pair in _rewritePairsWR01)\n            {\n                FantasyRewriteRecordWR01 record = pair.Record;\n                if (!record.admitted) continue;\n",
+          "after": "            foreach (RewritePairWR01 pair in _rewritePairsWR01)\n            {\n                if (ApplySciencePair(pair, active)) continue;\n                FantasyRewriteRecordWR01 record = pair.Record;\n                if (!record.admitted) continue;\n"
+        },
+        {
+          "before": "        private void RefreshRewriteObservationsWR01()\n        {\n            foreach (RewritePairWR01 pair in _rewritePairsWR01)\n            {\n                FantasyRewriteRecordWR01 record = pair.Record;\n                string reason;\n",
+          "after": "        private void RefreshRewriteObservationsWR01()\n        {\n            ReviewScienceDistrict();\n            foreach (RewritePairWR01 pair in _rewritePairsWR01)\n            {\n                if (_sciencePairs.ContainsKey(pair.Record.stableId)) continue;\n                FantasyRewriteRecordWR01 record = pair.Record;\n                string reason;\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/QA/FantasyProofV1.cs": {
+      "before_sha256": "87576a1ff8846c272d4e0116e6586ae72d674ef501f1da3f6fc43f15a8f9627f",
+      "edits": [
+        {
+          "before": "            if (proof.unityVersion != proof.build.requiredUnityVersion) return \"BLOCKED: the running Unity version does not match this project requirement.\";\n            if (proof.worldRevision != 10) return \"FANTASY WORLD COULD NOT LOAD: this is not revision 10.\";\n            if (!proof.fr01.prepared || !proof.fr02a.prepared) return \"FANTASY WORLD COULD NOT LOAD: required imported district models or materials are missing.\";\n            if (!string.IsNullOrEmpty(proof.firstCharacterProblem)) return \"FANTASY WORLD PARTIAL: \" + SafeText(proof.firstCharacterProblem);\n            if (!proof.hasPlayer) return \"FANTASY WORLD PARTIAL: Malik has not spawned in this session.\";\n",
+          "after": "            if (proof.unityVersion != proof.build.requiredUnityVersion) return \"BLOCKED: the running Unity version does not match this project requirement.\";\n            if (proof.worldRevision != 10) return \"FANTASY WORLD COULD NOT LOAD: this is not revision 10.\";\n            if (!proof.fr01.prepared || !proof.fr02a.prepared)\n            {\n                bool scienceActive = false;\n                foreach (FantasyRewriteRecordWR01 record in proof.worldRewrite.records)\n                    if (record.family == \"ScienceDistrictSF01\" && record.admitted && record.active && record.legacySuppressed) scienceActive = true;\n                string missing = !proof.fr01.prepared ? \"FR01: \" + proof.fr01.firstRefusal : \"FR02A: \" + proof.fr02a.firstRefusal;\n                return (scienceActive ? \"FANTASY WORLD PARTIAL: sculpted district components active; imported layers COULD NOT LOAD. \" :\n                    \"FANTASY WORLD COULD NOT LOAD: required imported district models or materials are missing. \") + SafeText(missing);\n            }\n            if (!string.IsNullOrEmpty(proof.firstCharacterProblem)) return \"FANTASY WORLD PARTIAL: \" + SafeText(proof.firstCharacterProblem);\n            if (!proof.hasPlayer) return \"FANTASY WORLD PARTIAL: Malik has not spawned in this session.\";\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.HeartFR01.cs": {
+      "before_sha256": "5571410b2e28c2f35c90fa019dc60dc893a8982330a029c918271d7d256aa2b1",
+      "edits": [
+        {
+          "before": "            Log.Info(\"DELIVERED_WORLD \"+_route);\n        }\n        private void SyncHeartFR01(){if(HeartFR01!=null){HeartFR01.State(_comparing,Game.State==GameState.Title || Game.State==GameState.Loading || QaTools.Busy);HeartFR01.ReviewSurfaceWR02();}}\n    }\n}\n",
+          "after": "            Log.Info(\"DELIVERED_WORLD \"+_route);\n        }\n        private void SyncHeartFR01(){if(HeartFR01!=null){HeartFR01.State(_comparing,Game.State==GameState.Title || Game.State==GameState.Loading || QaTools.Busy);HeartFR01.ReviewSurfaceWR02();HeartFR01.ReviewScienceDistrict();}}\n    }\n}\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.FantasyProof.cs": {
+      "before_sha256": "8a684115c7da06b2c5f85b7355fc1b3d654d44b1fd694849cde3f7fd4aec5d2e",
+      "edits": [
+        {
+          "before": "            FantasyProofSnapshotV1 proof = _fantasyProofSnapshotV1;\n            if (Event.current != null && Event.current.type == EventType.Repaint && Pad.Connected && Mathf.Abs(Pad.RightStick.y) > .2f)\n                _fantasyProofScrollV1.y = Mathf.Clamp(_fantasyProofScrollV1.y - Pad.RightStick.y * 700f * Time.unscaledDeltaTime, 0, Mathf.Max(0, 3600 - r.height));\n            _fantasyProofScrollV1 = GUI.BeginScrollView(r, _fantasyProofScrollV1, new Rect(0, 0, r.width - 24, 3600), false, true);\n            try\n            {\n                Rect row = new Rect(0, 0, r.width - 24, 3600); float y = 0;\n                Line(row, ref y, \"FANTASY WORLD: ACTUAL RUNNING PROJECT\", UIKit.Gold, 32f);\n                Line(row, ref y, proof.summary, UIKit.Gold, 92f);\n",
+          "after": "            FantasyProofSnapshotV1 proof = _fantasyProofSnapshotV1;\n            if (Event.current != null && Event.current.type == EventType.Repaint && Pad.Connected && Mathf.Abs(Pad.RightStick.y) > .2f)\n                _fantasyProofScrollV1.y = Mathf.Clamp(_fantasyProofScrollV1.y - Pad.RightStick.y * 700f * Time.unscaledDeltaTime, 0, Mathf.Max(0, 4300 - r.height));\n            _fantasyProofScrollV1 = GUI.BeginScrollView(r, _fantasyProofScrollV1, new Rect(0, 0, r.width - 24, 4300), false, true);\n            try\n            {\n                Rect row = new Rect(0, 0, r.width - 24, 4300); float y = 0;\n                Line(row, ref y, \"FANTASY WORLD: ACTUAL RUNNING PROJECT\", UIKit.Gold, 32f);\n                Line(row, ref y, proof.summary, UIKit.Gold, 92f);\n"
+        },
+        {
+          "before": "                Line(row, ref y, \"Unity \" + proof.unityVersion + \"; revision \" + proof.worldRevision + \"; seed \" + proof.seed + \"; \" + proof.renderer + \"; \" + proof.graphicsPreset + \"; \" + proof.gameState + \"; Free Roam \" + proof.freeRoam, Color.white, 58f);\n                Line(row, ref y, \"Player \" + proof.playerPosition.ToString(\"F1\") + \"; camera \" + proof.cameraWidth + \"x\" + proof.cameraHeight + \"; ordinary QA busy \" + proof.ordinaryQaBusy, Color.white, 44f);\n                DrawProofLayerV1(row, ref y, proof.fr01);\n                DrawProofLayerV1(row, ref y, proof.fr02a);\n",
+          "after": "                Line(row, ref y, \"Unity \" + proof.unityVersion + \"; revision \" + proof.worldRevision + \"; seed \" + proof.seed + \"; \" + proof.renderer + \"; \" + proof.graphicsPreset + \"; \" + proof.gameState + \"; Free Roam \" + proof.freeRoam, Color.white, 58f);\n                Line(row, ref y, \"Player \" + proof.playerPosition.ToString(\"F1\") + \"; camera \" + proof.cameraWidth + \"x\" + proof.cameraHeight + \"; ordinary QA busy \" + proof.ordinaryQaBusy, Color.white, 44f);\n                DrawStructureProbe(row, ref y);\n                DrawProofLayerV1(row, ref y, proof.fr01);\n                DrawProofLayerV1(row, ref y, proof.fr02a);\n"
+        }
+      ]
+    },
+    "tools/check_real_malik_h5.py": {
+      "before_sha256": "12a14df014903aa066d527d80f8f56f031db089b381b6e9e9904b5ed74d1645a",
+      "edits": [
+        {
+          "before": "import argparse,hashlib,json,subprocess\nfrom h8_owner_hooks import restore_owner_h8\nfrom pathlib import Path\nROOT=Path(__file__).resolve().parents[1];BASE='ab5887779a9f3e6ed0775721d56237e247d7b81b'\n",
+          "after": "import argparse,hashlib,json,subprocess\nfrom h8_owner_hooks import restore_owner_h8\nfrom h5_historical_continuations import original_view as historical_h5_view, inherited_tests_preserved\nfrom pathlib import Path\nROOT=Path(__file__).resolve().parents[1];BASE='ab5887779a9f3e6ed0775721d56237e247d7b81b'\n"
+        },
+        {
+          "before": " p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]\n def check(name,value):checks.append({'name':name,'passed':bool(value)})\n def raw(rel):return restore_owner_h8(rel,(ROOT/rel).read_bytes())\n def text(rel):return raw(rel).decode()\n def old(rel):return subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT)\n",
+          "after": " p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]\n def check(name,value):checks.append({'name':name,'passed':bool(value)})\n def raw(rel):return historical_h5_view(ROOT,rel,restore_owner_h8(rel,(ROOT/rel).read_bytes()))\n def text(rel):return raw(rel).decode()\n def old(rel):return subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT)\n"
+        },
+        {
+          "before": " for rel in ['Characters/BodyBuilder.cs','Characters/BodyBuilder.GothicArtH3.cs','Characters/HumanoidRig.cs','Characters/HumanoidAnimator.cs','Characters/HumanoidPose.cs','Characters/PlayerController.cs','Combat/WeaponController.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/ForgeTreatments04M.cs','Gameplay/Quests/QuestRunner.cs','Gameplay/Quests/QuestValidator.cs','Characters/ImportedArt04OH.cs','Characters/ImportedBindH3.cs']:\n  path='Assets/NeonSyndicate/Scripts/Runtime/'+rel;check('Original actor/gameplay authority / '+rel,raw(path)==old(path))\n check('All prior tests and exclusions preserved',not subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().strip())\n # New tests are untracked or newly added relative to BASE and must not be mistaken for changed original tests.\n # Owner decision 2026-10-23 (in chat): the realism grade intentionally updates the existing grade test values.\n checks[-1]['passed']=all(path=='Assets/NeonSyndicate/Tests/EditMode/PostGradeTests.cs' or subprocess.run(['git','cat-file','-e',BASE+':'+path],cwd=ROOT,capture_output=True).returncode!=0 for path in subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().splitlines())\n runtime=text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs');wizard=text('Assets/NeonSyndicate/Scripts/Editor/ImportedVisualWizard04OF.cs');prep=text('Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs')\n check('Complete weight inspection, no global quality mutation','SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length)'in runtime and 'QualitySettings.skinWeights!=SkinWeights.Unlimited'in runtime and 'QualitySettings.skinWeights='not in runtime)\n",
+          "after": " for rel in ['Characters/BodyBuilder.cs','Characters/BodyBuilder.GothicArtH3.cs','Characters/HumanoidRig.cs','Characters/HumanoidAnimator.cs','Characters/HumanoidPose.cs','Characters/PlayerController.cs','Combat/WeaponController.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/ForgeTreatments04M.cs','Gameplay/Quests/QuestRunner.cs','Gameplay/Quests/QuestValidator.cs','Characters/ImportedArt04OH.cs','Characters/ImportedBindH3.cs']:\n  path='Assets/NeonSyndicate/Scripts/Runtime/'+rel;check('Original actor/gameplay authority / '+rel,raw(path)==old(path))\n check('All inherited tests and exclusions preserved through exact reviewed continuations',inherited_tests_preserved(ROOT))\n runtime=text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs');wizard=text('Assets/NeonSyndicate/Scripts/Editor/ImportedVisualWizard04OF.cs');prep=text('Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs')\n check('Complete weight inspection, no global quality mutation','SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length)'in runtime and 'QualitySettings.skinWeights!=SkinWeights.Unlimited'in runtime and 'QualitySettings.skinWeights='not in runtime)\n"
+        }
+      ]
+    }
+  }
+}

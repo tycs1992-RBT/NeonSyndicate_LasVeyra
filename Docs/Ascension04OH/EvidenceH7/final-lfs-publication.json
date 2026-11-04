@@ -1,0 +1,254 @@
+{
+  "commit": "1512abd2db526ca07c0ab70ee55c85ccaef88bd4",
+  "scope": "Actual final H7 pointer objects and hydrated checkout bytes",
+  "files": 61,
+  "passed": true,
+  "checks": [
+    {
+      "path": "ArtSource/AscensionH7/MalikVeyrH7.blend",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD1.fbx",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD2.fbx",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Brows_Albedo.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Albedo.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Normal.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Eyes_Albedo.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Lashes_Albedo.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Albedo.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Normal.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Albedo_Painted.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Normal.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/Equipped/front.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/Equipped/three-quarter.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/H6-H7-body-comparison.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/H6-H7-face-comparison.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/OathCut/side.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/OathCut/three-quarter.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/OathbladeReview.obj",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/Run/three-quarter.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/Walk/three-quarter.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/face.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/front.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/rear.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/side.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/three-quarter.png",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/assemblies-editor.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/assemblies-runtime.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/assemblies-tests.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/external-nunit.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/external-results.xml.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-both-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-both-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-classic-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-classic-urp-retry.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-classic-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-input-only-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-editor-input-only-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-player-both-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-player-both-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-player-classic-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-player-classic-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-player-input-only-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-bundled-api-player-input-only-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-both-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-both-urp-retry.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-both-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-classic-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-classic-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-input-only-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-editor-input-only-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-player-both-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-player-both-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-player-classic-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-player-classic-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-player-input-only-builtin.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/final-external-api-player-input-only-urp.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/focused-nunit.log.gz",
+      "pointer_and_checkout_hash_match": true
+    },
+    {
+      "path": "Docs/Ascension04OH/EvidenceH7/focused-results.xml.gz",
+      "pointer_and_checkout_hash_match": true
+    }
+  ],
+  "lfs_fsck_log": "Git LFS fsck OK\n",
+  "runtime_changes_since_dd084884": []
+}

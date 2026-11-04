@@ -1,0 +1,44 @@
+{
+  "base": "ab5887779a9f3e6ed0775721d56237e247d7b81b",
+  "paths": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs": {
+      "before_sha256": "4c06c3c01e9f38af9ab5047ba39aad6377e2c637305fe2bb38a4e96c8e6f437d",
+      "edits": [
+        {
+          "before": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon (the hand's -Y) points, root space, when HandW = 1\n            public Vector3 Edge;      // where the weapon's edge (the hand's +Z) faces\n            public float HandW;\n        }\n",
+          "after": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon points, root space, when HandW = 1 (the hand's -Y; a melee grip crosses the fist, SwordHand)\n            public Vector3 Edge;      // where the weapon's edge faces (the hand's +Z for guns and fists)\n            public float HandW;\n        }\n"
+        },
+        {
+          "before": "        {\n            return Basis(-blade, edge);\n        }\n\n",
+          "after": "        {\n            return Basis(-blade, edge);\n        }\n\n        private bool _swordR, _swordL;\n\n        /// <summary>\n        /// The hand rotation that points a held blade along blade with its edge (the model's -Y) toward edge: the weapon's\n        /// own rotation undone by the melee grip (WeaponGrip), the same rule a gun hand uses. The handle crosses the fist\n        /// diagonally, so the blade leaves the fist above the thumb instead of out of the knuckles.\n        /// </summary>\n        private static Quaternion SwordHand(Vector3 blade, Vector3 edge)\n        {\n            Vector3 f = Nrm(blade);\n            if (f.sqrMagnitude < 0.5f) return HandFrom(blade, edge);\n            Vector3 up = -edge;\n            up -= f * Vector3.Dot(up, f);\n            if (up.sqrMagnitude < 1e-8f) up = Vector3.Cross(f, Vector3.right);\n            Quaternion weapon = QMath.LookRotation(f, Nrm(up));\n            return weapon * QMath.Inverse(WeaponGrip.GripRotation(HoldType.Melee));\n        }\n\n"
+        },
+        {
+          "before": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n",
+          "after": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            // A held blade or haft crosses the fist (WeaponGrip's melee row), so those hands aim through the grip.\n            _swordR = p.Hold == HoldType.Melee && (p.Blade || p.TwoHanded);\n            _swordL = p.Hold == HoldType.Melee && (p.PairedBlades || p.TwoHanded);\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n"
+        },
+        {
+          "before": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                Quaternion want = QMath.Slerp(relaxed, HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n",
+          "after": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                bool sword = upper == RigLayout.UpperArmR ? _swordR : _swordL;\n                Quaternion want = QMath.Slerp(relaxed, sword ? SwordHand(arm.Blade, arm.Edge) : HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Tests/EditMode/PostGradeTests.cs": {
+      "before_sha256": "575bec6befc48b9eed2dc9b5d29694cbabaf4a0b0c3a9e385eef402a04289a5c",
+      "edits": [
+        {
+          "before": "                Assert.That(v.Lift.r + v.Lift.g + v.Lift.b, Is.GreaterThan(0.02f), \"blacks are lifted at night \" + night);\n                Assert.That(v.Contrast, Is.InRange(1.02f, 1.1f), \"contrast stays controlled at night \" + night);\n                Assert.That(v.Saturation, Is.InRange(1.0f, 1.12f), \"saturation stays gentle at night \" + night);\n                Assert.That(v.Vignette, Is.LessThanOrEqualTo(0.22f), \"vignette stays light at night \" + night);\n            }\n",
+          "after": "                Assert.That(v.Lift.r + v.Lift.g + v.Lift.b, Is.GreaterThan(0.02f), \"blacks are lifted at night \" + night);\n                Assert.That(v.Contrast, Is.InRange(1.02f, 1.1f), \"contrast stays controlled at night \" + night);\n                // H8S realism intentionally restrains colour below 1 (0.9 by day, 0.96 by night) for the grounded gothic\n                // look; the old floor of 1.0 described the earlier bright neon city grade.\n                Assert.That(v.Saturation, Is.InRange(0.88f, 1.12f), \"saturation stays restrained at night \" + night);\n                Assert.That(v.Vignette, Is.LessThanOrEqualTo(0.22f), \"vignette stays light at night \" + night);\n            }\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Tests/EditMode/SaveDataTests.cs": {
+      "before_sha256": "17bd70585a5ca0f073a9283ef781731ae3a025fb0f87d0c83aee7b7fe4d2bbaf",
+      "edits": [
+        {
+          "before": "            \"CrystalArsenal:CrystalArsenalSave\",\n            \"Underheart:UnderheartSave\", \"Guidance04E:GuidanceSave\", \"Campaign04E:CampaignSave\", \"Bonds:BondSave\", \"Garage:GarageSave\",\n            \"Builds:BuildSave\", \"HasSurfaceSafehouse:Boolean\", \"SurfaceSafeX:Single\", \"SurfaceSafeY:Single\", \"SurfaceSafeZ:Single\", \"CrystalCombat:CrystalCombatSave04F\", \"WorldRevision04O:Int32\"\n        };\n\n",
+          "after": "            \"CrystalArsenal:CrystalArsenalSave\",\n            \"Underheart:UnderheartSave\", \"Guidance04E:GuidanceSave\", \"Campaign04E:CampaignSave\", \"Bonds:BondSave\", \"Garage:GarageSave\",\n            \"Builds:BuildSave\", \"HasSurfaceSafehouse:Boolean\", \"SurfaceSafeX:Single\", \"SurfaceSafeY:Single\", \"SurfaceSafeZ:Single\", \"CrystalCombat:CrystalCombatSave04F\", \"WorldRevision04O:Int32\",\n            \"Interiors:InteriorSave\",\n            \"Wilds:WildsSave\"\n        };\n\n"
+        }
+      ]
+    }
+  }
+}

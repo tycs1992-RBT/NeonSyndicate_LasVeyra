@@ -1,0 +1,103 @@
+{
+  "overall": "PARTIAL",
+  "gates": [
+    {
+      "module": "A",
+      "gate": "Native import",
+      "status": "NOT RUN",
+      "evidence": "No usable Editor executable."
+    },
+    {
+      "module": "B",
+      "gate": "Gateway admission",
+      "status": "PARTIAL",
+      "evidence": "Compact source fit, static triangle probes and runtime full-height safeguards implemented; native admission not run."
+    },
+    {
+      "module": "C",
+      "gate": "Scale and contact",
+      "status": "PARTIAL",
+      "evidence": "Actual LOD support, unit bounds and asymmetric fitting verified; native roof/camera/contact not run."
+    },
+    {
+      "module": "D",
+      "gate": "Skyline transformation",
+      "status": "PARTIAL",
+      "evidence": "Bounded gate/route framing source delivered; no native hero-view or owner approval."
+    },
+    {
+      "module": "E",
+      "gate": "Street continuity",
+      "status": "PARTIAL",
+      "evidence": "Actual existing route-side proposals and safety reservations; native walk not run."
+    },
+    {
+      "module": "F",
+      "gate": "Sanctuary Forge inhabitants",
+      "status": "PARTIAL",
+      "evidence": "Original owners and assets unchanged; dialogue/NPC/companion native run not executed."
+    },
+    {
+      "module": "G",
+      "gate": "Presentation lifecycle",
+      "status": "PARTIAL",
+      "evidence": "Existing lifetime, pure rules and fail-closed source verified; native repeated activation/save/QA not run."
+    },
+    {
+      "module": "H",
+      "gate": "Physical traversal",
+      "status": "NOT RUN",
+      "evidence": "No native engine."
+    },
+    {
+      "module": "I",
+      "gate": "Character cohesion",
+      "status": "PARTIAL",
+      "evidence": "Existing rigs/material metadata retained; native visual cohesion unreviewed."
+    },
+    {
+      "module": "J",
+      "gate": "Lighting materials",
+      "status": "NOT RUN",
+      "evidence": "No native import/shader/day/night review; renderer and lighting owners unchanged."
+    },
+    {
+      "module": "K",
+      "gate": "Gameplay preservation",
+      "status": "PARTIAL",
+      "evidence": "Source, schema and quest checks pass; native save and gameplay acceptance open."
+    },
+    {
+      "module": "L",
+      "gate": "Native evidence performance",
+      "status": "NOT RUN",
+      "evidence": "DCC source evidence only; no Unity screenshots or CPU/GPU profile."
+    },
+    {
+      "module": "M",
+      "gate": "Tests",
+      "status": "PARTIAL",
+      "evidence": "24 compilation cases,3 boundaries,12 syntax,24 focused pure,33 strict exports,9 support checks pass; full raw suite has47 unchanged failures and CI2 inherited H5 failures."
+    },
+    {
+      "module": "N",
+      "gate": "Final visual acceptance",
+      "status": "NOT RUN",
+      "evidence": "No native score or owner approval."
+    },
+    {
+      "module": "O",
+      "gate": "Handoff",
+      "status": "PASS",
+      "evidence": "Current docs, raw ledgers, changed/preserved manifest and ordinary route instructions delivered."
+    },
+    {
+      "module": "P",
+      "gate": "Recoverable delivery",
+      "status": "PASS",
+      "evidence": "Forward-only source/art commit and LFS normalization delivered; final evidence descendant recorded in PR12."
+    }
+  ],
+  "fr02_authorized": false,
+  "native_unity": "NOT RUN"
+}

@@ -1,0 +1,310 @@
+{
+  "scope": "Pinned independent FBX parser, strict mode, actual left-handed Y-up transformed vertices. Not Unity importer. Fresh recovery run.",
+  "parser_commit": "5955c5c0b042ac2dc6f32955ab206aaec0620cfc",
+  "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+  "passed": 15,
+  "total": 15,
+  "rows": [
+    {
+      "vertices": 9950,
+      "triangles": 15056,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -15.0200014,
+        8.32999897,
+        -0.725000024
+      ],
+      "maximum": [
+        15.0200014,
+        35.0999985,
+        48.4799995
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD0.fbx",
+      "sha256": "1704e147bcfcb39cd2afdec7cef60256c601effb1b3bf02e7748614659ad2d30",
+      "exit_code": 0
+    },
+    {
+      "vertices": 6670,
+      "triangles": 10128,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -15.0200014,
+        8.32999897,
+        -0.725000024
+      ],
+      "maximum": [
+        15.0200014,
+        35.0999985,
+        48.4799995
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD1.fbx",
+      "sha256": "392510ca3dd725decc358dce28a2f6b4cee2a7929753d55e277dd36f2dd113c0",
+      "exit_code": 0
+    },
+    {
+      "vertices": 3806,
+      "triangles": 5800,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -15.0200014,
+        8.32999897,
+        -0.725000024
+      ],
+      "maximum": [
+        15.0200014,
+        35.0999985,
+        48.4799995
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD2.fbx",
+      "sha256": "84356943ab0a708c4f9678f0c2741dd2332ea843556c482519055a94ee47f47a",
+      "exit_code": 0
+    },
+    {
+      "vertices": 3234,
+      "triangles": 4908,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -15.0200014,
+        8.32999897,
+        -0.950000048
+      ],
+      "maximum": [
+        15.0200014,
+        33.2000008,
+        30.4299984
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD0.fbx",
+      "sha256": "ebb382edc1fc3c765aae1d89cfc514063d2244477e1f766bca39554ba086e755",
+      "exit_code": 0
+    },
+    {
+      "vertices": 2082,
+      "triangles": 3180,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -15.0200014,
+        8.32999897,
+        -0.950000048
+      ],
+      "maximum": [
+        15.0200014,
+        33.2000008,
+        30.4299984
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD1.fbx",
+      "sha256": "62a65dd5fcf77df4674d87c480e794afb50520d30f09fa6bb7f1d9de8527504b",
+      "exit_code": 0
+    },
+    {
+      "vertices": 1290,
+      "triangles": 1976,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -15.0200014,
+        8.32999897,
+        -0.950000048
+      ],
+      "maximum": [
+        15.0200014,
+        33.2000008,
+        30.4299984
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD2.fbx",
+      "sha256": "89b8aafb3fcf4f5b84cb91c6c7723532bbb74df3aca88ef3328d33a999eba694",
+      "exit_code": 0
+    },
+    {
+      "vertices": 13920,
+      "triangles": 20936,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -22.7505531,
+        -0.0059967041,
+        -10.5099745
+      ],
+      "maximum": [
+        22.7505531,
+        166.274826,
+        10.5099745
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD0.fbx",
+      "sha256": "cc1fcea1d9af5ae4e266dbc213685f7b7604296eb05ec9354edafa0d1d0b5720",
+      "exit_code": 0
+    },
+    {
+      "vertices": 7712,
+      "triangles": 11624,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -22.7505531,
+        -0.0059967041,
+        -10.5099745
+      ],
+      "maximum": [
+        22.7505531,
+        166.274826,
+        10.5099745
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD1.fbx",
+      "sha256": "de95826c4dcac41505bd43d08f9a34e72d7e9c002fadf88087d8ba9987920d5a",
+      "exit_code": 0
+    },
+    {
+      "vertices": 4080,
+      "triangles": 6176,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -22.7505531,
+        -0.0059967041,
+        -10.5099745
+      ],
+      "maximum": [
+        22.7505531,
+        166.274826,
+        10.5099745
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD2.fbx",
+      "sha256": "c226d6309c0f8f92ede747e22464dcfc4615230b7760b67430da2b5483166694",
+      "exit_code": 0
+    },
+    {
+      "vertices": 14914,
+      "triangles": 22428,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -25.6239948,
+        -0.0060005188,
+        -9.94768906
+      ],
+      "maximum": [
+        25.6239948,
+        132.568375,
+        9.94768906
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD0.fbx",
+      "sha256": "fe5d0144c4f3622d080a52a17a9e074d17a018026ecd6260edf254ff53a11eb9",
+      "exit_code": 0
+    },
+    {
+      "vertices": 8402,
+      "triangles": 12660,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -25.6239948,
+        -0.0060005188,
+        -9.94768906
+      ],
+      "maximum": [
+        25.6239948,
+        132.568375,
+        9.94768906
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD1.fbx",
+      "sha256": "20f4d6e2f672555918981af3adfea8b4cb4484289f1f510ff01d18f6f6597704",
+      "exit_code": 0
+    },
+    {
+      "vertices": 4514,
+      "triangles": 6828,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -25.6239948,
+        -0.0060005188,
+        -9.94768906
+      ],
+      "maximum": [
+        25.6239948,
+        132.568375,
+        9.94768906
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD2.fbx",
+      "sha256": "1fa42d20cddb1d701736b1273a1550c7fa70db7afa6f884d47359faa2f90b49d",
+      "exit_code": 0
+    },
+    {
+      "vertices": 14618,
+      "triangles": 21980,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -20.25,
+        -0.00601196289,
+        -16.7900028
+      ],
+      "maximum": [
+        20.25,
+        166.466705,
+        16.7900028
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD0.fbx",
+      "sha256": "2f3c8c1e4d539a9b809b177edcd1fd18c4321cfdcd34248f329263688a5d0ff0",
+      "exit_code": 0
+    },
+    {
+      "vertices": 8074,
+      "triangles": 12164,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -20.25,
+        -0.00601196289,
+        -16.7900028
+      ],
+      "maximum": [
+        20.25,
+        166.466705,
+        16.7900028
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD1.fbx",
+      "sha256": "cbeb4ed6603b4bed09456d18b29ff7c89fa8a5a0a1d4ec183a31fa601ad3c288",
+      "exit_code": 0
+    },
+    {
+      "vertices": 4250,
+      "triangles": 6428,
+      "materials": 4,
+      "axes": "left_handed_y_up",
+      "minimum": [
+        -20.25,
+        -0.00601196289,
+        -16.7900028
+      ],
+      "maximum": [
+        20.25,
+        166.466705,
+        16.7900028
+      ],
+      "passed": true,
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD2.fbx",
+      "sha256": "9e2218c1f1a0defab6b7e54148817e1f8f2bcdcebbb2dd68e079f2c9868982c2",
+      "exit_code": 0
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

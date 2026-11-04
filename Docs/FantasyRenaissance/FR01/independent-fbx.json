@@ -1,0 +1,404 @@
+{
+  "parser_commit": "5955c5c0b042ac2dc6f32955ab206aaec0620cfc",
+  "passed": 33,
+  "total": 33,
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 448,
+        "triangles": 680,
+        "maximum_radius_m": 7.25396597,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 276,
+        "triangles": 416,
+        "maximum_radius_m": 7.23027643,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartArcade_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 180,
+        "triangles": 268,
+        "maximum_radius_m": 7.15681484,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 432,
+        "triangles": 656,
+        "maximum_radius_m": 7.25396597,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 260,
+        "triangles": 392,
+        "maximum_radius_m": 7.23027643,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartBlindBay_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 164,
+        "triangles": 244,
+        "maximum_radius_m": 7.15681484,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 59,
+        "triangles": 86,
+        "maximum_radius_m": 2.58940143,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 59,
+        "triangles": 86,
+        "maximum_radius_m": 2.58940143,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartFocus_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 59,
+        "triangles": 86,
+        "maximum_radius_m": 2.58940143,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 1353,
+        "triangles": 2050,
+        "maximum_radius_m": 30.7999992,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 827,
+        "triangles": 1246,
+        "maximum_radius_m": 30.7999992,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartGate_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 519,
+        "triangles": 774,
+        "maximum_radius_m": 30.7999992,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 1543,
+        "triangles": 2342,
+        "maximum_radius_m": 16.4012195,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 957,
+        "triangles": 1442,
+        "maximum_radius_m": 16.4012195,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 609,
+        "triangles": 906,
+        "maximum_radius_m": 16.4012195,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 1596,
+        "triangles": 2416,
+        "maximum_radius_m": 17.7311706,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 984,
+        "triangles": 1480,
+        "maximum_radius_m": 17.6759724,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 616,
+        "triangles": 916,
+        "maximum_radius_m": 17.6759724,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 476,
+        "triangles": 692,
+        "maximum_radius_m": 3.90706073,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 280,
+        "triangles": 408,
+        "maximum_radius_m": 3.90629843,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartIvyRuin_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 172,
+        "triangles": 252,
+        "maximum_radius_m": 3.90515099,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 62,
+        "triangles": 92,
+        "maximum_radius_m": 4.71699057,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 30,
+        "triangles": 44,
+        "maximum_radius_m": 4.71699057,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofGable_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 6,
+        "triangles": 8,
+        "maximum_radius_m": 4.71699057,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 17,
+        "triangles": 30,
+        "maximum_radius_m": 8,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 11,
+        "triangles": 18,
+        "maximum_radius_m": 8,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRoofSpire_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 7,
+        "triangles": 10,
+        "maximum_radius_m": 8,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 267,
+        "triangles": 386,
+        "maximum_radius_m": 6.54599097,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 162,
+        "triangles": 236,
+        "maximum_radius_m": 6.54599096,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartRootCourt_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 99,
+        "triangles": 146,
+        "maximum_radius_m": 6.54599095,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD0.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 8,
+        "triangles": 12,
+        "maximum_radius_m": 2.82858622,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD1.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 8,
+        "triangles": 12,
+        "maximum_radius_m": 2.82858622,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartStreet_LOD2.fbx",
+      "exit_code": 0,
+      "inspection": {
+        "vertices": 8,
+        "triangles": 12,
+        "maximum_radius_m": 2.82858622,
+        "bones": 0,
+        "animation_stacks": 0,
+        "passed": true
+      }
+    }
+  ],
+  "native_unity": "NOT RUN"
+}
