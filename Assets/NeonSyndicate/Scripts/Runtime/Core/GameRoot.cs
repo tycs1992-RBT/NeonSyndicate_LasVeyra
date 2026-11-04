@@ -74,6 +74,7 @@ namespace NeonSyndicate
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void AutoBoot()
         {
+            if (ShardwakeVale.Owns(UnityEngine.SceneManagement.SceneManager.GetActiveScene())) return;
             if (FindAnyObjectByType<GameRoot>() != null) return;
             GameObject go = new GameObject("Neon Syndicate");
             go.AddComponent<GameRoot>();
@@ -81,6 +82,7 @@ namespace NeonSyndicate
 
         private void Awake()
         {
+            if (ShardwakeVale.Owns(gameObject.scene)) { enabled=false; Destroy(this); return; }
             CityRevision04O requested; SaveData resume; bool free, skip;
             if (CityRebirthBoot04O.Take(out requested, out resume, out free, out skip))
             {

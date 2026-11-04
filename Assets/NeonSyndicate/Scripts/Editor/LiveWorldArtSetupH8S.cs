@@ -62,7 +62,7 @@ namespace NeonSyndicate.Editor
 
         private static void OnPlayMode(PlayModeStateChange change)
         {
-            if (change == PlayModeStateChange.ExitingEditMode) Prepare(false);
+            if (change == PlayModeStateChange.ExitingEditMode && !ShardwakeVale.Owns(UnityEngine.SceneManagement.SceneManager.GetActiveScene())) Prepare(false);
         }
 
         /// <summary>Prepares the list now and prints every piece's state.</summary>

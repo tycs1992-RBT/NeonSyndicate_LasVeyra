@@ -168,6 +168,7 @@ namespace NeonSyndicate.Editor
         {
             if (state == PlayModeStateChange.ExitingEditMode)
             {
+                if (ShardwakeVale.Owns(UnityEngine.SceneManagement.SceneManager.GetActiveScene())) { _playPrepared=false; return; }
                 if (_playPrepared) { _playPrepared = false; return; }
                 // Preparation imports assets and the H9 review rightly refuses to import during a Play transition.
                 // Stay in EditMode, fingerprint every source, then resume the owner's original Play request once.
