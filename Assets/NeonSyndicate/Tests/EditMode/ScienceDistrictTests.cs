@@ -50,6 +50,39 @@ namespace NeonSyndicate.Tests
             Assert.False(Hits(solid,new Vector3(5.3f,.8f,4),Vector3.forward,5),"Existing staff approach");
         }
 
+        [Test] public void TerraceLandingSeatAndRailShareTheSwitchedMesh()
+        {
+            MeshBuilder mesh=Art("lofts").Solid();
+            List<Bounds> zones=HeartPlanFR01.ScienceChangedZones(new MeshBuilder(1),mesh);
+            // A 4 by 4 m open-sky flight landing clear above the existing two-storey room.
+            foreach(float x in new[]{-6f,-4f,-2f})foreach(float z in new[]{1f,3f,5f})
+            {
+                Vector3 feet=new Vector3(x,9.19f,z);
+                Assert.True(Hits(mesh,feet,Vector3.down,.08f),"Level landing "+feet);
+                Assert.False(Hits(mesh,feet,Vector3.up,20),"Open sky "+feet);
+                Assert.True(zones.Exists(b=>Contains(b,feet)),"Occupied landing is in the transition guard.");
+            }
+            Assert.True(Hits(mesh,new Vector3(-4,10.25f,1),Vector3.back,3),"Court-facing guardrail");
+            Assert.False(Hits(mesh,new Vector3(-4,10.4f,3),Vector3.right,8),"Clear passage to shaded bench");
+            Assert.True(Hits(mesh,new Vector3(4,9.85f,4.65f),Vector3.down,.45f),"Bench has a seat");
+            Assert.True(Hits(mesh,new Vector3(4,11.2f,4.65f),Vector3.up,4),"Canopy covers seat above head height");
+        }
+
+        [Test] public void ForgeThroatRemainsOpenThroughTheCrown()
+        {
+            ScienceDistrictArt art=Art("forge");
+            MeshBuilder mesh=art.Solid();
+            foreach(float x in new[]{4.5f,5.1f,5.7f})foreach(float z in new[]{8.4f,9f,9.6f})
+                Assert.False(Hits(mesh,new Vector3(x,6.4f,z),Vector3.up,14),"Open exhaust bore");
+            Assert.True(Hits(mesh,new Vector3(5.1f,12.55f,9),Vector3.right,2),"Lined physical bore");
+            Assert.True(Hits(mesh,new Vector3(0,15,10),Vector3.down,10),"Connected lower hall roof");
+            Assert.True(Hits(mesh,new Vector3(5.1f,9.18f,4.5f),Vector3.forward,1.2f),"Recessed public lens");
+            Assert.Greater(art.Surfaces["forge-lens"].VertexCount,0);
+            Assert.False(Art("lofts").Surfaces.ContainsKey("forge-lens"));
+            List<Bounds> zones=HeartPlanFR01.ScienceChangedZones(new MeshBuilder(1),mesh);
+            Assert.True(zones.Exists(b=>Contains(b,new Vector3(8.25f,16.4f,9))),"Occupied exhaust rim must delay restoration");
+        }
+
         [Test] public void CourtRetainsItsCentralNorthSouthWalkingCorridor()
         {
             MeshBuilder mesh=HeartPlanFR01.ScienceCourt().Solid();

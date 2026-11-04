@@ -23,7 +23,7 @@ public static class ScienceDistrictNunitHarness
                     catch (Exception error) { failed++; Console.Error.WriteLine("FAIL " + method.Name + ": " + (error.InnerException ?? error)); }
                 }
             Console.WriteLine("Pure NUnit cases: " + passed + " passed, " + failed + " failed. Unity EditMode/PlayMode NOT RUN.");
-            return passed == 21 && failed == 0 ? 0 : 1;
+            return passed == 23 && failed == 0 ? 0 : 1;
         }
         catch (Exception error) { Console.Error.WriteLine(error); return 1; }
     }

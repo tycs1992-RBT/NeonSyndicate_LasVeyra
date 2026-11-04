@@ -10,6 +10,7 @@ namespace NeonSyndicate
         {
             public RewritePairWR01 Visual;
             public GameObject OriginalSolid, CandidateSolid;
+            public Renderer ForgeLens;
             public readonly List<Renderer> Warm = new List<Renderer>(), Cool = new List<Renderer>();
             public readonly List<Bounds> TransitionZones = new List<Bounds>();
         }
@@ -51,7 +52,7 @@ namespace NeonSyndicate
                 foreach (KeyValuePair<string, MeshBuilder> part in art.Surfaces)
                 {
                     if (part.Value.VertexCount == 0) continue;
-                    Material material = AscensionArtH2.Surface(part.Key == "warm" ? "azure" : part.Key == "earth" ? "basalt" : part.Key);
+                    Material material = AscensionArtH2.Surface((part.Key == "warm" || part.Key == "forge-lens") ? "azure" : part.Key == "earth" ? "basalt" : part.Key);
                     if (material == null || material.shader == null || !material.shader.isSupported || material.mainTexture == null ||
                         material.GetTexture("_BumpMap") == null || material.GetTexture("_MetallicGlossMap") == null)
                         throw new InvalidOperationException("Science district requires intact H2 texture maps and supported shader: " + part.Key);
@@ -71,6 +72,7 @@ namespace NeonSyndicate
                     if(finish>=0 && material.HasProperty(finishProperty))block.SetFloat(finishProperty,finish);
                     if (part.Key == "warm") pair.Warm.Add(renderer);
                     if (part.Key == "azure") pair.Cool.Add(renderer);
+                    if (part.Key == "forge-lens") pair.ForgeLens=renderer;
                     renderer.SetPropertyBlock(block);
                 }
                 // One bounded envelope at all distances: a visible roof never disappears from its physical owner.
@@ -194,6 +196,19 @@ namespace NeonSyndicate
         {
             float night = Game.Atmo != null ? Game.Atmo.NightFactor : 0;
             bool eye = Game.Abilities != null && Game.Abilities.ThirdEyeActive;
+            if(pair.ForgeLens!=null)
+            {
+                ForgeScreen station = Game.Crafting!=null && Game.Crafting.ScreenOpen ? Game.Crafting.GetComponent<ForgeScreen>() : null;
+                bool inUse=station!=null && station.DanteStationInUse;
+                MaterialPropertyBlock lens=new MaterialPropertyBlock();
+                pair.ForgeLens.GetPropertyBlock(lens);
+                Texture neutral=AscensionArtH2.Surface("masonry").mainTexture;
+                lens.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",neutral);
+                lens.SetTexture("_EmissionMap",neutral);
+                lens.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.65f,.29f,.08f));
+                lens.SetColor("_EmissionColor",new Color(1,.46f,.12f)*(inUse?.82f:.035f));
+                pair.ForgeLens.SetPropertyBlock(lens);
+            }
             for(int warm=0;warm<2;warm++)foreach(Renderer renderer in warm==1?pair.Warm:pair.Cool)
             {
                 if(renderer==null)continue;

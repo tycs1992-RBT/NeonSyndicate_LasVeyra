@@ -36,14 +36,18 @@ namespace NeonSyndicate
             ScienceDistrictArt art = new ScienceDistrictArt();
             art.Surface("masonry").Append(retainedStructure);
             art.Surface("masonry").Append(retainedPorch);
-            // Closed, swept shells with separate intrados, eaves and radial seams. Both LODs keep this envelope.
-            ScienceRoof(art, new Vector3(0, home ? 9.5f : 6.3f, 12), 17, 25, home ? 2.1f : 3.5f);
-            // Full load-bearing arch frames connect the vault to the ground, outside the occupied room walls.
-            for (int frame = 0; frame < 4; frame++)
-                ScienceArch(art.Surface("masonry"), new Vector3(0,0,.3f+frame*8),17,home?9.5f:6.3f,home?2.1f:3.5f,.38f);
+            if (home) LoftsTerrace(art);
+            else ForgeMonitor(art);
             for (int side = -1; side <= 1; side += 2)
             {
-                ScienceRoof(art, new Vector3(side * 11.35f, 5.7f, 14), 6.6f, 28, 1.25f);
+                if (home || side < 0)
+                    ScienceRoof(art, new Vector3(side * 11.35f, 5.7f, 14), 6.6f, 28, 1.25f);
+                else
+                {
+                    // The working core has an actual opening through this gallery.
+                    ScienceRoof(art,new Vector3(11.35f,5.7f,2.6f),6.6f,5.2f,1.25f);
+                    ScienceRoof(art,new Vector3(11.35f,5.7f,20.3f),6.6f,15.4f,1.25f);
+                }
                 for (int bay = 0; bay < 4; bay++)
                 {
                     float z = 1.6f + bay * 8.5f;

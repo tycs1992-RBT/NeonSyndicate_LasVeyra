@@ -1,4 +1,4 @@
-"""Run twenty-one pure NUnit cases for science district geometry against the actual compiled district geometry, outside the Unity Editor.
+"""Run twenty-three pure NUnit cases for science district geometry against the actual compiled district geometry, outside the Unity Editor.
 
 Requires the official Editor's managed compiler/runtime and a successful check_unity_classic_wr02g.py
 combined editor reference compilation. Does not execute native transaction tests or simulate physics.
