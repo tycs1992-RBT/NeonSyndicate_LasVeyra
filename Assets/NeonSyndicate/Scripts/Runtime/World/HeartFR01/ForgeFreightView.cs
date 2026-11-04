@@ -9,6 +9,7 @@ namespace NeonSyndicate
         private readonly Transform[] _joints=new Transform[ForgeFreightModel.Count];
         private readonly ForgeFreightModel.JointPose[] _poses=new ForgeFreightModel.JointPose[ForgeFreightModel.Count];
         private readonly Dictionary<ForgeFreightModel.Finish,Material> _materials=new Dictionary<ForgeFreightModel.Finish,Material>();
+        private readonly List<Mesh> _meshes=new List<Mesh>();
         private readonly Collider[] _hits=new Collider[64];
         private readonly RaycastHit[] _floor=new RaycastHit[24];
 
@@ -40,7 +41,7 @@ namespace NeonSyndicate
                         {material.EnableKeyword("_EMISSION");material.SetColor("_EmissionColor",new Color(.018f,.08f,.07f));}
                     }
                     GameObject shape=new GameObject(part.Surface.ToString());shape.transform.SetParent(view._joints[part.Joint],false);
-                    Mesh mesh=OwnedMeshes.Track(root,part.Mesh.ToMesh("Dante freight / "+part.Surface));
+                    Mesh mesh=part.Mesh.ToMesh("Dante freight / "+part.Surface);view._meshes.Add(mesh);
                     shape.AddComponent<MeshFilter>().sharedMesh=mesh;shape.AddComponent<MeshRenderer>().sharedMaterial=material;
                 }
                 view.Box(ForgeFreightModel.Body,new Vector3(0,1.53f,-.03f),new Vector3(1.48f,1.40f,2.75f));
@@ -48,10 +49,17 @@ namespace NeonSyndicate
                 view.Box(ForgeFreightModel.Wagon,new Vector3(0,.97f,0),new Vector3(1.72f,.85f,2.68f));
                 for(int i=3;i<=4;i++)
                 {
-                    GameObject rim=new GameObject("Wheel contact");rim.transform.SetParent(view._joints[i],false);
-                    rim.transform.localScale=new Vector3(.19f,1,1);
-                    MeshBuilder disc=new MeshBuilder(1);disc.Cylinder(0,Vector3.left*.50f,.64f,.64f,1,16,QMath.AZ(-90),true);
-                    MeshCollider collider=rim.AddComponent<MeshCollider>();collider.sharedMesh=OwnedMeshes.Track(root,disc.ToMesh("Freight wheel contact"));collider.convex=true;
+                    // Sixteen narrow tangential segments approximate the actual annular tyre.
+                    // The gaps between the spokes stay open and no convex cooking is required.
+                    for(int segment=0;segment<16;segment++)
+                    {
+                        float angle=segment*22.5f;
+                        GameObject contact=new GameObject("Rim contact");contact.transform.SetParent(view._joints[i],false);
+                        contact.transform.localRotation=QMath.AX(angle);
+                        contact.transform.localPosition=contact.transform.localRotation*Vector3.up*.592f;
+                        contact.AddComponent<BoxCollider>().size=new Vector3(.15f,.084f,.233f);
+                    }
+                    view._joints[i].gameObject.AddComponent<SphereCollider>().radius=.145f;
                 }
                 view.Box(ForgeFreightModel.Wagon,new Vector3(0,.86f,1.87f),new Vector3(.22f,.16f,1.46f));
                 return view;
@@ -73,11 +81,11 @@ namespace NeonSyndicate
         }
 
         // Fail closed on saturated queries. The road is below the swept boxes. Only our own compound is ignored.
-        private bool Free(Vector3 centre,Vector3 half,Vector3 forward,Vehicle source)
+        private bool Free(ForgeFreightEnvelope zone,Vehicle source)
         {
-            Quaternion q=QMath.LookRotation(forward,Vector3.up);
+            Quaternion q=QMath.LookRotation(zone.Forward,Vector3.up);
             int mask=~((1<<Layers.IgnoreRaycast)|(1<<Layers.Triggers)|(1<<Layers.Minimap));
-            int n=Physics.OverlapBoxNonAlloc(centre,half,_hits,q,mask,QueryTriggerInteraction.Ignore);
+            int n=Physics.OverlapBoxNonAlloc(zone.Centre,zone.Half,_hits,q,mask,QueryTriggerInteraction.Ignore);
             if(n==_hits.Length)return false;
             for(int i=0;i<n;i++)
             {
@@ -86,22 +94,17 @@ namespace NeonSyndicate
                 return false;
             }
             // The player's capsule can be temporarily disabled by a travel mode.
-            if(Game.Player!=null)
-            {
-                Vector3 p=QMath.Inverse(q)*(Game.PlayerPosition+Vector3.up*.85f-centre);
-                if(Mathf.Abs(p.x)<half.x+.34f && Mathf.Abs(p.y)<half.y+.85f && Mathf.Abs(p.z)<half.z+.34f)return false;
-            }
-            return true;
+            return Game.Player==null || !zone.Contains(Game.PlayerPosition+Vector3.up*.85f,.34f,.85f);
         }
 
         public bool EnvelopeFree(ForgeFreightFrame frame,Vehicle source)
         {
-            if(!Free(frame.Animal+Vector3.up*1.47f+frame.Forward*.28f,new Vector3(1.09f,1.32f,2.17f),frame.Forward,source))return false;
-            return Free(frame.Axle+Vector3.up*.91f+frame.WagonForward*.60f,new Vector3(1.30f,.77f,2.21f),frame.WagonForward,source);
+            return Free(ForgeFreightEnvelope.Animal(frame),source) && Free(ForgeFreightEnvelope.Wagon(frame),source);
         }
         public bool VanFree(Vector3 road,Vector3 dir,Vehicle van)
         {
-            return Free(road+Vector3.up*(van.Def.Height*.5f+.15f),new Vector3(van.Def.Width*.5f+.36f,van.Def.Height*.5f,van.Def.Length*.5f+.55f),dir,van);
+            return Free(new ForgeFreightEnvelope(road+Vector3.up*(van.Def.Height*.5f+.15f),
+                new Vector3(van.Def.Width*.5f+.36f,van.Def.Height*.5f,van.Def.Length*.5f+.55f),dir),van);
         }
 
         public bool Supported(Vector3 plan,out float height)
@@ -122,15 +125,20 @@ namespace NeonSyndicate
             Vector3 side=new Vector3(f.WagonForward.z,0,-f.WagonForward.x)*ForgeFreightRun.Track;
             if(!Supported(f.Animal+f.Forward*1.1f,out float front) || !Supported(f.Animal-f.Forward,out float hind) ||
                 !Supported(f.Axle-side,out float left) || !Supported(f.Axle+side,out float right))return false;
-            if(Mathf.Max(front,hind,left,right)-Mathf.Min(front,hind,left,right)>.12f)return false;
+            if(Mathf.Max(Mathf.Max(front,hind),Mathf.Max(left,right))-Mathf.Min(Mathf.Min(front,hind),Mathf.Min(left,right))>.12f)return false;
             f.Animal.y=(front+hind)*.5f;f.Axle.y=(left+right)*.5f;return true;
         }
         public void Dispose()
         {
             gameObject.SetActive(false);
-            foreach(Material m in _materials.Values)if(m!=null)Destroy(m);
-            _materials.Clear();Destroy(gameObject);
+            ReleaseAssets();Destroy(gameObject);
         }
-        private void OnDestroy(){foreach(Material m in _materials.Values)if(m!=null)Destroy(m);}
+        private void ReleaseAssets()
+        {
+            foreach(Material m in _materials.Values)if(m!=null)Destroy(m);
+            foreach(Mesh mesh in _meshes)if(mesh!=null)Destroy(mesh);
+            _materials.Clear();_meshes.Clear();
+        }
+        private void OnDestroy(){ReleaseAssets();}
     }
 }

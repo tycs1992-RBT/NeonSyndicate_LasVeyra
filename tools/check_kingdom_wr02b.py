@@ -7,6 +7,7 @@ from check_world_rewrite_wr01 import BaselinePayloads,check_frozen_tree
 from wr02c3_lineage import ADDITIONS as WR02C3_ADDITIONS
 from wr02j_lineage import ADDITIONS as WR02J_ADDITIONS
 from science_district_lineage import ADDITIONS as SCIENCE_ADDITIONS
+from forge_freight_contract import verify as freight_contacts_verified
 from test_science_district_contracts import paired_contract
 from wr02i_lineage import ADDITIONS as WR02I_ADDITIONS
 ROOT=Path(__file__).resolve().parents[1]
@@ -49,6 +50,8 @@ def main():
   if token=='AddComponent<MeshCollider>':
    others='\n'.join((ROOT/path).read_text() for path in NEW_SOURCES_WR02B if path!=authorized_pair and '/Runtime/' in path)
    check('Only the reviewed paired science physical owner may add MeshCollider',token not in others and paired_contract((ROOT/authorized_pair).read_text()))
+  elif token=='AddComponent<BoxCollider>':
+   check('Only the reversible freight team owns its fitted hull and tyre segments',freight_contacts_verified(ROOT,NEW_SOURCES_WR02B))
   else:check('No new gameplay/physics/credential owner '+token,token not in text)
  check('Live creature entry remains Editor-only', '#if UNITY_EDITOR\n' in (ROOT/'Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs').read_text())
  for path in ['Assets/NeonSyndicate/Resources/HeartPreparedWR02B/Catalog.asset','ArtSource/FoundryWR02A/EnvironmentWR02B/example.blend1']:check('Generated output ignored '+path,subprocess.run(['git','check-ignore','-q',path],cwd=ROOT).returncode==0)

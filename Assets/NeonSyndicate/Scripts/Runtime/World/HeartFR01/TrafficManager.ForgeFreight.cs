@@ -12,13 +12,29 @@ namespace NeonSyndicate
     {
         // Vehicle.Setup makes the character-blocking shell a separate world root.
         internal GameObject FreightShell { get { return _shell!=null?_shell.gameObject:null; } }
+        internal void SetFreightSourceActive(bool active)
+        { _shell.gameObject.SetActive(active);gameObject.SetActive(active); }
+
+        internal void FollowDormantFreight(Vector3 road,Vector3 direction)
+        {
+            Quaternion turn=QMath.LookRotation(direction,Vector3.up);
+            Vector3 at=road+Vector3.up*.05f;
+            transform.SetPositionAndRotation(at,turn);_shell.transform.SetPositionAndRotation(at,turn);
+        }
+
         internal void ReleaseFreightVan(Vector3 ground,Vector3 direction,LanePath lane)
         {
             Quaternion rotation=QMath.LookRotation(direction,Vector3.up);
             Vector3 at=ground+Vector3.up*.05f;
             transform.SetPositionAndRotation(at,rotation);_shell.transform.SetPositionAndRotation(at,rotation);
             gameObject.SetActive(true);_shell.gameObject.SetActive(true);
-            Body.position=at;Body.rotation=rotation;Body.linearVelocity=Vector3.zero;Body.angularVelocity=Vector3.zero;
+            Body.position=at;Body.rotation=rotation;
+#if UNITY_6000_0_OR_NEWER
+            Body.linearVelocity=Vector3.zero;
+#else
+            Body.velocity=Vector3.zero;
+#endif
+            Body.angularVelocity=Vector3.zero;
             _shell.position=at;_shell.rotation=rotation;
             TrafficDriver driver=GetComponent<TrafficDriver>();driver.Init(this,lane.Id,lane.Project(ground));
         }
@@ -30,9 +46,12 @@ namespace NeonSyndicate
         private ForgeFreightRun _freightRun;
         private ForgeFreightView _freightTeam;
         private Vehicle _freightVan;
-        private ForgeFreightFrame _freightFrame;
-        private float _freightSpeed,_freightEffort,_freightClock,_freightHold,_freightRetry;
-        private bool _freightDeparted,_freightRefused;
+        private ForgeFreightDrive _freightDrive;
+        private ForgeFreightLease _freightLease=new ForgeFreightLease();
+        private float _restoreRetry;
+        private Blip _freightPost;
+        private float _freightRetry;
+        private bool _freightRefused;
         private bool FreightRequested()
         {
             return Game.Layout!=null && Game.Layout.HeartArtFR01!=null && Game.Layout.HeartArtFR01.FreightPreview &&
@@ -44,13 +63,14 @@ namespace NeonSyndicate
             bool requested=FreightRequested();
             if(_freightWorld!=Game.Layout)
             {
-                RetireFreight();_freightWorld=Game.Layout;_freightRun=null;_freightRefused=false;
+                ClearFreightPost();RetireFreight();_freightWorld=Game.Layout;_freightRun=null;_freightRefused=false;
             }
+            if(_freightTeam!=null && _freightVan!=null && _freightVan.FreightShell==null)RetireFreight();
             if(_freightTeam!=null && (_freightVan==null || !Moving.Contains(_freightVan)))
                 DropFreightView(); // ClearAll, ClearAround or traffic culling already owns source destruction.
             if(!requested)
             {
-                _freightRefused=false;
+                _freightRefused=false;ClearFreightPost();
                 if(_freightTeam!=null)TryRestoreFreight();
                 return;
             }
@@ -58,11 +78,13 @@ namespace NeonSyndicate
             _freightRetry=Time.unscaledTime+.35f;
             if(_freightRun==null)_freightRun=ForgeFreightRun.Find(Game.Layout);
             if(_freightRun==null){_freightRefused=true;return;}
+            if(_freightPost==null)_freightPost=Blip.Add(BlipKind.Service,null,_freightRun.Load,new Color(.66f,.76f,.59f),"F","Dante freight / hydrant loading stop",true);
             if(_freightTeam!=null)
             {
                 // End of a one-way haul: hold at the bench while followed. Stream out off camera.
-                if(_freightFrame.Distance>=_freightRun.Length-.01f &&
-                    MathUtil.FlatDistance(Game.PlayerPosition,_freightFrame.Animal)>62 && !FreightVisible(_freightFrame.Animal))
+                if(_freightDrive.Frame.Distance>=_freightRun.Length-.01f &&
+                    MathUtil.FlatDistance(Game.PlayerPosition,_freightDrive.Frame.Animal)>62 &&
+                    !FreightVisible(_freightDrive.Frame) && !FreightVisible(_freightRun.Start()))
                     RetireFreight();
                 return;
             }
@@ -70,16 +92,26 @@ namespace NeonSyndicate
             StageFreight();
         }
 
-        private static bool FreightVisible(Vector3 p)
-        {return Game.Cam!=null && Game.Cam.Cam!=null && PedManager.IsVisible(Game.Cam.Cam,p+Vector3.up);}
+        private static bool FreightVisible(ForgeFreightFrame f)
+        {
+            Camera cam=Game.Cam!=null?Game.Cam.Cam:null;
+            if(cam==null)return true;
+            foreach(Vector3 point in new[]{f.Animal+f.Forward*2.5f,f.Animal,f.Hitch,f.Axle,f.Axle-f.WagonForward*1.5f})
+                if(PedManager.IsVisible(cam,point+Vector3.up))return true;
+            return false;
+        }
 
         private void StageFreight()
         {
+            if(_freightTeam!=null)return;
             ForgeFreightFrame start=_freightRun.Start();
             Vehicle van=_freightVan;
             bool reuse=van!=null && Moving.Contains(van);
             if(reuse)
             {
+                foreach(CharacterBase passenger in van.Occupants)
+                    if(passenger is NpcController npc && (npc.Persistent || !string.IsNullOrEmpty(npc.MissionTag)))
+                    { _freightVan=null;return; }
                 // A released ambient van may legitimately become player property or leave this lane.
                 TrafficDriver driver=van.GetComponent<TrafficDriver>();
                 if(van.HasPlayer || van.StolenByPlayer || van.MissionCritical || van.IsPolice || van.IsDestroyed ||
@@ -107,72 +139,70 @@ namespace NeonSyndicate
                 if(van==null || van.FreightShell==null || !Moving.Contains(van))throw new InvalidOperationException("Freight source pair unavailable");
                 _freightVan=van;
                 prepared=ForgeFreightView.Prepare(transform);
-                if(!prepared.Ground(ref start) || !prepared.EnvelopeFree(start,van))
+                if(!prepared.Ground(ref start))throw new InvalidOperationException("Loading team has no continuous road support");
+                if(!prepared.EnvelopeFree(start,van))
                 { prepared.Dispose();_freightRetry=Time.unscaledTime+1;return; }
-                prepared.Show(_freightRun,start,0,0);_freightVan=van;
-                van.FreightShell.SetActive(false);van.gameObject.SetActive(false);
-                prepared.gameObject.SetActive(true);Physics.SyncTransforms();
-                _freightTeam=prepared;_freightFrame=start;_freightSpeed=0;_freightEffort=0;_freightClock=0;
-                _freightHold=start.Distance>.5f?0:2.5f;_freightDeparted=start.Distance>.5f;
+                prepared.Show(_freightRun,start,0,0);
+                _freightLease.Select(true,true,false,van.SetFreightSourceActive,prepared.gameObject.SetActive);
+                Physics.SyncTransforms();
+                _freightTeam=prepared;
+                _freightDrive=new ForgeFreightDrive(_freightRun,start,FreightFree,prepared.Ground);
             }
             catch(Exception error)
             {
                 if(prepared!=null)prepared.Dispose();
                 if(van!=null && !van.gameObject.activeSelf && van.FreightShell!=null)
                     van.ReleaseFreightVan(start.Animal,start.Forward,_freightRun.Lane);
-                _freightRefused=true;Log.Warn("Forge freight retained civilian dispatch: "+error.Message);
+                _freightRefused=true;ClearFreightPost();
+                Log.Warn("Forge freight retained civilian dispatch: "+error.Message);
+                if(Game.Hud!=null)Game.Hud.Notify("Dante freight unavailable: "+error.Message,4f);
             }
         }
 
         private void FixedUpdate()
         {
             if(_freightTeam==null || _freightVan==null || !Moving.Contains(_freightVan) || !FreightRequested() || Game.State!=GameState.Playing)return;
-            float dt=Time.fixedDeltaTime;_freightClock+=dt;
-            if(!_freightDeparted && MathUtil.FlatDistance(Game.PlayerPosition,_freightRun.Load)<34)_freightDeparted=true;
-            if(_freightDeparted)_freightHold=Mathf.Max(0,_freightHold-dt);
-            float remaining=_freightRun.Length-_freightFrame.Distance;
-            float goal=_freightDeparted && _freightHold<=0?Mathf.Min(1.85f,Mathf.Sqrt(2*.8f*remaining)):0;
-            _freightSpeed=Mathf.MoveTowards(_freightSpeed,goal,.76f*dt);
-            if(_freightSpeed>.001f)
-            {
-                // Probe the whole team now and through the stopping horizon, including the wagon cutting the bend.
-                bool clear=_freightTeam.EnvelopeFree(_freightFrame,_freightVan);
-                float look=.65f+_freightSpeed*_freightSpeed/1.6f;
-                for(float d=0;clear && d<look;d+=.40f)
-                {
-                    ForgeFreightFrame probe=_freightRun.Advance(_freightFrame,Mathf.Min(d+.40f,look));
-                    clear=_freightTeam.EnvelopeFree(probe,_freightVan);
-                }
-                ForgeFreightFrame next=_freightRun.Advance(_freightFrame,_freightSpeed*dt);
-                if(clear && _freightTeam.Ground(ref next))
-                {
-                    if(Mathf.FloorToInt(next.Distance*4/ForgeFreightRun.Stride)>Mathf.FloorToInt(_freightFrame.Distance*4/ForgeFreightRun.Stride) && Game.Audio!=null)
-                        Game.Audio.PlayAt(SfxId.Footstep,next.Animal,.32f,.68f,28);
-                    _freightFrame=next;
-                }
-                else _freightSpeed=0;
-            }
-            _freightEffort=Mathf.MoveTowards(_freightEffort,Mathf.Clamp01(_freightSpeed*1.8f),dt*3);
-            _freightTeam.Show(_freightRun,_freightFrame,_freightEffort,_freightClock);
+            if(_freightDrive.Step(Time.fixedDeltaTime,MathUtil.FlatDistance(Game.PlayerPosition,_freightRun.Load)<34) && Game.Audio!=null)
+                Game.Audio.PlayAt(SfxId.Footstep,_freightDrive.Frame.Animal,.32f,.68f,28);
+            _freightTeam.Show(_freightRun,_freightDrive.Frame,_freightDrive.Effort,_freightDrive.Clock);
+            // Keep ClearAround and distance culling authoritative, even while the original is completely inactive.
+            LanePath lane=_freightRun.Lane;float station=lane.Project(_freightDrive.Frame.Animal);
+            _freightVan.FollowDormantFreight(lane.PointAt(station),lane.DirectionAt(station));
         }
+
+        private bool FreightFree(ForgeFreightFrame frame){return _freightTeam.EnvelopeFree(frame,_freightVan);}
 
         private void TryRestoreFreight()
         {
-            _freightSpeed=0;
+            _freightDrive.Halt();
+            _freightTeam.Show(_freightRun,_freightDrive.Frame,0,_freightDrive.Clock);
             LanePath lane=_freightRun.Lane;
-            float s=lane.Project(_freightFrame.Animal);Vector3 at=lane.PointAt(s),dir=lane.DirectionAt(s);
-            if(!_freightTeam.EnvelopeFree(_freightFrame,_freightVan) || !_freightTeam.VanFree(at,dir,_freightVan) ||
-                !_freightTeam.Supported(at,out float y))return;
-            DropFreightView();at.y=y;_freightVan.ReleaseFreightVan(at,dir,lane);Physics.SyncTransforms();
+            float s=lane.Project(_freightDrive.Frame.Animal);Vector3 at=lane.PointAt(s),dir=lane.DirectionAt(s);
+            if(Time.unscaledTime<_restoreRetry)return;
+            bool clear=_freightTeam.EnvelopeFree(_freightDrive.Frame,_freightVan) && _freightTeam.VanFree(at,dir,_freightVan);
+            if(!_freightTeam.Supported(at,out float y))clear=false;
+            at.y=y;
+            try
+            {
+                if(!_freightLease.Select(false,true,!clear,active=>{
+                    if(active)_freightVan.ReleaseFreightVan(at,dir,lane);else _freightVan.SetFreightSourceActive(false);
+                },_freightTeam.gameObject.SetActive))return;
+                DropFreightView();Physics.SyncTransforms();
+            }
+            catch(Exception error)
+            {
+                _restoreRetry=Time.unscaledTime+1;Log.Warn("Forge freight held for safe source restoration: "+error.Message);
+            }
         }
 
         private void DropFreightView()
-        { if(_freightTeam!=null)_freightTeam.Dispose();_freightTeam=null; }
+        { if(_freightTeam!=null)_freightTeam.Dispose();_freightTeam=null;_freightDrive=null;_freightLease=new ForgeFreightLease(); }
+        private void ClearFreightPost(){if(_freightPost!=null)Blip.Remove(_freightPost);_freightPost=null;}
         private void RetireFreight()
         {
             if(_freightTeam!=null && _freightVan!=null && Moving.Remove(_freightVan))DestroyVehicle(_freightVan);
             DropFreightView();_freightVan=null;
         }
-        private void OnDestroy(){RetireFreight();}
+        private void OnDisable(){ClearFreightPost();RetireFreight();}
     }
 }

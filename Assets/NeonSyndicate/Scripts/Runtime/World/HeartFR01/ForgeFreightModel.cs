@@ -6,8 +6,8 @@ namespace NeonSyndicate
     /// <summary>Editable articulated freight team. All poses and exported images use the same rigid mesh parts.</summary>
     public sealed class ForgeFreightModel
     {
-        public const int Body=0, Head=1, Wagon=2, LeftWheel=3, RightWheel=4, FirstLeg=5, Trace=17, Count=19;
-        public enum Finish { Hide, Mane, Muzzle, Horn, Hoof, Leather, Bronze, Timber, Iron, Mineral, Dampener }
+        public const int Body=0, Head=1, Wagon=2, LeftWheel=3, RightWheel=4, FirstLeg=5, Trace=17, TraceTail=19, Count=21;
+        public enum Finish { Hide, Tawny, Mane, Muzzle, Horn, Hoof, Leather, Bronze, Timber, Iron, Mineral, Seam, Dampener }
         public sealed class Piece
         {
             public int Joint; public Finish Surface; public MeshBuilder Mesh=new MeshBuilder(1);
@@ -24,6 +24,7 @@ namespace NeonSyndicate
             switch(role)
             {
                 case Finish.Hide:return new Color(.47f,.295f,.18f);
+                case Finish.Tawny:return new Color(.56f,.365f,.222f);
                 case Finish.Mane:return new Color(.235f,.135f,.09f);
                 case Finish.Muzzle:return new Color(.64f,.45f,.30f);
                 case Finish.Horn:return new Color(.81f,.70f,.49f);
@@ -32,6 +33,7 @@ namespace NeonSyndicate
                 case Finish.Timber:return new Color(.43f,.29f,.17f);
                 case Finish.Iron:return new Color(.21f,.235f,.22f);
                 case Finish.Mineral:return new Color(.37f,.43f,.46f);
+                case Finish.Seam:return new Color(.54f,.55f,.47f);
                 case Finish.Dampener:return new Color(.22f,.60f,.61f);
                 default:return new Color(.115f,.095f,.08f);
             }
@@ -83,11 +85,15 @@ namespace NeonSyndicate
                 new Vector4(.74f,2.46f,.52f,.29f),new Vector4(1.05f,2.41f,.44f,.29f),new Vector4(1.40f,2.26f,.25f,.18f)});
             for(int side=-1;side<=1;side+=2)
             {
-                for(int i=0;i<5;i++)
+                // Vary overlapping locks along the shoulder cape; ends flow downhill with the coat.
+                for(int i=0;i<8;i++)
                 {
-                    float z=.22f+i*.21f,x=side*(.64f+.095f*Mathf.Sin(i*.72f));
-                    Rod(mane,new Vector3(x,2.19f,z),new Vector3(x+side*.055f,1.76f+.06f*(i%3),z-.16f),.16f,.018f);
+                    float z=.04f+i*.154f,x=side*(.61f+.14f*Mathf.Sin(i*.46f));
+                    float y=2.26f+.09f*Mathf.Sin(i*.53f);
+                    Oval(mane,new Vector3(x,y,z),new Vector3(.11f,.23f,.18f));
+                    Rod(mane,new Vector3(x,y-.025f,z),new Vector3(x+side*.035f,y-.43f-.06f*(i%3),z-.18f),.13f,.018f);
                 }
+                Oval(Part(Body,Finish.Tawny),new Vector3(side*.60f,1.50f,-.99f),new Vector3(.09f,.34f,.41f));
                 // Thick breast collar rides around the withers; traces attach at separate load rings.
                 Vector3 last=new Vector3(0,2.72f,1.03f);
                 for(int i=1;i<=12;i++)
@@ -102,7 +108,11 @@ namespace NeonSyndicate
             Oval(mane,new Vector3(.1f,.77f,-1.64f),new Vector3(.13f,.21f,.13f));
             BuildHead();BuildWagon();
             for(int i=0;i<4;i++)BuildLeg(i);
-            for(int i=0;i<2;i++)Rod(Part(Trace+i,Finish.Leather),Vector3.zero,Vector3.up,.042f,.045f,8);
+            for(int i=0;i<2;i++)
+            {
+                Rod(Part(Trace+i,Finish.Leather),Vector3.zero,Vector3.up,.045f,.042f,8);
+                Rod(Part(TraceTail+i,Finish.Leather),Vector3.zero,Vector3.up,.042f,.043f,8);
+            }
         }
 
         private void BuildHead()
@@ -116,8 +126,10 @@ namespace NeonSyndicate
                 Oval(Part(Head,Finish.Hoof),new Vector3(side*.15f,-.10f,1.046f),new Vector3(.065f,.045f,.035f));
                 Oval(Part(Head,Finish.Hoof),new Vector3(side*.408f,.235f,.485f),new Vector3(.055f,.050f,.067f));
                 Oval(hide,new Vector3(side*.49f,.26f,.07f),new Vector3(.22f,.12f,.15f));
+                Oval(Part(Head,Finish.Muzzle),new Vector3(side*.60f,.272f,.083f),new Vector3(.105f,.065f,.09f));
+                Oval(Part(Head,Finish.Tawny),new Vector3(side*.385f,.30f,.44f),new Vector3(.092f,.081f,.16f));
                 Vector3 a=new Vector3(side*.31f,.46f,.21f), b=new Vector3(side*.65f,.51f,.14f),
-                    c=new Vector3(side*.86f,.65f,-.01f),d=new Vector3(side*.91f,.85f,.065f);
+                    c=new Vector3(side*.95f,.72f,-.06f),d=new Vector3(side*1.02f,.95f,.13f);
                 MeshBuilder horn=Part(Head,Finish.Horn);
                 Rod(horn,a,b,.16f,.115f);Rod(horn,b,c,.115f,.07f);Rod(horn,c,d,.07f,.012f);
             }
@@ -128,7 +140,11 @@ namespace NeonSyndicate
         {
             int id=FirstLeg+3*i;
             Oval(Part(id,Finish.Hide),new Vector3(0,.43f,0),new Vector3(i<2?.235f:.255f,.62f,.28f));
-            Rod(Part(id+1,Finish.Mane),Vector3.zero,Vector3.up,.15f,.097f);
+            MeshBuilder lower=Part(id+1,Finish.Hide);
+            Oval(lower,new Vector3(0,.08f,0),new Vector3(.165f,.23f,.17f));
+            Rod(lower,Vector3.zero,Vector3.up*.61f,.145f,.103f);
+            Rod(Part(id+1,Finish.Mane),Vector3.up*.53f,Vector3.up,.115f,.094f);
+            Oval(Part(id+2,Finish.Mane),new Vector3(0,.085f,-.025f),new Vector3(.132f,.13f,.12f));
             for(int toe=-1;toe<=1;toe+=2)
                 Oval(Part(id+2,Finish.Hoof),new Vector3(toe*.075f,0,.035f),new Vector3(.083f,.13f,.195f));
         }
@@ -146,11 +162,10 @@ namespace NeonSyndicate
             }
             Rod(iron,new Vector3(-1.22f,.64f,0),new Vector3(1.22f,.64f,0),.105f,.105f);
             Rod(iron,new Vector3(-.71f,.93f,ForgeFreightRun.Tongue),new Vector3(.71f,.93f,ForgeFreightRun.Tongue),.065f,.065f);
-            MeshBuilder ore=Part(Wagon,Finish.Mineral);
             for(int i=0;i<6;i++)
             {
                 float x=(i%2-.5f)*.64f,z=(i/2-1)*.74f;
-                ore.Sphere(0,new Vector3(x,1.08f,z),new Vector3(.39f,.33f+.09f*(i%3),.45f),4,7,QMath.AY(i*29));
+                StockBlock(new Vector3(x,.85f,z),i);
             }
             foreach(float z in new[]{-.73f,.68f})
             {
@@ -161,6 +176,11 @@ namespace NeonSyndicate
             // One crystal in a protected bronze socket at the drawbar pivot.
             Oval(Part(Wagon,Finish.Bronze),new Vector3(0,.99f,2.39f),new Vector3(.18f,.12f,.23f));
             Part(Wagon,Finish.Dampener).Sphere(0,new Vector3(0,1.14f,2.39f),new Vector3(.115f,.20f,.12f),4,6,Quaternion.identity);
+            MeshBuilder socket=Part(Wagon,Finish.Bronze);
+            foreach(float x in new[]{-.13f,.13f})
+                Rod(socket,new Vector3(x,1.0f,2.39f),new Vector3(x*.74f,1.32f,2.39f),.029f,.024f,8);
+            Rod(socket,new Vector3(-.11f,1.32f,2.39f),new Vector3(.11f,1.32f,2.39f),.029f,.029f,8);
+            Rod(socket,new Vector3(0,.84f,ForgeFreightRun.Tongue),new Vector3(0,1.07f,ForgeFreightRun.Tongue),.09f,.09f);
             for(int wheel=LeftWheel;wheel<=RightWheel;wheel++)
             {
                 MeshBuilder rim=Part(wheel,Finish.Iron),spokes=Part(wheel,Finish.Timber);
@@ -178,6 +198,30 @@ namespace NeonSyndicate
                 Rod(Part(wheel,Finish.Bronze),Vector3.left*.14f,Vector3.right*.14f,.145f,.145f);
             }
         }
+        // Split quarry faces and one pale bedding seam in each sawn mineral block.
+        private void StockBlock(Vector3 at,int seed)
+        {
+            MeshBuilder ore=Part(Wagon,Finish.Mineral),seam=Part(Wagon,Finish.Seam);
+            const int sides=6;Vector3[] baseRing=new Vector3[sides],cap=new Vector3[sides];
+            float h=.50f+.075f*(seed%3);
+            for(int i=0;i<sides;i++)
+            {
+                float a=(i*60+seed*17)*Mathf.Deg2Rad;
+                Vector3 radial=new Vector3(.38f*Mathf.Cos(a),0,.43f*Mathf.Sin(a));
+                baseRing[i]=at+radial;cap[i]=at+radial*(.79f+.06f*((i+seed)%3))+new Vector3(.035f,h+.065f*radial.z,-.04f);
+            }
+            for(int i=0;i<sides;i++)
+            {
+                int j=(i+1)%sides;Vector3 a=baseRing[i],b=baseRing[j],c=cap[j],d=cap[i];
+                Vector3 l=Vector3.Lerp(a,d,.48f),r=Vector3.Lerp(b,c,.48f);
+                Vector3 lh=Vector3.Lerp(a,d,.59f),rh=Vector3.Lerp(b,c,.59f),outward=(a+b)*.5f-at;
+                LinkFace(ore,a,b,r,l,outward);LinkFace(seam,l,r,rh,lh,outward);LinkFace(ore,lh,rh,c,d,outward);
+                Vector3 centre=at+new Vector3(.035f,h,-.04f);
+                ore.Triangle(0,centre,c,d,Vector3.up,Vector2.zero,Vector2.right,Vector2.up);
+                ore.Triangle(0,at,a,b,Vector3.down,Vector2.zero,Vector2.right,Vector2.up);
+            }
+        }
+
         private static void LinkFace(MeshBuilder m,Vector3 a,Vector3 b,Vector3 c,Vector3 d,Vector3 n)
         {
             if(Vector3.Dot(Vector3.Cross(b-a,c-a),n)<0){Vector3 v=b;b=d;d=v;}
@@ -209,8 +253,11 @@ namespace NeonSyndicate
             {
                 int sign=side==0?-1:1;float roll=side==0?f.LeftRoll:f.RightRoll;
                 joints[LeftWheel+side]=new JointPose(f.Axle+wagon*new Vector3(sign*ForgeFreightRun.Track,ForgeFreightRun.WheelRadius,0),wagon*QMath.AX(roll*Mathf.Rad2Deg));
-                joints[Trace+side]=Span(body+coat*new Vector3(sign*.80f,1.60f,1.13f),
-                    f.Axle+wagon*new Vector3(sign*.69f,.93f,ForgeFreightRun.Tongue));
+                Vector3 ring=body+coat*new Vector3(sign*.80f,1.60f,1.13f);
+                Vector3 bar=f.Axle+wagon*new Vector3(sign*.69f,.93f,ForgeFreightRun.Tongue);
+                Vector3 fold=Vector3.Lerp(ring,bar,.53f)-Vector3.up*(.19f*(1-effort));
+                joints[Trace+side]=Span(ring,fold);
+                joints[TraceTail+side]=Span(fold,bar);
             }
             for(int i=0;i<4;i++)
             {

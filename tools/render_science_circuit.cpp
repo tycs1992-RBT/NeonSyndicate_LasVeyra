@@ -75,6 +75,7 @@ static Vertex mix(Vertex a,Vertex b,float t) {
 struct Camera {
     int w=960,h=540;
     V eye,forward,right,up;
+    V sun{-.37f,.85f,.42f};
     float focal;
     std::vector<float> depth;
     std::vector<unsigned char> rgb;
@@ -92,7 +93,7 @@ struct Camera {
     }
     Projected project(Vertex v) {
         float d=z(v);
-        return{w*.5f+focal*dot(v.p-eye,right)/d,h*.5f-focal*dot(v.p-eye,up)/d,d,v.u,v.v,.53f+.54f*std::max(0.f,dot(unit(v.n),unit({-.37f,.85f,.42f})))};
+        return{w*.5f+focal*dot(v.p-eye,right)/d,h*.5f-focal*dot(v.p-eye,up)/d,d,v.u,v.v,.53f+.54f*std::max(0.f,dot(unit(v.n),unit(sun)))};
     }
     void triangle(Vertex a,Vertex b,Vertex c,const Texture&t,V tint) {
         Vertex p[3]={a,b,c};
