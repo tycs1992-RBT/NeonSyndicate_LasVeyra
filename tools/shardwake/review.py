@@ -51,7 +51,24 @@ def draw(meshes,eye,forward,up,fov=58,w=1088,h=612):
     image=np.zeros((h,w,3),np.uint8);image[:]=[163,196,209];depth=np.full((h,w),1e9)
     sun=np.array([-.52,.85,-.38]);sun/=np.linalg.norm(sun)
     for name,v,n,c,idx in meshes:
-        if name in ('Installed hearth lens','Restored furnace light'):continue
+        if name in ('Installed hearth lens','Restored furnace light','Removable hearth seed'):continue
+        # Clip crossing triangles before perspective projection, including the ground beneath the camera.
+        dists=(v-eye)@forward
+        crossed=idx[(dists[idx].min(axis=1)<.091) & (dists[idx].max(axis=1)>=.091)]
+        idx=idx[dists[idx].min(axis=1)>=.091]
+        extras=[];newidx=[]
+        for ids in crossed:
+            poly=[]
+            for k in range(3):
+                a,b=ids[k-1],ids[k];da,db=dists[a],dists[b]
+                if (da>=.091)!=(db>=.091):
+                    t=(.091-da)/(db-da)
+                    poly.append(tuple(arr[a]+t*(arr[b].astype(float)-arr[a]) for arr in (v,n,c)))
+                if db>=.091:poly.append((v[b],n[b],c[b]))
+            offset=len(v)+len(extras);extras.extend(poly)
+            newidx.extend([(offset,offset+k,offset+k+1) for k in range(1,len(poly)-1)])
+        if extras:
+            ev,en,ec=zip(*extras);v=np.vstack([v,ev]);n=np.vstack([n,en]);c=np.vstack([c,ec]);idx=np.vstack([idx,newidx])
         rel=v-eye;z=rel@forward
         xs=w/2+focal*(rel@right)/np.maximum(.001,z);ys=h/2-focal*(rel@up)/np.maximum(.001,z)
         shade=.59+.34*np.clip(n@sun,0,1)+.17*np.clip(n[:,1]*.5+.5,0,1)
@@ -74,14 +91,39 @@ def draw(meshes,eye,forward,up,fov=58,w=1088,h=612):
             image[t:b+1,l:r+1][update]=np.clip(color[[ia,ib,ic]].mean(axis=0),0,255).astype(np.uint8)
     return Image.fromarray(image)
 
+def actor(path, matrix):
+    raw=path.read_bytes()
+    count=int.from_bytes(raw[:4],'little')
+    verts=np.frombuffer(raw, dtype='<f4', count=9*count, offset=4).reshape(-1,9)
+    offset=4+36*count
+    n=int.from_bytes(raw[offset:offset+4],'little')
+    faces=np.frombuffer(raw, dtype='<i4', count=n, offset=offset+4).reshape(-1,3)
+    assert len(raw)==offset+4+4*n and faces.max()<count
+    positions=verts[:,:3]@matrix[:3,:3].T+matrix[:3,3]
+    normals=verts[:,3:6]@np.linalg.inv(matrix[:3,:3])
+    return path.stem,positions,normals,verts[:,6:],faces
+
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('output',type=Path);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('output',type=Path);p.add_argument('--actors',type=Path)
+    a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True)
     docs,objects,meshes,camera=read_scene();m,c=camera
-    shots=[('opening',m[:3,3],m[:3,2],m[:3,1]),('crossing',np.array([5,3.5,33]),np.array([.04,.05,1.]),np.array([0.,1,0]))]
-    for name,eye,fwd,up in shots:
-        im=draw(meshes,eye,fwd,up,c['field of view']);sheet=Image.new('RGB',(im.width,im.height+38),'#233332');sheet.paste(im)
-        dr=ImageDraw.Draw(sheet);dr.text((13,im.height+9),'SHARDWAKE VALE   /   '+name.upper()+'     |     Software view of the serialized environment. Actors and native lighting omitted.',fill='#f0e5cf',font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',15))
+    opening=list(meshes); crossing=list(meshes)
+    if a.actors:
+        opening.append(actor(a.actors/'Malik.bin',objects['Malik - start and facing'][1]))
+        dante=actor(a.actors/'Dante.bin',objects['Dante - conversation and actor'][1])
+        opening.append(dante);crossing.append(dante)
+    deck=objects['03 - Three arch pack bridge'][1]
+    at=deck@np.array([0,3.67,-5.3,1])
+    shots=[('opening',opening,m[:3,3],m[:3,2],m[:3,1]),
+           ('crossing',crossing,at[:3],np.array([.06,.07,1.]),np.array([0.,1,0]))]
+    fontpath='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+    font=ImageFont.truetype(fontpath,15) if Path(fontpath).exists() else ImageFont.load_default()
+    for name,scene,eye,fwd,up in shots:
+        im=draw(scene,eye,fwd,up,c['field of view']);sheet=Image.new('RGB',(im.width,im.height+38),'#233332');sheet.paste(im)
+        label='SHARDWAKE VALE  /  '+name.upper()+'     |     Software render of scene geometry and palette. Native lighting, HUD and animation omitted.'
+        ImageDraw.Draw(sheet).text((13,im.height+9),label,fill='#f0e5cf',font=font)
         sheet.quantize(224).save(a.output/(name+'.png'),optimize=True)
-    print(len(meshes),'visible mesh owners,',sum(len(row[-1]) for row in meshes),'placed triangles')
+    print(len(meshes),'placed mesh owners,',sum(len(row[-1]) for row in meshes),'environment triangles')
 
 if __name__=='__main__':main()

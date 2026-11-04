@@ -14,7 +14,9 @@ namespace NeonSyndicate
 
         public static bool Owns(Scene scene)
         {
-            if(!scene.IsValid() || !scene.isLoaded)return false;
+            if(!scene.IsValid())return false;
+            if(scene.path=="Assets/Scenes/ShardwakeVale.unity")return true;
+            if(!scene.isLoaded)return false;
             foreach(GameObject root in scene.GetRootGameObjects())
                 if(root.GetComponent<ShardwakeVale>()!=null)return true;
             return false;

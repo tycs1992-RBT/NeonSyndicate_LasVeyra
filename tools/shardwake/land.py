@@ -1,4 +1,6 @@
 """Original Vale landforms and hard-surface models. Units are metres, with +Z looking up the valley."""
+import functools
+import bisect
 import math
 import random
 import numpy as np
@@ -22,19 +24,47 @@ def height(x,z):
     edge=min(1,max(0,(abs(x)-17)/28))
     if t<24:
         # The hearth sits on a shelf overlooking the span. The route descends gently to its near foot.
-        h+=4.55*max(0,min(1,(24-t)/14))
+        lip=24-15*max(0,min(1,(x+12)/9))
+        h+=4.55*max(0,min(1,(lip-t)/16))
     h+=edge*(3.8+2.4*math.sin(z*.086+x*.045)+1.8*math.cos(x*.12-z*.061))
+    flank=min(1,max(0,(abs(x)-50)/70))
+    h+=flank*(5.5+3.0*math.sin(.055*z+.029*x)+2.5*math.cos(.041*z-.077*x))
     if 65<z<124:h+=.35*math.sin((z-65)*math.pi/59)*math.sin(x/8)
     return h
 
+XS=[-172,-124,-92,-70,-64,-54,-46,-38,-31,-25,-19,-13,-8,-4,0,4,8,13,19,25,31,38,46,54,64,70,92,124,172]
+ROWS={'NearBank':[-49,-33,-22,-14,-7,0,6,12,18,21,24],
+      'Ravine':[24,27,30,33,36,39,43,47,50,53,55,56],
+      'FarBank':[56,60,66,71,76,82,89,95,101,108,115,124,138,160]}
+STATIONS=sorted({z for row in ROWS.values() for z in row})
+
+@functools.lru_cache(None)
+def ground_vertex(x,t):
+    z=valley_z(x,t)
+    return (x,height(x,z),z)
+
+def surface(x,z):
+    """Barycentric height on the same two triangles used by the terrain MeshCollider."""
+    ix=max(0,min(len(XS)-2,bisect.bisect_right(XS,x)-1))
+    a,b=XS[ix:ix+2];u=(x-a)/(b-a)
+    section=[(1-u)*valley_z(a,t)+u*valley_z(b,t) for t in STATIONS]
+    iz=max(0,min(len(STATIONS)-2,bisect.bisect_right(section,z)-1))
+    t,tt=STATIONS[iz:iz+2]
+    p,q,r,s=(ground_vertex(a,t),ground_vertex(a,tt),ground_vertex(b,tt),ground_vertex(b,t))
+    diagonal=(1-u)*p[2]+u*r[2]
+    if z>=diagonal:
+        v=(z-diagonal)/(q[2]-p[2])
+        return (1-u-v)*p[1]+v*q[1]+u*r[1]
+    v=(diagonal-z)/(r[2]-s[2])
+    return (1-u)*p[1]+(u-v)*r[1]+v*s[1]
+
 def terrain(name,zs):
-    m=Mesh();xs=[-64,-54,-46,-38,-31,-25,-19,-13,-8,-4,0,4,8,13,19,25,31,38,46,54,64]
+    m=Mesh();xs=XS
     for j in range(len(zs)-1):
         for i in range(len(xs)-1):
             def point(k,l):
                 x,z=xs[k],zs[l]
-                z=valley_z(x,z)
-                return (x,height(x,z),z)
+                return ground_vertex(x,z)
             p,q,r,s=point(i,j),point(i,j+1),point(i+1,j+1),point(i+1,j)
             xm=(p[0]+r[0])/2;zm=(p[2]+r[2])/2
             if name=='Ravine': tones=('746a65','817269','957e6d','696771') if min(p[1],q[1])<-.9 else ('969467','9ba26b','b2aa78')
@@ -54,7 +84,7 @@ def stone_ribbon(m,points,width):
     for i in range(len(points)-1):
         for j in range(3):
             raw=[section[i][j],section[i+1][j],section[i+1][j+1],section[i][j+1]]
-            v=[(x,height(x,z)+.075,z) for x,z in raw]
+            v=[(x,surface(x,z)+.039,z) for x,z in raw]
             m.quad(*v,rng.choice(('b9a27a','bca47d','c1a985')) if j==1 else 'ad9d75',(0,1,0))
 
 def path_mesh():
@@ -63,7 +93,7 @@ def path_mesh():
                   ([(-3.7,56.4),(-3.9,59),(-4,63),(-10,67),(-14,71),(-15,75),(-12,79),(-5,82),(2,86),(7,91),(11,96),(12,102)],3.9)]:
         detail=[]
         for a,b in zip(pts,pts[1:]):
-            count=math.ceil(math.dist(a,b)/2)
+            count=math.ceil(math.dist(a,b)/.8)
             detail.extend([tuple(np.array(a)+(np.array(b)-a)*(i/count)) for i in range(count)])
         stone_ribbon(m,detail+[pts[-1]],w)
     return m
@@ -124,7 +154,37 @@ def workshop():
         x=-4.4+i*.88;z=-4.62+.24*(i%2)
         gear.rings([(x,.23,z,.34,.37),(x,.78,z,.40,.42),(x,1.03,z,.29,.31)],['wood','endgrain','wood','wood','endgrain','wood'])
         gear.rings([(x,.72,z,.42,.44),(x,.8,z,.42,.44)],['copper']*6)
+    # Copper hood over the public anvil, and a slatted exhaust band above it.
+    gear.beam((3.78,3.12,-.72),(5.03,3.54,-.72),.17,.18,'wood')
+    gear.beam((3.78,3.12,1.32),(5.03,3.54,1.32),.17,.18,'wood')
+    for i in range(5):
+        x=3.45+i*.35
+        gear.box((x,3.68-(x-3.45)*.11,.30),(.34,.15,2.65),'copper' if i%2 else 'brass')
+    for z in [2.6,3.4]:
+        gear.beam((3.37,.26,z),(3.37,2.32,z),.29,.28,'basalt')
+        gear.beam((3.37,2.2,z),(4.60,2.2,z),.23,.22,'copper')
     return shell,roof,gear
+
+def loading_ramp():
+    # The hearth's level apron is higher than the meadow on its eastern side.
+    # The central loading strip has no steps. Side stones feather into the same physical bank.
+    m=Mesh();cx,cz=-16.5,4.;base=surface(cx,cz)
+    xs=[4.95,5.75,6.5,7.25,8.0,8.75,9.35];zs=[-5.,-4.05,-3.25,-2.05,-.85,.05,1.]
+    def point(x,z):
+        blend=max(0,min(1,(9.35-x)/(9.35-5.75)))
+        skirt=max(0,min(1,(z+5)/.95,(1-z)/.95))
+        ground=surface(cx+x,cz+z)-base
+        # Pull edge vertices just above the bank, and overlap the hall top by a centimetre.
+        return (x,ground+.024+max(0,.23-ground)*blend*skirt,z)
+    for i,(a,b) in enumerate(zip(xs,xs[1:])):
+        for j,(c,d) in enumerate(zip(zs,zs[1:])):
+            m.quad(point(a,c),point(a,d),point(b,d),point(b,c),
+                   ['baa781','c5ac86','cbb68d'][(i+j)%3] if 0<j<5 else 'a79877',(0,1,0))
+    for z,sign in [(zs[0],-1),(zs[-1],1)]:
+        for a,b in zip(xs,xs[1:]):
+            p=np.array(point(a,z));q=np.array(point(b,z));down=np.array([0,.11,0])
+            m.quad(p,q,q-down,p-down,'stone',(0,0,sign))
+    return m
 
 def deck_y(z):return 1.03+(z+16)/32*.89+.63*math.sin(math.pi*(z+16)/32)
 
@@ -173,6 +233,17 @@ def spire():
             ['quartz','9475b0','glint','9375a9','b59dce','ad8bc2'],.46)
     for x,z,h in [(-4.1,2.5,4.2),(3.8,2.0,3.0),(-.4,-2.1,4.8)]:
         m.rings([(x,-.4,z,1.1,1.0),(x,.9,z,.82,.94),(x+.61,h,z+.12,.06,.09)],['ore','quartz','lilac','basalt','quartz'])
+    # Broad stone seat and broken compression collar hold the central mineral under load.
+    m.rings([(.38,-.07,.45,2.24,1.95),(.38,.58,.45,2.10,1.85),(.38,.93,.45,1.81,1.53)],
+            ['basalt','ore','shade','basalt','745d77','ore','shade','basalt'],.23)
+    for side in [-1,1]:
+        m.beam((side*1.41,.69,-.64),(side*1.00+.23,3.35,-.71),.29,.32,'basalt')
+        m.beam((side*1.02+.23,3.33,-.73),(side*.62+.24,3.58,-.80),.29,.24,'copper')
+    # A few bedding planes fracture across the outer faces, away from the regulator approaches.
+    for i,(x,z,h) in enumerate([(-3.85,-.65,3.5),(-2.9,2.05,2.7),(3.3,-1.15,2.35)]):
+        m.rings([(x,-.25,z,1.32,.83),(x+.14,h*.45,z,.96,.71),
+                 (x-.48,h*.79,z+.21,.80,.47),(x-.71,h,z+.38,.21,.27)],
+                ['ore','795d77','8e7289','basalt','846e85'],.63*i)
     return m
 
 def pine(variant):
@@ -185,6 +256,14 @@ def pine(variant):
         m.rings([(tip[0],y-.18,0,r*.81,r*.77),(tip[0]+.10,y+.18,.07,r,r*.91),
                  (tip[0]-.05,y+h*.28,0,.03,.04)],
                 ['needles','pine','487c66','needles','59917a','pine','376955'],i*.49+variant*.8)
+    # Broken fans project beyond the regular central tiers. The understorey stays open.
+    for i in range(6):
+        a=variant*.91+i*2.39;y=h*(.30+i*.075);r=h*(.24-i*.017)
+        x,z=math.cos(a)*r,math.sin(a)*r
+        m.beam((lean*.3,y+.24,0),(x,y-.16,z),.10,.11,'wood')
+        m.rings([(x*.82,y-.19,z*.82,r*.43,r*.38),(x*.83,y+.12,z*.85,r*.55,r*.48),
+                 (x*.76,y+r*.80,z*.79,.035,.043)],
+                ['needles','487865','4e8672','needles','59917a'],a)
     return m
 
 def rocks(variant):
@@ -221,6 +300,16 @@ def planting():
         if j%5==0:
             m.rings([(x,.0,z,.031,.031),(x+.04,.7,z,.036,.036)],['moss']*4)
             m.rings([(x+.04,.65,z,.095,.095),(x+.04,.76,z,.13,.13),(x+.07,.81,z,.045,.045)],['warm','edge','sand','brass','edge'])
+    return m
+
+def flywheel():
+    m=Mesh()
+    for i in range(18):
+        a=i*math.tau/18;b=(i+1)*math.tau/18
+        p=np.array((0,math.cos(a),math.sin(a)));q=np.array((0,math.cos(b),math.sin(b)))
+        m.beam(p*1.08,q*1.08,.14,.12,'copper' if i%3 else 'brass')
+        if i%3==0:m.beam(p*.13,p*1.06,.10,.10,'brass')
+    m.beam((-.41,0,0),(.21,0,0),.28,.28,'basalt')
     return m
 
 def terminal():

@@ -70,6 +70,7 @@ namespace NeonSyndicate.Editor
         private static void AutoRun()
         {
             _scheduled = false;
+            if (ShardwakeVale.Owns(UnityEngine.SceneManagement.SceneManager.GetActiveScene())) return;
             if (EditorApplication.isPlayingOrWillChangePlaymode)
             {
                 _afterPlay = true;

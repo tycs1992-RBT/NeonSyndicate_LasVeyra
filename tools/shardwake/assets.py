@@ -30,6 +30,8 @@ def meta(p, kind='asset'):
     elif kind=='asset' or kind=='material':
         base+='NativeFormatImporter:\n  externalObjects: {}\n  mainObjectFileID: '+('4300000' if kind=='asset' else '2100000')+'\n'
     elif kind=='shader': base+='ShaderImporter:\n  externalObjects: {}\n  defaultTextures: []\n  nonModifiableTextures: []\n'
+    elif kind=='script':base+='MonoImporter:\n  externalObjects: {}\n  serializedVersion: 2\n  defaultReferences: []\n  executionOrder: 0\n  icon: {fileID: 0}\n'
+    elif kind=='json':base+='TextScriptImporter:\n  externalObjects: {}\n'
     elif kind=='scene': base+='DefaultImporter:\n  externalObjects: {}\n'
     dest.write_text(base)
 
@@ -125,7 +127,7 @@ class Scene:
         for n in self.nodes:
             i=n['id'];lines += [f'--- !u!1 &{i}\nGameObject:',base,'  serializedVersion: 6\n  m_Component:']
             lines += ['  - component: {fileID: '+str(k)+'}' for k in [i+1]+[c[3] for c in n['comps']]]
-            lines += ['  m_Layer: 0','  m_Name: '+n['name'],'  m_TagString: '+('MainCamera' if n['name']=='Opening camera' else 'Untagged'),'  m_IsActive: 1']
+            lines += ['  m_Layer: 0','  m_Name: '+n['name'],'  m_TagString: '+('MainCamera' if n['name']=='Opening camera' else 'Untagged'),'  m_IsActive: '+str(int(n.get('active',True)))]
             q=n['rot']
             lines += [f'--- !u!4 &{i+1}\nTransform:',base,'  m_GameObject: {fileID: '+str(i)+'}','  serializedVersion: 2','  m_LocalRotation: {'+', '.join(f'{k}: {v:.9f}' for k,v in zip('xyzw',q))+'}','  m_LocalPosition: '+vector(n['pos']),'  m_LocalScale: '+vector(n['scale']),'  m_ConstrainProportionsScale: 0']
             children=[v['id']+1 for v in self.nodes if v['parent'] is n]

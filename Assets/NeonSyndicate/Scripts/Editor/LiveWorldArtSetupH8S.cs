@@ -40,6 +40,7 @@ namespace NeonSyndicate.Editor
 
         private static void AutoPrepare()
         {
+            if (ShardwakeVale.Owns(UnityEngine.SceneManagement.SceneManager.GetActiveScene())) return;
             if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.isUpdating)
             {
                 if (!EditorApplication.isPlaying) EditorApplication.delayCall += AutoPrepare;

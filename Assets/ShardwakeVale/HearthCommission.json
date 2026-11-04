@@ -1,0 +1,21 @@
+{
+  "id": "shardwake.hearth-seed",
+  "objectives": [
+    "Speak with Dante at the open workshop",
+    "Follow the copper caps across Three Arch Bridge",
+    "Ground the three Crown collars",
+    "Collect the hearth seed at the foot of the Crown",
+    "Bring the hearth seed back to Dante",
+    "Fit the seed in the empty furnace clamp",
+    "The kiln is lit. Malik wears Dante's ember clasp."
+  ],
+  "outbound": [
+    "Hear that? A cold kiln. The quake pulled our hearth seed back into the Split Crown.",
+    "See the copper caps on the bridge? Follow them. The three brass collars on the far slope are holding the seed.",
+    "Wait out the blue wave. Then fire Sunbolt into the amber faces. Bring me the seed and we can relight this place."
+  ],
+  "homecoming": [
+    "There it is. Still warm, even after the crossing. Hold the clamp steady, Malik.",
+    "Fit the seed beside my anvil. When the bellows catch, this ember clasp is yours."
+  ]
+}
